@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/photo_layout" android:layout_width="fill_parent" android:layout_height="fill_parent" style="@style/PhotoView"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.galaxy.meetup.client.android.ui.view.PhotoListView android:id="@*android:id/list" android:background="@color/solid_black" android:fadingEdge="none" android:layout_width="fill_parent" android:layout_height="0.0dip" android:listSelector="@drawable/photo_view_selector" android:drawSelectorOnTop="true" android:cacheColorHint="@color/solid_black" android:divider="@null" android:layout_weight="1.0" />
+    <include android:id="@id/footer_bar" android:layout_width="fill_parent" android:layout_height="wrap_content" layout="@layout/footer_bar_dark" />
+</LinearLayout>

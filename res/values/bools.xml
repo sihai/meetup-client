@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <bool name="display_widgets">false</bool>
+    <bool name="display_froyo_widgets">true</bool>
+    <bool name="notifications_preference_enabled_default_value">true</bool>
+    <bool name="notifications_preference_vibrate_default_value">true</bool>
+    <bool name="realtimechat_notify_setting_default_value">true</bool>
+    <bool name="realtimechat_vibrate_setting_default_value">false</bool>
+    <bool name="hangout_notify_setting_default_value">true</bool>
+    <bool name="hangout_vibrate_setting_default_value">false</bool>
+    <bool name="photo_instant_upload_preference_default_value">false</bool>
+    <bool name="photo_roaming_upload_preference_default_value">false</bool>
+    <bool name="photo_on_battery_preference_default_value">true</bool>
+</resources>

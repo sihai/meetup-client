@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/share_preview" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="@dimen/stream_content_text_size" android:textStyle="bold" android:textColor="@color/stream_link_color" android:id="@id/video_title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/video_title_margin" android:layout_alignParentLeft="true" android:layout_alignParentTop="true" />
+    <FrameLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/video_image_margin" android:layout_below="@id/video_title">
+        <com.galaxy.meetup.client.android.ui.view.EsImageView android:layout_gravity="center" android:id="@id/video_image" android:layout_width="@dimen/stream_video_height" android:layout_height="@dimen/stream_video_height" android:src="@drawable/album_border" />
+        <ImageView android:layout_gravity="center" android:id="@id/video_overlay" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/video_overlay" android:contentDescription="@string/description_play_video_preview" />
+    </FrameLayout>
+</RelativeLayout>

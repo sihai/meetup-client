@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:icon="@drawable/icn_drop_profile" android:id="@id/menu_hangout_participant_profile" android:visible="true" />
+    <item android:icon="@drawable/icn_drop_pin" android:id="@id/menu_hangout_participant_pin_video" android:visible="false" android:title="@string/hangout_avatar_menu_pin_video" />
+    <item android:icon="@drawable/icn_drop_unpin" android:id="@id/menu_hangout_participant_unpin_video" android:visible="false" android:title="@string/hangout_avatar_menu_unpin_video" />
+    <item android:icon="@drawable/icn_drop_mute" android:id="@id/menu_hangout_participant_remote_mute" android:visible="false" android:title="@string/hangout_avatar_menu_remote_mute" />
+    <item android:icon="@drawable/icn_drop_muted" android:enabled="false" android:id="@id/menu_hangout_participant_remote_mute_disabled" android:visible="false" android:title="@string/hangout_avatar_menu_remote_mute" />
+    <item android:icon="@drawable/icn_drop_block" android:id="@id/menu_hangout_participant_block" android:visible="false" android:title="@string/menu_item_block_person" />
+    <item android:icon="@drawable/icn_drop_blocked" android:enabled="false" android:id="@id/menu_hangout_participant_block_disabled" android:visible="false" android:title="@string/menu_item_block_person" />
+</menu>

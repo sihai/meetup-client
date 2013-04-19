@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContactsAccountType accountType="com.google" dataSet="plus" readOnly="true" accountTypeLabel="@string/google_plus_account_label" accountTypeIcon="@mipmap/icon" inviteContactActivity="com.galaxy.meetup.client.phone.InviteContactActivity" inviteContactActionLabel="@string/invite_contact_label" viewGroupActivity="com.galaxy.meetup.client.phone.ViewCircleActivity" viewStreamItemActivity="com.galaxy.meetup.client.phone.ViewStreamItemActivity" viewStreamItemPhotoActivity="com.galaxy.meetup.client.phone.ViewStreamItemPhotoActivity" viewContactNotifyService="com.galaxy.meetup.client.service.AndroidContactsNotificationService"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ContactsDataKind android:icon="@mipmap/icon" android:mimeType="vnd.android.cursor.item/vnd.googleplus.profile" android:summaryColumn="data2" android:detailColumn="data3" />
+</ContactsAccountType>

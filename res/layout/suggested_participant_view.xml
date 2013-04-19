@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.galaxy.meetup.client.android.ui.view.SuggestedParticipantView android:background="@drawable/bg_tacos_body" android:paddingLeft="6.0dip" android:paddingRight="6.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.galaxy.meetup.client.android.ui.view.AvatarView android:id="@id/avatar" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentLeft="true" size="medium" />
+    <TextView android:textAppearance="?android:textAppearanceMedium" android:textSize="18.0sp" android:textStyle="bold" android:textColor="#ff303030" android:ellipsize="end" android:id="@id/participantName" android:paddingLeft="8.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:singleLine="true" android:layout_toLeftOf="@id/newConversationIcon" android:layout_toRightOf="@id/avatar" android:layout_alignParentTop="true" android:layout_centerVertical="true" />
+    <ImageView android:id="@id/newConversationIcon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/new_conversation_row" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+</com.galaxy.meetup.client.android.ui.view.SuggestedParticipantView>

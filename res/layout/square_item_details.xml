@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/details" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:id="@id/divider" android:background="@color/square_card_divider" android:layout_width="wrap_content" android:layout_height="1.0dip" android:layout_alignParentTop="true" />
+    <TextView android:textColor="@color/square_card_description" android:id="@id/description" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/square_card_padding" android:layout_marginTop="@dimen/square_card_padding" android:layout_marginRight="@dimen/square_card_padding" android:layout_below="@id/divider" />
+    <Button android:textAppearance="?android:textAppearanceMedium" android:textStyle="bold" android:textColor="@*android:color/white" android:id="@id/join_leave_button" android:background="@drawable/plusone_by_me_button" android:layout_width="300.0dip" android:layout_height="42.0dip" android:layout_marginLeft="@dimen/square_card_padding" android:layout_marginTop="@dimen/square_card_padding" android:layout_marginRight="@dimen/square_card_padding" android:layout_below="@id/description" android:layout_centerHorizontal="true" />
+    <View android:id="@id/spacer" android:layout_width="fill_parent" android:layout_height="@dimen/square_card_padding" android:layout_below="@id/join_leave_button" />
+    <RelativeLayout android:id="@id/notification_section" android:paddingBottom="@dimen/square_card_padding" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/spacer">
+        <View android:id="@id/notification_divider" android:background="@color/square_card_divider" android:layout_width="wrap_content" android:layout_height="1.0dip" android:layout_alignParentTop="true" />
+        <include android:id="@id/notification_switch" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/square_card_padding" android:layout_marginTop="@dimen/square_card_padding" android:layout_marginRight="@dimen/square_card_padding" android:layout_below="@id/notification_divider" layout="@layout/square_notification_switch" />
+    </RelativeLayout>
+    <TextView android:textSize="12.0sp" android:textColor="@color/square_card_members" android:gravity="center" android:id="@id/blocking_explanation" android:background="@color/square_blocking_explanation_background" android:padding="@dimen/square_card_padding" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/spacer" />
+</RelativeLayout>

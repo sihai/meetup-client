@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:padding="@dimen/oob_items_padding" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:id="@id/info_title" android:paddingBottom="@dimen/oob_small_padding" android:text="@string/oob_instant_upload_info" android:drawableLeft="@drawable/upload_photo" android:drawablePadding="@dimen/oob_small_padding" style="@style/Signup.Entry.Text" />
+    <RadioGroup android:orientation="vertical" android:id="@id/uploadChoice" android:paddingBottom="@dimen/oob_small_padding" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <RadioButton android:id="@id/option_wifi_and_mobile" android:layout_marginBottom="@dimen/oob_radio_button_margin" android:text="@string/oob_instant_upload_option_wifi_and_mobile" style="@style/Signup.Entry.Checkbox" />
+        <RadioButton android:id="@id/option_wifi_only" android:layout_marginTop="@dimen/oob_radio_button_margin" android:layout_marginBottom="@dimen/oob_radio_button_margin" android:text="@string/oob_instant_upload_option_wifi_only" style="@style/Signup.Entry.Checkbox" />
+        <RadioButton android:id="@id/option_disable" android:layout_marginTop="@dimen/oob_radio_button_margin" android:text="@string/oob_instant_upload_option_disable" style="@style/Signup.Entry.Checkbox" />
+    </RadioGroup>
+    <TextView android:id="@id/info_header" android:text="@string/oob_instant_upload_disclaimer" style="@style/Signup.Entry.Text" />
+</LinearLayout>

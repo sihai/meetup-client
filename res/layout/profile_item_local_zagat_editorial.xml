@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout android:paddingLeft="16.0dip" android:paddingTop="9.0dip" android:paddingRight="16.0dip" android:paddingBottom="9.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:stretchColumns="7" android:shrinkColumns="2,3,4,6"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TableRow>
+        <TextView android:textSize="12.0sp" android:textStyle="bold" android:gravity="center" android:layout_gravity="bottom|left|center" android:id="@id/zagat_logo" android:background="@drawable/profile_local_zagat_logo" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <TextView android:textSize="12.0sp" android:textStyle="bold" android:textColor="@color/profile_local_burgundy" android:gravity="center" android:layout_gravity="bottom|left|center" android:id="@id/user_rated_logo" android:background="@drawable/profile_local_user_rated_logo" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/profile_local_page_review_source_user" android:textAllCaps="true" />
+        <LinearLayout android:gravity="bottom" android:orientation="vertical" android:id="@id/rating_item_1" android:background="@drawable/profile_local_score_bg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minWidth="50.0dip">
+            <TextView android:id="@id/rating_label" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/ProfileLocalEditorialRating.Label.Main" />
+            <TextView android:id="@id/rating_value" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/ProfileLocalEditorialRating.Value.Main" />
+        </LinearLayout>
+        <LinearLayout android:gravity="bottom" android:orientation="vertical" android:id="@id/rating_item_2" android:background="@drawable/profile_local_score_bg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minWidth="50.0dip">
+            <TextView android:id="@id/rating_label" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/ProfileLocalEditorialRating.Label" />
+            <TextView android:id="@id/rating_value" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/ProfileLocalEditorialRating.Value" />
+        </LinearLayout>
+        <LinearLayout android:gravity="bottom" android:orientation="vertical" android:id="@id/rating_item_3" android:background="@drawable/profile_local_score_bg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minWidth="50.0dip">
+            <TextView android:id="@id/rating_label" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/ProfileLocalEditorialRating.Label" />
+            <TextView android:id="@id/rating_value" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/ProfileLocalEditorialRating.Value" />
+        </LinearLayout>
+        <LinearLayout android:gravity="bottom" android:orientation="vertical" android:id="@id/rating_item_4" android:background="@drawable/profile_local_score_bg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minWidth="50.0dip">
+            <TextView android:id="@id/rating_label" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/ProfileLocalEditorialRating.Label" />
+            <TextView android:id="@id/rating_value" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/ProfileLocalEditorialRating.Value" />
+        </LinearLayout>
+        <TextView android:textSize="14.0sp" android:textColor="@color/profile_local_gray" android:ellipsize="end" android:layout_gravity="left|center" android:id="@id/review_count_and_price" android:paddingLeft="10.0dip" android:paddingTop="4.0dip" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" />
+        <View android:layout_width="2.0dip" android:layout_height="fill_parent" />
+        <TextView android:textSize="13.0dip" android:textStyle="bold" android:textColor="@*android:color/white" android:gravity="center" android:layout_gravity="center_vertical" android:id="@id/zagat_explanation" android:background="@drawable/grey_circle" android:duplicateParentState="false" android:layout_width="21.0dip" android:layout_height="21.0dip" android:text=" ? " android:singleLine="true" android:layout_weight="1.0" style="@style/ListItemAction" />
+    </TableRow>
+    <TextView android:id="@id/zagat_editorial_text" android:paddingLeft="9.0dip" android:paddingTop="5.0dip" android:paddingRight="9.0dip" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+</TableLayout>

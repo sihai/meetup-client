@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:background="@drawable/appwidget_dark_bg_selector" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_gravity="center_vertical" android:id="@id/home_icon" android:background="@drawable/appwidget_button_left" android:paddingLeft="8.0dip" android:paddingTop="5.0dip" android:paddingRight="8.0dip" android:paddingBottom="5.0dip" android:focusable="true" android:clickable="true" android:layout_width="wrap_content" android:layout_height="fill_parent" android:src="@drawable/ic_actionbar_gplus" android:scaleType="center" />
+    <ImageView android:background="@drawable/widget_divider" android:layout_width="2.0dip" android:layout_height="fill_parent" />
+    <TextView android:textSize="18.0dip" android:gravity="center_vertical" android:layout_gravity="center_vertical" android:id="@id/new_post" android:background="@drawable/textfield" android:focusable="true" android:clickable="true" android:layout_width="wrap_content" android:layout_height="45.0dip" android:layout_margin="5.0dip" android:layout_marginLeft="0.0dip" android:layout_marginTop="5.0dip" android:layout_marginRight="5.0dip" android:layout_marginBottom="5.0dip" android:text="@string/menu_reshare_post" android:singleLine="true" android:layout_weight="1.0" />
+    <ImageView android:background="@drawable/widget_divider" android:layout_width="2.0dip" android:layout_height="fill_parent" />
+    <ImageView android:layout_gravity="center_vertical" android:id="@id/camera_icon" android:background="@drawable/appwidget_button_right" android:paddingLeft="13.0dip" android:paddingRight="13.0dip" android:focusable="true" android:clickable="true" android:layout_width="wrap_content" android:layout_height="fill_parent" android:src="@drawable/ic_menu_camera" android:scaleType="center" />
+</LinearLayout>

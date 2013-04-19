@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@drawable/compose_item_background" android:padding="6.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/content" android:background="?android:colorBackground" android:padding="6.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content"
+      xmlns:android="http://schemas.android.com/apk/res/android">
+        <EditText android:id="@id/name" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginRight="30.0dip" android:hint="@string/profile_edit_hint_location_name" android:inputType="textPersonName" />
+        <CheckBox android:id="@id/current" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="2.0dip" android:layout_marginRight="30.0dip" android:text="@string/profile_edit_label_current" />
+    </LinearLayout>
+    <ImageView android:id="@id/delete_item" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="6.0dip" android:src="@drawable/ic_close_cancel" android:layout_alignParentTop="true" android:layout_alignParentRight="true" />
+</RelativeLayout>

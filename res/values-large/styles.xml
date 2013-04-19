@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.Screen" parent="@style/Theme.Platform">
+        <item name="navigationItemHeight">56.0dip</item>
+    </style>
+</resources>

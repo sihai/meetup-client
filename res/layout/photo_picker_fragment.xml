@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/photo_layout" android:layout_width="fill_parent" android:layout_height="fill_parent" style="@style/PhotoView"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+        <com.galaxy.meetup.client.android.ui.view.PhotoHeaderView android:layout_gravity="center" android:id="@id/photo_header_view" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+        <include layout="@layout/empty_layout" />
+    </FrameLayout>
+    <LinearLayout android:orientation="horizontal" android:id="@id/initiate_sharing_bar" style="@style/AlbumView.BottomActionBar">
+        <RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="1.0">
+            <com.galaxy.meetup.client.android.ui.view.ActionButton android:id="@id/cancel_button" android:text="@string/photo_picker_cancel" style="@style/AlbumView.BottomActionBar.ActionButton" />
+        </RelativeLayout>
+        <View android:layout_gravity="center" android:background="@color/album_bottom_action_bar_divider_color" android:layout_width="@dimen/album_bottom_action_bar_divider_width" android:layout_height="@dimen/album_bottom_action_bar_divider_height" />
+        <RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="1.0">
+            <com.galaxy.meetup.client.android.ui.view.ActionButton android:id="@id/accept_button" style="@style/AlbumView.BottomActionBar.ActionButton" />
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

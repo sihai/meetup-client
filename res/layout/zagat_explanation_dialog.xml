@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_gravity="center" android:orientation="vertical" android:padding="22.0dip" android:layout_width="wrap_content" android:layout_height="fill_parent" android:maxWidth="240.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="24.0dip" android:textColor="@color/profile_local_zagat_explanation_title" android:ellipsize="end" android:gravity="left" android:id="@id/hint_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="20.0dip" android:text="@string/zagat_explanation_title" android:singleLine="true" />
+    <TextView android:textSize="17.0dip" android:textColor="@*android:color/white" android:gravity="left" android:id="@id/hint_header" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="30.0dip" android:text="@string/zagat_explanation_description" />
+    <TableLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="20.0dip" android:stretchColumns="1" android:shrinkColumns="1">
+        <TableRow android:id="@id/hint_table_row1">
+            <TextView android:textSize="17.0dip" android:textStyle="bold" android:textColor="@*android:color/white" android:gravity="left" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="28.0dip" android:text="26-30" />
+            <TextView android:textSize="17.0dip" android:textColor="@*android:color/white" android:gravity="left" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/zagat_explanation_score_description_26_30" />
+        </TableRow>
+        <TableRow android:id="@id/hint_table_row2">
+            <TextView android:textSize="17.0dip" android:textStyle="bold" android:textColor="@*android:color/white" android:gravity="left" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="28.0dip" android:text="21-25" />
+            <TextView android:textSize="17.0dip" android:textColor="@*android:color/white" android:gravity="left" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/zagat_explanation_score_description_21_25" />
+        </TableRow>
+        <TableRow android:id="@id/hint_table_row3">
+            <TextView android:textSize="17.0dip" android:textStyle="bold" android:textColor="@*android:color/white" android:gravity="left" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="28.0dip" android:text="16-20" />
+            <TextView android:textSize="17.0dip" android:textColor="@*android:color/white" android:gravity="left" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/zagat_explanation_score_description_16_20" />
+        </TableRow>
+        <TableRow android:id="@id/hint_table_row4">
+            <TextView android:textSize="17.0dip" android:textStyle="bold" android:textColor="@*android:color/white" android:gravity="left" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="28.0dip" android:text="11-15" />
+            <TextView android:textSize="17.0dip" android:textColor="@*android:color/white" android:gravity="left" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/zagat_explanation_score_description_11_15" />
+        </TableRow>
+        <TableRow android:id="@id/hint_table_row5">
+            <TextView android:textSize="17.0dip" android:textStyle="bold" android:textColor="@*android:color/white" android:gravity="left" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="28.0dip" android:text="0-10" />
+            <TextView android:textSize="17.0dip" android:textColor="@*android:color/white" android:gravity="left" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/zagat_explanation_score_description_0_10" />
+        </TableRow>
+    </TableLayout>
+    <Button android:textSize="16.0dip" android:textStyle="bold" android:textColor="@*android:color/white" android:layout_gravity="right" android:id="@id/hint_ok" android:background="@drawable/zagat_explanation_ok_button" android:paddingLeft="32.0dip" android:paddingTop="17.0dip" android:paddingRight="32.0dip" android:paddingBottom="19.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20.0dip" android:text="@string/zagat_explanation_ok_button" />
+</LinearLayout>

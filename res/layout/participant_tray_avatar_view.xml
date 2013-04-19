@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.galaxy.meetup.client.android.ui.view.OverlayedAvatarView android:background="@drawable/stream_list_selector" android:padding="@dimen/participant_tray_avatar_padding_dimension" android:focusable="true" android:layout_width="@dimen/participant_tray_avatar_and_padding_dimension" android:layout_height="@dimen/participant_tray_avatar_and_padding_dimension" android:layout_marginTop="5.0dip" android:layout_marginRight="4.0dip" android:layout_marginBottom="5.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.galaxy.meetup.client.android.ui.view.AvatarView android:id="@id/avatar_image" android:layout_width="fill_parent" android:layout_height="fill_parent" size="small" />
+    <ImageView android:gravity="center_horizontal" android:id="@id/type_overlay" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true" />
+    <ImageView android:id="@id/overlay" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:scaleType="center" />
+</com.galaxy.meetup.client.android.ui.view.OverlayedAvatarView>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/root_view" android:background="@color/participants_gallery" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <HorizontalScrollView android:paddingLeft="4.0dip" android:scrollbars="none" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_toLeftOf="@id/show_participant_list_button" android:layout_alignParentLeft="true" android:layout_alignParentTop="true">
+        <LinearLayout android:id="@id/participant_tray_avatars" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="fill_parent" />
+    </HorizontalScrollView>
+    <TextView android:textAppearance="?android:textAppearanceSmallInverse" android:gravity="center" android:id="@id/empty_message" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <ImageView android:id="@id/show_participant_list_button" android:background="?buttonSelectableBackground" android:paddingLeft="6.0dip" android:paddingRight="6.0dip" android:focusable="true" android:clickable="true" android:layout_width="wrap_content" android:layout_height="fill_parent" android:src="@drawable/ic_right_arrow" android:layout_alignParentRight="true" android:contentDescription="@string/realtimechat_message_description_show_participants" />
+</RelativeLayout>

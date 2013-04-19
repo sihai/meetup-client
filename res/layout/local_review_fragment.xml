@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:id="@id/review_container" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/author_name_and_date" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/ListItemAction">
+        <include layout="@layout/profile_item_local_user_review" />
+        <View android:id="@id/more_reviews_top_border" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="1.0dip" android:layout_below="@id/local_review_item" android:layout_alignParentLeft="true" style="@style/Divider" />
+        <ImageView android:id="@id/more_reviews_icon" android:paddingLeft="8.0dip" android:paddingRight="8.0dip" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/local_review_icon" android:layout_below="@id/more_reviews_top_border" android:layout_alignParentLeft="true" />
+        <TextView android:textStyle="bold" android:id="@id/more_reviews_text" android:paddingTop="8.0dip" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:layout_toRightOf="@id/more_reviews_icon" android:layout_below="@id/more_reviews_top_border" />
+        <TextView android:id="@id/number_of_reviews" android:paddingBottom="8.0dip" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:layout_toRightOf="@id/local_review_icon" android:layout_below="@id/more_reviews_text" />
+        <View android:id="@id/more_reviews_bottom_border" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="1.0dip" android:layout_marginBottom="24.0dip" android:layout_below="@id/number_of_reviews" android:layout_alignParentLeft="true" style="@style/Divider" />
+    </RelativeLayout>
+</ScrollView>

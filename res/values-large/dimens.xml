@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="oob_radio_button_margin">0.0dip</dimen>
+    <dimen name="album_grid_vertical_spacing">2.0dip</dimen>
+    <dimen name="album_grid_horizontal_spacing">2.0dip</dimen>
+    <dimen name="album_photo_grid_width">155.0dip</dimen>
+    <dimen name="album_photo_grid_height">155.0dip</dimen>
+    <dimen name="share_media_height">260.0dip</dimen>
+    <dimen name="emotishare_preview_height">380.0dip</dimen>
+    <dimen name="share_gallery_photo_height">250.0dip</dimen>
+    <dimen name="location_picker_map_size">260.0dip</dimen>
+</resources>

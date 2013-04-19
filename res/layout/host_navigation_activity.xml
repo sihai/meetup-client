@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.galaxy.meetup.client.android.ui.view.HostLayout android:id="@id/host" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ListView android:id="@id/navigation_bar" android:background="@color/switcher_background" android:visibility="gone" android:layout_width="0.0dip" android:layout_height="0.0dip" android:cacheColorHint="@color/switcher_background" android:divider="@drawable/divider_dark" />
+    <com.galaxy.meetup.client.android.ui.view.SlidingPanelLayout android:id="@id/panel" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <include android:id="@id/title_bar" layout="@layout/host_action_bar" />
+            <RelativeLayout android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+                <FrameLayout android:id="@id/fragment_sliding_background" android:background="@color/host_background" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+                <FrameLayout android:id="@id/fragment_container" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+            </RelativeLayout>
+        </LinearLayout>
+    </com.galaxy.meetup.client.android.ui.view.SlidingPanelLayout>
+</com.galaxy.meetup.client.android.ui.view.HostLayout>

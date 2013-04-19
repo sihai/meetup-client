@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="album_photo_count">
+        <item quantity="other">" תמונה %d"</item>
+        <item quantity="zero">" %d תמונות"</item>
+        <item quantity="one">תמונה %d</item>
+    </plurals>
+    <plurals name="from_your_phone_selected_count">
+        <item quantity="other">נבחרו %d</item>
+        <item quantity="one">נבחרו %d</item>
+    </plurals>
+    <plurals name="delete_photo_dialog_title">
+        <item quantity="other">למחוק תמונות אלה?</item>
+        <item quantity="one">למחוק תמונה זו?</item>
+    </plurals>
+    <plurals name="delete_remote_photo_dialog_message">
+        <item quantity="other">האם אתה בטוח שאתה רוצה למחוק את התמונות האלו מאלבום Google+‎ הזה? פעולה זו לא ניתנת לביטול.</item>
+        <item quantity="one">האם אתה בטוח שאתה רוצה למחוק את התמונה הזו מאלבום Google+‎ הזה? פעולה זו לא ניתנת לביטול.</item>
+    </plurals>
+    <plurals name="delete_local_photo_dialog_message">
+        <item quantity="other">האם אתה בטוח שאתה רוצה למחוק את התמונות האלו מהמכשיר שלך? ייתכן שאלה העותקים היחידים ולא ניתן לבטל את המחיקה.</item>
+        <item quantity="one">האם אתה בטוח שאתה רוצה למחוק את התמונה הזו מהמכשיר שלך? ייתכן שזהו העותק היחיד ולא ניתן לבטל את המחיקה.</item>
+    </plurals>
+    <plurals name="delete_photo_pending">
+        <item quantity="other">מוחק את התמונות...</item>
+        <item quantity="one">מוחק את התמונה...</item>
+    </plurals>
+    <plurals name="notifications_instant_upload_title">
+        <item quantity="other">תמונות חדשות שמוכנות לשיתוף</item>
+        <item quantity="one">תמונה חדשה שמוכנה לשיתוף</item>
+    </plurals>
+    <plurals name="notifications_instant_upload_text">
+        <item quantity="other">%d תמונות</item>
+        <item quantity="one">תמונה %d</item>
+    </plurals>
+    <plurals name="notifications_instant_upload_known_faces_text">
+        <item quantity="other">תמונות חדשות של %s.</item>
+        <item quantity="one">תמונה חדשה של %s.</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_comment">
+        <item quantity="other">%d תגובות חדשות</item>
+        <item quantity="one">תגובה %d חדשה</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_plus_one">
+        <item quantity="other">%d +1 חדשים</item>
+        <item quantity="one">+1 %d חדש</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_reshare">
+        <item quantity="other">%d שיתופים מחדש</item>
+        <item quantity="one">שיתופים מחדש %d</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_mention">
+        <item quantity="other">%d אזכורים חדשים</item>
+        <item quantity="one">אזכור חדש %d</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_share">
+        <item quantity="other">%d שיתופים חדשים</item>
+        <item quantity="one">שיתוף %d חדש</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_post">
+        <item quantity="other">%d פוסטים חדשים</item>
+        <item quantity="one">פוסט %d חדש</item>
+    </plurals>
+    <plurals name="notification_square_multi_post_unread">
+        <item quantity="other">%s פוסטים חדשים שותפו</item>
+        <item quantity="one">פוסט חדש %s שותף</item>
+    </plurals>
+    <plurals name="notification_square_multi_post_read">
+        <item quantity="other">פוסטים חדשים שותפו</item>
+        <item quantity="one">פוסט חדש שותף</item>
+    </plurals>
+    <plurals name="event_invitee_with_guests">
+        <item quantity="other">%1$s (+%2$d אורחים)</item>
+        <item quantity="one">%1$s (+%2$d אורח)</item>
+    </plurals>
+    <plurals name="event_invitee_other_count">
+        <item quantity="other">+ %d אחרים</item>
+        <item quantity="one">+ %d אחר</item>
+    </plurals>
+    <plurals name="event_add_guest_count">
+        <item quantity="other">+ %d אורחים</item>
+        <item quantity="one">+ אורח %d</item>
+    </plurals>
+    <plurals name="sign_out_message">
+        <item quantity="other">%d פריטים ממתינים להעלאה. יציאה תבטל את כל ההעלאות הממתינות.</item>
+        <item quantity="one">פריט %d ממתין להעלאה. יציאה תבטל את ההעלאה הממתינה.</item>
+    </plurals>
+    <plurals name="share_photo_count">
+        <item quantity="other">%d תמונות</item>
+        <item quantity="one">תמונה %d</item>
+    </plurals>
+    <plurals name="plus_one_people_more_plus_ones">
+        <item quantity="other">+%d אחרים</item>
+        <item quantity="one">+1 נוספים</item>
+    </plurals>
+    <plurals name="plusoned_by_unknowns">
+        <item quantity="other">על ידי %d אנשים</item>
+        <item quantity="one">על ידי אדם אחד</item>
+    </plurals>
+    <plurals name="plusoned_by_you_and_unknowns">
+        <item quantity="other">על ידך ועל ידי עוד %d</item>
+        <item quantity="one">"על ידך ועל ידי  עוד אדם אחד"</item>
+    </plurals>
+    <plurals name="plusoned_by_one_known_and_unknowns">
+        <item quantity="other">על ידך ועל ידי עוד %1$s %2$d</item>
+        <item quantity="one">על ידי %s ועל ידי אדם אחד אחר</item>
+    </plurals>
+    <plurals name="plusoned_by_you_and_one_known_and_unknowns">
+        <item quantity="other">על ידך, %1$s,  ועל ידי עוד %2$d</item>
+        <item quantity="one">על ידך, %s, ועל ידי עוד אדם אחד</item>
+    </plurals>
+    <plurals name="plusoned_by_two_known_and_unknowns">
+        <item quantity="other">על ידי %1$s, %2$s, ועל ידי %3$d אנשים אחרים</item>
+        <item quantity="one">על ידי %1$s, %2$s, ועוד אדם אחד אחר</item>
+    </plurals>
+    <plurals name="plusoned_by_you_and_two_known_and_unknowns">
+        <item quantity="other">על ידך, %1$s, %2$s,  ועל ידי עוד %3$d</item>
+        <item quantity="one">על ידך, %1$s, %2$s, ועל ידי עוד אחד</item>
+    </plurals>
+    <plurals name="comments">
+        <item quantity="other">%d תגובות</item>
+        <item quantity="one">תגובה %d</item>
+    </plurals>
+    <plurals name="delete_photo">
+        <item quantity="other">מחק את התמונות</item>
+        <item quantity="one">מחק את התמונה</item>
+    </plurals>
+    <plurals name="circle_entry_content_description">
+        <item quantity="other">%1$s; %2$d חברים</item>
+        <item quantity="one">%1$s; חבר %2$d</item>
+    </plurals>
+    <plurals name="notifications_ticker_text">
+        <item quantity="other">התראות +Google חדשות</item>
+        <item quantity="one">התראת +Google חדשה</item>
+    </plurals>
+    <plurals name="notification_single_post">
+        <item quantity="other">%d פעילויות חדשות</item>
+        <item quantity="one">פעילות %d חדשה</item>
+    </plurals>
+    <plurals name="notifications_content_text">
+        <item quantity="other">%1$s (%2$d)</item>
+        <item quantity="one">%1$s (%2$d)</item>
+    </plurals>
+    <plurals name="audience_display_selection_count">
+        <item quantity="other">%d נבחרו</item>
+        <item quantity="one">נבחרו %d</item>
+    </plurals>
+    <plurals name="circle_count_and_matched_email">
+        <item quantity="other">%1$d מעגלים, %2$s</item>
+        <item quantity="one">מעגל %1$d, %2$s</item>
+    </plurals>
+    <plurals name="delete_circles_dialog_title">
+        <item quantity="other">מחיקת מעגלים</item>
+        <item quantity="one">מחק מעגל</item>
+    </plurals>
+    <plurals name="delete_circles_dialog_message">
+        <item quantity="other">האם אתה רוצה למחוק את המעגלים האלו לצמיתות?</item>
+        <item quantity="one">האם אתה רוצה למחוק את המעגל הזה לצמיתות?</item>
+    </plurals>
+    <plurals name="circle_button_more_circles">
+        <item quantity="other">%d נוספים</item>
+        <item quantity="one">%d נוספים</item>
+    </plurals>
+    <plurals name="num_minutes_ago">
+        <item quantity="other">%d דקות</item>
+        <item quantity="one">%d דקות</item>
+    </plurals>
+    <plurals name="num_hours_ago">
+        <item quantity="other">%d שעות</item>
+        <item quantity="one">%d שעות</item>
+    </plurals>
+    <plurals name="num_days_ago">
+        <item quantity="other">%d ימים</item>
+        <item quantity="one">%d ימים</item>
+    </plurals>
+    <plurals name="profile_added_by">
+        <item quantity="other">"נוסף על ידי
+%s אנשים"</item>
+        <item quantity="zero">"נוסף על ידי
+%s אנשים"</item>
+        <item quantity="one">"נוסף על ידי אדם 
+%s"</item>
+    </plurals>
+    <plurals name="profile_local_review_count">
+        <item quantity="other">%d ביקורות</item>
+        <item quantity="one">ביקורת %d</item>
+    </plurals>
+    <plurals name="hangout_plus_others">
+        <item quantity="other">+%d אחרים</item>
+        <item quantity="one">ועוד 1</item>
+    </plurals>
+    <plurals name="card_hangout_with_people">
+        <item quantity="other">hangout עם %d אנשים</item>
+        <item quantity="one">hangout עם משתמש אחד</item>
+    </plurals>
+    <plurals name="stream_one_up_comment_count">
+        <item quantity="other">%d תגובות</item>
+        <item quantity="one">תגובה %d</item>
+    </plurals>
+    <plurals name="stream_one_up_stage_hangout_over">
+        <item quantity="other">%d אנשים בילו ב-hangout</item>
+        <item quantity="one">משתמש אחד בילה ב-hangout</item>
+    </plurals>
+    <plurals name="plus_one_accessibility_description">
+        <item quantity="other">%d פלוס 1</item>
+        <item quantity="one">%dפלוס 1</item>
+    </plurals>
+    <plurals name="accessibility_notification_count_description">
+        <item quantity="other">%d הודעות +Google חדשות</item>
+        <item quantity="one">הודעת +Google %d חדשה</item>
+    </plurals>
+    <plurals name="audience_hidden_user_count">
+        <item quantity="other">+%d אחרים</item>
+        <item quantity="one">ועוד 1</item>
+    </plurals>
+    <plurals name="common_friend_count">
+        <item quantity="other">%d אנשים משותפים</item>
+        <item quantity="one">משתמש אחד משותף</item>
+    </plurals>
+    <plurals name="added_to_circle_notification_message">
+        <item quantity="other">נוספו %d אנשים למעגלים</item>
+        <item quantity="one">נוסף אדם אחד למעגלים</item>
+    </plurals>
+    <plurals name="square_members_count">
+        <item quantity="other">%d חברים</item>
+        <item quantity="one">חבר %d</item>
+    </plurals>
+</resources>

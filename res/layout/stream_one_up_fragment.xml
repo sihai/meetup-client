@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:background="@null" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="1.0"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ViewStub android:id="@id/stage_media" android:layout="@layout/stream_one_up_stage_media" android:inflatedId="@id/stage" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <ViewStub android:id="@id/stage_skyjam" android:layout="@layout/stream_one_up_stage_skyjam" android:inflatedId="@id/stage" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="@dimen/host_action_bar_height" />
+    <ViewStub android:id="@id/stage_emotishare" android:layout="@layout/stream_one_up_stage_emotishare" android:inflatedId="@id/stage" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="@dimen/host_action_bar_height" />
+    <ViewStub android:id="@id/stage_hangout" android:layout="@layout/stream_one_up_stage_hangout" android:inflatedId="@id/stage" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <ViewStub android:id="@id/stage_link" android:layout="@layout/stream_one_up_stage_link" android:inflatedId="@id/stage" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <RelativeLayout android:layout_gravity="center_horizontal" android:id="@id/list_parent" android:paddingTop="@dimen/host_action_bar_height" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <com.galaxy.meetup.client.android.ui.view.ExpandingScrollView android:id="@id/list_expander" android:background="@*android:color/transparent" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <com.galaxy.meetup.client.android.ui.view.StreamOneUpListView android:id="@*android:id/list" android:background="@*android:color/transparent" android:fadingEdge="none" android:layout_width="wrap_content" android:layout_height="0.0dip" android:listSelector="@*android:color/transparent" android:cacheColorHint="@*android:color/transparent" android:divider="@null" android:layout_weight="1.0" android:overScrollHeader="@*android:color/transparent" android:requiresFadingEdge="none" />
+        </com.galaxy.meetup.client.android.ui.view.ExpandingScrollView>
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/gray_spam_bar" android:paddingTop="@dimen/host_action_bar_height" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <TextView android:textColor="@color/card_gray_spam_text" android:id="@id/gray_spam_bar_text" android:background="@color/card_gray_spam_background" android:paddingLeft="@dimen/card_gray_spam_x_padding" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/card_square_gray_spam" android:drawableLeft="@drawable/ic_error_white" android:drawablePadding="@dimen/card_gray_spam_x_padding" />
+    </RelativeLayout>
+    <com.galaxy.meetup.client.android.ui.view.OneUpTouchHandler android:id="@id/touch_handler" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <com.galaxy.meetup.client.android.ui.view.LinearLayoutWithLayoutNotifications android:layout_gravity="bottom|center" android:orientation="vertical" android:id="@id/footer" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <View android:id="@id/footer_divider" android:background="@color/one_up_divider" android:layout_width="fill_parent" android:layout_height="2.0dip" />
+        <include android:id="@id/footer_bar" android:paddingLeft="8.0dip" android:paddingRight="8.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" layout="@layout/footer_bar" />
+    </com.galaxy.meetup.client.android.ui.view.LinearLayoutWithLayoutNotifications>
+</FrameLayout>

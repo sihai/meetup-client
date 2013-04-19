@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Switch android:textAppearance="?android:textAppearanceMedium" android:textColor="#ff333333" android:text="@string/square_notifications"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

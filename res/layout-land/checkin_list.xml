@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="#ff000000" android:layout_width="fill_parent" android:layout_height="fill_parent" android:animateLayoutChanges="true"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.galaxy.meetup.client.android.ui.view.ImageResourceView android:id="@id/map" android:layout_width="@dimen/location_picker_map_size" android:layout_height="fill_parent" android:scaleType="centerCrop" />
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_toRightOf="@id/map">
+        <ListView android:id="@*android:id/list" android:longClickable="false" android:layout_width="fill_parent" android:layout_height="wrap_content" android:cacheColorHint="@color/compose_location_list_bg" />
+        <include layout="@layout/empty_layout" />
+    </RelativeLayout>
+</RelativeLayout>

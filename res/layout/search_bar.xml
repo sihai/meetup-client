@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/search_plate" android:background="@drawable/search_plate_global" android:paddingLeft="12.0dip" android:paddingTop="8.0dip" android:paddingRight="12.0dip" android:paddingBottom="8.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <EditText android:textColor="@*android:color/widget_edittext_dark" android:ellipsize="end" android:id="@id/search_src_text" android:background="@drawable/textfield_search" android:paddingLeft="8.0dip" android:paddingRight="6.0dip" android:layout_width="0.0dip" android:layout_height="wrap_content" android:singleLine="true" android:drawablePadding="2.0dip" android:layout_weight="1.0" android:inputType="text" android:imeOptions="actionSearch" />
+        <ImageButton android:id="@id/search_go_btn" android:background="@drawable/btn_search_dialog" android:clickable="true" android:layout_width="wrap_content" android:layout_height="fill_parent" android:src="@drawable/ic_btn_search" android:onClick="onClick" />
+    </LinearLayout>
+</FrameLayout>

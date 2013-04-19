@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.galaxy.meetup.client.android.ui.view.PhotoGridItemView android:id="@id/home_album_item" android:background="@color/photo_home_item_background_color" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    <TextView android:textAppearance="?android:textAppearanceSmall" android:textColor="@color/photo_home_notification_color" android:gravity="center" android:id="@id/notification_item" android:background="@drawable/notification_count_nonzero_small" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/photo_home_notification_top_margin" android:layout_marginRight="@dimen/photo_home_notification_right_margin" android:layout_alignTop="@id/home_album_item" android:layout_alignRight="@id/home_album_item" />
+</RelativeLayout>

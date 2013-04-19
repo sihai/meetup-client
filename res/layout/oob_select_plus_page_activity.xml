@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/default_bg" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include layout="@layout/title_layout_light" />
+    <ImageView android:layout_width="fill_parent" android:layout_height="wrap_content" android:src="@drawable/colored_horz_line" android:scaleType="fitXY" />
+    <LinearLayout android:orientation="vertical" android:id="@id/signup_title" style="@style/Signup.Info">
+        <TextView android:id="@id/info_title" android:text="@string/oob_select_plus_page_title" style="@style/Signup.Info.Title" />
+    </LinearLayout>
+    <fragment android:id="@id/oob_instant_upload_fragment" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" class="com.galaxy.meetup.client.android.ui.fragments.OobSelectPlusPageFragment" />
+    <com.galaxy.meetup.client.android.ui.view.BottomActionBar android:id="@id/bottom_bar" style="@style/BottomActionBar" />
+</LinearLayout>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/details" android:paddingBottom="12.0dip" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/tagline" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <include android:id="@id/header" layout="@layout/profile_section_header" />
+        <include android:id="@id/content" layout="@layout/profile_item_introduction" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/intro" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <include android:id="@id/header" layout="@layout/profile_section_header" />
+        <include android:id="@id/content" layout="@layout/profile_item_introduction" />
+    </LinearLayout>
+    <include android:id="@id/local_actions" android:visibility="gone" layout="@layout/profile_item_local_actions" />
+    <include android:id="@id/zagat" android:visibility="gone" layout="@layout/profile_item_local_zagat_editorial" />
+    <LinearLayout android:orientation="vertical" android:id="@id/local_details" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <include android:id="@id/local_details_header" layout="@layout/profile_section_header" />
+        <include android:id="@id/local_details_content" layout="@layout/profile_item_local_details" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/homepage" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <include android:id="@id/homepage_header" layout="@layout/profile_section_header" />
+        <include android:id="@id/link_content" layout="@layout/profile_item_link" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/user_activity" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <include android:id="@id/header" layout="@layout/profile_section_header" />
+        <LinearLayout android:orientation="vertical" android:id="@id/content" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/circle_activity" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <include android:id="@id/header" layout="@layout/profile_section_header" />
+        <LinearLayout android:orientation="vertical" android:id="@id/content" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/local_reviews" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <include android:id="@id/header" layout="@layout/profile_section_header" />
+        <LinearLayout android:orientation="vertical" android:id="@id/content" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/contact" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <include android:id="@id/header" layout="@layout/profile_section_header" />
+        <LinearLayout android:orientation="vertical" android:id="@id/email_content" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+        <LinearLayout android:orientation="vertical" android:id="@id/phone_content" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+        <LinearLayout android:orientation="vertical" android:id="@id/address_content" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/personal" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <include android:id="@id/header" layout="@layout/profile_section_header" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/work_section" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <include android:id="@id/header" layout="@layout/profile_section_header" />
+        <LinearLayout android:orientation="vertical" android:id="@id/content" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+        <TextView android:id="@id/no_items" android:visibility="gone" style="@style/ProfileNoItems" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/education" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <include android:id="@id/header" layout="@layout/profile_section_header" />
+        <LinearLayout android:orientation="vertical" android:id="@id/content" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+        <TextView android:id="@id/no_items" android:visibility="gone" style="@style/ProfileNoItems" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/places" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <include android:id="@id/header" layout="@layout/profile_section_header" />
+        <com.galaxy.meetup.client.android.ui.view.PlacesMapView android:id="@id/map" android:paddingLeft="20.0dip" android:paddingTop="10.0dip" android:paddingRight="20.0dip" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content"
+          xmlns:android="http://schemas.android.com/apk/res/android" />
+        <LinearLayout android:orientation="vertical" android:id="@id/content" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+        <TextView android:id="@id/no_items" android:visibility="gone" style="@style/ProfileNoItems" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/links" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <include android:id="@id/header" layout="@layout/profile_section_header" />
+        <LinearLayout android:orientation="vertical" android:id="@id/link_content" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    </LinearLayout>
+</LinearLayout>

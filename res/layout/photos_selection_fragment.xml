@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/compose_panel_bg" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" style="@style/FlatButtonBar">
+        <com.galaxy.meetup.client.android.ui.view.ImageTextButton android:id="@id/cancel_button" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0" plus:text="@string/post_cancel_button_text" plus:image="@drawable/ic_close_cancel"
+          xmlns:plus="http://schemas.android.com/apk/res/com.galaxy.meetup.client" />
+        <View style="@style/FlatButtonSeparator" />
+        <com.galaxy.meetup.client.android.ui.view.ImageTextButton android:enabled="false" android:id="@id/next_button" android:layout_width="0.0dip" android:layout_height="fill_parent" android:text="@string/post_share_button_text" android:layout_weight="1.0" plus:text="@string/photos_next_button_text" plus:image="@drawable/ic_menu_send_holo_light" style="@style/FlatButton"
+          xmlns:plus="http://schemas.android.com/apk/res/com.galaxy.meetup.client" />
+    </LinearLayout>
+    <View style="@style/FlatButtonBorder" />
+    <View style="@style/FlatButtonShadow" />
+    <com.galaxy.meetup.client.android.ui.view.PhotoAlbumView android:id="@id/album_view" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+        <com.galaxy.meetup.client.android.ui.view.ColumnGridView android:id="@id/grid" android:background="@null" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+        <TextView android:textSize="18.0sp" android:textStyle="bold" android:textColor="#ffffffff" android:gravity="center" android:id="@id/date" android:visibility="invisible" android:layout_width="160.0dip" android:layout_height="wrap_content" />
+        <include layout="@layout/empty_layout" />
+    </com.galaxy.meetup.client.android.ui.view.PhotoAlbumView>
+</LinearLayout>

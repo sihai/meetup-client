@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="config_image_cache_max_bytes_encoded">1500000</integer>
+    <integer name="config_image_cache_max_bytes_decoded_small">2000000</integer>
+    <integer name="config_image_cache_max_bytes_decoded_large">15000000</integer>
+    <integer name="emotishare_icon_columns">4</integer>
+    <integer name="max_stream_gif_size_bytes">1048576</integer>
+    <integer name="places_map_aspect_ratio">150</integer>
+    <integer name="host_navigation_bar_width_percent">30</integer>
+    <integer name="compose_text_min_lines_big">4</integer>
+    <integer name="stream_post_max_length">300</integer>
+    <integer name="card_max_hangout_avatars">8</integer>
+    <integer name="typeable_audience_view_max_lines">2</integer>
+    <integer name="max_widget_image_size">400</integer>
+</resources>

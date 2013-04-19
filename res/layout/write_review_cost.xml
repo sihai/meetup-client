@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_gravity="center_vertical" android:orientation="horizontal" android:id="@id/ratings_cost_layout" android:paddingTop="10.0dip" android:paddingBottom="13.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:baselineAligned="false"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:layout_gravity="left|center" android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+        <TextView android:id="@id/cost_label" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@style/WriteReview.AspectLabel" />
+        <TextView android:id="@id/cost_explanation" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@style/WriteReview.AspectExplanation" />
+    </LinearLayout>
+    <LinearLayout android:gravity="right|center" android:orientation="horizontal" android:id="@id/continuous_cost_container" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:textSize="20.0dip" android:textStyle="bold" android:id="@id/cost_currency_symbol" android:paddingLeft="24.0dip" android:paddingRight="10.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <EditText android:id="@id/aspect_cost" android:layout_width="fill_parent" android:layout_height="wrap_content" android:singleLine="true" android:maxLength="6" android:digits="0123456789" android:autoText="false" android:inputType="numberDecimal" style="@style/WriteReview.AspectValue" />
+    </LinearLayout>
+    <LinearLayout android:layout_gravity="right|center" android:orientation="vertical" android:id="@id/bucketed_price_container" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <TextView android:textSize="12.0dip" android:id="@id/bucketed_price_tip" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <RadioGroup android:orientation="horizontal" android:id="@id/bucketed_price_group" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <RadioButton android:gravity="center" android:id="@id/bucketed_price_1" android:background="@drawable/aspect_rating_left_background_selector" android:button="@null" style="@style/WriteReview.AspectValue" />
+            <RadioButton android:gravity="center" android:id="@id/bucketed_price_2" android:background="@drawable/aspect_rating_middle_background_selector" android:button="@null" style="@style/WriteReview.AspectValue" />
+            <RadioButton android:gravity="center" android:id="@id/bucketed_price_3" android:background="@drawable/aspect_rating_middle_background_selector" android:button="@null" style="@style/WriteReview.AspectValue" />
+            <RadioButton android:gravity="center" android:id="@id/bucketed_price_4" android:background="@drawable/aspect_rating_right_background_selector" android:button="@null" style="@style/WriteReview.AspectValue" />
+        </RadioGroup>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/share_preview" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.galaxy.meetup.client.android.ui.view.EsImageView android:id="@id/article_icon" android:layout_width="@dimen/fav_icon_size" android:layout_height="@dimen/fav_icon_size" android:layout_marginTop="@dimen/article_icon_margin" android:layout_marginRight="@dimen/article_icon_marginRight" android:layout_marginBottom="@dimen/article_icon_margin" android:src="@drawable/album_border" android:layout_alignParentLeft="true" android:layout_alignParentTop="true" />
+    <TextView android:textSize="@dimen/stream_content_text_size" android:textStyle="bold" android:textColor="@color/stream_link_color" android:id="@id/article_title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/article_title_margin" android:layout_toRightOf="@id/article_icon" />
+    <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@id/article_title" android:layout_alignLeft="@id/article_title">
+        <com.galaxy.meetup.client.android.ui.view.EsImageView android:id="@id/article_image" android:layout_width="@dimen/stream_image_small_dimension" android:layout_height="@dimen/stream_image_small_dimension" android:layout_marginTop="@dimen/article_image_marginTop" android:layout_marginRight="@dimen/article_image_marginRight" android:src="@drawable/album_border" />
+        <TextView android:textSize="@dimen/stream_content_text_size" android:textColor="@color/share_content" android:id="@id/article_content" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    </LinearLayout>
+</RelativeLayout>

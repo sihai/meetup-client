@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.galaxy.meetup.client.android.ui.view.ColumnGridView android:id="@id/grid" android:background="@null" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <include layout="@layout/empty_layout" />
+    <Button android:id="@id/createButton" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/event_button_create_event_label" android:drawableLeft="@drawable/icn_events_create_event" android:layout_centerInParent="true" />
+    <TextView android:textSize="@dimen/event_create_event_text_size" android:gravity="center" android:id="@id/createText" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/event_create_text" android:layout_above="@id/createButton" android:layout_centerHorizontal="true" />
+</RelativeLayout>

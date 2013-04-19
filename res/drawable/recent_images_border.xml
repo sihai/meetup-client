@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:left="@dimen/compose_bar_recent_images_default_padding" android:top="@dimen/compose_bar_recent_images_default_padding" android:right="@dimen/compose_bar_recent_images_default_padding" android:bottom="@dimen/compose_bar_recent_images_default_padding">
+        <shape android:shape="rectangle">
+            <stroke android:width="2.0dip" android:color="#40ffffff" />
+            <solid android:color="#00000000" />
+        </shape>
+    </item>
+</layer-list>

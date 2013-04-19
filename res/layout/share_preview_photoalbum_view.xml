@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/share_preview" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:textSize="@dimen/stream_content_text_size" android:textStyle="bold" android:textColor="@color/stream_link_color" android:id="@id/photo_title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/photo_title_margin" />
+        <RelativeLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/photo_image_margin">
+            <com.galaxy.meetup.client.android.ui.view.EsImageView android:id="@id/photo_image1" android:layout_width="@dimen/stream_image_dimension" android:layout_height="@dimen/stream_image_dimension" android:layout_marginRight="@dimen/stream_image_right_margin" android:src="@drawable/album_border" />
+            <com.galaxy.meetup.client.android.ui.view.EsImageView android:id="@id/photo_image2" android:layout_width="@dimen/stream_image_small_dimension" android:layout_height="@dimen/stream_image_small_dimension" android:src="@drawable/album_border" android:layout_toRightOf="@id/photo_image1" />
+            <com.galaxy.meetup.client.android.ui.view.EsImageView android:id="@id/photo_image3" android:layout_width="@dimen/stream_image_small_dimension" android:layout_height="@dimen/stream_image_small_dimension" android:layout_marginTop="@dimen/stream_image_top_margin" android:src="@drawable/album_border" android:layout_toRightOf="@id/photo_image1" android:layout_below="@id/photo_image2" />
+        </RelativeLayout>
+    </LinearLayout>
+</RelativeLayout>

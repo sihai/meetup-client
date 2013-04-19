@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/contacts_sync_preference_category" android:order="3000">
+        <CheckBoxPreference android:persistent="false" android:title="@string/contacts_sync_preference_enabled_short_title" android:key="@string/contacts_sync_preference_key" android:summary="@string/contacts_sync_preference_enabled_summary" />
+        <CheckBoxPreference android:persistent="false" android:title="@string/contacts_stats_sync_preference_enabled_short_title" android:key="@string/contacts_stats_sync_preference_key" android:summary="@string/contacts_stats_sync_preference_enabled_phone_summary" />
+    </PreferenceCategory>
+</PreferenceScreen>

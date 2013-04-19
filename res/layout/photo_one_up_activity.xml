@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/photo_activity_root_view" android:background="@color/photo_background_color" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.galaxy.meetup.client.android.ui.view.PhotoViewPager android:id="@id/photo_view_pager" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <FrameLayout android:id="@id/photo_activity_empty" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <TextView android:textSize="18.0sp" android:gravity="center" android:id="@id/photo_activity_empty_text" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+        <LinearLayout android:layout_gravity="center" android:id="@id/photo_activity_empty_progress" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <ProgressBar android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" android:indeterminate="true" style="?android:attr/progressBarStyleSmallInverse" />
+            <TextView android:textSize="18.0sp" android:textColor="@*android:color/white" android:id="@id/photo_activity_empty_progress_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:text="@string/loading" />
+        </LinearLayout>
+    </FrameLayout>
+    <include android:id="@id/title_bar" layout="@layout/host_action_bar" />
+</FrameLayout>

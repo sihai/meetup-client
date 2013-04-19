@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="widget_margin_left">0.0dip</dimen>
+    <dimen name="widget_margin_top">0.0dip</dimen>
+    <dimen name="widget_margin_right">0.0dip</dimen>
+    <dimen name="widget_margin_bottom">0.0dip</dimen>
+    <dimen name="share_ui_margin">4.0dip</dimen>
+    <dimen name="host_spinner_margin_left">-12.0dip</dimen>
+    <dimen name="action_bar_switch_padding">16.0dip</dimen>
+</resources>

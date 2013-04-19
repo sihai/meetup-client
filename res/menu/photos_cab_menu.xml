@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:icon="@drawable/ic_actionbar_reshare" android:id="@id/reshare" android:showAsAction="always" />
+    <item android:id="@id/delete_photos" android:showAsAction="never" />
+</menu>

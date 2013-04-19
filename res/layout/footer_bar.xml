@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="bottom" android:orientation="horizontal" android:background="@drawable/footer_bar_background" android:padding="6.0dip" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.galaxy.meetup.client.android.ui.view.MentionMultiAutoCompleteTextView android:textColor="@color/solid_black" android:id="@id/footer_text" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginRight="6.0dip" android:hint="@string/compose_comment_hint" android:maxLines="3" android:layout_weight="1.0" android:inputType="textLongMessage|textCapSentences|textAutoCorrect|textMultiLine" android:imeOptions="actionDone" android:imeActionLabel="@string/post" />
+    <ImageView android:id="@id/footer_post_button" android:background="?buttonSelectableBackground" android:paddingLeft="12.0dip" android:paddingRight="12.0dip" android:paddingBottom="10.0dip" android:focusable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_send_holo_light" android:contentDescription="@string/post" />
+</LinearLayout>

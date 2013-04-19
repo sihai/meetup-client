@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/about_preference_category" android:order="7000">
+        <Preference android:layout="@layout/label_preference" android:title="@string/preferences_build_version" android:key="build_version" />
+        <Preference android:layout="@layout/label_preference" android:title="@string/preferences_license_title" android:key="@string/license_preference_key" android:summary="@string/preferences_license_summary" />
+        <Preference android:layout="@layout/label_preference" android:title="@string/menu_home_privacy_policy" android:key="@string/privacy_policy_preference_key" />
+        <Preference android:layout="@layout/label_preference" android:title="@string/menu_home_terms_of_service" android:key="@string/terms_of_service_preference_key" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/account_preference_category" android:order="8000">
+        <Preference android:layout="@layout/label_preference" android:title="@string/preferences_remove_account_title" android:key="@string/remove_account_preference_key" android:summary="@string/preferences_remove_account_description" />
+    </PreferenceCategory>
+</PreferenceScreen>

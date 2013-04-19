@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="album_photo_count">
+        <item quantity="other">%d fotó</item>
+        <item quantity="zero">%d fotó</item>
+        <item quantity="one">%d fotó</item>
+    </plurals>
+    <plurals name="from_your_phone_selected_count">
+        <item quantity="other">%d kijelölve</item>
+        <item quantity="one">%d kijelölve</item>
+    </plurals>
+    <plurals name="delete_photo_dialog_title">
+        <item quantity="other">Törlöd ezeket a fotókat?</item>
+        <item quantity="one">Törlöd ezt a fotót?</item>
+    </plurals>
+    <plurals name="delete_remote_photo_dialog_message">
+        <item quantity="other">Biztosan törlöd ezeket a fotókat ebből a Google+-albumból? A művelet nem vonható vissza.</item>
+        <item quantity="one">Biztosan törlöd ezt a fotót ebből a Google+-albumból? A művelet nem vonható vissza.</item>
+    </plurals>
+    <plurals name="delete_local_photo_dialog_message">
+        <item quantity="other">Biztosan törölni szeretnéd ezeket a fotókat az eszközödről? Lehetséges, hogy ezek az egyedüli példányok, a törlés pedig nem visszavonható.</item>
+        <item quantity="one">Biztosan törölni szeretnéd ezt a fotót az eszközödről? Lehetséges, hogy ez az egy példányod van belőle, a törlés pedig nem visszavonható.</item>
+    </plurals>
+    <plurals name="delete_photo_pending">
+        <item quantity="other">Fotók törlése...</item>
+        <item quantity="one">Fotó törlése...</item>
+    </plurals>
+    <plurals name="notifications_instant_upload_title">
+        <item quantity="other">Az új fotók készen állnak a megosztásra</item>
+        <item quantity="one">Az új fotó készen áll a megosztásra</item>
+    </plurals>
+    <plurals name="notifications_instant_upload_text">
+        <item quantity="other">%d fotó</item>
+        <item quantity="one">%d fotó</item>
+    </plurals>
+    <plurals name="notifications_instant_upload_known_faces_text">
+        <item quantity="other">Új fotók róluk: %s.</item>
+        <item quantity="one">Új fotó róluk: %s.</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_comment">
+        <item quantity="other">%d új megjegyzés</item>
+        <item quantity="one">%d új megjegyzés</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_plus_one">
+        <item quantity="other">%d új +1</item>
+        <item quantity="one">%d új +1</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_reshare">
+        <item quantity="other">%d újramegosztás</item>
+        <item quantity="one">%d újramegosztás</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_mention">
+        <item quantity="other">%d új megemlítés</item>
+        <item quantity="one">%d új megemlítés</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_share">
+        <item quantity="other">%d új megosztás</item>
+        <item quantity="one">%d új megosztás</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_post">
+        <item quantity="other">%d új bejegyzés</item>
+        <item quantity="one">%d új bejegyzés</item>
+    </plurals>
+    <plurals name="notification_square_multi_post_unread">
+        <item quantity="other">%s új megosztott bejegyzés</item>
+        <item quantity="one">%s új megosztott bejegyzés</item>
+    </plurals>
+    <plurals name="notification_square_multi_post_read">
+        <item quantity="other">Új megosztott bejegyzések</item>
+        <item quantity="one">Új megosztott bejegyzés</item>
+    </plurals>
+    <plurals name="event_invitee_with_guests">
+        <item quantity="other">%1$s (+%2$d vendég)</item>
+        <item quantity="one">%1$s (+%2$d vendég)</item>
+    </plurals>
+    <plurals name="event_invitee_other_count">
+        <item quantity="other">+%d további</item>
+        <item quantity="one">+%d további</item>
+    </plurals>
+    <plurals name="event_add_guest_count">
+        <item quantity="other">+%d vendég</item>
+        <item quantity="one">+%d vendég</item>
+    </plurals>
+    <plurals name="sign_out_message">
+        <item quantity="other">%d elem feltöltésre vár. Ha kijelentkezel, visszavonod a függőben lévő elemek feltöltését.</item>
+        <item quantity="one">%d elem feltöltésre vár. Ha kijelentkezel, visszavonod a függőben lévő elemek feltöltését.</item>
+    </plurals>
+    <plurals name="share_photo_count">
+        <item quantity="other">%d fotó</item>
+        <item quantity="one">%d fotó</item>
+    </plurals>
+    <plurals name="plus_one_people_more_plus_ones">
+        <item quantity="other">+%d további</item>
+        <item quantity="one">1 további</item>
+    </plurals>
+    <plurals name="plusoned_by_unknowns">
+        <item quantity="other">%d személy</item>
+        <item quantity="one">1 személy</item>
+    </plurals>
+    <plurals name="plusoned_by_you_and_unknowns">
+        <item quantity="other">te és %d másik személy</item>
+        <item quantity="one">te és 1 másik személy</item>
+    </plurals>
+    <plurals name="plusoned_by_one_known_and_unknowns">
+        <item quantity="other">%1$s és %2$d másik személy</item>
+        <item quantity="one">%s és 1 másik személy</item>
+    </plurals>
+    <plurals name="plusoned_by_you_and_one_known_and_unknowns">
+        <item quantity="other">te, %1$s és %2$d másik személy</item>
+        <item quantity="one">te, %s és 1 másik személy</item>
+    </plurals>
+    <plurals name="plusoned_by_two_known_and_unknowns">
+        <item quantity="other">%1$s, %2$s és %3$d másik személy</item>
+        <item quantity="one">%1$s, %2$s és 1 másik személy</item>
+    </plurals>
+    <plurals name="plusoned_by_you_and_two_known_and_unknowns">
+        <item quantity="other">te, %1$s, %2$s és %3$d másik személy</item>
+        <item quantity="one">te, %1$s, %2$s és 1 másik személy</item>
+    </plurals>
+    <plurals name="comments">
+        <item quantity="other">%d megjegyzés</item>
+        <item quantity="one">%d megjegyzés</item>
+    </plurals>
+    <plurals name="delete_photo">
+        <item quantity="other">Fotók törlése</item>
+        <item quantity="one">Fotó törlése</item>
+    </plurals>
+    <plurals name="circle_entry_content_description">
+        <item quantity="other">%1$s, %2$d tag</item>
+        <item quantity="one">%1$s, %2$d tag</item>
+    </plurals>
+    <plurals name="notifications_ticker_text">
+        <item quantity="other">Új Google+ értesítések</item>
+        <item quantity="one">Új Google+ értesítés</item>
+    </plurals>
+    <plurals name="notification_single_post">
+        <item quantity="other">%d új tevékenység</item>
+        <item quantity="one">%d új tevékenység</item>
+    </plurals>
+    <plurals name="notifications_content_text">
+        <item quantity="other">%1$s (%2$d)</item>
+        <item quantity="one">%1$s (%2$d)</item>
+    </plurals>
+    <plurals name="audience_display_selection_count">
+        <item quantity="other">%d kijelölve</item>
+        <item quantity="one">%d kijelölve</item>
+    </plurals>
+    <plurals name="circle_count_and_matched_email">
+        <item quantity="other">%1$d kör, %2$s</item>
+        <item quantity="one">%1$d kör, %2$s</item>
+    </plurals>
+    <plurals name="delete_circles_dialog_title">
+        <item quantity="other">Körök törlése</item>
+        <item quantity="one">Kör törlése</item>
+    </plurals>
+    <plurals name="delete_circles_dialog_message">
+        <item quantity="other">Végleg törlöd ezeket a köröket?</item>
+        <item quantity="one">Végleg törlöd ezt a kört?</item>
+    </plurals>
+    <plurals name="circle_button_more_circles">
+        <item quantity="other">%d további</item>
+        <item quantity="one">%d további</item>
+    </plurals>
+    <plurals name="num_minutes_ago">
+        <item quantity="other">%d perc</item>
+        <item quantity="one">%d perc</item>
+    </plurals>
+    <plurals name="num_hours_ago">
+        <item quantity="other">%d óra</item>
+        <item quantity="one">%d óra</item>
+    </plurals>
+    <plurals name="num_days_ago">
+        <item quantity="other">%d nap</item>
+        <item quantity="one">%d nap</item>
+    </plurals>
+    <plurals name="profile_added_by">
+        <item quantity="other">"Hozzáadta
+%s személy"</item>
+        <item quantity="zero">"Hozzáadta
+%s személy"</item>
+        <item quantity="one">"Hozzáadta
+%s személy"</item>
+    </plurals>
+    <plurals name="profile_local_review_count">
+        <item quantity="other">%d vélemény</item>
+        <item quantity="one">%d vélemény</item>
+    </plurals>
+    <plurals name="hangout_plus_others">
+        <item quantity="other">+%d további</item>
+        <item quantity="one">+1 további</item>
+    </plurals>
+    <plurals name="card_hangout_with_people">
+        <item quantity="other">HANGOUT %d SZEMÉLLYEL</item>
+        <item quantity="one">HANGOUT 1 SZEMÉLLYEL</item>
+    </plurals>
+    <plurals name="stream_one_up_comment_count">
+        <item quantity="other">%d megjegyzés</item>
+        <item quantity="one">%d megjegyzés</item>
+    </plurals>
+    <plurals name="stream_one_up_stage_hangout_over">
+        <item quantity="other">%d SZEMÉLY TÁRSALGOTT</item>
+        <item quantity="one">1 SZEMÉLY TÁRSALGOTT</item>
+    </plurals>
+    <plurals name="plus_one_accessibility_description">
+        <item quantity="other">%d plusz egy</item>
+        <item quantity="one">%d plusz egy</item>
+    </plurals>
+    <plurals name="accessibility_notification_count_description">
+        <item quantity="other">%d új Google+-értesítés</item>
+        <item quantity="one">%d új Google+-értesítés</item>
+    </plurals>
+    <plurals name="audience_hidden_user_count">
+        <item quantity="other">+%d további</item>
+        <item quantity="one">+1 további</item>
+    </plurals>
+    <plurals name="common_friend_count">
+        <item quantity="other">%d közös ismerős</item>
+        <item quantity="one">Egy közös ismerős</item>
+    </plurals>
+    <plurals name="added_to_circle_notification_message">
+        <item quantity="other">%d személy felvéve a körökbe</item>
+        <item quantity="one">1 személy felvéve a körökbe</item>
+    </plurals>
+    <plurals name="square_members_count">
+        <item quantity="other">%d tag</item>
+        <item quantity="one">%d tag</item>
+    </plurals>
+</resources>

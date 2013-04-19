@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:icon="@drawable/ic_profile" android:id="@id/menu_hangout_avatar_profile" />
+    <item android:icon="@drawable/ic_pin" android:id="@id/menu_hangout_avatar_pin_video" android:visible="false" android:title="@string/hangout_avatar_menu_pin_video" />
+    <item android:icon="@drawable/ic_pin" android:id="@id/menu_hangout_avatar_unpin_video" android:visible="false" android:title="@string/hangout_avatar_menu_unpin_video" />
+    <item android:icon="@drawable/ic_mute" android:id="@id/menu_hangout_avatar_remote_mute" android:title="@string/hangout_avatar_menu_remote_mute" />
+    <item android:icon="@drawable/ic_block" android:id="@id/menu_hangout_avatar_block" android:title="@string/menu_item_block_person" />
+</menu>

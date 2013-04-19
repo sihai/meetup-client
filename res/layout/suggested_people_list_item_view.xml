@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.galaxy.meetup.client.android.ui.view.SuggestedPeopleListItemView android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:id="@id/check_indicator" android:background="@drawable/audience_view_chip_background_blue" android:visibility="invisible" android:layout_width="@dimen/medium_avatar_selected_dimension" android:layout_height="@dimen/medium_avatar_selected_dimension" android:layout_alignParentTop="true" />
+    <com.galaxy.meetup.client.android.ui.view.AvatarView android:id="@id/avatar" android:layout_width="@dimen/medium_avatar_dimension" android:layout_height="@dimen/medium_avatar_dimension" android:layout_margin="@dimen/medium_avatar_selected_padding" android:layout_alignParentTop="true" size="medium" />
+    <TextView android:gravity="center" android:id="@id/name" android:layout_width="fill_parent" android:layout_height="@dimen/medium_avatar_name_height" android:layout_below="@id/avatar" style="@style/RealTimeChat.SuggestedParticipant.Name" />
+    <RelativeLayout android:background="@drawable/image_button_background" android:layout_width="@dimen/medium_avatar_selected_dimension" android:layout_height="@dimen/medium_avatar_selected_dimension" android:layout_alignParentTop="true" />
+</com.galaxy.meetup.client.android.ui.view.SuggestedPeopleListItemView>

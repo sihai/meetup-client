@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="album_photo_count">
+        <item quantity="other">%d Fotos</item>
+        <item quantity="zero">%d Fotos</item>
+        <item quantity="one">%d Foto</item>
+    </plurals>
+    <plurals name="from_your_phone_selected_count">
+        <item quantity="other">%d ausgewählt</item>
+        <item quantity="one">%d ausgewählt</item>
+    </plurals>
+    <plurals name="delete_photo_dialog_title">
+        <item quantity="other">Fotos löschen?</item>
+        <item quantity="one">Foto löschen?</item>
+    </plurals>
+    <plurals name="delete_remote_photo_dialog_message">
+        <item quantity="other">Möchten Sie die Fotos wirklich aus diesem Google+ Album löschen? Diese Aktion kann nicht rückgängig gemacht werden.</item>
+        <item quantity="one">Möchten Sie das Foto wirklich aus diesem Google+ Album löschen? Diese Aktion kann nicht rückgängig gemacht werden.</item>
+    </plurals>
+    <plurals name="delete_local_photo_dialog_message">
+        <item quantity="other">Möchten Sie diese Fotos wirklich endgültig vom Gerät löschen? Möglicherweise sind sie nirgendwo sonst gespeichert.</item>
+        <item quantity="one">Möchten Sie dieses Foto wirklich endgültig vom Gerät löschen? Möglicherweise ist es nirgendwo sonst gespeichert.</item>
+    </plurals>
+    <plurals name="delete_photo_pending">
+        <item quantity="other">Fotos werden gelöscht...</item>
+        <item quantity="one">Foto wird gelöscht...</item>
+    </plurals>
+    <plurals name="notifications_instant_upload_title">
+        <item quantity="other">Neue Fotos können geteilt werden</item>
+        <item quantity="one">Neues Foto kann geteilt werden</item>
+    </plurals>
+    <plurals name="notifications_instant_upload_text">
+        <item quantity="other">%d Fotos</item>
+        <item quantity="one">%d Foto</item>
+    </plurals>
+    <plurals name="notifications_instant_upload_known_faces_text">
+        <item quantity="other">Neue Fotos von %s</item>
+        <item quantity="one">Neues Foto von %s</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_comment">
+        <item quantity="other">%d neue Kommentare</item>
+        <item quantity="one">%d neuer Kommentar</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_plus_one">
+        <item quantity="other">%d-mal neu +1 gegeben</item>
+        <item quantity="one">%d-mal neu +1 gegeben</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_reshare">
+        <item quantity="other">%d-mal wieder erneut geteilt</item>
+        <item quantity="one">%d-mal wieder erneut geteilt</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_mention">
+        <item quantity="other">%d neue Erwähnungen</item>
+        <item quantity="one">%d neue Erwähnung</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_share">
+        <item quantity="other">%d-mal neu geteilt</item>
+        <item quantity="one">%d-mal neu geteilt</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_post">
+        <item quantity="other">%d neue Beiträge</item>
+        <item quantity="one">%d neuer Beitrag</item>
+    </plurals>
+    <plurals name="notification_square_multi_post_unread">
+        <item quantity="other">%s neue Beiträge geteilt</item>
+        <item quantity="one">%s neuer Beitrag geteilt</item>
+    </plurals>
+    <plurals name="notification_square_multi_post_read">
+        <item quantity="other">Neue Beiträge geteilt</item>
+        <item quantity="one">Neuer Beitrag geteilt</item>
+    </plurals>
+    <plurals name="event_invitee_with_guests">
+        <item quantity="other">%1$s (+%2$d Gäste)</item>
+        <item quantity="one">%1$s (+%2$d Gast)</item>
+    </plurals>
+    <plurals name="event_invitee_other_count">
+        <item quantity="other">und %d andere</item>
+        <item quantity="one">und %d weitere Person</item>
+    </plurals>
+    <plurals name="event_add_guest_count">
+        <item quantity="other">+ %d zusätzliche Gäste</item>
+        <item quantity="one">+ %d zusätzlicher Gast</item>
+    </plurals>
+    <plurals name="sign_out_message">
+        <item quantity="other">%d Inhalte stehen noch zum Upload an. Wenn Sie sich abmelden, werden diese Inhalte nicht hochgeladen.</item>
+        <item quantity="one">%d Inhalt steht noch zum Upload an. Wenn Sie sich abmelden, wird dieser Inhalt nicht hochgeladen.</item>
+    </plurals>
+    <plurals name="share_photo_count">
+        <item quantity="other">%d Fotos</item>
+        <item quantity="one">%d Foto</item>
+    </plurals>
+    <plurals name="plus_one_people_more_plus_ones">
+        <item quantity="other">und %d andere</item>
+        <item quantity="one">und eine weitere Person</item>
+    </plurals>
+    <plurals name="plusoned_by_unknowns">
+        <item quantity="other">von %d Personen</item>
+        <item quantity="one">von 1 Person</item>
+    </plurals>
+    <plurals name="plusoned_by_you_and_unknowns">
+        <item quantity="other">von mir und %d anderen</item>
+        <item quantity="one">von mir und 1 anderen Person</item>
+    </plurals>
+    <plurals name="plusoned_by_one_known_and_unknowns">
+        <item quantity="other">von %1$s und %2$d anderen</item>
+        <item quantity="one">von %s und 1 anderen Person</item>
+    </plurals>
+    <plurals name="plusoned_by_you_and_one_known_and_unknowns">
+        <item quantity="other">von mir, %1$s und %2$d anderen</item>
+        <item quantity="one">von mir, %s und 1 anderen Person</item>
+    </plurals>
+    <plurals name="plusoned_by_two_known_and_unknowns">
+        <item quantity="other">von %1$s, %2$s und %3$d anderen</item>
+        <item quantity="one">von %1$s, %2$s und 1 anderen Person</item>
+    </plurals>
+    <plurals name="plusoned_by_you_and_two_known_and_unknowns">
+        <item quantity="other">von mir, %1$s, %2$s und %3$d anderen</item>
+        <item quantity="one">von mir, %1$s, %2$s und 1 anderen Person</item>
+    </plurals>
+    <plurals name="comments">
+        <item quantity="other">%d Kommentare</item>
+        <item quantity="one">%d Kommentar</item>
+    </plurals>
+    <plurals name="delete_photo">
+        <item quantity="other">Fotos löschen</item>
+        <item quantity="one">Foto löschen</item>
+    </plurals>
+    <plurals name="circle_entry_content_description">
+        <item quantity="other">%1$s; %2$d Mitglieder</item>
+        <item quantity="one">%1$s; %2$d Mitglied</item>
+    </plurals>
+    <plurals name="notifications_ticker_text">
+        <item quantity="other">Neue Google+ Nachrichten</item>
+        <item quantity="one">Neue Google+ Nachricht</item>
+    </plurals>
+    <plurals name="notification_single_post">
+        <item quantity="other">%d neue Aktivitäten</item>
+        <item quantity="one">%d neue Aktivität</item>
+    </plurals>
+    <plurals name="notifications_content_text">
+        <item quantity="other">%1$s (%2$d)</item>
+        <item quantity="one">%1$s (%2$d)</item>
+    </plurals>
+    <plurals name="audience_display_selection_count">
+        <item quantity="other">%d ausgewählt</item>
+        <item quantity="one">%d ausgewählt</item>
+    </plurals>
+    <plurals name="circle_count_and_matched_email">
+        <item quantity="other">%1$d Kreise, %2$s</item>
+        <item quantity="one">%1$d Kreis, %2$s</item>
+    </plurals>
+    <plurals name="delete_circles_dialog_title">
+        <item quantity="other">Kreise löschen</item>
+        <item quantity="one">Kreis löschen</item>
+    </plurals>
+    <plurals name="delete_circles_dialog_message">
+        <item quantity="other">Möchten Sie diese Kreise endgültig löschen?</item>
+        <item quantity="one">Möchten Sie diesen Kreis endgültig löschen?</item>
+    </plurals>
+    <plurals name="circle_button_more_circles">
+        <item quantity="other">%d weitere</item>
+        <item quantity="one">%d weitere</item>
+    </plurals>
+    <plurals name="num_minutes_ago">
+        <item quantity="other">%d Min.</item>
+        <item quantity="one">%d Min.</item>
+    </plurals>
+    <plurals name="num_hours_ago">
+        <item quantity="other">%d Stunden</item>
+        <item quantity="one">%d Stunde</item>
+    </plurals>
+    <plurals name="num_days_ago">
+        <item quantity="other">%d Tage</item>
+        <item quantity="one">%d Tag</item>
+    </plurals>
+    <plurals name="profile_added_by">
+        <item quantity="other">"Hinzugefügt von
+%s Personen"</item>
+        <item quantity="zero">"Hinzugefügt von
+%s Personen"</item>
+        <item quantity="one">"Hinzugefügt von
+%s Person"</item>
+    </plurals>
+    <plurals name="profile_local_review_count">
+        <item quantity="other">%d Erfahrungsberichte</item>
+        <item quantity="one">%d Erfahrungsbericht</item>
+    </plurals>
+    <plurals name="hangout_plus_others">
+        <item quantity="other">und %d andere</item>
+        <item quantity="one">und eine weitere Person</item>
+    </plurals>
+    <plurals name="card_hangout_with_people">
+        <item quantity="other">Hangout mit %d Personen</item>
+        <item quantity="one">Hangout mit 1 Person</item>
+    </plurals>
+    <plurals name="stream_one_up_comment_count">
+        <item quantity="other">%d Kommentare</item>
+        <item quantity="one">%d Kommentar</item>
+    </plurals>
+    <plurals name="stream_one_up_stage_hangout_over">
+        <item quantity="other">%d Personen waren im Hangout</item>
+        <item quantity="one">1 Person war im Hangout</item>
+    </plurals>
+    <plurals name="plus_one_accessibility_description">
+        <item quantity="other">%d plus eins</item>
+        <item quantity="one">%d plus eins</item>
+    </plurals>
+    <plurals name="accessibility_notification_count_description">
+        <item quantity="other">%d neue Google+ Benachrichtigungen</item>
+        <item quantity="one">%d neue Google+ Benachrichtigung</item>
+    </plurals>
+    <plurals name="audience_hidden_user_count">
+        <item quantity="other">und %d andere</item>
+        <item quantity="one">und eine weitere Person</item>
+    </plurals>
+    <plurals name="common_friend_count">
+        <item quantity="other">%d gemeinsame Kontakte</item>
+        <item quantity="one">1 gemeinsamer Kontakt</item>
+    </plurals>
+    <plurals name="added_to_circle_notification_message">
+        <item quantity="other">%d Personen wurden zu Ihren Kreisen hinzugefügt.</item>
+        <item quantity="one">Eine Person wurde zu Ihren Kreisen hinzugefügt.</item>
+    </plurals>
+    <plurals name="square_members_count">
+        <item quantity="other">%d Mitglieder</item>
+        <item quantity="one">%d Mitglied</item>
+    </plurals>
+</resources>

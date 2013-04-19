@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:padding="12.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="?navigationItemHeight"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_gravity="center_vertical" android:id="@*android:id/icon" android:layout_width="24.0dip" android:layout_height="wrap_content" android:layout_marginRight="16.0dip" />
+    <com.galaxy.meetup.client.android.ui.view.AvatarView android:layout_gravity="center_vertical" android:id="@id/avatar" android:layout_width="24.0dip" android:layout_height="24.0dip" android:layout_marginRight="16.0dip" round="true" size="tiny" scale="true" />
+    <TextView android:textSize="14.0sp" android:layout_gravity="center_vertical" android:id="@*android:id/text1" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" />
+</LinearLayout>

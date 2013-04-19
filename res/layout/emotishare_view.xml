@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/emotishare_view" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/missing_image_view" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@drawable/ic_mood" android:scaleType="center" />
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/image_container" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <com.galaxy.meetup.client.android.ui.view.ImageResourceView android:id="@id/image_view" android:layout_width="fill_parent" android:layout_height="0.0dip" android:scaleType="fitCenter" android:layout_weight="1.0" />
+        <TextView android:textAppearance="?android:textAppearanceSmall" android:textSize="18.0sp" android:textColor="@color/compose_add_text" android:ellipsize="end" android:gravity="center_horizontal" android:id="@id/image_label" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="4.0dip" android:singleLine="true" />
+    </LinearLayout>
+    <View android:id="@id/selector_view" android:background="?listSelector" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+</FrameLayout>

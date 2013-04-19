@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="album_photo_count">
+        <item quantity="other">%d ảnh</item>
+        <item quantity="zero">%d ảnh</item>
+        <item quantity="one">%d ảnh</item>
+    </plurals>
+    <plurals name="from_your_phone_selected_count">
+        <item quantity="other">Đã chọn %d</item>
+        <item quantity="one">Đã chọn %d</item>
+    </plurals>
+    <plurals name="delete_photo_dialog_title">
+        <item quantity="other">Xóa các ảnh này?</item>
+        <item quantity="one">Xóa ảnh này?</item>
+    </plurals>
+    <plurals name="delete_remote_photo_dialog_message">
+        <item quantity="other">Bạn có chắc chắn muốn xóa những ảnh này khỏi anbom Google+ này không? Không thể hoàn tác tác vụ này.</item>
+        <item quantity="one">Bạn có chắc chắn muốn xóa ảnh này khỏi anbom Google+ này không? Không thể hoàn tác tác vụ này.</item>
+    </plurals>
+    <plurals name="delete_local_photo_dialog_message">
+        <item quantity="other">Bạn có chắc chắn muốn xóa những ảnh này khỏi thiết bị của mình không? Những ảnh này có thể là bản sao duy nhất và bạn không thể hoàn tác việc xóa ảnh.</item>
+        <item quantity="one">Bạn có chắc chắn muốn xóa ảnh này khỏi thiết bị của mình không? Ảnh này có thể là bản sao duy nhất và bạn không thể hoàn tác việc xóa ảnh.</item>
+    </plurals>
+    <plurals name="delete_photo_pending">
+        <item quantity="other">Đang xóa ảnh…</item>
+        <item quantity="one">Đang xóa ảnh…</item>
+    </plurals>
+    <plurals name="notifications_instant_upload_title">
+        <item quantity="other">Các ảnh mới sẵn sàng chia sẻ</item>
+        <item quantity="one">Một ảnh mới sẵn sàng chia sẻ</item>
+    </plurals>
+    <plurals name="notifications_instant_upload_text">
+        <item quantity="other">%d ảnh</item>
+        <item quantity="one">%d ảnh</item>
+    </plurals>
+    <plurals name="notifications_instant_upload_known_faces_text">
+        <item quantity="other">Ảnh mới của %s.</item>
+        <item quantity="one">Ảnh mới của %s.</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_comment">
+        <item quantity="other">%d nhận xét mới</item>
+        <item quantity="one">%d nhận xét mới</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_plus_one">
+        <item quantity="other">%d lượt +1 mới</item>
+        <item quantity="one">%d lượt +1 mới</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_reshare">
+        <item quantity="other">%d lượt chia sẻ lại mới</item>
+        <item quantity="one">%d lượt chia sẻ lại mới</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_mention">
+        <item quantity="other">%d lượt đề cập mới</item>
+        <item quantity="one">%d lượt đề cập mới</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_share">
+        <item quantity="other">%d lượt chia sẻ mới</item>
+        <item quantity="one">%d lượt chia sẻ mới</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_post">
+        <item quantity="other">%d bài đăng mới</item>
+        <item quantity="one">%d bài đăng mới</item>
+    </plurals>
+    <plurals name="notification_square_multi_post_unread">
+        <item quantity="other">Đã chia sẻ %s bài đăng mới</item>
+        <item quantity="one">Đã chia sẻ %s bài đăng mới</item>
+    </plurals>
+    <plurals name="notification_square_multi_post_read">
+        <item quantity="other">Đã chia sẻ các bài đăng mới</item>
+        <item quantity="one">Đã chia sẻ một bài đăng mới</item>
+    </plurals>
+    <plurals name="event_invitee_with_guests">
+        <item quantity="other">%1$s (+%2$d khách)</item>
+        <item quantity="one">%1$s (+%2$d khách)</item>
+    </plurals>
+    <plurals name="event_invitee_other_count">
+        <item quantity="other">+ %d người khác</item>
+        <item quantity="one">+ %d người khác</item>
+    </plurals>
+    <plurals name="event_add_guest_count">
+        <item quantity="other">+ %d khách</item>
+        <item quantity="one">+ %d khách</item>
+    </plurals>
+    <plurals name="sign_out_message">
+        <item quantity="other">%d mục đang chờ để được tải lên. Đăng xuất sẽ hủy tất cả nội dung tải lên đang chờ xử lý.</item>
+        <item quantity="one">%d mục đang chờ để được tải lên. Đăng xuất sẽ hủy nội dung tải lên đang chờ xử lý.</item>
+    </plurals>
+    <plurals name="share_photo_count">
+        <item quantity="other">%d ảnh</item>
+        <item quantity="one">%d ảnh</item>
+    </plurals>
+    <plurals name="plus_one_people_more_plus_ones">
+        <item quantity="other">+%d người khác</item>
+        <item quantity="one">+1 người khác</item>
+    </plurals>
+    <plurals name="plusoned_by_unknowns">
+        <item quantity="other">bởi %d người</item>
+        <item quantity="one">bởi 1 người</item>
+    </plurals>
+    <plurals name="plusoned_by_you_and_unknowns">
+        <item quantity="other">bởi bạn và %d người khác</item>
+        <item quantity="one">bởi bạn và 1 người khác</item>
+    </plurals>
+    <plurals name="plusoned_by_one_known_and_unknowns">
+        <item quantity="other">bởi %1$s và %2$d người khác</item>
+        <item quantity="one">bởi %s và 1 người khác</item>
+    </plurals>
+    <plurals name="plusoned_by_you_and_one_known_and_unknowns">
+        <item quantity="other">bởi bạn, %1$s và %2$d người khác</item>
+        <item quantity="one">bởi bạn, %s và 1 người khác</item>
+    </plurals>
+    <plurals name="plusoned_by_two_known_and_unknowns">
+        <item quantity="other">bởi %1$s, %2$s và %3$d người khác</item>
+        <item quantity="one">bởi %1$s, %2$s và 1 người khác</item>
+    </plurals>
+    <plurals name="plusoned_by_you_and_two_known_and_unknowns">
+        <item quantity="other">bởi bạn, %1$s, %2$s và %3$d người khác</item>
+        <item quantity="one">bởi bạn, %1$s, %2$s và 1 người khác</item>
+    </plurals>
+    <plurals name="comments">
+        <item quantity="other">%d nhận xét</item>
+        <item quantity="one">%d nhận xét</item>
+    </plurals>
+    <plurals name="delete_photo">
+        <item quantity="other">Xóa ảnh</item>
+        <item quantity="one">Xóa ảnh</item>
+    </plurals>
+    <plurals name="circle_entry_content_description">
+        <item quantity="other">%1$s; %2$d thành viên</item>
+        <item quantity="one">%1$s; %2$d thành viên</item>
+    </plurals>
+    <plurals name="notifications_ticker_text">
+        <item quantity="other">Th.báo mới trên Google+</item>
+        <item quantity="one">Th.báo mới trên Google+</item>
+    </plurals>
+    <plurals name="notification_single_post">
+        <item quantity="other">%d hoạt động mới</item>
+        <item quantity="one">%d hoạt động mới</item>
+    </plurals>
+    <plurals name="notifications_content_text">
+        <item quantity="other">%1$s (%2$d)</item>
+        <item quantity="one">%1$s (%2$d)</item>
+    </plurals>
+    <plurals name="audience_display_selection_count">
+        <item quantity="other">Đã chọn %d</item>
+        <item quantity="one">Đã chọn %d</item>
+    </plurals>
+    <plurals name="circle_count_and_matched_email">
+        <item quantity="other">%1$d vòng kết nối, %2$s</item>
+        <item quantity="one">%1$d vòng kết nối, %2$s</item>
+    </plurals>
+    <plurals name="delete_circles_dialog_title">
+        <item quantity="other">Xóa vòng kết nối</item>
+        <item quantity="one">Xóa vòng kết nối</item>
+    </plurals>
+    <plurals name="delete_circles_dialog_message">
+        <item quantity="other">Bạn có muốn xóa vĩnh viễn các vòng kết nối này không?</item>
+        <item quantity="one">Bạn có muốn xóa vĩnh viễn vòng kết nối này không?</item>
+    </plurals>
+    <plurals name="circle_button_more_circles">
+        <item quantity="other">%d vòng kết nối khác</item>
+        <item quantity="one">%d vòng kết nối khác</item>
+    </plurals>
+    <plurals name="num_minutes_ago">
+        <item quantity="other">%d phút</item>
+        <item quantity="one">%d phút</item>
+    </plurals>
+    <plurals name="num_hours_ago">
+        <item quantity="other">%d giờ</item>
+        <item quantity="one">%d giờ</item>
+    </plurals>
+    <plurals name="num_days_ago">
+        <item quantity="other">%d ngày</item>
+        <item quantity="one">%d ngày</item>
+    </plurals>
+    <plurals name="profile_added_by">
+        <item quantity="other">"Được thêm bởi
+%s người"</item>
+        <item quantity="zero">"Được thêm bởi
+%s người"</item>
+        <item quantity="one">"Được thêm bởi
+%s người"</item>
+    </plurals>
+    <plurals name="profile_local_review_count">
+        <item quantity="other">%d bài đánh giá</item>
+        <item quantity="one">%d bài đánh giá</item>
+    </plurals>
+    <plurals name="hangout_plus_others">
+        <item quantity="other">+%d người khác</item>
+        <item quantity="one">+1 người khác</item>
+    </plurals>
+    <plurals name="card_hangout_with_people">
+        <item quantity="other">HANGOUT VỚI %d NGƯỜI</item>
+        <item quantity="one">HANGOUT VỚI 1 NGƯỜI</item>
+    </plurals>
+    <plurals name="stream_one_up_comment_count">
+        <item quantity="other">%d nhận xét</item>
+        <item quantity="one">%d nhận xét</item>
+    </plurals>
+    <plurals name="stream_one_up_stage_hangout_over">
+        <item quantity="other">%d NGƯỜI ĐÃ HANG OUT</item>
+        <item quantity="one">1 NGƯỜI ĐÃ HANG OUT</item>
+    </plurals>
+    <plurals name="plus_one_accessibility_description">
+        <item quantity="other">%d cộng một</item>
+        <item quantity="one">%d cộng một</item>
+    </plurals>
+    <plurals name="accessibility_notification_count_description">
+        <item quantity="other">%d thông báo Google+ mới</item>
+        <item quantity="one">%d thông báo Google+ mới</item>
+    </plurals>
+    <plurals name="audience_hidden_user_count">
+        <item quantity="other">+%d người khác</item>
+        <item quantity="one">+1 người khác</item>
+    </plurals>
+    <plurals name="common_friend_count">
+        <item quantity="other">%d người bạn chung</item>
+        <item quantity="one">Một người bạn chung</item>
+    </plurals>
+    <plurals name="added_to_circle_notification_message">
+        <item quantity="other">Đã thêm %d người vào vòng kết nối</item>
+        <item quantity="one">Đã thêm một người vào vòng kết nối</item>
+    </plurals>
+    <plurals name="square_members_count">
+        <item quantity="other">%d thành viên</item>
+        <item quantity="one">%d thành viên</item>
+    </plurals>
+</resources>

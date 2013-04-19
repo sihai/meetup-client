@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="album_photo_count">
+        <item quantity="other">%d poze</item>
+        <item quantity="zero">%d poze</item>
+        <item quantity="one">%d fotografie</item>
+    </plurals>
+    <plurals name="from_your_phone_selected_count">
+        <item quantity="other">S-au selectat %d</item>
+        <item quantity="one">S-au selectat %d</item>
+    </plurals>
+    <plurals name="delete_photo_dialog_title">
+        <item quantity="other">Ştergi aceste poze?</item>
+        <item quantity="one">Ştergi poza?</item>
+    </plurals>
+    <plurals name="delete_remote_photo_dialog_message">
+        <item quantity="other">Sigur doreşti să ştergi aceste fotografi din albumul Google+? Această acţiune nu poate fi anulată.</item>
+        <item quantity="one">Sigur doreşti să ştergi fotografia din acest album Google+? Această acţiune nu poate fi anulată.</item>
+    </plurals>
+    <plurals name="delete_local_photo_dialog_message">
+        <item quantity="other">Sigur doreşti să ştergi fotografiile de pe dispozitiv? E posibil să fie singurele exemplare, iar ştergerea lor nu poate fi anulată.</item>
+        <item quantity="one">Sigur doreşti să ştergi fotografia de pe dispozitiv? E posibil să fie singurul tău exemplar, iar ştergerea sa nu poate fi anulată.</item>
+    </plurals>
+    <plurals name="delete_photo_pending">
+        <item quantity="other">Se şterg fotografiile...</item>
+        <item quantity="one">Se şterge poza...</item>
+    </plurals>
+    <plurals name="notifications_instant_upload_title">
+        <item quantity="other">Fotografii noi gata de afișare</item>
+        <item quantity="one">Fotografie nouă gata de afișare</item>
+    </plurals>
+    <plurals name="notifications_instant_upload_text">
+        <item quantity="other">%d (de) fotografii</item>
+        <item quantity="one">%d fotografie</item>
+    </plurals>
+    <plurals name="notifications_instant_upload_known_faces_text">
+        <item quantity="other">Fotografii noi cu %s.</item>
+        <item quantity="one">Fotografie nouă cu %s.</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_comment">
+        <item quantity="other">%d (de) comentarii noi</item>
+        <item quantity="one">%d comentariu nou</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_plus_one">
+        <item quantity="other">%d (de) +1ri noi</item>
+        <item quantity="one">%d +1 nou</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_reshare">
+        <item quantity="other">%d (de) redistribuiri noi</item>
+        <item quantity="one">%d redistribuire nouă</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_mention">
+        <item quantity="other">%d (de) mențiuni noi</item>
+        <item quantity="one">%d mențiune nouă</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_share">
+        <item quantity="other">%d (de) postări noi</item>
+        <item quantity="one">%d postare nouă</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_post">
+        <item quantity="other">%d (de) postări noi</item>
+        <item quantity="one">%d postare nouă</item>
+    </plurals>
+    <plurals name="notification_square_multi_post_unread">
+        <item quantity="other">%s (de) postări noi trimise</item>
+        <item quantity="one">%s postare nouă trimisă</item>
+    </plurals>
+    <plurals name="notification_square_multi_post_read">
+        <item quantity="other">Au fost trimise postări noi</item>
+        <item quantity="one">A fost trimisă o postare nouă</item>
+    </plurals>
+    <plurals name="event_invitee_with_guests">
+        <item quantity="other">%1$s (+%2$d (de) invitați)</item>
+        <item quantity="one">%1$s (+%2$d invitat)</item>
+    </plurals>
+    <plurals name="event_invitee_other_count">
+        <item quantity="other">încă %d</item>
+        <item quantity="one">încă %d</item>
+    </plurals>
+    <plurals name="event_add_guest_count">
+        <item quantity="other">încă %d (de) invitaţi</item>
+        <item quantity="one">încă %d invitat</item>
+    </plurals>
+    <plurals name="sign_out_message">
+        <item quantity="other">%d (de) elemente în curs de încărcare. Dacă te deconectezi, se anulează toate încărcările în aşteptare.</item>
+        <item quantity="one">%d element în curs de încărcare. Dacă te deconectezi, se va anula încărcarea în aşteptare.</item>
+    </plurals>
+    <plurals name="share_photo_count">
+        <item quantity="other">%d (de) poze</item>
+        <item quantity="one">%d poză</item>
+    </plurals>
+    <plurals name="plus_one_people_more_plus_ones">
+        <item quantity="other">Încă %d</item>
+        <item quantity="one">Încă o persoană</item>
+    </plurals>
+    <plurals name="plusoned_by_unknowns">
+        <item quantity="other">%d</item>
+        <item quantity="one">de la o persoană</item>
+    </plurals>
+    <plurals name="plusoned_by_you_and_unknowns">
+        <item quantity="other">%d</item>
+        <item quantity="one">de la tine şi încă cineva</item>
+    </plurals>
+    <plurals name="plusoned_by_one_known_and_unknowns">
+        <item quantity="other">de la %1$s şi încă %2$d</item>
+        <item quantity="one">%s</item>
+    </plurals>
+    <plurals name="plusoned_by_you_and_one_known_and_unknowns">
+        <item quantity="other">%1$s%2$d</item>
+        <item quantity="one">%s</item>
+    </plurals>
+    <plurals name="plusoned_by_two_known_and_unknowns">
+        <item quantity="other">%1$s%2$s%3$d</item>
+        <item quantity="one">%1$s%2$s</item>
+    </plurals>
+    <plurals name="plusoned_by_you_and_two_known_and_unknowns">
+        <item quantity="other">%1$s%2$s%3$d</item>
+        <item quantity="one">%1$s%2$s</item>
+    </plurals>
+    <plurals name="comments">
+        <item quantity="other">%d coment.</item>
+        <item quantity="one">%d comentariu</item>
+    </plurals>
+    <plurals name="delete_photo">
+        <item quantity="other">Şterge fotografii</item>
+        <item quantity="one">Şterge fotografia</item>
+    </plurals>
+    <plurals name="circle_entry_content_description">
+        <item quantity="other">%1$s; %2$d membri</item>
+        <item quantity="one">%1$s; %2$d membru</item>
+    </plurals>
+    <plurals name="notifications_ticker_text">
+        <item quantity="other">Notificări noi Google+</item>
+        <item quantity="one">Notificare nouă Google+</item>
+    </plurals>
+    <plurals name="notification_single_post">
+        <item quantity="other">%d (de) activități noi</item>
+        <item quantity="one">%d activitate nouă</item>
+    </plurals>
+    <plurals name="notifications_content_text">
+        <item quantity="other">%1$s (%2$d)</item>
+        <item quantity="one">%1$s (%2$d)</item>
+    </plurals>
+    <plurals name="audience_display_selection_count">
+        <item quantity="other">%d selectată</item>
+        <item quantity="one">%d selectată</item>
+    </plurals>
+    <plurals name="circle_count_and_matched_email">
+        <item quantity="other">%1$d cercuri, %2$s</item>
+        <item quantity="one">Cercul %1$d, %2$s</item>
+    </plurals>
+    <plurals name="delete_circles_dialog_title">
+        <item quantity="other">Şterge cercurile</item>
+        <item quantity="one">Şterge cercul</item>
+    </plurals>
+    <plurals name="delete_circles_dialog_message">
+        <item quantity="other">Doreşti să ştergi definitiv aceste cercuri?</item>
+        <item quantity="one">Doreşti să ştergi definitiv acest cerc?</item>
+    </plurals>
+    <plurals name="circle_button_more_circles">
+        <item quantity="other">încă %d</item>
+        <item quantity="one">încă %d</item>
+    </plurals>
+    <plurals name="num_minutes_ago">
+        <item quantity="other">%d min</item>
+        <item quantity="one">%d min</item>
+    </plurals>
+    <plurals name="num_hours_ago">
+        <item quantity="other">%d ore</item>
+        <item quantity="one">%d oră</item>
+    </plurals>
+    <plurals name="num_days_ago">
+        <item quantity="other">%d zile</item>
+        <item quantity="one">%d zi</item>
+    </plurals>
+    <plurals name="profile_added_by">
+        <item quantity="other">"Adăugat(ă) de
+%s (de) persoane"</item>
+        <item quantity="zero">"Adăugat(ă) de
+%s persoane"</item>
+        <item quantity="one">"Adăugat(ă) de
+%s persoană"</item>
+    </plurals>
+    <plurals name="profile_local_review_count">
+        <item quantity="other">%d (de) recenzii</item>
+        <item quantity="one">%d recenzie</item>
+    </plurals>
+    <plurals name="hangout_plus_others">
+        <item quantity="other">Încă %d</item>
+        <item quantity="one">Încă o persoană</item>
+    </plurals>
+    <plurals name="card_hangout_with_people">
+        <item quantity="other">PARTICIPĂ LA HANGOUT CU %d (DE) PERSOANE</item>
+        <item quantity="one">PARTICIPĂ LA HANGOUT CU O PERSOANĂ</item>
+    </plurals>
+    <plurals name="stream_one_up_comment_count">
+        <item quantity="other">%d (de) comentarii</item>
+        <item quantity="one">%d comentariu</item>
+    </plurals>
+    <plurals name="stream_one_up_stage_hangout_over">
+        <item quantity="other">%d (DE) PERSOANE AU PARTICIPAT LA HANGOUT</item>
+        <item quantity="one">O PERSOANĂ A PARTICIPAT LA HANGOUT</item>
+    </plurals>
+    <plurals name="plus_one_accessibility_description">
+        <item quantity="other">%d (de) +1uri</item>
+        <item quantity="one">%d +1</item>
+    </plurals>
+    <plurals name="accessibility_notification_count_description">
+        <item quantity="other">%d (de) notificări noi Google+</item>
+        <item quantity="one">%d notificare nouă Google+</item>
+    </plurals>
+    <plurals name="audience_hidden_user_count">
+        <item quantity="other">Încă %d</item>
+        <item quantity="one">Încă o persoană</item>
+    </plurals>
+    <plurals name="common_friend_count">
+        <item quantity="other">%d (de) persoane în comun</item>
+        <item quantity="one">O persoană în comun</item>
+    </plurals>
+    <plurals name="added_to_circle_notification_message">
+        <item quantity="other">Au fost adăugate %d (de) persoane în cercuri</item>
+        <item quantity="one">A fost adăugată o persoană în cercuri</item>
+    </plurals>
+    <plurals name="square_members_count">
+        <item quantity="other">%d (de) membri</item>
+        <item quantity="one">%d membru</item>
+    </plurals>
+</resources>

@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="album_photo_count">
+        <item quantity="other">Fotky: %d</item>
+        <item quantity="zero">Fotky: %d</item>
+        <item quantity="one">%d fotka</item>
+    </plurals>
+    <plurals name="from_your_phone_selected_count">
+        <item quantity="other">Vybráno: %d</item>
+        <item quantity="one">Vybráno: %d</item>
+    </plurals>
+    <plurals name="delete_photo_dialog_title">
+        <item quantity="other">Chcete smazat tyto fotky?</item>
+        <item quantity="one">Chcete smazat tuto fotku?</item>
+    </plurals>
+    <plurals name="delete_remote_photo_dialog_message">
+        <item quantity="other">Opravdu chcete smazat tyto fotky z tohoto alba Google+? Tuto akci nelze vrátit zpět.</item>
+        <item quantity="one">Opravdu chcete smazat tuto fotku z tohoto alba Google+? Tuto akci nelze vrátit zpět.</item>
+    </plurals>
+    <plurals name="delete_local_photo_dialog_message">
+        <item quantity="other">Opravdu chcete tyto fotky smazat ze svého zařízení? Mohou to být vaše jediné kopie a smazání nelze vrátit zpět.</item>
+        <item quantity="one">Opravdu chcete tuto fotku smazat ze svého zařízení? Můžete to být vaše jediná kopie a smazání nelze vrátit zpět.</item>
+    </plurals>
+    <plurals name="delete_photo_pending">
+        <item quantity="other">Mazání fotek...</item>
+        <item quantity="one">Mazání fotky...</item>
+    </plurals>
+    <plurals name="notifications_instant_upload_title">
+        <item quantity="other">Můžete sdílet nové fotky</item>
+        <item quantity="one">Můžete sdílet nové fotky</item>
+    </plurals>
+    <plurals name="notifications_instant_upload_text">
+        <item quantity="other">Fotky: %d</item>
+        <item quantity="one">%d fotka</item>
+    </plurals>
+    <plurals name="notifications_instant_upload_known_faces_text">
+        <item quantity="other">Nové fotky, kde jsou %s.</item>
+        <item quantity="one">Nová fotka, kde jsou %s.</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_comment">
+        <item quantity="other">Nové komentáře (%d)</item>
+        <item quantity="one">%d nový komentář</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_plus_one">
+        <item quantity="other">Nová hodnocení +1 (%d)</item>
+        <item quantity="one">%d nové hodnocení +1</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_reshare">
+        <item quantity="other">Nově sdíleno dál (%d×)</item>
+        <item quantity="one">%d× nově sdíleno dál</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_mention">
+        <item quantity="other">Nové zmínky (%d)</item>
+        <item quantity="one">%d nová zmínka</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_share">
+        <item quantity="other">Nová sdílení (%d)</item>
+        <item quantity="one">%d nové sdílení</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_post">
+        <item quantity="other">Nové příspěvky (%d)</item>
+        <item quantity="one">%d nový příspěvek</item>
+    </plurals>
+    <plurals name="notification_square_multi_post_unread">
+        <item quantity="other">Nově sdílené příspěvky: %s</item>
+        <item quantity="one">%s nově sdílený příspěvek</item>
+    </plurals>
+    <plurals name="notification_square_multi_post_read">
+        <item quantity="other">Nově sdílené příspěvky</item>
+        <item quantity="one">Nově sdílený příspěvek</item>
+    </plurals>
+    <plurals name="event_invitee_with_guests">
+        <item quantity="other">%1$s (+hosté – celkem %2$d)</item>
+        <item quantity="one">%1$s (+%2$d host)</item>
+    </plurals>
+    <plurals name="event_invitee_other_count">
+        <item quantity="other">+ ještě %d</item>
+        <item quantity="one">+ ještě %d</item>
+    </plurals>
+    <plurals name="event_add_guest_count">
+        <item quantity="other">+ hosté (%d)</item>
+        <item quantity="one">+ %d host</item>
+    </plurals>
+    <plurals name="sign_out_message">
+        <item quantity="other">Položky čekající na nahrání: %d. Odhlásíte-li se, budou všechna čekající nahrávání zrušena.</item>
+        <item quantity="one">%d položka čeká na nahrání. Odhlásíte-li se, bude čekající nahrávání zrušeno.</item>
+    </plurals>
+    <plurals name="share_photo_count">
+        <item quantity="other">Počet fotek: %d</item>
+        <item quantity="one">%d fotka</item>
+    </plurals>
+    <plurals name="plus_one_people_more_plus_ones">
+        <item quantity="other">+ ještě %d</item>
+        <item quantity="one">+ ještě 1</item>
+    </plurals>
+    <plurals name="plusoned_by_unknowns">
+        <item quantity="other">od %d lidí</item>
+        <item quantity="one">od 1 uživatele</item>
+    </plurals>
+    <plurals name="plusoned_by_you_and_unknowns">
+        <item quantity="other">od vás a ještě %d</item>
+        <item quantity="one">od vás a 1 dalšího uživatele</item>
+    </plurals>
+    <plurals name="plusoned_by_one_known_and_unknowns">
+        <item quantity="other">od uživatele %1$s a %2$d dalších</item>
+        <item quantity="one">od uživatele %s a 1 dalšího</item>
+    </plurals>
+    <plurals name="plusoned_by_you_and_one_known_and_unknowns">
+        <item quantity="other">od vás, uživatele %1$s a %2$d dalších</item>
+        <item quantity="one">od vás, uživatele %s a 1 dalšího</item>
+    </plurals>
+    <plurals name="plusoned_by_two_known_and_unknowns">
+        <item quantity="other">od uživatelů %1$s, %2$s a %3$d dalších</item>
+        <item quantity="one">od uživatelů %1$s, %2$s a 1 dalšího</item>
+    </plurals>
+    <plurals name="plusoned_by_you_and_two_known_and_unknowns">
+        <item quantity="other">od vás, uživatelů %1$s, %2$s a ještě %3$d</item>
+        <item quantity="one">od vás, uživatelů %1$s, %2$s a 1 dalšího</item>
+    </plurals>
+    <plurals name="comments">
+        <item quantity="other">Komentáře: %d</item>
+        <item quantity="one">%d komentář</item>
+    </plurals>
+    <plurals name="delete_photo">
+        <item quantity="other">Smazat fotky</item>
+        <item quantity="one">Smazat fotku</item>
+    </plurals>
+    <plurals name="circle_entry_content_description">
+        <item quantity="other">%1$s; členové: %2$d</item>
+        <item quantity="one">%1$s; %2$d člen</item>
+    </plurals>
+    <plurals name="notifications_ticker_text">
+        <item quantity="other">Nová oznámení Google+</item>
+        <item quantity="one">Nové oznámení Google+</item>
+    </plurals>
+    <plurals name="notification_single_post">
+        <item quantity="other">Nové aktivity (%d)</item>
+        <item quantity="one">%d nová aktivita</item>
+    </plurals>
+    <plurals name="notifications_content_text">
+        <item quantity="other">%1$s (%2$d)</item>
+        <item quantity="one">%1$s (%2$d)</item>
+    </plurals>
+    <plurals name="audience_display_selection_count">
+        <item quantity="other">Vybráno: %d</item>
+        <item quantity="one">Vybráno: %d</item>
+    </plurals>
+    <plurals name="circle_count_and_matched_email">
+        <item quantity="other">Kruhy (%1$d), %2$s</item>
+        <item quantity="one">%1$d kruh, %2$s</item>
+    </plurals>
+    <plurals name="delete_circles_dialog_title">
+        <item quantity="other">Smazat kruhy</item>
+        <item quantity="one">Smazat kruh</item>
+    </plurals>
+    <plurals name="delete_circles_dialog_message">
+        <item quantity="other">Chcete tyto kruhy trvale smazat?</item>
+        <item quantity="one">Chcete tento kruh trvale smazat?</item>
+    </plurals>
+    <plurals name="circle_button_more_circles">
+        <item quantity="other">a další (%d)</item>
+        <item quantity="one">a další (%d)</item>
+    </plurals>
+    <plurals name="num_minutes_ago">
+        <item quantity="other">%d min</item>
+        <item quantity="one">%d min</item>
+    </plurals>
+    <plurals name="num_hours_ago">
+        <item quantity="other">%d h</item>
+        <item quantity="one">%d h</item>
+    </plurals>
+    <plurals name="num_days_ago">
+        <item quantity="other">%d d</item>
+        <item quantity="one">%d den</item>
+    </plurals>
+    <plurals name="profile_added_by">
+        <item quantity="other">"Přidán(a)
+%s lidmi"</item>
+        <item quantity="zero">"Přidán(a)
+%s lidmi"</item>
+        <item quantity="one">"Přidán(a)
+%s člověkem"</item>
+    </plurals>
+    <plurals name="profile_local_review_count">
+        <item quantity="other">Recenze: %d</item>
+        <item quantity="one">%d recenze</item>
+    </plurals>
+    <plurals name="hangout_plus_others">
+        <item quantity="other">+ ještě %d</item>
+        <item quantity="one">+ ještě 1</item>
+    </plurals>
+    <plurals name="card_hangout_with_people">
+        <item quantity="other">HANGOUT S %d LIDMI</item>
+        <item quantity="one">HANGOUT S 1 OSOBOU</item>
+    </plurals>
+    <plurals name="stream_one_up_comment_count">
+        <item quantity="other">Komentáře: %d</item>
+        <item quantity="one">%d komentář</item>
+    </plurals>
+    <plurals name="stream_one_up_stage_hangout_over">
+        <item quantity="other">NA HANGOUTU BYL TENTO POČET LIDÍ: %d</item>
+        <item quantity="one">NA HANGOUTU BYL 1 ČLOVĚK</item>
+    </plurals>
+    <plurals name="plus_one_accessibility_description">
+        <item quantity="other">%d hodnocení plus jeden</item>
+        <item quantity="one">%d hodnocení plus jeden</item>
+    </plurals>
+    <plurals name="accessibility_notification_count_description">
+        <item quantity="other">Nová oznámení Google+ (%d)</item>
+        <item quantity="one">Nová oznámení Google+ (%d)</item>
+    </plurals>
+    <plurals name="audience_hidden_user_count">
+        <item quantity="other">+ ještě %d</item>
+        <item quantity="one">+ ještě 1</item>
+    </plurals>
+    <plurals name="common_friend_count">
+        <item quantity="other">Společní známí: %d</item>
+        <item quantity="one">Jeden společný známý</item>
+    </plurals>
+    <plurals name="added_to_circle_notification_message">
+        <item quantity="other">Do kruhů byl přidán následující počet lidí: %d</item>
+        <item quantity="one">Do kruhů byl přidán jeden člověk.</item>
+    </plurals>
+    <plurals name="square_members_count">
+        <item quantity="other">Počet členů: %d</item>
+        <item quantity="one">%d člen</item>
+    </plurals>
+</resources>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:icon="@drawable/hangout_ic_menu_exit" android:id="@id/hangout_exit_menu_item" android:visible="true" android:title="@string/hangout_common_menu_exit" android:showAsAction="always" />
+</menu>

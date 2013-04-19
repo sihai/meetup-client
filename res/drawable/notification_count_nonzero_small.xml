@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/notification_bar_more_than_zero_messages" />
+            <corners android:radius="3.0dip" />
+            <padding android:left="6.0dip" android:right="6.0dip" />
+        </shape>
+    </item>
+</layer-list>

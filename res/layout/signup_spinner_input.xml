@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<view class="com.galaxy.meetup.client.oob.DropDownFieldLayout" style="@style/Signup.Entry.Layout"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:id="@id/label" style="@style/Signup.Entry.Label" />
+    <Spinner android:id="@id/input" style="@style/Signup.Entry.Input" />
+</view>

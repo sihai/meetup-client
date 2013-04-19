@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="album_photo_count">
+        <item quantity="other">%d 張相片</item>
+        <item quantity="zero">%d 張相片</item>
+        <item quantity="one">%d 張相片</item>
+    </plurals>
+    <plurals name="from_your_phone_selected_count">
+        <item quantity="other">已選取 %d 張</item>
+        <item quantity="one">已選取 %d 張</item>
+    </plurals>
+    <plurals name="delete_photo_dialog_title">
+        <item quantity="other">要刪除這些相片嗎？</item>
+        <item quantity="one">要刪除這張相片嗎？</item>
+    </plurals>
+    <plurals name="delete_remote_photo_dialog_message">
+        <item quantity="other">確定要將這些相片從這本 Google+ 相簿中刪除嗎？刪除後無法還原。</item>
+        <item quantity="one">確定要將這張相片從這本 Google+ 相簿中刪除嗎？刪除後無法還原。</item>
+    </plurals>
+    <plurals name="delete_local_photo_dialog_message">
+        <item quantity="other">確定要將這些相片從裝置中刪除嗎？你可能沒有這些相的備份檔案，刪除後將無法還原。</item>
+        <item quantity="one">確定要將這張相片從裝置中刪除嗎？你可能沒有這張相的備份檔案，刪除後將無法還原。</item>
+    </plurals>
+    <plurals name="delete_photo_pending">
+        <item quantity="other">正在刪除相片…</item>
+        <item quantity="one">正在刪除相片…</item>
+    </plurals>
+    <plurals name="notifications_instant_upload_title">
+        <item quantity="other">有新相片可供分享</item>
+        <item quantity="one">有新相片可供分享</item>
+    </plurals>
+    <plurals name="notifications_instant_upload_text">
+        <item quantity="other">%d 張相片</item>
+        <item quantity="one">%d 張相片</item>
+    </plurals>
+    <plurals name="notifications_instant_upload_known_faces_text">
+        <item quantity="other">有%s出現的新相片。</item>
+        <item quantity="one">有%s出現的新相片。</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_comment">
+        <item quantity="other">%d 則新留言</item>
+        <item quantity="one">%d 則新留言</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_plus_one">
+        <item quantity="other">%d 個新的 +1</item>
+        <item quantity="one">%d 個新的 +1</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_reshare">
+        <item quantity="other">又轉貼了 %d 次</item>
+        <item quantity="one">又轉貼了 %d 次</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_mention">
+        <item quantity="other">又提及了 %d 次</item>
+        <item quantity="one">又提及了 %d 次</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_share">
+        <item quantity="other">又分享了 %d 次</item>
+        <item quantity="one">又分享了 %d 次</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_post">
+        <item quantity="other">%d 則新訊息</item>
+        <item quantity="one">%d 則新訊息</item>
+    </plurals>
+    <plurals name="notification_square_multi_post_unread">
+        <item quantity="other">有 %s 則新的分享訊息</item>
+        <item quantity="one">有 %s 則新的分享訊息</item>
+    </plurals>
+    <plurals name="notification_square_multi_post_read">
+        <item quantity="other">新的分享訊息</item>
+        <item quantity="one">新的分享訊息</item>
+    </plurals>
+    <plurals name="event_invitee_with_guests">
+        <item quantity="other">%1$s (攜 %2$d 人參加)</item>
+        <item quantity="one">%1$s (攜 %2$d 人參加)</item>
+    </plurals>
+    <plurals name="event_invitee_other_count">
+        <item quantity="other">和另外 %d 人</item>
+        <item quantity="one">和另外 %d 人</item>
+    </plurals>
+    <plurals name="event_add_guest_count">
+        <item quantity="other">攜 %d 人參加</item>
+        <item quantity="one">攜 %d 人參加</item>
+    </plurals>
+    <plurals name="sign_out_message">
+        <item quantity="other">%d 個項目正在等待上傳。如果現在登出，剩餘項目將取消上傳。</item>
+        <item quantity="one">%d 個項目正在等待上傳。如果現在登出，剩餘項目將取消上傳。</item>
+    </plurals>
+    <plurals name="share_photo_count">
+        <item quantity="other">%d 張相片</item>
+        <item quantity="one">%d 張相片</item>
+    </plurals>
+    <plurals name="plus_one_people_more_plus_ones">
+        <item quantity="other">和另外 %d 人</item>
+        <item quantity="one">和另外 1 人</item>
+    </plurals>
+    <plurals name="plusoned_by_unknowns">
+        <item quantity="other">來自 %d 位使用者</item>
+        <item quantity="one">來自 1 位使用者</item>
+    </plurals>
+    <plurals name="plusoned_by_you_and_unknowns">
+        <item quantity="other">來自你及另外 %d 位使用者</item>
+        <item quantity="one">來自你和另外 1 位使用者</item>
+    </plurals>
+    <plurals name="plusoned_by_one_known_and_unknowns">
+        <item quantity="other">來自%1$s及另外 %2$d 位使用者</item>
+        <item quantity="one">來自%s及另外 1 位使用者</item>
+    </plurals>
+    <plurals name="plusoned_by_you_and_one_known_and_unknowns">
+        <item quantity="other">來自你、%1$s以及另外 %2$d 位使用者</item>
+        <item quantity="one">來自你、%s及另外 1 位使用者</item>
+    </plurals>
+    <plurals name="plusoned_by_two_known_and_unknowns">
+        <item quantity="other">來自%1$s、%2$s以及另外 %3$d 位使用者</item>
+        <item quantity="one">來自%1$s、%2$s及另外 1 位使用者</item>
+    </plurals>
+    <plurals name="plusoned_by_you_and_two_known_and_unknowns">
+        <item quantity="other">來自你、%1$s、%2$s及另外 %3$d 位使用者</item>
+        <item quantity="one">來自你、%1$s、%2$s及另外 1 位使用者</item>
+    </plurals>
+    <plurals name="comments">
+        <item quantity="other">%d 則留言</item>
+        <item quantity="one">%d 則留言</item>
+    </plurals>
+    <plurals name="delete_photo">
+        <item quantity="other">刪除相片</item>
+        <item quantity="one">刪除相片</item>
+    </plurals>
+    <plurals name="circle_entry_content_description">
+        <item quantity="other">%1$s；%2$d 位成員</item>
+        <item quantity="one">%1$s；%2$d 位成員</item>
+    </plurals>
+    <plurals name="notifications_ticker_text">
+        <item quantity="other">新的 Google+ 通知</item>
+        <item quantity="one">新的 Google+ 通知</item>
+    </plurals>
+    <plurals name="notification_single_post">
+        <item quantity="other">%d 個新動態</item>
+        <item quantity="one">%d 個新動態</item>
+    </plurals>
+    <plurals name="notifications_content_text">
+        <item quantity="other">%1$s (%2$d)</item>
+        <item quantity="one">%1$s (%2$d)</item>
+    </plurals>
+    <plurals name="audience_display_selection_count">
+        <item quantity="other">已選取 %d 個</item>
+        <item quantity="one">已選取 %d 個</item>
+    </plurals>
+    <plurals name="circle_count_and_matched_email">
+        <item quantity="other">%1$d 個社交圈，%2$s</item>
+        <item quantity="one">%1$d 個社交圈，%2$s</item>
+    </plurals>
+    <plurals name="delete_circles_dialog_title">
+        <item quantity="other">刪除社交圈</item>
+        <item quantity="one">刪除社交圈</item>
+    </plurals>
+    <plurals name="delete_circles_dialog_message">
+        <item quantity="other">你要永久刪除這些社交圈嗎？</item>
+        <item quantity="one">你要永久刪除這個社交圈嗎？</item>
+    </plurals>
+    <plurals name="circle_button_more_circles">
+        <item quantity="other">還有 %d 個</item>
+        <item quantity="one">還有 %d 個</item>
+    </plurals>
+    <plurals name="num_minutes_ago">
+        <item quantity="other">%d 分鐘</item>
+        <item quantity="one">%d 分鐘</item>
+    </plurals>
+    <plurals name="num_hours_ago">
+        <item quantity="other">%d 小時</item>
+        <item quantity="one">%d 小時</item>
+    </plurals>
+    <plurals name="num_days_ago">
+        <item quantity="other">%d 天</item>
+        <item quantity="one">%d 天</item>
+    </plurals>
+    <plurals name="profile_added_by">
+        <item quantity="other">"%s 人
+將這個人加入社交圈"</item>
+        <item quantity="zero">"%s 人
+將這個人加入社交圈"</item>
+        <item quantity="one">"%s 人
+將這個人加入社交圈"</item>
+    </plurals>
+    <plurals name="profile_local_review_count">
+        <item quantity="other">%d 則評論</item>
+        <item quantity="one">%d 則評論</item>
+    </plurals>
+    <plurals name="hangout_plus_others">
+        <item quantity="other">和另外 %d 人</item>
+        <item quantity="one">和另外 1 人</item>
+    </plurals>
+    <plurals name="card_hangout_with_people">
+        <item quantity="other">與 %d 人進行視訊聚會</item>
+        <item quantity="one">與 1 人進行視訊聚會</item>
+    </plurals>
+    <plurals name="stream_one_up_comment_count">
+        <item quantity="other">%d 則留言</item>
+        <item quantity="one">%d 則留言</item>
+    </plurals>
+    <plurals name="stream_one_up_stage_hangout_over">
+        <item quantity="other">%d 人參加了視訊聚會</item>
+        <item quantity="one">1 人參加了視訊聚會</item>
+    </plurals>
+    <plurals name="plus_one_accessibility_description">
+        <item quantity="other">%d 個加一</item>
+        <item quantity="one">%d 個加一</item>
+    </plurals>
+    <plurals name="accessibility_notification_count_description">
+        <item quantity="other">%d 則新的 Google+ 通知</item>
+        <item quantity="one">%d 則新的 Google+ 通知</item>
+    </plurals>
+    <plurals name="audience_hidden_user_count">
+        <item quantity="other">和另外 %d 人</item>
+        <item quantity="one">和另外 1 人</item>
+    </plurals>
+    <plurals name="common_friend_count">
+        <item quantity="other">%d 位共同的社交圈成員</item>
+        <item quantity="one">1 個共同在追蹤的人</item>
+    </plurals>
+    <plurals name="added_to_circle_notification_message">
+        <item quantity="other">已將 %d 人加到社交圈</item>
+        <item quantity="one">已將 1 人加到社交圈</item>
+    </plurals>
+    <plurals name="square_members_count">
+        <item quantity="other">%d 位成員</item>
+        <item quantity="one">%d 位成員</item>
+    </plurals>
+</resources>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:padding="@dimen/oob_items_padding" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TableLayout android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="40.0dip" android:layout_marginBottom="40.0dip">
+        <TableRow>
+            <ImageView android:id="@id/contacts" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="10.0dip" android:src="@drawable/oob_contact_sync_icon_contacts" />
+            <ImageView android:layout_gravity="center_vertical" android:id="@id/arrow_contacts_stats_sync" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="30.0dip" android:layout_marginRight="30.0dip" android:src="@drawable/oob_contact_sync_icon_arrow" />
+            <ImageView android:id="@id/circles" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="10.0dip" android:src="@drawable/home_screen_people_icon_default" />
+        </TableRow>
+        <TableRow>
+            <TextView android:textColor="#ff999999" android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/oob_contact_sync_contacts" />
+            <View android:layout_width="0.0dip" android:layout_height="0.0dip" />
+            <TextView android:textColor="#ff999999" android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/oob_contact_sync_circles" />
+        </TableRow>
+    </TableLayout>
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <CheckBox android:layout_gravity="top" android:id="@id/contacts_stats_sync_checkbox" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@style/Signup.Entry.Checkbox.Title" />
+        <TextView android:id="@id/contacts_stats_sync_checkbox_title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/contacts_stats_sync_preference_enabled_phone_summary" android:layout_toRightOf="@id/contacts_stats_sync_checkbox" style="@style/Signup.Entry.Checkbox.Title" />
+        <TextView android:id="@id/contacts_stats_sync_checkbox_link" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/contacts_stats_sync_preference_enabled_learn_more" android:layout_below="@id/contacts_stats_sync_checkbox_title" android:layout_alignLeft="@id/contacts_stats_sync_checkbox_title" style="@style/Signup.Entry.Checkbox.Title" />
+    </RelativeLayout>
+</LinearLayout>

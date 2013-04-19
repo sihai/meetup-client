@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include layout="@layout/title_layout_light" />
+    <ImageView android:layout_width="fill_parent" android:layout_height="wrap_content" android:src="@drawable/colored_horz_line" android:scaleType="fitXY" />
+    <RelativeLayout android:id="@id/signup_title" style="@style/Signup.Info">
+        <TextView android:id="@id/info_title" android:layout_alignParentLeft="true" android:layout_alignParentTop="true" style="@style/Signup.Info.Title" />
+        <TextView android:id="@id/info_desc" android:layout_below="@id/info_title" android:layout_alignParentLeft="true" style="@style/Signup.Info.Desc" />
+    </RelativeLayout>
+    <fragment android:id="@id/accounts_list_fragment" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="1.0" class="com.galaxy.meetup.client.android.ui.fragments.AccountsListFragment" />
+</LinearLayout>

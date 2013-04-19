@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/root_layout" android:background="@drawable/ab_solid_light_holo" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include layout="@layout/title_layout" />
+    <FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="1.0">
+        <fragment android:id="@id/audience_fragment" android:layout_width="fill_parent" android:layout_height="fill_parent" class="com.galaxy.meetup.client.android.ui.fragments.AudienceFragment" />
+    </FrameLayout>
+    <fragment android:id="@id/compose_message_fragment" android:layout_width="fill_parent" android:layout_height="wrap_content" class="com.galaxy.meetup.client.android.ui.fragments.ComposeMessageFragment" />
+</LinearLayout>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <CheckBoxPreference android:layout="@layout/label_preference" android:title="@string/realtimechat_settings_notify_title" android:key="@string/realtimechat_notify_setting_key" android:defaultValue="@bool/realtimechat_notify_setting_default_value" />
+    <RingtonePreference android:layout="@layout/label_preference" android:title="@string/realtimechat_settings_ringtone_title" android:key="@string/realtimechat_ringtone_setting_key" android:dependency="@string/realtimechat_notify_setting_key" android:defaultValue="@string/notifications_preference_ringtone_default_value" android:ringtoneType="notification" />
+    <CheckBoxPreference android:layout="@layout/label_preference" android:title="@string/realtimechat_settings_vibrate_title" android:key="@string/realtimechat_vibrate_setting_key" android:dependency="@string/realtimechat_notify_setting_key" android:defaultValue="@bool/notifications_preference_vibrate_default_value" />
+    <ListPreference android:entries="@array/realtimechat_acl_options_labels" android:layout="@layout/label_preference" android:title="@string/realtimechat_acl_settings_title" android:key="@string/realtimechat_acl_key" android:defaultValue="@string/realtimechat_default_acl_key" android:entryValues="@array/realtimechat_acl_options_keys" />
+</PreferenceScreen>

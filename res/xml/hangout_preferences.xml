@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <CheckBoxPreference android:layout="@layout/label_preference" android:title="@string/hangout_settings_notify_title" android:key="@string/hangout_notify_setting_key" android:defaultValue="@bool/hangout_notify_setting_default_value" />
+    <RingtonePreference android:layout="@layout/label_preference" android:title="@string/hangout_settings_ringtone_title" android:key="@string/hangout_ringtone_setting_key" android:dependency="@string/hangout_notify_setting_key" android:defaultValue="@string/hangout_ringtone_setting_default_value" android:ringtoneType="ringtone" />
+    <CheckBoxPreference android:layout="@layout/label_preference" android:title="@string/hangout_settings_vibrate_title" android:key="@string/hangout_vibrate_setting_key" android:dependency="@string/hangout_notify_setting_key" android:defaultValue="@bool/hangout_vibrate_setting_default_value" />
+</PreferenceScreen>

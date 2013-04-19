@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.galaxy.meetup.client.settings.LabelPreference android:title="@string/communication_preference_notifications_button" android:key="@string/communication_preference_notifications_key">
+        <intent android:targetPackage="com.galaxy.meetup.client" android:targetClass="com.galaxy.meetup.client.settings.NotificationSettingsActivity" />
+    </com.galaxy.meetup.client.settings.LabelPreference>
+    <PreferenceCategory android:title="@string/about_preference_category" android:order="4000">
+        <PreferenceScreen android:title="@string/preferences_about_button">
+            <intent android:targetPackage="com.galaxy.meetup.client" android:targetClass="com.galaxy.meetup.client.settings.AboutSettingsActivity" />
+        </PreferenceScreen>
+    </PreferenceCategory>
+</PreferenceScreen>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:paddingBottom="10.0dip" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:ellipsize="marquee" android:layout_gravity="center_vertical" android:id="@id/aspect_label" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="asdf" android:singleLine="true" android:marqueeRepeatLimit="marquee_forever" style="@style/WriteReview.AspectLabel" />
+    <RadioGroup android:orientation="horizontal" android:id="@id/aspect_rating_group" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <RadioButton android:gravity="center" android:id="@id/aspect_rating_0" android:background="@drawable/aspect_rating_left_background_selector" android:layout_width="fill_parent" android:button="@null" android:text="@string/write_review_fair" android:singleLine="true" android:layout_weight="1.0" style="@style/WriteReview.AspectValue" />
+        <RadioButton android:gravity="center" android:id="@id/aspect_rating_1" android:background="@drawable/aspect_rating_middle_background_selector" android:layout_width="fill_parent" android:button="@null" android:text="@string/write_review_good" android:singleLine="true" android:layout_weight="1.0" style="@style/WriteReview.AspectValue" />
+        <RadioButton android:gravity="center" android:id="@id/aspect_rating_2" android:background="@drawable/aspect_rating_middle_background_selector" android:layout_width="fill_parent" android:button="@null" android:text="@string/write_review_very_good" android:singleLine="true" android:layout_weight="1.0" style="@style/WriteReview.AspectValue" />
+        <RadioButton android:gravity="center" android:id="@id/aspect_rating_3" android:background="@drawable/aspect_rating_right_background_selector" android:layout_width="fill_parent" android:button="@null" android:text="@string/write_review_excellent" android:singleLine="true" android:layout_weight="1.0" style="@style/WriteReview.AspectValue" />
+    </RadioGroup>
+</LinearLayout>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.galaxy.meetup.client.android.ui.view.FullSizeLinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:maxHeight="@dimen/max_list_dialog_height"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <include layout="@layout/title_layout" />
+            <fragment android:id="@id/participant_list_fragment" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="1.0" class="com.galaxy.meetup.client.android.ui.fragments.ParticipantListFragment" />
+        </LinearLayout>
+        <com.galaxy.meetup.client.android.hangout.ToastsView android:id="@id/toasts_view" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentTop="true" />
+    </RelativeLayout>
+</com.galaxy.meetup.client.android.ui.view.FullSizeLinearLayout>

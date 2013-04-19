@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:background="@color/hangout_video_background" android:layout_width="fill_parent" android:layout_height="fill_parent" android:scaleType="fitXY" />
+    <ImageView android:id="@id/hangout_background_logo" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/hangout_background_logo" android:scaleType="center" android:layout_centerInParent="true" />
+    <com.galaxy.meetup.client.android.hangout.VideoView android:id="@id/video_view" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <ImageView android:id="@id/video_avatar" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@drawable/ic_avatar" android:cropToPadding="true" />
+    <ImageView android:id="@id/blocked" android:background="@color/hangout_video_background" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@drawable/list_circle_blocked" android:scaleType="center" android:cropToPadding="true" />
+    <ImageView android:id="@id/video_paused" android:background="@color/hangout_video_background" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@drawable/hangout_video_pause" android:scaleType="center" android:cropToPadding="true" />
+</RelativeLayout>

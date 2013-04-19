@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ViewSwitcher android:id="@id/switcher" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <ScrollView android:id="@id/signup_frame" android:background="@color/default_bg" android:layout_width="fill_parent" android:layout_height="0.0dip" android:fillViewport="true" android:layout_weight="1.0">
+            <LinearLayout android:orientation="vertical" android:id="@id/signup_layout" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                <ImageView android:layout_width="fill_parent" android:layout_height="wrap_content" android:src="@drawable/colored_horz_line" android:scaleType="fitXY" />
+                <LinearLayout android:orientation="vertical" android:id="@id/signup_title" style="@style/Signup.Info">
+                    <TextView android:id="@id/info_title" style="@style/Signup.Info.Title" />
+                    <TextView android:id="@id/info_header" style="@style/Signup.Info.Desc" />
+                </LinearLayout>
+                <LinearLayout android:orientation="vertical" android:id="@id/signup_items" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+            </LinearLayout>
+        </ScrollView>
+        <com.galaxy.meetup.client.android.ui.view.BottomActionBar android:id="@id/bottom_bar" style="@style/BottomActionBar" />
+    </LinearLayout>
+    <FrameLayout android:id="@id/dialog_frame" android:background="#99000000" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <FrameLayout android:layout_gravity="center" android:id="@id/dialog_content" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    </FrameLayout>
+</ViewSwitcher>

@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="album_photo_count">
+        <item quantity="other">Izithombe ezingu-%d</item>
+        <item quantity="zero">Izithombe ezingu-%d</item>
+        <item quantity="one">Izithombe ezingu-%d</item>
+    </plurals>
+    <plurals name="from_your_phone_selected_count">
+        <item quantity="other">Kukhethwe abangu-%d</item>
+        <item quantity="one">Kukhethwe abangu-%d</item>
+    </plurals>
+    <plurals name="delete_photo_dialog_title">
+        <item quantity="other">Sula lezi zithombe?</item>
+        <item quantity="one">Sula lesi sithombe</item>
+    </plurals>
+    <plurals name="delete_remote_photo_dialog_message">
+        <item quantity="other">Unesiqinisekiso sokuthi ufuna ukusula lezi zithombe kusuka kule-albhamu ye-Google+? Lesi senzo asikwazi ukuhlehliswa.</item>
+        <item quantity="one">Unesiqinisekiso sokuthi ufuna ukusula lesi sithombe kusuka kule albhamu ye-Google+? Lesi senzo asikwazi ukuhlehliswa.</item>
+    </plurals>
+    <plurals name="delete_local_photo_dialog_message">
+        <item quantity="other">Uqinisekile ufuna ukususa lezi zithombe kusuka kusisetshenziswa sakho? Kungaba yiwo wodwa amakhophi wakho, uma uwasusa ngeke usakwazi ukuwabuyisela.</item>
+        <item quantity="one">Uqinisekile ufuna ukususa lesi sithombe ukusuka kusisetshenziswa sakho? Kungaba yiso sodwa okuyikhophi lakho, bese uma usisusa ngeke usakwazi ukusibuyisela.</item>
+    </plurals>
+    <plurals name="delete_photo_pending">
+        <item quantity="other">Isula izithombe…</item>
+        <item quantity="one">Isula isithombe...</item>
+    </plurals>
+    <plurals name="notifications_instant_upload_title">
+        <item quantity="other">Izithombe ezintsha ezilungele ukwabelwana</item>
+        <item quantity="one">Isithombe esisha esilungele ukwabelwana</item>
+    </plurals>
+    <plurals name="notifications_instant_upload_text">
+        <item quantity="other">%d izithombe</item>
+        <item quantity="one">%d isithombe</item>
+    </plurals>
+    <plurals name="notifications_instant_upload_known_faces_text">
+        <item quantity="other">Izithombe ezintsha zika-%s.</item>
+        <item quantity="one">Isithombe esisha sika-%s.</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_comment">
+        <item quantity="other">%d amazwana amasha</item>
+        <item quantity="one">%d amazwana amasha</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_plus_one">
+        <item quantity="other">%d +1 amasha</item>
+        <item quantity="one">%d +1 okusha</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_reshare">
+        <item quantity="other">%d ukwaba kabusha okusha</item>
+        <item quantity="one">%d ukwaba kabusha okusha</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_mention">
+        <item quantity="other">%d ukushiwo okusha</item>
+        <item quantity="one">%d okushiwo okusha</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_share">
+        <item quantity="other">%d ukuwabalana okusha</item>
+        <item quantity="one">%d ukuwabelana okusha</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_post">
+        <item quantity="other">%d okuthunyelwe okusha</item>
+        <item quantity="one">%d okuthunyelwe okusha</item>
+    </plurals>
+    <plurals name="notification_square_multi_post_unread">
+        <item quantity="other">%s okuthunyelwe okusha kwabiwe</item>
+        <item quantity="one">%s okuthunyelwe okusha kwabiwe</item>
+    </plurals>
+    <plurals name="notification_square_multi_post_read">
+        <item quantity="other">Okuthunyelwe okusha kwabiwe</item>
+        <item quantity="one">Okuthunyelwe okusha kwabiwe</item>
+    </plurals>
+    <plurals name="event_invitee_with_guests">
+        <item quantity="other">%1$s (+%2$d izivakashi)</item>
+        <item quantity="one">%1$s (+%2$d isivakashi)</item>
+    </plurals>
+    <plurals name="event_invitee_other_count">
+        <item quantity="other">Abanye abangu+%d</item>
+        <item quantity="one">Okunye okungu+ %d</item>
+    </plurals>
+    <plurals name="event_add_guest_count">
+        <item quantity="other">Izivakashi ezingu+ %d</item>
+        <item quantity="one">Isivakashi esingu+ %d</item>
+    </plurals>
+    <plurals name="sign_out_message">
+        <item quantity="other">Izinto ezingu-%d zilinde ukulayishwa. Ukuphuma kuzokhansela konke ukulayisha okulindile.</item>
+        <item quantity="one">Izinto ezingu-%d zilinde ukulayishwa. Ukuphuma kuzokhansela ukulayisha okulindile.</item>
+    </plurals>
+    <plurals name="share_photo_count">
+        <item quantity="other">Izithombe ezingu-%d</item>
+        <item quantity="one">isithombe esingu-%d</item>
+    </plurals>
+    <plurals name="plus_one_people_more_plus_ones">
+        <item quantity="other">+%d abanye</item>
+        <item quantity="one">+1 ngaphezulu</item>
+    </plurals>
+    <plurals name="plusoned_by_unknowns">
+        <item quantity="other">ngabantu abangu-%d</item>
+        <item quantity="one">ngomuntu ongu-1</item>
+    </plurals>
+    <plurals name="plusoned_by_you_and_unknowns">
+        <item quantity="other">ngawe nabanye abangu-%d</item>
+        <item quantity="one">ngawe nomunye ongu-1</item>
+    </plurals>
+    <plurals name="plusoned_by_one_known_and_unknowns">
+        <item quantity="other">ngo-%1$s nabanye abangu-%2$d</item>
+        <item quantity="one">ngo-%s nomunye ongu-1</item>
+    </plurals>
+    <plurals name="plusoned_by_you_and_one_known_and_unknowns">
+        <item quantity="other">ngawe, %1$s, nabanye abangu-%2$d</item>
+        <item quantity="one">ngawe, %s, nomunye ongu-1</item>
+    </plurals>
+    <plurals name="plusoned_by_two_known_and_unknowns">
+        <item quantity="other">ngo-%1$s, %2$s, nabanye abangu-%3$d</item>
+        <item quantity="one">ngo-%1$s, %2$s, ngmunye ongu-1</item>
+    </plurals>
+    <plurals name="plusoned_by_you_and_two_known_and_unknowns">
+        <item quantity="other">ngawe, %1$s, %2$s, nabanye abangu-%3$d</item>
+        <item quantity="one">ngawe, %1$s, %2$s, nomunye ongu-1</item>
+    </plurals>
+    <plurals name="comments">
+        <item quantity="other">%d amazwana</item>
+        <item quantity="one">%d amazwana</item>
+    </plurals>
+    <plurals name="delete_photo">
+        <item quantity="other">Sula isithombe</item>
+        <item quantity="one">Sula isithombe</item>
+    </plurals>
+    <plurals name="circle_entry_content_description">
+        <item quantity="other">%1$s; %2$d amalungu</item>
+        <item quantity="one">%1$s; %2$d ilungu</item>
+    </plurals>
+    <plurals name="notifications_ticker_text">
+        <item quantity="other">Izaziso ezisha ze-Google+</item>
+        <item quantity="one">Isaziso esisha se-Google+</item>
+    </plurals>
+    <plurals name="notification_single_post">
+        <item quantity="other">%d imisebenzi emisha</item>
+        <item quantity="one">%d umsebenzi omusha</item>
+    </plurals>
+    <plurals name="notifications_content_text">
+        <item quantity="other">%1$s (%2$d)</item>
+        <item quantity="one">%1$s (%2$d)</item>
+    </plurals>
+    <plurals name="audience_display_selection_count">
+        <item quantity="other">Kukhethwe abangu-%d</item>
+        <item quantity="one">Kukhethwe ngu-%d</item>
+    </plurals>
+    <plurals name="circle_count_and_matched_email">
+        <item quantity="other">%1$d imibuthano, %2$s</item>
+        <item quantity="one">%1$d imibuthano, %2$s</item>
+    </plurals>
+    <plurals name="delete_circles_dialog_title">
+        <item quantity="other">Sula umbuthano</item>
+        <item quantity="one">Sula umbuthano</item>
+    </plurals>
+    <plurals name="delete_circles_dialog_message">
+        <item quantity="other">Ufuna ukusula sanhlobo le mibuthano?</item>
+        <item quantity="one">Ufuna ukusula lokhu okuthunyelwe unaphakade?</item>
+    </plurals>
+    <plurals name="circle_button_more_circles">
+        <item quantity="other">%d okuningi</item>
+        <item quantity="one">%d okuningi</item>
+    </plurals>
+    <plurals name="num_minutes_ago">
+        <item quantity="other">%d amaminithi</item>
+        <item quantity="one">%d amaminithi</item>
+    </plurals>
+    <plurals name="num_hours_ago">
+        <item quantity="other">%d amahora</item>
+        <item quantity="one">%d amahora</item>
+    </plurals>
+    <plurals name="num_days_ago">
+        <item quantity="other">%d izinsuku</item>
+        <item quantity="one">%d izinsuku</item>
+    </plurals>
+    <plurals name="profile_added_by">
+        <item quantity="other">"Abangezwe ngu-
+abantu abangu-%s"</item>
+        <item quantity="zero">"Abangezwe ngu-
+abantu abangu-%s"</item>
+        <item quantity="one">"Umuntu ongu-
+%s ongeziwe"</item>
+    </plurals>
+    <plurals name="profile_local_review_count">
+        <item quantity="other">Ukubuyekeza okungu-%d</item>
+        <item quantity="one">Ukubuyekeza okungu-%d</item>
+    </plurals>
+    <plurals name="hangout_plus_others">
+        <item quantity="other">+%d abanye</item>
+        <item quantity="one">+1 ngaphezulu</item>
+    </plurals>
+    <plurals name="card_hangout_with_people">
+        <item quantity="other">I-HANGOUT NABANTU ABANGU-%d</item>
+        <item quantity="one">I-HANGOUT NOMUNTU O-1</item>
+    </plurals>
+    <plurals name="stream_one_up_comment_count">
+        <item quantity="other">Amazwana angu-%d</item>
+        <item quantity="one">Amazwana angu-%d</item>
+    </plurals>
+    <plurals name="stream_one_up_stage_hangout_over">
+        <item quantity="other">%d PEOPLE HUNG OUT</item>
+        <item quantity="one">1 PERSON HUNG OUT</item>
+    </plurals>
+    <plurals name="plus_one_accessibility_description">
+        <item quantity="other">I-%d nokukodwa</item>
+        <item quantity="one">I-%d nokukodwa</item>
+    </plurals>
+    <plurals name="accessibility_notification_count_description">
+        <item quantity="other">Ukwaziswa kwe-Google+ okungu-%d okusha</item>
+        <item quantity="one">Ukwaziswa kwe-Google+ okungu-%d okusha</item>
+    </plurals>
+    <plurals name="audience_hidden_user_count">
+        <item quantity="other">Abanye abangu-+%d</item>
+        <item quantity="one">+1 okuningi</item>
+    </plurals>
+    <plurals name="common_friend_count">
+        <item quantity="other">Abantu owazana nabo abangu-%d</item>
+        <item quantity="one">Umuntu oyedwa owazana naye</item>
+    </plurals>
+    <plurals name="added_to_circle_notification_message">
+        <item quantity="other">Abantu abangu-%d abangezwe kwimibuthano</item>
+        <item quantity="one">Umuntu oyedwa ongeziwe kumbuthano</item>
+    </plurals>
+    <plurals name="square_members_count">
+        <item quantity="other">%d amalungu</item>
+        <item quantity="one">%d ilingu</item>
+    </plurals>
+</resources>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <CheckBoxPreference android:layout="@layout/label_preference" android:title="@string/notifications_preference_enabled_title" android:key="@string/notifications_preference_enabled_key" android:summary="@string/notifications_preference_enabled_summary" android:defaultValue="@bool/notifications_preference_enabled_default_value" />
+    <RingtonePreference android:layout="@layout/label_preference" android:title="@string/notifications_preference_ringtone_title" android:key="@string/notifications_preference_ringtone_key" android:summary="@string/notifications_preference_ringtone_summary" android:defaultValue="@string/notifications_preference_ringtone_default_value" android:ringtoneType="notification" />
+    <CheckBoxPreference android:layout="@layout/label_preference" android:title="@string/notifications_preference_vibrate_title" android:key="@string/notifications_preference_vibrate_key" android:defaultValue="@bool/notifications_preference_vibrate_default_value" />
+</PreferenceScreen>

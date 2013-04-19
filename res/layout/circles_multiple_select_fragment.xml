@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:background="?android:colorBackground" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ListView android:id="@*android:id/list" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:divider="@drawable/padded_list_divider" android:text="@string/loading" />
+    <RelativeLayout android:id="@*android:id/empty" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="30.0dip" android:layout_marginRight="30.0dip" android:text="@string/no_circles" android:layout_centerInParent="true" />
+    </RelativeLayout>
+</FrameLayout>

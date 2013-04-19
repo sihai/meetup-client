@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="album_photo_count">
+        <item quantity="other">%d nuotrauk.</item>
+        <item quantity="zero">%d nuotrauk.</item>
+        <item quantity="one">%d nuotrauka</item>
+    </plurals>
+    <plurals name="from_your_phone_selected_count">
+        <item quantity="other">Pasirinkta: %d</item>
+        <item quantity="one">Pasirinkta: %d</item>
+    </plurals>
+    <plurals name="delete_photo_dialog_title">
+        <item quantity="other">Ištrinti šias nuotraukas?</item>
+        <item quantity="one">Ištrinti šią nuotrauką?</item>
+    </plurals>
+    <plurals name="delete_remote_photo_dialog_message">
+        <item quantity="other">Ar tikrai norite ištrinti šias nuotraukas iš šio „Google+“ albumo? Šio veiksmo negalėsite anuliuoti.</item>
+        <item quantity="one">Ar tikrai norite ištrinti šią nuotrauką iš šio „Google+“ albumo? Šio veiksmo negalėsite anuliuoti.</item>
+    </plurals>
+    <plurals name="delete_local_photo_dialog_message">
+        <item quantity="other">Ar tikrai norite ištrinti šias nuotraukas iš savo įrenginio? Tai gali būti vienintelės turimos kopijos, o ištrynus jų nebus galima atkurti.</item>
+        <item quantity="one">Ar tikrai norite ištrinti šią nuotrauką iš savo įrenginio? Tai gali būti vienintelė turima kopija, o ištrynus jos nebus galima atkurti.</item>
+    </plurals>
+    <plurals name="delete_photo_pending">
+        <item quantity="other">Ištrinamos nuotraukos...</item>
+        <item quantity="one">Ištrinama nuotrauka...</item>
+    </plurals>
+    <plurals name="notifications_instant_upload_title">
+        <item quantity="other">Naujos nuotraukos parengtos bendrinti</item>
+        <item quantity="one">Nauja nuotrauka parengta bendrinti</item>
+    </plurals>
+    <plurals name="notifications_instant_upload_text">
+        <item quantity="other">%d nuotraukos (-ų)</item>
+        <item quantity="one">%d nuotrauka</item>
+    </plurals>
+    <plurals name="notifications_instant_upload_known_faces_text">
+        <item quantity="other">Naujos nuotraukos su %s.</item>
+        <item quantity="one">Nauja nuotrauka su %s.</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_comment">
+        <item quantity="other">%d nauji (-ų) komentarai (-ų)</item>
+        <item quantity="one">%d naujas komentaras</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_plus_one">
+        <item quantity="other">%d nauji (-ų) +1</item>
+        <item quantity="one">%d naujas +1</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_reshare">
+        <item quantity="other">%d nauji (-ų) bendrinimai (-ų) dar kartą</item>
+        <item quantity="one">%d naujas bendrinimas dar kartą</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_mention">
+        <item quantity="other">%d nauji (-ų) paminėjimai (-ų)</item>
+        <item quantity="one">%d naujas paminėjimas</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_share">
+        <item quantity="other">%d nauji (-ų) bendrinimai (-ų)</item>
+        <item quantity="one">%d naujas bendrinimas</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_post">
+        <item quantity="other">%d nauji (-ų) įrašai (-ų)</item>
+        <item quantity="one">%d naujas įrašas</item>
+    </plurals>
+    <plurals name="notification_square_multi_post_unread">
+        <item quantity="other">Pradėta bendrinti naujų įrašų: %s</item>
+        <item quantity="one">Pradėtas bendrinti %s naujas įrašas</item>
+    </plurals>
+    <plurals name="notification_square_multi_post_read">
+        <item quantity="other">Pradėti bendrinti nauji įrašai</item>
+        <item quantity="one">Pradėtas bendrinti naujas įrašas</item>
+    </plurals>
+    <plurals name="event_invitee_with_guests">
+        <item quantity="other">%1$s (dar %2$d svečiai (-ių)</item>
+        <item quantity="one">%1$s (dar %2$d svečias)</item>
+    </plurals>
+    <plurals name="event_invitee_other_count">
+        <item quantity="other">Dar %d kiti (-ų)</item>
+        <item quantity="one">Dar %d kitas (-a)</item>
+    </plurals>
+    <plurals name="event_add_guest_count">
+        <item quantity="other">Dar %d svečiai (-ių)</item>
+        <item quantity="one">Dar %d svečias</item>
+    </plurals>
+    <plurals name="sign_out_message">
+        <item quantity="other">Laukiama, kol %d elementai (-ų) bus įkelti (-a). Jei atsijungsite, visi laukiami įkėlimai bus atšaukti.</item>
+        <item quantity="one">Laukiama, kol %d elementas bus įkeltas. Jei atsijungsite, laukiamas įkėlimas bus atšauktas.</item>
+    </plurals>
+    <plurals name="share_photo_count">
+        <item quantity="other">%d nuotraukos (-ų)</item>
+        <item quantity="one">%d nuotrauka</item>
+    </plurals>
+    <plurals name="plus_one_people_more_plus_ones">
+        <item quantity="other">Dar %d kiti (-ų)</item>
+        <item quantity="one">Dar 1</item>
+    </plurals>
+    <plurals name="plusoned_by_unknowns">
+        <item quantity="other">" %d žmon."</item>
+        <item quantity="one">pridėjo 1 asmuo</item>
+    </plurals>
+    <plurals name="plusoned_by_you_and_unknowns">
+        <item quantity="other">jūs ir %d kiti (-ų)</item>
+        <item quantity="one">pridėjote jūs ir 1 kitas</item>
+    </plurals>
+    <plurals name="plusoned_by_one_known_and_unknowns">
+        <item quantity="other">%1$s ir %2$d kt.</item>
+        <item quantity="one">%s ir 1 kitas</item>
+    </plurals>
+    <plurals name="plusoned_by_you_and_one_known_and_unknowns">
+        <item quantity="other">jūs, %1$s ir %2$d ir kt.</item>
+        <item quantity="one">pridėjote jūs, %s ir 1 kitas</item>
+    </plurals>
+    <plurals name="plusoned_by_two_known_and_unknowns">
+        <item quantity="other"> %1$s, %2$s ir %3$d kt.</item>
+        <item quantity="one">pridėjo %1$s, %2$s ir 1 kitas</item>
+    </plurals>
+    <plurals name="plusoned_by_you_and_two_known_and_unknowns">
+        <item quantity="other">pridėjote jūs, %1$s, %2$s ir %3$d kiti (-ų)</item>
+        <item quantity="one">jūs, %1$s, %2$s ir 1 kitas</item>
+    </plurals>
+    <plurals name="comments">
+        <item quantity="other">%d komentarai (-ų)</item>
+        <item quantity="one">%d komentaras</item>
+    </plurals>
+    <plurals name="delete_photo">
+        <item quantity="other">Ištrinti nuotraukas</item>
+        <item quantity="one">Ištrinti nuotrauką</item>
+    </plurals>
+    <plurals name="circle_entry_content_description">
+        <item quantity="other">„%1$s“; %2$d nar.</item>
+        <item quantity="one">%1$s; %2$d narys</item>
+    </plurals>
+    <plurals name="notifications_ticker_text">
+        <item quantity="other">Nauji „Google+“ praneš.</item>
+        <item quantity="one">Naujas „Google+“ praneš.</item>
+    </plurals>
+    <plurals name="notification_single_post">
+        <item quantity="other">%d naujos (-ų) veiklos (-ų)</item>
+        <item quantity="one">%d nauja veikla</item>
+    </plurals>
+    <plurals name="notifications_content_text">
+        <item quantity="other">%1$s (%2$d)</item>
+        <item quantity="one">%1$s (%2$d)</item>
+    </plurals>
+    <plurals name="audience_display_selection_count">
+        <item quantity="other">%d pasirinkta</item>
+        <item quantity="one">%d pasirinkta</item>
+    </plurals>
+    <plurals name="circle_count_and_matched_email">
+        <item quantity="other">%1$d draugų ratai, %2$s</item>
+        <item quantity="one">%1$d draugų ratas, %2$s</item>
+    </plurals>
+    <plurals name="delete_circles_dialog_title">
+        <item quantity="other">Ištrinti draugų rat.</item>
+        <item quantity="one">Ištrinti draugų ratą</item>
+    </plurals>
+    <plurals name="delete_circles_dialog_message">
+        <item quantity="other">Ar norite visam laikui ištrinti šiuos draugų ratus?</item>
+        <item quantity="one">Ar norite visam laikui ištrinti šį draugų ratą?</item>
+    </plurals>
+    <plurals name="circle_button_more_circles">
+        <item quantity="other">Dar %d</item>
+        <item quantity="one">Dar %d</item>
+    </plurals>
+    <plurals name="num_minutes_ago">
+        <item quantity="other">%d min.</item>
+        <item quantity="one">%d min.</item>
+    </plurals>
+    <plurals name="num_hours_ago">
+        <item quantity="other">%d val.</item>
+        <item quantity="one">%d val.</item>
+    </plurals>
+    <plurals name="num_days_ago">
+        <item quantity="other">%d d.</item>
+        <item quantity="one">%d d.</item>
+    </plurals>
+    <plurals name="profile_added_by">
+        <item quantity="other">"Pridėjo 
+%s žmonės (-ių)"</item>
+        <item quantity="zero">"Pridėjo 
+%s žmonės (-ių)"</item>
+        <item quantity="one">"Pridėjo 
+%s žmogus"</item>
+    </plurals>
+    <plurals name="profile_local_review_count">
+        <item quantity="other">%d atsiliepimai (-ų)</item>
+        <item quantity="one">%d atsiliepimas</item>
+    </plurals>
+    <plurals name="hangout_plus_others">
+        <item quantity="other">Dar %d kiti (-ų)</item>
+        <item quantity="one">Dar 1</item>
+    </plurals>
+    <plurals name="card_hangout_with_people">
+        <item quantity="other">„HANGOUT“ SU %d ŽMONĖMIS (-IŲ)</item>
+        <item quantity="one">„HANGOUT“ SU 1 ŽMOGUMI</item>
+    </plurals>
+    <plurals name="stream_one_up_comment_count">
+        <item quantity="other">%d komentarai (-ų)</item>
+        <item quantity="one">%d komentaras</item>
+    </plurals>
+    <plurals name="stream_one_up_stage_hangout_over">
+        <item quantity="other">%d ŽMONĖS (-IŲ) DALYVAVO „HANGOUT“</item>
+        <item quantity="one">1 ŽMOGUS DALYVAVO „HANGOUT“</item>
+    </plurals>
+    <plurals name="plus_one_accessibility_description">
+        <item quantity="other">%d plius vieni</item>
+        <item quantity="one">%d plius vienas</item>
+    </plurals>
+    <plurals name="accessibility_notification_count_description">
+        <item quantity="other">%d nauji „Google+“ pranešim.</item>
+        <item quantity="one">%d nauji „Google+“ pranešim.</item>
+    </plurals>
+    <plurals name="audience_hidden_user_count">
+        <item quantity="other">Dar %d kiti (-ų)</item>
+        <item quantity="one">Dar 1</item>
+    </plurals>
+    <plurals name="common_friend_count">
+        <item quantity="other">%d bendrai pažįstami (-ų) žmonės (-ių)</item>
+        <item quantity="one">Vienas bendrai pažįstamas žmogus</item>
+    </plurals>
+    <plurals name="added_to_circle_notification_message">
+        <item quantity="other">Prie draugų ratų pridėti (-a) %d žmonės (-ių)</item>
+        <item quantity="one">Prie draugų ratų pridėtas vienas asmuo</item>
+    </plurals>
+    <plurals name="square_members_count">
+        <item quantity="other">%d nariai (-ių)</item>
+        <item quantity="one">%d narys</item>
+    </plurals>
+</resources>

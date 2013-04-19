@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="album_photo_count">
+        <item quantity="other">"%d foto's"</item>
+        <item quantity="zero">"%d foto's"</item>
+        <item quantity="one">%d foto</item>
+    </plurals>
+    <plurals name="from_your_phone_selected_count">
+        <item quantity="other">%d geselecteerd</item>
+        <item quantity="one">%d geselecteerd</item>
+    </plurals>
+    <plurals name="delete_photo_dialog_title">
+        <item quantity="other">"Deze foto's verwijderen?"</item>
+        <item quantity="one">Deze foto verwijderen?</item>
+    </plurals>
+    <plurals name="delete_remote_photo_dialog_message">
+        <item quantity="other">"Weet je zeker dat je deze foto's wilt verwijderen uit dit Google+-album? De handeling kan niet ongedaan worden gemaakt."</item>
+        <item quantity="one">Weet je zeker dat je deze foto wilt verwijderen uit dit Google+-album? De handeling kan niet ongedaan worden gemaakt.</item>
+    </plurals>
+    <plurals name="delete_local_photo_dialog_message">
+        <item quantity="other">"Weet je zeker dat je deze foto's van je apparaat wilt verwijderen? Het zijn misschien de enige exemplaren die je hebt, en de verwijdering kan niet ongedaan worden gemaakt."</item>
+        <item quantity="one">Weet je zeker dat je deze foto van je apparaat wilt verwijderen? Het is misschien het enige exemplaar dat je hebt, en de verwijdering kan niet ongedaan worden gemaakt.</item>
+    </plurals>
+    <plurals name="delete_photo_pending">
+        <item quantity="other">"Foto's worden verwijderd..."</item>
+        <item quantity="one">Foto wordt verwijderd...</item>
+    </plurals>
+    <plurals name="notifications_instant_upload_title">
+        <item quantity="other">"Nieuwe foto's klaar om te delen"</item>
+        <item quantity="one">Nieuwe foto klaar om te delen</item>
+    </plurals>
+    <plurals name="notifications_instant_upload_text">
+        <item quantity="other">"%d foto's"</item>
+        <item quantity="one">%d foto</item>
+    </plurals>
+    <plurals name="notifications_instant_upload_known_faces_text">
+        <item quantity="other">"Nieuwe foto's van %s."</item>
+        <item quantity="one">Nieuwe foto van %s.</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_comment">
+        <item quantity="other">%d nieuwe opmerkingen</item>
+        <item quantity="one">%d nieuwe opmerking</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_plus_one">
+        <item quantity="other">"%d nieuwe +1's"</item>
+        <item quantity="one">%d nieuwe +1</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_reshare">
+        <item quantity="other">%d keer opnieuw gedeeld (nieuw)</item>
+        <item quantity="one">%d keer opnieuw gedeeld (nieuw)</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_mention">
+        <item quantity="other">%d nieuwe vermeldingen</item>
+        <item quantity="one">%d nieuwe vermelding</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_share">
+        <item quantity="other">%d keer gedeeld (nieuw)</item>
+        <item quantity="one">%d keer gedeeld (nieuw)</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_post">
+        <item quantity="other">%d nieuwe posts</item>
+        <item quantity="one">%d nieuwe post</item>
+    </plurals>
+    <plurals name="notification_square_multi_post_unread">
+        <item quantity="other">%s nieuwe posts gedeeld</item>
+        <item quantity="one">%s nieuwe post gedeeld</item>
+    </plurals>
+    <plurals name="notification_square_multi_post_read">
+        <item quantity="other">Nieuwe posts gedeeld</item>
+        <item quantity="one">Nieuwe post gedeeld</item>
+    </plurals>
+    <plurals name="event_invitee_with_guests">
+        <item quantity="other">%1$s (+ %2$d gasten)</item>
+        <item quantity="one">%1$s (+ %2$d gast)</item>
+    </plurals>
+    <plurals name="event_invitee_other_count">
+        <item quantity="other">+ %d anderen</item>
+        <item quantity="one">+ %d andere persoon</item>
+    </plurals>
+    <plurals name="event_add_guest_count">
+        <item quantity="other">+ %d gasten</item>
+        <item quantity="one">+ %d gast</item>
+    </plurals>
+    <plurals name="sign_out_message">
+        <item quantity="other">%d items wachten op uploaden. Door afmelden worden alle wachtende uploads geannuleerd.</item>
+        <item quantity="one">%d item wacht op uploaden. Door afmelden wordt de wachtende upload geannuleerd.</item>
+    </plurals>
+    <plurals name="share_photo_count">
+        <item quantity="other">"%d foto's"</item>
+        <item quantity="one">%d foto</item>
+    </plurals>
+    <plurals name="plus_one_people_more_plus_ones">
+        <item quantity="other">+%d anderen</item>
+        <item quantity="one">" + nog 1"</item>
+    </plurals>
+    <plurals name="plusoned_by_unknowns">
+        <item quantity="other">door %d mensen</item>
+        <item quantity="one">door 1 persoon</item>
+    </plurals>
+    <plurals name="plusoned_by_you_and_unknowns">
+        <item quantity="other">door jou en %d anderen</item>
+        <item quantity="one">door jou en 1 ander</item>
+    </plurals>
+    <plurals name="plusoned_by_one_known_and_unknowns">
+        <item quantity="other">door %1$s en %2$d anderen</item>
+        <item quantity="one">door %s en 1 ander</item>
+    </plurals>
+    <plurals name="plusoned_by_you_and_one_known_and_unknowns">
+        <item quantity="other">door jou, %1$s en %2$d anderen</item>
+        <item quantity="one">door jou, %s, en 1 ander</item>
+    </plurals>
+    <plurals name="plusoned_by_two_known_and_unknowns">
+        <item quantity="other">door %1$s, %2$s en %3$d anderen</item>
+        <item quantity="one">door %1$s, %2$s en 1 ander</item>
+    </plurals>
+    <plurals name="plusoned_by_you_and_two_known_and_unknowns">
+        <item quantity="other">door jou, %1$s, %2$s en %3$d anderen</item>
+        <item quantity="one">door jou, %1$s, %2$s en 1 ander</item>
+    </plurals>
+    <plurals name="comments">
+        <item quantity="other">%d opmerkingen</item>
+        <item quantity="one">%d opmerking</item>
+    </plurals>
+    <plurals name="delete_photo">
+        <item quantity="other">"Foto's verwijderen"</item>
+        <item quantity="one">Foto verwijderen</item>
+    </plurals>
+    <plurals name="circle_entry_content_description">
+        <item quantity="other">%1$s; %2$d leden</item>
+        <item quantity="one">%1$s; %2$d lid</item>
+    </plurals>
+    <plurals name="notifications_ticker_text">
+        <item quantity="other">Nieuwe Google+-meldingen</item>
+        <item quantity="one">Nieuwe Google+-melding</item>
+    </plurals>
+    <plurals name="notification_single_post">
+        <item quantity="other">%d nieuwe activiteiten</item>
+        <item quantity="one">%d nieuwe activiteit</item>
+    </plurals>
+    <plurals name="notifications_content_text">
+        <item quantity="other">%1$s (%2$d)</item>
+        <item quantity="one">%1$s (%2$d)</item>
+    </plurals>
+    <plurals name="audience_display_selection_count">
+        <item quantity="other">%d geselecteerd</item>
+        <item quantity="one">%d geselecteerd</item>
+    </plurals>
+    <plurals name="circle_count_and_matched_email">
+        <item quantity="other">%1$d kringen, %2$s</item>
+        <item quantity="one">%1$d kring, %2$s</item>
+    </plurals>
+    <plurals name="delete_circles_dialog_title">
+        <item quantity="other">Kringen verwijderen</item>
+        <item quantity="one">Kring verwijderen</item>
+    </plurals>
+    <plurals name="delete_circles_dialog_message">
+        <item quantity="other">Wil je deze kringen definitief verwijderen?</item>
+        <item quantity="one">Wil je deze kring definitief verwijderen?</item>
+    </plurals>
+    <plurals name="circle_button_more_circles">
+        <item quantity="other">Nog %d</item>
+        <item quantity="one">Nog %d</item>
+    </plurals>
+    <plurals name="num_minutes_ago">
+        <item quantity="other">%d min.</item>
+        <item quantity="one">%d min.</item>
+    </plurals>
+    <plurals name="num_hours_ago">
+        <item quantity="other">%d uur</item>
+        <item quantity="one">%d uur</item>
+    </plurals>
+    <plurals name="num_days_ago">
+        <item quantity="other">%d dagen</item>
+        <item quantity="one">%d dag</item>
+    </plurals>
+    <plurals name="profile_added_by">
+        <item quantity="other">"Toegevoegd door
+%s mensen"</item>
+        <item quantity="zero">"Toegevoegd door
+%s mensen"</item>
+        <item quantity="one">"Toegevoegd door
+%s persoon"</item>
+    </plurals>
+    <plurals name="profile_local_review_count">
+        <item quantity="other">%d recensies</item>
+        <item quantity="one">%d recensie</item>
+    </plurals>
+    <plurals name="hangout_plus_others">
+        <item quantity="other">+ %d anderen</item>
+        <item quantity="one">+ nog 1</item>
+    </plurals>
+    <plurals name="card_hangout_with_people">
+        <item quantity="other">HANGOUT MET %d MENSEN</item>
+        <item quantity="one">HANGOUT MET 1 PERSOON</item>
+    </plurals>
+    <plurals name="stream_one_up_comment_count">
+        <item quantity="other">%d opmerkingen</item>
+        <item quantity="one">%d opmerking</item>
+    </plurals>
+    <plurals name="stream_one_up_stage_hangout_over">
+        <item quantity="other">%d MENSEN NAMEN DEEL AAN DE HANGOUT</item>
+        <item quantity="one">1 PERSOON NAM DEEL AAN DE HANGOUT</item>
+    </plurals>
+    <plurals name="plus_one_accessibility_description">
+        <item quantity="other">%d plus enen</item>
+        <item quantity="one">%d plus één</item>
+    </plurals>
+    <plurals name="accessibility_notification_count_description">
+        <item quantity="other">%d nieuwe Google+ meldingen</item>
+        <item quantity="one">%d nieuwe Google+ melding</item>
+    </plurals>
+    <plurals name="audience_hidden_user_count">
+        <item quantity="other">+%d anderen</item>
+        <item quantity="one">+1 andere</item>
+    </plurals>
+    <plurals name="common_friend_count">
+        <item quantity="other">%d mensen gemeenschappelijk</item>
+        <item quantity="one">Eén persoon gemeenschappelijk</item>
+    </plurals>
+    <plurals name="added_to_circle_notification_message">
+        <item quantity="other">%d mensen toegevoegd aan kringen</item>
+        <item quantity="one">Eén persoon toegevoegd aan kringen</item>
+    </plurals>
+    <plurals name="square_members_count">
+        <item quantity="other">%d leden</item>
+        <item quantity="one">%d lid</item>
+    </plurals>
+</resources>

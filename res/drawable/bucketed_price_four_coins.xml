@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_enabled="true" android:state_checked="true" android:drawable="@drawable/bucketed_price_four_coins_layers_on" />
+    <item android:drawable="@drawable/bucketed_price_four_coins_layers_off" />
+</selector>

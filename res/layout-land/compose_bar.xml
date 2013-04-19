@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@null" android:layout_width="wrap_content" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/compose_button_bar" android:layout_width="wrap_content" android:layout_height="fill_parent">
+        <ImageButton android:id="@id/compose_photos" android:background="@drawable/compose_button_background" android:layout_width="wrap_content" android:layout_height="0.0dip" android:src="@drawable/ic_camera_active" android:minWidth="50.0dip" android:layout_weight="1.0" android:contentDescription="@string/compose_photo" />
+        <ImageButton android:id="@id/compose_location" android:background="@drawable/compose_button_background" android:layout_width="wrap_content" android:layout_height="0.0dip" android:src="@drawable/ic_location_active" android:minWidth="50.0dip" android:layout_weight="1.0" android:contentDescription="@string/compose_checkin" />
+        <ImageButton android:id="@id/compose_custom" android:background="@drawable/compose_button_background" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="0.0dip" android:src="@drawable/ic_mood_gold" android:minWidth="50.0dip" android:layout_weight="1.0" android:contentDescription="@string/compose_emotishare2" />
+        <ImageButton android:id="@id/compose_post" android:background="@drawable/compose_button_background" android:layout_width="wrap_content" android:layout_height="0.0dip" android:src="@drawable/ic_text_active" android:minWidth="50.0dip" android:layout_weight="1.0" android:contentDescription="@string/compose_post" />
+    </LinearLayout>
+    <View android:id="@id/compose_divider_bar" android:background="@color/compose_bar_image_divider" android:layout_width="1.0dip" android:layout_height="fill_parent" android:layout_toRightOf="@id/compose_button_bar" />
+    <RelativeLayout android:id="@id/compose_image_bar" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toRightOf="@id/compose_divider_bar">
+        <LinearLayout android:orientation="vertical" android:id="@id/compose_image_bar_vertical_strip" android:background="@drawable/compose_button_background_default" android:paddingLeft="@dimen/compose_bar_recent_images_padding" android:paddingRight="@dimen/compose_bar_recent_images_padding" android:layout_width="wrap_content" android:layout_height="fill_parent">
+            <Button android:textAppearance="?android:textAppearanceMedium" android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/compose_image_bar_share" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="2.0dip" android:layout_marginRight="2.0dip" android:text="@string/compose_bar_share_short" android:layout_weight="0.0" />
+            <View android:background="@color/compose_bar_image_divider" android:layout_width="fill_parent" android:layout_height="1.0dip" android:layout_weight="0.0" />
+            <LinearLayout android:gravity="center" android:layout_gravity="center_vertical" android:orientation="vertical" android:id="@id/compose_image_container" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1.0" />
+            <View android:background="@color/compose_bar_image_divider" android:layout_width="fill_parent" android:layout_height="1.0dip" android:layout_weight="0.0" />
+            <ImageButton android:layout_gravity="center_horizontal" android:id="@id/compose_image_bar_close" android:background="@drawable/compose_button_background" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_close_cancel_white" android:layout_weight="0.0" />
+        </LinearLayout>
+        <View android:background="@color/compose_bar_image_divider" android:layout_width="1.0dip" android:layout_height="fill_parent" android:layout_toRightOf="@id/compose_image_bar_vertical_strip" />
+    </RelativeLayout>
+</RelativeLayout>

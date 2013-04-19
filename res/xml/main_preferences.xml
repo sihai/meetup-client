@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.galaxy.meetup.client.settings.LabelPreference android:title="@string/communication_preference_notifications_button" android:key="@string/communication_preference_notifications_key">
+        <intent android:targetPackage="com.galaxy.meetup.client" android:targetClass="com.galaxy.meetup.client.settings.NotificationSettingsActivity" />
+    </com.galaxy.meetup.client.settings.LabelPreference>
+    <com.galaxy.meetup.client.settings.LabelPreference android:title="@string/communication_preference_messenger_button" android:key="@string/communication_preference_messenger_key">
+        <intent android:targetPackage="com.galaxy.meetup.client" android:targetClass="com.galaxy.meetup.client.settings.MessengerSettingsActivity" />
+    </com.galaxy.meetup.client.settings.LabelPreference>
+    <com.galaxy.meetup.client.settings.LabelPreference android:title="@string/communication_preference_hangout_button" android:key="@string/communication_preference_hangout_key">
+        <intent android:targetPackage="com.galaxy.meetup.client" android:targetClass="com.galaxy.meetup.client.settings.HangoutSettingsActivity" />
+    </com.galaxy.meetup.client.settings.LabelPreference>
+    <PreferenceCategory android:title="@string/photo_preference_category" android:order="2000">
+        <com.galaxy.meetup.client.settings.LabelPreference android:title="@string/photo_preference_instant_upload_button" android:key="@string/photo_preference_instant_upload_key">
+            <intent android:targetPackage="com.galaxy.meetup.client" android:targetClass="com.galaxy.meetup.client.settings.InstantUploadSettingsActivity" />
+        </com.galaxy.meetup.client.settings.LabelPreference>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/about_preference_category" android:order="4000">
+        <PreferenceScreen android:title="@string/preferences_about_button">
+            <intent android:targetPackage="com.galaxy.meetup.client" android:targetClass="com.galaxy.meetup.client.settings.AboutSettingsActivity" />
+        </PreferenceScreen>
+    </PreferenceCategory>
+</PreferenceScreen>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.galaxy.meetup.client.android.ui.view.FullSizeLinearLayout android:background="@color/default_bg" android:layout_width="fill_parent" android:layout_height="0.0dip" android:maxHeight="@dimen/max_list_dialog_height" android:layout_weight="1.0"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView android:id="@id/content" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <FrameLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <com.galaxy.meetup.client.android.ui.view.EventThemeView android:id="@id/event_theme_image" android:layout_width="fill_parent" android:layout_height="0.0dip" android:scaleType="centerCrop" />
+                <TextView android:textAppearance="?android:textAppearanceSmall" android:textColor="#ffffffff" android:gravity="right|center" android:layout_gravity="bottom" android:id="@id/select_theme_text" android:background="#99000000" android:paddingTop="4.0dip" android:paddingRight="8.0dip" android:paddingBottom="4.0dip" android:visibility="invisible" android:layout_width="fill_parent" android:layout_height="wrap_content" android:singleLine="true" />
+                <View android:id="@id/select_theme_button" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" style="@style/ListItemAction" />
+                <ProgressBar android:layout_gravity="center" android:id="@id/event_theme_progress_bar" android:layout_width="wrap_content" android:layout_height="wrap_content" android:indeterminate="true" style="?android:attr/progressBarStyleSmall" />
+            </FrameLayout>
+            <LinearLayout android:orientation="vertical" android:paddingLeft="4.0dip" android:paddingRight="4.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <EditText android:textAppearance="?android:textAppearanceSmall" android:id="@id/event_name" android:layout_width="fill_parent" android:layout_height="48.0dip" android:hint="@string/event_name_hint" android:inputType="textCapWords" />
+                <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+                    <Button android:id="@id/start_date" android:layout_width="0.0dip" android:layout_height="48.0dip" android:layout_weight="1.0" style="@style/DateTimePickerButton" />
+                    <Button android:id="@id/start_time" android:layout_width="110.0dip" android:layout_height="48.0dip" android:hint="@string/event_start_time_hint" style="@style/DateTimePickerButton" />
+                </LinearLayout>
+                <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+                    <Button android:id="@id/end_date" android:layout_width="0.0dip" android:layout_height="48.0dip" android:hint="@string/event_end_date_hint" android:layout_weight="1.0" style="@style/DateTimePickerButton" />
+                    <Button android:id="@id/end_time" android:layout_width="110.0dip" android:layout_height="48.0dip" android:hint="@string/event_end_time_hint" style="@style/DateTimePickerButton" />
+                </LinearLayout>
+                <Spinner android:id="@id/time_zone" android:paddingLeft="@dimen/spinner_padding_left" android:layout_width="fill_parent" android:layout_height="48.0dip" />
+                <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:background="?editLocationBackground" android:layout_width="fill_parent" android:layout_height="48.0dip">
+                    <ImageView android:layout_gravity="center" android:id="@id/location_marker" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="5.0dip" android:src="@drawable/ic_location_active" />
+                    <Button android:textAppearance="?android:textAppearanceSmall" android:ellipsize="end" android:gravity="left|center" android:id="@id/location_text" android:background="?listSelector" android:layout_width="0.0dip" android:layout_height="wrap_content" android:hint="@string/event_location_hint" android:singleLine="true" android:drawableRight="@drawable/more" android:layout_weight="1.0" />
+                </LinearLayout>
+                <com.galaxy.meetup.client.android.ui.view.TypeableAudienceView android:id="@id/audience_view" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="8.0dip" />
+                <EditText android:textAppearance="?android:textAppearanceSmall" android:gravity="top" android:id="@id/description" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="@string/event_description_hint" android:minLines="7" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+    <TextView android:textSize="18.0sp" android:gravity="center" android:id="@id/server_error" android:padding="24.0dip" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <include layout="@layout/empty_layout" />
+</com.galaxy.meetup.client.android.ui.view.FullSizeLinearLayout>

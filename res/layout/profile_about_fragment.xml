@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.galaxy.meetup.client.android.ui.view.ProfileAboutView android:id="@id/profile" android:background="@drawable/bg_tacos" android:padding="4.0dip" android:paddingTop="5.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent" android:animateLayoutChanges="true"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/layout" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <include layout="@layout/profile_item_header" />
+        <include layout="@layout/profile_item_details" />
+        <TextView android:textSize="18.0sp" android:gravity="center" android:id="@id/server_error" android:padding="24.0dip" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/people_list_error" />
+    </LinearLayout>
+</com.galaxy.meetup.client.android.ui.view.ProfileAboutView>

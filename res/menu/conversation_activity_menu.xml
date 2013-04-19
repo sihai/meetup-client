@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:icon="@drawable/ic_menu_hangout" android:id="@id/realtimechat_conversation_toggle_tile_menu_item" android:title="@string/realtimechat_conversation_join_hangout_menu_item_text" android:showAsAction="ifRoom" />
+    <item android:icon="@drawable/ic_menu_add_people" android:id="@id/realtimechat_conversation_invite_menu_item" android:title="@string/realtimechat_conversation_invite_menu_item_text" android:showAsAction="ifRoom" />
+    <item android:icon="@drawable/ic_menu_edit" android:id="@id/realtimechat_conversation_edit_name_menu_item" android:title="@string/realtimechat_conversation_edit_name_menu_item_text" />
+    <item android:icon="@drawable/ic_menu_mute_conversation" android:id="@id/realtimechat_conversation_mute_menu_item" android:title="@string/realtimechat_conversation_mute_menu_item_text" />
+    <item android:icon="@drawable/ic_menu_unmute_conversation" android:id="@id/realtimechat_conversation_unmute_menu_item" android:title="@string/realtimechat_conversation_unmute_menu_item_text" />
+    <item android:icon="@drawable/ic_menu_leave" android:id="@id/realtimechat_conversation_leave_menu_item" android:title="@string/realtimechat_conversation_leave_menu_item_text" />
+</menu>

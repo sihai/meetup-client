@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:paddingLeft="16.0dip" android:paddingRight="16.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:paddingTop="4.0dip" android:paddingBottom="4.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="56.0dip">
+        <ImageView android:id="@*android:id/icon" android:layout_width="48.0dip" android:layout_height="56.0dip" android:layout_marginLeft="-12.0dip" android:scaleType="center" android:layout_alignParentTop="true" />
+        <TextView android:textAppearance="?android:textAppearanceMedium" android:id="@*android:id/text1" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginLeft="4.0dip" android:layout_marginTop="2.0dip" android:layout_marginRight="4.0dip" android:layout_toRightOf="@*android:id/icon" android:layout_alignParentRight="true" />
+        <TextView android:id="@*android:id/text2" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginLeft="4.0dip" android:layout_marginRight="4.0dip" android:layout_toRightOf="@*android:id/icon" android:layout_below="@*android:id/text1" android:layout_alignParentRight="true" style="@style/ProfileItemLabel" />
+    </RelativeLayout>
+    <FrameLayout android:id="@id/divider" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <View android:id="@id/shortDivider" android:layout_marginLeft="40.0dip" style="@style/Divider" />
+        <View android:id="@id/longDivider" style="@style/Divider" />
+    </FrameLayout>
+</LinearLayout>

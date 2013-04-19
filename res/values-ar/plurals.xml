@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="album_photo_count">
+        <item quantity="other">%d من الصور</item>
+        <item quantity="zero">%d من الصور</item>
+        <item quantity="one">%d من الصور</item>
+    </plurals>
+    <plurals name="from_your_phone_selected_count">
+        <item quantity="other">تم تحديد %d</item>
+        <item quantity="one">تم تحديد %d</item>
+    </plurals>
+    <plurals name="delete_photo_dialog_title">
+        <item quantity="other">هل تريد حذف هذه الصور؟</item>
+        <item quantity="one">هل تريد حذف هذه الصورة؟</item>
+    </plurals>
+    <plurals name="delete_remote_photo_dialog_message">
+        <item quantity="other">هل تريد بالتأكيد حذف هذه الصور من ألبومك في Google+‎؟ لا يمكن التراجع عن هذا الإجراء.</item>
+        <item quantity="one">هل تريد بالتأكيد حذف هذه الصورة من ألبومك في Google+‎؟ لا يمكن التراجع عن هذا الإجراء.</item>
+    </plurals>
+    <plurals name="delete_local_photo_dialog_message">
+        <item quantity="other">هل أنت متأكد أنك تريد حذف هذه الصور من الجهاز؟ قد تكون هذه هي النُسخ الوحيدة، ولن يمكنك التراجع عن حذفها.</item>
+        <item quantity="one">هل أنت متأكد أنك تريد حذف هذه الصورة من الجهاز؟ قد تكون هذه هي النسخة الوحيدة، ولن يمكنك التراجع عن حذفها.</item>
+    </plurals>
+    <plurals name="delete_photo_pending">
+        <item quantity="other">جارٍ حذف الصور…</item>
+        <item quantity="one">جارٍ حذف الصورة…</item>
+    </plurals>
+    <plurals name="notifications_instant_upload_title">
+        <item quantity="other">صور جديدة جاهزة للمشاركة</item>
+        <item quantity="one">صورة جديدة جاهزة للمشاركة</item>
+    </plurals>
+    <plurals name="notifications_instant_upload_text">
+        <item quantity="other">عدد الصور: %d</item>
+        <item quantity="one">عدد الصور: %d</item>
+    </plurals>
+    <plurals name="notifications_instant_upload_known_faces_text">
+        <item quantity="other">صور جديدة تتضمن %s.</item>
+        <item quantity="one">صورة جديدة تتضمن %s.</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_comment">
+        <item quantity="other">عدد التعليقات الجديدة: %d</item>
+        <item quantity="one">عدد التعليقات الجديدة: %d</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_plus_one">
+        <item quantity="other">عدد إجراءات 1+ الجديدة: %d</item>
+        <item quantity="one">عدد إجراءات 1+ الجديدة: %d</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_reshare">
+        <item quantity="other">عدد إعادات المشاركة الجديدة: %d</item>
+        <item quantity="one">عدد إعادات المشاركة الجديدة: %d</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_mention">
+        <item quantity="other">عدد الإشارات الجديدة: %d</item>
+        <item quantity="one">عدد الإشارات الجديدة: %d</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_share">
+        <item quantity="other">عدد المشاركات الجديدة: %d</item>
+        <item quantity="one">عدد المشاركات الجديدة: %d</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_post">
+        <item quantity="other">عدد المشاركات الجديدة: %d</item>
+        <item quantity="one">عدد المشاركات الجديدة: %d</item>
+    </plurals>
+    <plurals name="notification_square_multi_post_unread">
+        <item quantity="other">المشاركات الجديدة المنشورة: %s</item>
+        <item quantity="one">المشاركات الجديدة المنشورة: %s</item>
+    </plurals>
+    <plurals name="notification_square_multi_post_read">
+        <item quantity="other">تم نشر مشاركات جديدة</item>
+        <item quantity="one">تم نشر مشاركة جديدة</item>
+    </plurals>
+    <plurals name="event_invitee_with_guests">
+        <item quantity="other">%1$s (+%2$d من الضيوف)</item>
+        <item quantity="one">%1$s (+%2$d ضيف واحد)</item>
+    </plurals>
+    <plurals name="event_invitee_other_count">
+        <item quantity="other">+ %d من الآخرين</item>
+        <item quantity="one">+ %d آخر</item>
+    </plurals>
+    <plurals name="event_add_guest_count">
+        <item quantity="other">+ %d من الضيوف</item>
+        <item quantity="one">+ %d ضيف</item>
+    </plurals>
+    <plurals name="sign_out_message">
+        <item quantity="other">هناك %d من العناصر في انتظار التحميل. سيؤدي الخروج إلى إلغاء التحميل المعلّق.</item>
+        <item quantity="one">هناك %d من العناصر في انتظار التحميل. سيؤدي الخروج إلى إلغاء التحميل المعلّق.</item>
+    </plurals>
+    <plurals name="share_photo_count">
+        <item quantity="other">عدد الصور: %d</item>
+        <item quantity="one">عدد الصور: %d</item>
+    </plurals>
+    <plurals name="plus_one_people_more_plus_ones">
+        <item quantity="other">+%d آخرين</item>
+        <item quantity="one">1+ بواسطة آخرين</item>
+    </plurals>
+    <plurals name="plusoned_by_unknowns">
+        <item quantity="other">بواسطة %d من الأشخاص</item>
+        <item quantity="one">بواسطة شخص واحد</item>
+    </plurals>
+    <plurals name="plusoned_by_you_and_unknowns">
+        <item quantity="other">بواسطتك وبواسطة %d من الآخرين</item>
+        <item quantity="one">بواسطتك وبواسطة شخص آخر</item>
+    </plurals>
+    <plurals name="plusoned_by_one_known_and_unknowns">
+        <item quantity="other">بواسطة %1$s و%2$d من الآخرين</item>
+        <item quantity="one">بواسطة %s وبواسطة شخص آخر</item>
+    </plurals>
+    <plurals name="plusoned_by_you_and_one_known_and_unknowns">
+        <item quantity="other">بواسطتك وبواسطة %1$s و%2$d من الآخرين</item>
+        <item quantity="one">بواسطتك وبواسطة %s وشخص آخر</item>
+    </plurals>
+    <plurals name="plusoned_by_two_known_and_unknowns">
+        <item quantity="other">بواسطة %1$s و%2$s و%3$d من الآخرين</item>
+        <item quantity="one">بواسطة %1$s و%2$s وشخص آخر</item>
+    </plurals>
+    <plurals name="plusoned_by_you_and_two_known_and_unknowns">
+        <item quantity="other">بواسطتك، وبواسطة %1$s و%2$s و%3$d من الآخرين</item>
+        <item quantity="one">بواسطتك، وبواسطة %1$s و%2$s وشخص آخر</item>
+    </plurals>
+    <plurals name="comments">
+        <item quantity="other">%d من التعليقات</item>
+        <item quantity="one">%d تعليق</item>
+    </plurals>
+    <plurals name="delete_photo">
+        <item quantity="other">حذف الصور</item>
+        <item quantity="one">حذف الصورة</item>
+    </plurals>
+    <plurals name="circle_entry_content_description">
+        <item quantity="other">%1$s؛ %2$d من الأعضاء</item>
+        <item quantity="one">%1$s؛ %2$d من الأعضاء</item>
+    </plurals>
+    <plurals name="notifications_ticker_text">
+        <item quantity="other">إشعارات Google+‎ جديدة</item>
+        <item quantity="one">إشعار Google+‎ جديد</item>
+    </plurals>
+    <plurals name="notification_single_post">
+        <item quantity="other">عدد الأنشطة الجديدة: %d</item>
+        <item quantity="one">عدد الأنشطة الجديدة: %d</item>
+    </plurals>
+    <plurals name="notifications_content_text">
+        <item quantity="other">%1$s (%2$d)</item>
+        <item quantity="one">%1$s (%2$d)</item>
+    </plurals>
+    <plurals name="audience_display_selection_count">
+        <item quantity="other">تم تحديد %d</item>
+        <item quantity="one">تم تحديد %d</item>
+    </plurals>
+    <plurals name="circle_count_and_matched_email">
+        <item quantity="other">%1$d من الدوائر، %2$s</item>
+        <item quantity="one">%1$d من الدوائر، %2$s</item>
+    </plurals>
+    <plurals name="delete_circles_dialog_title">
+        <item quantity="other">حذف الدوائر</item>
+        <item quantity="one">حذف الدائرة</item>
+    </plurals>
+    <plurals name="delete_circles_dialog_message">
+        <item quantity="other">هل تريد حذف هذه الدوائر بشكل دائم؟</item>
+        <item quantity="one">هل تريد حذف هذه الدائرة بشكل دائم؟</item>
+    </plurals>
+    <plurals name="circle_button_more_circles">
+        <item quantity="other">%d أخرى</item>
+        <item quantity="one">%d أخرى</item>
+    </plurals>
+    <plurals name="num_minutes_ago">
+        <item quantity="other">%d دقيقة</item>
+        <item quantity="one">%d دقيقة</item>
+    </plurals>
+    <plurals name="num_hours_ago">
+        <item quantity="other">%d ساعة</item>
+        <item quantity="one">%d ساعة</item>
+    </plurals>
+    <plurals name="num_days_ago">
+        <item quantity="other">%d يوم</item>
+        <item quantity="one">%d يوم</item>
+    </plurals>
+    <plurals name="profile_added_by">
+        <item quantity="other">"تمت الإضافة بواسطة
+%s من الأشخاص"</item>
+        <item quantity="zero">"تمت الإضافة بواسطة
+%s من الأشخاص"</item>
+        <item quantity="one">"تمت الإضافة بواسطة
+%s شخص"</item>
+    </plurals>
+    <plurals name="profile_local_review_count">
+        <item quantity="other">%d من التعليقات</item>
+        <item quantity="one">%d تعليق</item>
+    </plurals>
+    <plurals name="hangout_plus_others">
+        <item quantity="other">+%d آخرين</item>
+        <item quantity="one">1+ بواسطة آخرين</item>
+    </plurals>
+    <plurals name="card_hangout_with_people">
+        <item quantity="other">الانضمام إلى جلسة HANGOUT مع %d من الأشخاص</item>
+        <item quantity="one">الانضمام إلى جلسة HANGOUT مع شخص واحد</item>
+    </plurals>
+    <plurals name="stream_one_up_comment_count">
+        <item quantity="other">%d من التعليقات</item>
+        <item quantity="one">%d تعليق</item>
+    </plurals>
+    <plurals name="stream_one_up_stage_hangout_over">
+        <item quantity="other">%d من الأشخاص شاركوا في HANGOUT</item>
+        <item quantity="one">شخص واحد شارك في جلسة Hangout</item>
+    </plurals>
+    <plurals name="plus_one_accessibility_description">
+        <item quantity="other">%d من إجراءات plus one</item>
+        <item quantity="one">%d إجراء plus one</item>
+    </plurals>
+    <plurals name="accessibility_notification_count_description">
+        <item quantity="other">%d من إشعارات Google+‎ الجديدة</item>
+        <item quantity="one">%d من إشعارات Google+‎ الجديدة</item>
+    </plurals>
+    <plurals name="audience_hidden_user_count">
+        <item quantity="other">+%d آخرون</item>
+        <item quantity="one">1+ شخص آخر</item>
+    </plurals>
+    <plurals name="common_friend_count">
+        <item quantity="other">عدد الأشخاص المتشاركين: %d</item>
+        <item quantity="one">شخص واحد مشترك</item>
+    </plurals>
+    <plurals name="added_to_circle_notification_message">
+        <item quantity="other">تمت إضافة %d من الأشخاص إلى الدوائر</item>
+        <item quantity="one">تمت إضافة شخص واحد إلى الدوائر</item>
+    </plurals>
+    <plurals name="square_members_count">
+        <item quantity="other">%d من الأعضاء</item>
+        <item quantity="one">%d عضو</item>
+    </plurals>
+</resources>

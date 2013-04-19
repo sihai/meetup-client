@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:background="@drawable/hangout_toast_border" android:padding="2.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:background="@drawable/hangout_toast_background" android:padding="16.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <ImageView android:id="@id/toast_icon" android:layout_width="@dimen/hangout_toast_avatar_size" android:layout_height="@dimen/hangout_toast_avatar_size" android:layout_marginRight="12.0dip" />
+        <TextView android:textColor="@color/hangout_toast_text" android:layout_gravity="left|center" android:id="@id/toast_text" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    </LinearLayout>
+</FrameLayout>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/title_layout" android:background="@color/title_background" android:padding="0.0dip" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="@dimen/titlebar_height"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/titlebar_icon_layout" android:background="?buttonSelectableBackground" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_alignParentLeft="true">
+        <ImageView android:id="@id/titlebar_up" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_ab_back_holo_dark" />
+        <ImageView android:id="@id/titlebar_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_gplus_red_32" android:scaleType="center" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="4.0dip" android:layout_marginRight="4.0dip" android:layout_toLeftOf="@id/title_button_1" android:layout_toRightOf="@id/titlebar_icon_layout" android:layout_centerVertical="true">
+        <TextView android:textSize="16.0sp" android:textColor="#ffffffff" android:ellipsize="end" android:id="@id/titlebar_label" android:layout_width="wrap_content" android:layout_height="fill_parent" android:singleLine="true" />
+        <TextView android:textSize="12.0sp" android:textColor="#ffffffff" android:ellipsize="end" android:id="@id/titlebar_label_2" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="fill_parent" android:singleLine="true" />
+    </LinearLayout>
+    <ProgressBar android:id="@id/progress_spinner" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="16.0dip" android:indeterminate="true" android:layout_toLeftOf="@id/title_button_1" android:layout_centerVertical="true" android:layout_alignWithParentIfMissing="true" style="?android:attr/progressBarStyleSmallInverse" />
+    <ImageButton android:id="@id/title_button_1" android:background="?buttonSelectableBackground" android:visibility="gone" android:layout_width="@dimen/titlebar_height" android:layout_height="fill_parent" android:layout_toLeftOf="@id/title_button_2" android:layout_alignParentTop="true" android:layout_alignParentBottom="true" android:layout_alignWithParentIfMissing="true" />
+    <ImageButton android:id="@id/title_button_2" android:background="?buttonSelectableBackground" android:visibility="gone" android:layout_width="@dimen/titlebar_height" android:layout_height="fill_parent" android:layout_toLeftOf="@id/title_button_3" android:layout_alignParentTop="true" android:layout_alignParentBottom="true" android:layout_alignWithParentIfMissing="true" />
+    <Button android:textSize="@dimen/titlebar_text_size" android:id="@id/title_button_3" android:background="?buttonSelectableBackground" android:visibility="gone" android:layout_width="@dimen/titlebar_height" android:layout_height="fill_parent" android:layout_alignParentTop="true" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" />
+</RelativeLayout>

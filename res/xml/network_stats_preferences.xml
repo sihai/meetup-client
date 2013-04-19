@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/preferences_network_stats_title" android:order="6000">
+        <Preference android:layout="@layout/label_preference" android:title="@string/preferences_network_transactions_title" android:key="@string/network_transactions_preference_key" android:summary="@string/preferences_network_transactions_summary" />
+        <Preference android:layout="@layout/label_preference" android:title="@string/preferences_network_bandwidth_title" android:key="@string/network_stats_preference_key" android:summary="@string/preferences_network_bandwidth_summary" />
+    </PreferenceCategory>
+</PreferenceScreen>

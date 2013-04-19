@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <fragment android:id="@id/conversation_header" android:layout_width="fill_parent" android:layout_height="@dimen/participant_tray_avatar_height" class="com.galaxy.meetup.client.android.ui.fragments.ParticipantsGalleryFragment" />
+    <fragment android:id="@id/invitation_fragment" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="1.0" class="com.galaxy.meetup.client.android.ui.fragments.InvitationFragment" />
+</LinearLayout>

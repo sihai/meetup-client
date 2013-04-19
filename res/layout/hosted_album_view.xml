@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.galaxy.meetup.client.android.ui.view.PhotoAlbumView android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="14.0sp" android:gravity="center" android:id="@id/message" android:background="#fffffcac" android:padding="6.0dip" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    <com.galaxy.meetup.client.android.ui.view.ColumnGridView android:id="@id/grid" android:background="@null" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_below="@id/message" />
+    <TextView android:textSize="18.0sp" android:textStyle="bold" android:textColor="#ffffffff" android:gravity="center" android:id="@id/date" android:visibility="invisible" android:layout_width="160.0dip" android:layout_height="wrap_content" />
+    <include layout="@layout/empty_layout" />
+</com.galaxy.meetup.client.android.ui.view.PhotoAlbumView>

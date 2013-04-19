@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme" parent="@*android:style/Theme" />
+    <style name="Theme.Platform" parent="@*android:style/Theme.Holo.Light" />
+    <style name="Theme.Host" parent="@style/Theme.Screen">
+        <item name="android:windowBackground">@color/host_background</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowActionModeOverlay">true</item>
+        <item name="listSelector">?android:listChoiceBackgroundIndicator</item>
+        <item name="editAudienceBackground">?android:editTextBackground</item>
+        <item name="buttonSelectableBackground">?android:selectableItemBackground</item>
+    </style>
+    <style name="Theme.Host.ActionBar.Button" parent="@style/Theme.Host.ActionBar">
+        <item name="android:background">?android:selectableItemBackground</item>
+    </style>
+    <style name="Theme.EmeraldSea" parent="@*android:style/Theme.Holo.Light">
+        <item name="android:windowBackground">@color/host_background</item>
+        <item name="android:windowContentOverlay">@drawable/actiontabs_bar</item>
+        <item name="android:actionBarStyle">@style/EsActionBar</item>
+        <item name="android:actionDropDownStyle">@style/EsActionBar.Spinner</item>
+        <item name="android:actionModeBackground">@drawable/actionmode_background</item>
+        <item name="android:actionModeCloseDrawable">@drawable/ic_cab_done_holo_dark</item>
+        <item name="android:windowActionModeOverlay">true</item>
+        <item name="android:actionOverflowButtonStyle">@*android:style/Widget.Holo.ActionButton.Overflow</item>
+        <item name="android:homeAsUpIndicator">@drawable/ic_ab_back_holo_light</item>
+        <item name="android:actionModeCutDrawable">@drawable/ic_menu_cut_holo_dark</item>
+        <item name="android:actionModeCopyDrawable">@drawable/ic_menu_copy_holo_dark</item>
+        <item name="android:actionModePasteDrawable">@drawable/ic_menu_paste_holo_dark</item>
+        <item name="android:actionModeSelectAllDrawable">@drawable/ic_menu_selectall_holo_dark</item>
+        <item name="android:actionModeSplitBackground">@drawable/actionmode_background</item>
+        <item name="buttonBarStyle">?android:buttonBarStyle</item>
+        <item name="buttonBarButtonStyle">?android:buttonBarButtonStyle</item>
+        <item name="listSelector">?android:listChoiceBackgroundIndicator</item>
+        <item name="editAudienceBackground">?android:editTextBackground</item>
+        <item name="editLocationBackground">?android:editTextBackground</item>
+        <item name="buttonSelectableBackground">?android:selectableItemBackground</item>
+    </style>
+    <style name="Theme.DarkActionBar" parent="@*android:style/Theme.Holo.Light">
+        <item name="android:windowContentOverlay">@drawable/actiontabs_bar</item>
+        <item name="android:actionBarStyle">@style/EsActionBar</item>
+        <item name="android:actionDropDownStyle">@style/EsActionBar.Spinner</item>
+        <item name="android:actionModeBackground">@drawable/actionmode_background</item>
+        <item name="android:actionModeCloseDrawable">@drawable/ic_cab_done_holo_dark</item>
+        <item name="android:windowActionModeOverlay">true</item>
+        <item name="android:actionOverflowButtonStyle">@*android:style/Widget.Holo.ActionButton.Overflow</item>
+        <item name="android:homeAsUpIndicator">@drawable/ic_ab_back_holo_light</item>
+        <item name="android:actionModeCutDrawable">@drawable/ic_menu_cut_holo_dark</item>
+        <item name="android:actionModeCopyDrawable">@drawable/ic_menu_copy_holo_dark</item>
+        <item name="android:actionModePasteDrawable">@drawable/ic_menu_paste_holo_dark</item>
+        <item name="android:actionModeSelectAllDrawable">@drawable/ic_menu_selectall_holo_dark</item>
+        <item name="android:actionModeSplitBackground">@drawable/actionmode_background</item>
+        <item name="buttonBarStyle">?android:buttonBarStyle</item>
+        <item name="buttonBarButtonStyle">?android:buttonBarButtonStyle</item>
+        <item name="listSelector">?android:listChoiceBackgroundIndicator</item>
+        <item name="editAudienceBackground">?android:editTextBackground</item>
+        <item name="editLocationBackground">?android:editTextBackground</item>
+        <item name="buttonSelectableBackground">?android:selectableItemBackground</item>
+    </style>
+    <style name="Theme.EmeraldSea.NoTitle" parent="@style/Theme.EmeraldSea">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+    </style>
+    <style name="Theme.EmeraldSea.Dialog" parent="@*android:style/Theme.Holo.Light.Dialog" />
+    <style name="Theme.EmeraldSea.Preference.Dialog" parent="@*android:style/Theme.Holo.Light.Dialog" />
+    <style name="Theme.EmeraldSea.Dark" parent="@*android:style/Theme.Holo">
+        <item name="android:windowContentOverlay">@drawable/actiontabs_bar</item>
+        <item name="android:actionBarStyle">@style/EsActionBar.Dark</item>
+        <item name="android:actionDropDownStyle">@style/EsActionBar.Spinner</item>
+        <item name="android:actionModeBackground">@drawable/actionmode_background</item>
+        <item name="android:actionModeCloseDrawable">@drawable/ic_cab_done_holo_dark</item>
+        <item name="android:actionOverflowButtonStyle">@*android:style/Widget.Holo.ActionButton.Overflow</item>
+        <item name="android:homeAsUpIndicator">@drawable/ic_ab_back_holo_dark</item>
+        <item name="android:actionModeCutDrawable">@drawable/ic_menu_cut_holo_dark</item>
+        <item name="android:actionModeCopyDrawable">@drawable/ic_menu_copy_holo_dark</item>
+        <item name="android:actionModePasteDrawable">@drawable/ic_menu_paste_holo_dark</item>
+        <item name="android:actionModeSelectAllDrawable">@drawable/ic_menu_selectall_holo_dark</item>
+        <item name="android:actionModeSplitBackground">@drawable/actionmode_background</item>
+        <item name="buttonBarStyle">?android:buttonBarStyle</item>
+        <item name="buttonBarButtonStyle">?android:buttonBarButtonStyle</item>
+        <item name="listSelector">?android:listChoiceBackgroundIndicator</item>
+        <item name="editAudienceBackground">?android:editTextBackground</item>
+        <item name="editLocationBackground">?android:editTextBackground</item>
+        <item name="buttonSelectableBackground">?android:selectableItemBackground</item>
+    </style>
+    <style name="Theme.EmeraldSea.Dark.Dialog" parent="@*android:style/Theme.Holo.Dialog" />
+    <style name="PhotoViewTheme" parent="@style/PhotoViewTheme.Default">
+        <item name="android:windowActionModeOverlay">true</item>
+        <item name="android:windowActionBarOverlay">true</item>
+    </style>
+    <style name="CircleBrowserTheme" parent="@style/CircleBrowserTheme.Default">
+        <item name="contact_list_item_action_button_background">?android:selectableItemBackground</item>
+    </style>
+    <style name="DarkCircleBrowserTheme" parent="@style/CircleBrowserTheme.Dark">
+        <item name="contact_list_item_action_button_background">?android:selectableItemBackground</item>
+    </style>
+    <style name="CircleBrowserTheme.Tabs" parent="@style/CircleBrowserTheme.Default.Tabs">
+        <item name="contact_list_item_action_button_background">?android:selectableItemBackground</item>
+    </style>
+    <style name="CircleBrowserTheme.FastScroller" parent="@style/CircleBrowserTheme.Default" />
+    <style name="ListItemAction">
+        <item name="android:background">?android:selectableItemBackground</item>
+    </style>
+    <style name="People" />
+    <style name="People.Avatar" parent="@style/People" />
+    <style name="People.Avatar.TrayAvatar" parent="@style/People.Avatar">
+        <item name="android:padding">1.0dip</item>
+        <item name="android:layout_width">42.0dip</item>
+        <item name="android:layout_height">@dimen/tray_avatar_height</item>
+        <item name="android:layout_marginRight">2.0dip</item>
+    </style>
+    <style name="Theme.Messenger" parent="@style/Theme.EmeraldSea">
+        <item name="android:windowActionBarOverlay">true</item>
+    </style>
+    <style name="Theme.Hangout" parent="@style/Theme.DarkActionBar">
+        <item name="android:actionBarStyle">@style/HangoutActionBar</item>
+        <item name="android:windowActionBarOverlay">true</item>
+    </style>
+    <style name="Theme.HangoutLaunch" parent="@style/Theme.EmeraldSea.NoTitle" />
+    <style name="LabelPreference.Title" parent="@style/LabelPreference">
+        <item name="android:textAppearance">?android:textAppearanceMedium</item>
+    </style>
+    <style name="DateTimePickerButton" parent="@*android:style/Widget.Holo.Light.Spinner">
+        <item name="android:textAppearance">?android:textAppearanceSmall</item>
+        <item name="android:paddingLeft">14.0dip</item>
+        <item name="android:paddingRight">14.0dip</item>
+    </style>
+    <style name="TimeZonePickerButton" parent="@*android:style/Widget.Holo.Light.Spinner">
+        <item name="android:textAppearance">?android:textAppearanceSmall</item>
+        <item name="android:paddingLeft">14.0dip</item>
+        <item name="android:paddingRight">14.0dip</item>
+    </style>
+    <style name="Theme.Host.SearchBar" parent="@style/Theme.Host">
+        <item name="android:windowActionModeOverlay">false</item>
+    </style>
+    <style name="EsActionBar" parent="@*android:style/Widget.Holo.Light.ActionBar">
+        <item name="android:background">@color/title_background</item>
+        <item name="android:displayOptions">useLogo|showHome|showTitle</item>
+        <item name="android:windowActionBarOverlay">false</item>
+        <item name="android:titleTextStyle">@style/EsActionBar.Title</item>
+        <item name="android:subtitleTextStyle">@style/EsActionBar.Subtitle</item>
+        <item name="android:backgroundSplit">@color/title_background</item>
+    </style>
+    <style name="EsActionBar.Title" parent="@style/EsActionBar">
+        <item name="android:textSize">18.0dip</item>
+        <item name="android:textColor">#ffffffff</item>
+        <item name="android:background">#00000000</item>
+        <item name="android:shadowColor">#bb000000</item>
+        <item name="android:shadowDx">0.0</item>
+        <item name="android:shadowDy">0.0</item>
+        <item name="android:shadowRadius">1.25</item>
+    </style>
+    <style name="EsActionBar.Subtitle" parent="@style/EsActionBar">
+        <item name="android:textSize">12.0dip</item>
+        <item name="android:textColor">#ffffffff</item>
+        <item name="android:background">#00000000</item>
+    </style>
+    <style name="EsActionBar.SearchView" parent="@*android:style/Theme.Holo" />
+    <style name="EsActionBar.Spinner" parent="@*android:style/Widget.Holo.Spinner">
+        <item name="android:popupBackground">@drawable/menu_dropdown_panel_holo_light</item>
+    </style>
+    <style name="EsActionBar.Dark" parent="@*android:style/Widget.Holo.ActionBar">
+        <item name="android:background">@color/title_background</item>
+        <item name="android:displayOptions">useLogo|showHome|showTitle</item>
+        <item name="android:windowActionBarOverlay">false</item>
+        <item name="android:titleTextStyle">@style/EsActionBar.Title</item>
+        <item name="android:subtitleTextStyle">@style/EsActionBar.Subtitle</item>
+    </style>
+    <style name="HangoutActionBar" parent="@style/EsActionBar.Dark">
+        <item name="android:background">@color/hangout_common_menu_background</item>
+        <item name="android:displayOptions">useLogo|showHome</item>
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="android:backgroundSplit">@color/hangout_common_menu_background</item>
+    </style>
+</resources>

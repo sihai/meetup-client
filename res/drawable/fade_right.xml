@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <gradient android:startColor="@color/hangout_video_background" android:endColor="@color/hangout_video_background_transparent" android:angle="0.0" />
+    <size android:width="@dimen/hangout_filmstrip_gradient_width" />
+</shape>

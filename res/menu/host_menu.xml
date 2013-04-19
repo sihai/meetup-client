@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:icon="@drawable/ic_menu_wallpaper" android:id="@id/photo_details" android:title="@string/profile_local_section_details" android:showAsAction="never" />
+    <item android:icon="@drawable/ic_menu_compose" android:id="@id/post_new" android:title="@string/menu_post" android:showAsAction="never" />
+    <item android:icon="@drawable/ic_menu_addphotos" android:id="@id/post_photo" android:title="@string/menu_postphoto" android:showAsAction="never" />
+    <item android:icon="@drawable/ic_menu_checkin" android:id="@id/checkin" android:title="@string/menu_checkin" android:showAsAction="never" />
+    <item android:icon="@drawable/ic_menu_refresh" android:id="@id/refresh" android:title="@string/menu_refresh" android:showAsAction="never" />
+    <item android:icon="@drawable/ic_menu_mute_conversation" android:id="@id/mute" android:title="@string/menu_item_mute_person" android:showAsAction="never" />
+    <item android:icon="@drawable/ic_menu_unmute_conversation" android:id="@id/unmute" android:title="@string/menu_item_unmute_person" android:showAsAction="never" />
+    <item android:icon="@drawable/ic_menu_blocked_user" android:id="@id/block" android:title="@string/menu_item_block_person" android:showAsAction="never" />
+    <item android:icon="@drawable/ic_menu_blocked_user" android:id="@id/unblock" android:title="@string/menu_item_unblock_person" android:showAsAction="never" />
+    <item android:icon="@drawable/ic_menu_flag_system" android:id="@id/report_abuse" android:title="@string/menu_item_report_abuse" android:showAsAction="never" />
+    <item android:icon="@drawable/ic_menu_delete" android:id="@id/delete_circle" android:title="@string/menu_delete_circle" android:showAsAction="never" />
+    <item android:icon="@drawable/ic_menu_preferences" android:id="@id/circle_settings" android:title="@string/menu_circle_settings" android:showAsAction="never" />
+    <item android:id="@id/subscribe" android:showAsAction="never" />
+    <item android:icon="@drawable/ic_menu_search" android:id="@id/search" android:title="@string/menu_search_posts" android:showAsAction="never" />
+    <item android:icon="@drawable/ic_menu_edit" android:id="@id/edit" android:title="@string/menu_edit" android:showAsAction="never" />
+    <item android:icon="@drawable/ic_menu_map" android:id="@id/show_location" android:title="@string/menu_show_post_location" android:showAsAction="never" />
+    <item android:icon="@drawable/ic_menu_mute" android:id="@id/mute_post" android:title="@string/menu_mute_post" android:showAsAction="never" />
+    <item android:icon="@drawable/ic_menu_delete" android:id="@id/delete_post" android:title="@string/menu_item_delete_post" android:showAsAction="never" />
+    <item android:icon="@drawable/ic_edit_event" android:id="@id/edit_event" android:title="@string/menu_edit_event" android:showAsAction="never" />
+    <item android:icon="@drawable/ic_delete_event" android:id="@id/delete_event" android:title="@string/menu_delete_event" android:showAsAction="never" />
+    <item android:icon="@drawable/ic_menu_add_people" android:id="@id/invite_more" android:title="@string/menu_invite_more" android:showAsAction="always" />
+    <item android:icon="@drawable/ic_plusoned" android:id="@id/plus_oned_by" android:title="@string/menu_plus_oned_by" android:showAsAction="never" />
+    <item android:id="@id/select_item" android:title="@string/menu_select_item" android:showAsAction="always" />
+    <item android:id="@id/delete_photos" android:title="@string/menu_delete_photo" android:showAsAction="never" />
+    <item android:id="@id/delete_review" android:title="@string/menu_delete_review" android:showAsAction="never" />
+    <item android:icon="@drawable/ic_menu_feedback" android:id="@id/feedback" android:title="@string/home_menu_feedback" android:showAsAction="never" />
+    <item android:icon="@drawable/ic_menu_preferences" android:id="@id/settings" android:title="@string/home_menu_settings" android:showAsAction="never" />
+    <item android:icon="@drawable/ic_menu_help" android:id="@id/help" android:title="@string/menu_home_help" android:showAsAction="never" />
+    <item android:icon="@drawable/ic_menu_account_list" android:id="@id/sign_out" android:title="@string/menu_home_sign_out" android:showAsAction="never" />
+</menu>

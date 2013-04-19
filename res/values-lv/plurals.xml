@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="album_photo_count">
+        <item quantity="other">%d fotoattēli</item>
+        <item quantity="zero">%d attēli</item>
+        <item quantity="one">%d fotoattēls</item>
+    </plurals>
+    <plurals name="from_your_phone_selected_count">
+        <item quantity="other">Atlasīti %d</item>
+        <item quantity="one">Atlasīti %d</item>
+    </plurals>
+    <plurals name="delete_photo_dialog_title">
+        <item quantity="other">Vai dzēst šos fotoattēlus?</item>
+        <item quantity="one">Vai dzēst šo fotoattēlu?</item>
+    </plurals>
+    <plurals name="delete_remote_photo_dialog_message">
+        <item quantity="other">Vai tiešām vēlaties dzēst šos fotoattēlus no šī Google+ albuma? Šo darbību nevarēs atsaukt.</item>
+        <item quantity="one">Vai tiešām vēlaties dzēst šo fotoattēlu no šī Google+ albuma? Šo darbību nevarēs atsaukt.</item>
+    </plurals>
+    <plurals name="delete_local_photo_dialog_message">
+        <item quantity="other">Vai tiešām vēlaties izdzēst šos fotoattēlus no savas ierīces? Tie, iespējams, ir jūsu vienīgie eksemplāri, un to dzēšanu nevarēs atsaukt.</item>
+        <item quantity="one">Vai tiešām vēlaties izdzēst šo fotoattēlu no savas ierīces? Tas, iespējams, ir jūsu vienīgais eksemplārs, un tā dzēšanu nevarēs atsaukt.</item>
+    </plurals>
+    <plurals name="delete_photo_pending">
+        <item quantity="other">Notiek fotoattēlu dzēšana...</item>
+        <item quantity="one">Notiek fotoattēla dzēšana...</item>
+    </plurals>
+    <plurals name="notifications_instant_upload_title">
+        <item quantity="other">Jauni fotoattēli gatavi kopīgošanai</item>
+        <item quantity="one">Jauns fotoattēls gatavs kopīgošanai</item>
+    </plurals>
+    <plurals name="notifications_instant_upload_text">
+        <item quantity="other">%d fotoattēli</item>
+        <item quantity="one">%d fotoattēls</item>
+    </plurals>
+    <plurals name="notifications_instant_upload_known_faces_text">
+        <item quantity="other">Jauni fotoattēli ar lietotāju %s.</item>
+        <item quantity="one">Jauns fotoattēls ar lietotāju %s.</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_comment">
+        <item quantity="other">%d jauni komentāri</item>
+        <item quantity="one">%d jauns komentārs</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_plus_one">
+        <item quantity="other">%d jaunas atzīmes +1</item>
+        <item quantity="one">%d jauna atzīme +1</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_reshare">
+        <item quantity="other">%d jaunas atkārtotas kopīgošanas reizes</item>
+        <item quantity="one">%d jauna atkārtotas kopīgošanas reize</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_mention">
+        <item quantity="other">%d jauni minējumi</item>
+        <item quantity="one">%d jauns minējums</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_share">
+        <item quantity="other">%d jaunas kopīgošanas reizes</item>
+        <item quantity="one">%d jauna kopīgošanas reize</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_post">
+        <item quantity="other">%d jaunas ziņas</item>
+        <item quantity="one">%d jauna ziņa</item>
+    </plurals>
+    <plurals name="notification_square_multi_post_unread">
+        <item quantity="other">Tika kopīgotas %s jaunas ziņas</item>
+        <item quantity="one">Tika kopīgota %s jauna ziņa</item>
+    </plurals>
+    <plurals name="notification_square_multi_post_read">
+        <item quantity="other">Tika kopīgotas jaunas ziņas</item>
+        <item quantity="one">Tika kopīgota jauna ziņa</item>
+    </plurals>
+    <plurals name="event_invitee_with_guests">
+        <item quantity="other">%1$s (+%2$d viesi)</item>
+        <item quantity="one">%1$s (+%2$d viesis)</item>
+    </plurals>
+    <plurals name="event_invitee_other_count">
+        <item quantity="other">un vēl %d citi</item>
+        <item quantity="one">un vēl %d cits</item>
+    </plurals>
+    <plurals name="event_add_guest_count">
+        <item quantity="other">un vēl %d viesi</item>
+        <item quantity="one">un vēl %d viesis</item>
+    </plurals>
+    <plurals name="sign_out_message">
+        <item quantity="other">%d vienumi tiks augšupielādēti. Ja izrakstīsities, visas nākamās augšupielādes tiks atceltas.</item>
+        <item quantity="one">%d vienums tiks augšupielādēts. Ja izrakstīsities, nākamā augšupielāde tiks atcelta.</item>
+    </plurals>
+    <plurals name="share_photo_count">
+        <item quantity="other">%d fotoattēli</item>
+        <item quantity="one">%d fotoattēls</item>
+    </plurals>
+    <plurals name="plus_one_people_more_plus_ones">
+        <item quantity="other">Vēl %d citi</item>
+        <item quantity="one">Vēl 1</item>
+    </plurals>
+    <plurals name="plusoned_by_unknowns">
+        <item quantity="other">autors: %d personas</item>
+        <item quantity="one">autors: viena persona</item>
+    </plurals>
+    <plurals name="plusoned_by_you_and_unknowns">
+        <item quantity="other">autors: jūs un vēl %d citi lietotāji</item>
+        <item quantity="one">autors: jūs un vēl viens cits lietotājs</item>
+    </plurals>
+    <plurals name="plusoned_by_one_known_and_unknowns">
+        <item quantity="other">autors: %1$s un vēl %2$d citi lietotāji</item>
+        <item quantity="one">autors: %s un vēl viens cits lietotājs</item>
+    </plurals>
+    <plurals name="plusoned_by_you_and_one_known_and_unknowns">
+        <item quantity="other">autors: jūs, %1$s un vēl %2$d citi lietotāji</item>
+        <item quantity="one">autors: jūs, %s, un vēl viens cits lietotājs</item>
+    </plurals>
+    <plurals name="plusoned_by_two_known_and_unknowns">
+        <item quantity="other">autors: %1$s, %2$s un vēl %3$d citi lietotāji</item>
+        <item quantity="one">autors: %1$s, %2$s un vēl viens cits lietotājs</item>
+    </plurals>
+    <plurals name="plusoned_by_you_and_two_known_and_unknowns">
+        <item quantity="other">autors: jūs, %1$s, %2$s un vēl %3$d citi lietotāji</item>
+        <item quantity="one">autors: jūs, %1$s, %2$s un vēl viens cits lietotājs</item>
+    </plurals>
+    <plurals name="comments">
+        <item quantity="other">%d komentāri</item>
+        <item quantity="one">%d komentārs</item>
+    </plurals>
+    <plurals name="delete_photo">
+        <item quantity="other">Dzēst fotoattēlus</item>
+        <item quantity="one">Dzēst fotoattēlu</item>
+    </plurals>
+    <plurals name="circle_entry_content_description">
+        <item quantity="other">%1$s; %2$d dalībnieki</item>
+        <item quantity="one">%1$s; %2$d dalībnieks</item>
+    </plurals>
+    <plurals name="notifications_ticker_text">
+        <item quantity="other">Jauni Google+ paziņojumi</item>
+        <item quantity="one">Jauns Google+ paziņojums</item>
+    </plurals>
+    <plurals name="notification_single_post">
+        <item quantity="other">%d jaunas darbības</item>
+        <item quantity="one">%d jauna darbība</item>
+    </plurals>
+    <plurals name="notifications_content_text">
+        <item quantity="other">%1$s (%2$d)</item>
+        <item quantity="one">%1$s (%2$d)</item>
+    </plurals>
+    <plurals name="audience_display_selection_count">
+        <item quantity="other">Atlasīti %d</item>
+        <item quantity="one">Atlasīti %d</item>
+    </plurals>
+    <plurals name="circle_count_and_matched_email">
+        <item quantity="other">%1$d loki, %2$s</item>
+        <item quantity="one">%1$d loks, %2$s</item>
+    </plurals>
+    <plurals name="delete_circles_dialog_title">
+        <item quantity="other">Loku dzēšana</item>
+        <item quantity="one">Loka dzēšana</item>
+    </plurals>
+    <plurals name="delete_circles_dialog_message">
+        <item quantity="other">Vai vēlaties neatgriezeniski dzēst šos lokus?</item>
+        <item quantity="one">Vai vēlaties neatgriezeniski dzēst šo loku?</item>
+    </plurals>
+    <plurals name="circle_button_more_circles">
+        <item quantity="other">Vēl %d</item>
+        <item quantity="one">Vēl %d</item>
+    </plurals>
+    <plurals name="num_minutes_ago">
+        <item quantity="other">%d min</item>
+        <item quantity="one">%d min</item>
+    </plurals>
+    <plurals name="num_hours_ago">
+        <item quantity="other">%d h</item>
+        <item quantity="one">%d h</item>
+    </plurals>
+    <plurals name="num_days_ago">
+        <item quantity="other">%d dienas</item>
+        <item quantity="one">%d diena</item>
+    </plurals>
+    <plurals name="profile_added_by">
+        <item quantity="other">"Pievienoja
+%s personas"</item>
+        <item quantity="zero">"Pievienoja
+%s personas"</item>
+        <item quantity="one">"Pievienoja
+%s persona"</item>
+    </plurals>
+    <plurals name="profile_local_review_count">
+        <item quantity="other">%d atsauksmes</item>
+        <item quantity="one">%d atsauksme</item>
+    </plurals>
+    <plurals name="hangout_plus_others">
+        <item quantity="other">Vēl %d citi</item>
+        <item quantity="one">Vēl 1</item>
+    </plurals>
+    <plurals name="card_hangout_with_people">
+        <item quantity="other">HANGOUT SESIJA AR %d PERSONĀM</item>
+        <item quantity="one">HANGOUT SESIJA AR VIENU PERSONU</item>
+    </plurals>
+    <plurals name="stream_one_up_comment_count">
+        <item quantity="other">%d komentāri</item>
+        <item quantity="one">%d komentārs</item>
+    </plurals>
+    <plurals name="stream_one_up_stage_hangout_over">
+        <item quantity="other">%d PERSONAS PIEDALĪJĀS HANGOUT SESIJĀ</item>
+        <item quantity="one">1 PERSONA PIEDALĪJĀS HANGOUT SESIJĀ</item>
+    </plurals>
+    <plurals name="plus_one_accessibility_description">
+        <item quantity="other">%d plus vieni</item>
+        <item quantity="one">%d plus viens</item>
+    </plurals>
+    <plurals name="accessibility_notification_count_description">
+        <item quantity="other">%d jauni Google+ paziņojumi</item>
+        <item quantity="one">%d jauns Google+ paziņojums</item>
+    </plurals>
+    <plurals name="audience_hidden_user_count">
+        <item quantity="other">un vēl %d citi</item>
+        <item quantity="one">un vēl 1</item>
+    </plurals>
+    <plurals name="common_friend_count">
+        <item quantity="other">Kopīgas %d personas</item>
+        <item quantity="one">Kopīga viena persona</item>
+    </plurals>
+    <plurals name="added_to_circle_notification_message">
+        <item quantity="other">Lokiem pievienotas %d personas</item>
+        <item quantity="one">Lokiem pievienota viena persona</item>
+    </plurals>
+    <plurals name="square_members_count">
+        <item quantity="other">%d dalībnieki</item>
+        <item quantity="one">%d dalībnieks</item>
+    </plurals>
+</resources>

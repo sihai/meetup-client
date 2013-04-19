@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="mapType">
+        <enum name="none" value="0" />
+        <enum name="normal" value="1" />
+        <enum name="satellite" value="2" />
+        <enum name="terrain" value="3" />
+    </attr>
+    <attr name="cameraBearing" format="float" />
+    <attr name="cameraTargetLat" format="float" />
+    <attr name="cameraTargetLng" format="float" />
+    <attr name="cameraTilt" format="float" />
+    <attr name="cameraZoom" format="float" />
+    <attr name="uiCompass" format="boolean" />
+    <attr name="uiRotateGestures" format="boolean" />
+    <attr name="uiScrollGestures" format="boolean" />
+    <attr name="uiTiltGestures" format="boolean" />
+    <attr name="uiZoomControls" format="boolean" />
+    <attr name="uiZoomGestures" format="boolean" />
+    <attr name="useViewLifecycle" format="boolean" />
+    <attr name="zOrderOnTop" format="boolean" />
+    <attr name="buttonBarStyle" format="reference" />
+    <attr name="buttonBarButtonStyle" format="reference" />
+    <attr name="listSelector" format="reference" />
+    <attr name="editAudienceBackground" format="reference" />
+    <attr name="editLocationBackground" format="reference" />
+    <attr name="buttonSelectableBackground" format="reference" />
+    <attr name="actionDropDownStyle" format="reference" />
+    <attr name="navigationItemHeight" format="dimension" />
+    <attr name="backgroundColor" format="reference" />
+    <attr name="emptyMessage" format="reference" />
+    <attr name="text" format="reference|string" />
+    <attr name="image" format="reference" />
+    <attr name="scale" format="float" />
+    <attr name="scaleHeight" format="float" />
+    <attr name="scaleWidth" format="float" />
+    <attr name="scaleMargin" format="float" />
+    <attr name="scaleMarginTop" format="float" />
+    <attr name="scaleMarginBottom" format="float" />
+    <attr name="scaleMarginLeft" format="float" />
+    <attr name="scaleMarginRight" format="float" />
+    <attr name="scaleMarginMode">
+        <enum name="scaleMarginNone" value="0" />
+        <enum name="scaleMarginIndependent" value="1" />
+        <enum name="scaleMarginLongEdge" value="2" />
+        <enum name="scaleMarginShortEdge" value="3" />
+    </attr>
+    <attr name="background" format="integer" />
+    <attr name="foreground" format="integer" />
+    <attr name="orientation">
+        <enum name="horizontal" value="0" />
+        <enum name="vertical" value="1" />
+    </attr>
+    <attr name="contact_list_item_height" format="dimension" />
+    <attr name="contact_list_item_padding_top" format="dimension" />
+    <attr name="contact_list_item_padding_bottom" format="dimension" />
+    <attr name="contact_list_item_padding_left" format="dimension" />
+    <attr name="contact_list_item_padding_right" format="dimension" />
+    <attr name="contact_list_item_gap_between_image_and_text" format="dimension" />
+    <attr name="contact_list_item_name_text_size" format="float" />
+    <attr name="contact_list_item_circle_icon_drawable" format="reference" />
+    <attr name="contact_list_item_circle_icon_size" format="dimension" />
+    <attr name="contact_list_item_circles_text_size" format="float" />
+    <attr name="contact_list_item_circles_text_color" format="color" />
+    <attr name="contact_list_item_gap_between_name_and_circles" format="dimension" />
+    <attr name="contact_list_item_gap_between_icon_and_circles" format="dimension" />
+    <attr name="contact_list_item_gap_between_text_and_button" format="dimension" />
+    <attr name="contact_list_item_action_button_background" format="reference" />
+    <attr name="contact_list_item_action_button_width" format="dimension" />
+    <attr name="contact_list_item_vertical_divider_width" format="dimension" />
+    <attr name="contact_list_item_vertical_divider_padding" format="dimension" />
+    <attr name="contact_list_item_email_icon_padding_top" format="dimension" />
+    <attr name="contact_list_item_email_icon_padding_left" format="dimension" />
+    <attr name="circle_list_item_height" format="dimension" />
+    <attr name="circle_list_item_padding_top" format="dimension" />
+    <attr name="circle_list_item_padding_bottom" format="dimension" />
+    <attr name="circle_list_item_padding_left" format="dimension" />
+    <attr name="circle_list_item_padding_right" format="dimension" />
+    <attr name="circle_list_item_gap_between_icon_and_text" format="dimension" />
+    <attr name="circle_list_item_name_text_size" format="float" />
+    <attr name="circle_list_item_name_text_bold" format="boolean" />
+    <attr name="circle_list_item_avatar_size" format="dimension" />
+    <attr name="circle_list_item_avatar_spacing" format="dimension" />
+    <attr name="circle_list_item_circle_icon_size_small" format="dimension" />
+    <attr name="circle_list_item_circle_icon_size_large" format="dimension" />
+    <attr name="circle_list_item_gap_between_name_and_count" format="dimension" />
+    <attr name="circle_list_item_gap_between_count_and_checkbox" format="dimension" />
+    <attr name="circle_list_item_member_count_text_color" format="color" />
+    <attr name="targetDrawables" format="reference" />
+    <attr name="targetDescriptions" format="reference" />
+    <attr name="directionDescriptions" format="reference" />
+    <attr name="handleDrawable" format="reference" />
+    <attr name="leftChevronDrawable" format="reference" />
+    <attr name="rightChevronDrawable" format="reference" />
+    <attr name="topChevronDrawable" format="reference" />
+    <attr name="bottomChevronDrawable" format="reference" />
+    <attr name="waveDrawable" format="reference" />
+    <attr name="hitRadius" format="dimension" />
+    <attr name="vibrationDuration" format="integer" />
+    <attr name="snapMargin" format="dimension" />
+    <attr name="feedbackCount" format="integer" />
+    <attr name="verticalOffset" format="dimension" />
+    <attr name="horizontalOffset" format="dimension" />
+    <attr name="layout_orientation">
+        <enum name="horizontal" value="1" />
+        <enum name="vertical" value="2" />
+    </attr>
+    <attr name="layout_minorSpan" format="integer" />
+    <attr name="layout_majorSpan" format="integer" />
+    <attr name="minExposureLand" format="dimension" />
+    <attr name="minExposurePort" format="dimension" />
+    <attr name="bigBounce" format="boolean" />
+    <attr name="circle_button_icon_spacing" format="dimension" />
+    <attr name="circle_button_label_spacing" format="dimension" />
+    <attr name="layout_x" format="integer" />
+    <attr name="layout_y" format="integer" />
+    <attr name="layout_center_horizontal_bound" format="integer" />
+    <attr name="layout_center_vertical_bound" format="integer" />
+    <attr name="entrySummaries" format="reference" />
+</resources>

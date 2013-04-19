@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="album_photo_count">
+        <item quantity="other">%d valokuvaa</item>
+        <item quantity="zero">%d valokuvaa</item>
+        <item quantity="one">%d valokuva</item>
+    </plurals>
+    <plurals name="from_your_phone_selected_count">
+        <item quantity="other">%d valittu</item>
+        <item quantity="one">%d valittu</item>
+    </plurals>
+    <plurals name="delete_photo_dialog_title">
+        <item quantity="other">Poistetaanko nämä kuvat?</item>
+        <item quantity="one">Poistetaanko tämä kuva?</item>
+    </plurals>
+    <plurals name="delete_remote_photo_dialog_message">
+        <item quantity="other">Haluatko varmasti poistaa nämä valokuvat tästä Google+ -albumista? Toimintoa ei voi kumota.</item>
+        <item quantity="one">Haluatko varmasti poistaa tämän valokuvan tästä Google+ -albumista? Toimintoa ei voi kumota.</item>
+    </plurals>
+    <plurals name="delete_local_photo_dialog_message">
+        <item quantity="other">Haluatko varmasti poistaa nämä kuvat laitteestasi? Kuvista ei välttämättä ole kopioita, eikä poistoa voi perua.</item>
+        <item quantity="one">Haluatko varmasti poistaa tämän kuvan laitteestasi? Kuvasta ei välttämättä ole kopiota, eikä poistoa voi perua.</item>
+    </plurals>
+    <plurals name="delete_photo_pending">
+        <item quantity="other">Poistetaan valokuvia...</item>
+        <item quantity="one">Poistetaan valokuvaa...</item>
+    </plurals>
+    <plurals name="notifications_instant_upload_title">
+        <item quantity="other">Uusia kuvia on valmiina jaettaviksi</item>
+        <item quantity="one">Uusi kuva on valmiina jaettavaksi</item>
+    </plurals>
+    <plurals name="notifications_instant_upload_text">
+        <item quantity="other">%d kuvaa</item>
+        <item quantity="one">%d kuva</item>
+    </plurals>
+    <plurals name="notifications_instant_upload_known_faces_text">
+        <item quantity="other">Uusia kuvia käyttäjistä %s.</item>
+        <item quantity="one">Uusi kuva käyttäjistä %s.</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_comment">
+        <item quantity="other">%d uutta kommenttia</item>
+        <item quantity="one">%d uusi kommentti</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_plus_one">
+        <item quantity="other">%d uutta +1-merkintää</item>
+        <item quantity="one">%d uusi +1-merkintä</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_reshare">
+        <item quantity="other">%d uutta uudelleenjakoa</item>
+        <item quantity="one">%d uusi uudelleenjako</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_mention">
+        <item quantity="other">%d uutta mainintaa</item>
+        <item quantity="one">%d uusi maininta</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_share">
+        <item quantity="other">%d uutta jakoa</item>
+        <item quantity="one">%d uusi jako</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_post">
+        <item quantity="other">%d uutta viestiä</item>
+        <item quantity="one">%d uusi viesti</item>
+    </plurals>
+    <plurals name="notification_square_multi_post_unread">
+        <item quantity="other">%s uutta viestiä jaettu</item>
+        <item quantity="one">%s uusi viesti jaettu</item>
+    </plurals>
+    <plurals name="notification_square_multi_post_read">
+        <item quantity="other">Uusia viestejä jaettu</item>
+        <item quantity="one">Uusi viesti jaettu</item>
+    </plurals>
+    <plurals name="event_invitee_with_guests">
+        <item quantity="other">%1$s (+%2$d vierasta)</item>
+        <item quantity="one">%1$s (+%2$d vieras)</item>
+    </plurals>
+    <plurals name="event_invitee_other_count">
+        <item quantity="other">+ %d muuta</item>
+        <item quantity="one">+ %d muu</item>
+    </plurals>
+    <plurals name="event_add_guest_count">
+        <item quantity="other">+ %d vierasta</item>
+        <item quantity="one">+ %d vieras</item>
+    </plurals>
+    <plurals name="sign_out_message">
+        <item quantity="other">%d kohdetta odottaa latausta. Uloskirjautuminen peruuttaa kaikki odottavat lataukset.</item>
+        <item quantity="one">%d kohde odottaa latausta. Uloskirjautuminen peruuttaa odottavan latauksen.</item>
+    </plurals>
+    <plurals name="share_photo_count">
+        <item quantity="other">%d kuvaa</item>
+        <item quantity="one">%d kuva</item>
+    </plurals>
+    <plurals name="plus_one_people_more_plus_ones">
+        <item quantity="other">+%d muuta</item>
+        <item quantity="one">+1 muu</item>
+    </plurals>
+    <plurals name="plusoned_by_unknowns">
+        <item quantity="other">%d ihmiseltä</item>
+        <item quantity="one">1 ihmiseltä</item>
+    </plurals>
+    <plurals name="plusoned_by_you_and_unknowns">
+        <item quantity="other">sinulta ja %d muulta</item>
+        <item quantity="one">sinulta ja 1 muulta</item>
+    </plurals>
+    <plurals name="plusoned_by_one_known_and_unknowns">
+        <item quantity="other">käyttäjältä %1$s ja %2$d muulta</item>
+        <item quantity="one">käyttäjältä %s ja 1 muulta</item>
+    </plurals>
+    <plurals name="plusoned_by_you_and_one_known_and_unknowns">
+        <item quantity="other">sinulta, käyttäjältä %1$s ja %2$d muulta</item>
+        <item quantity="one">sinulta ja käyttäjältä %s sekä 1 muulta</item>
+    </plurals>
+    <plurals name="plusoned_by_two_known_and_unknowns">
+        <item quantity="other">käyttäjiltä %1$s ja %2$s sekä %3$d muulta</item>
+        <item quantity="one">käyttäjiltä %1$s ja %2$s sekä 1 muulta</item>
+    </plurals>
+    <plurals name="plusoned_by_you_and_two_known_and_unknowns">
+        <item quantity="other">sinulta, käyttäjiltä %1$s ja %2$s sekä %3$d muulta</item>
+        <item quantity="one">sinulta, käyttäjiltä %1$s ja %2$s sekä 1 muulta</item>
+    </plurals>
+    <plurals name="comments">
+        <item quantity="other">%d kommenttia</item>
+        <item quantity="one">%d kommentti</item>
+    </plurals>
+    <plurals name="delete_photo">
+        <item quantity="other">Poista valokuvat</item>
+        <item quantity="one">Poista valokuva</item>
+    </plurals>
+    <plurals name="circle_entry_content_description">
+        <item quantity="other">%1$s: %2$d jäsentä</item>
+        <item quantity="one">%1$s: %2$d jäsen</item>
+    </plurals>
+    <plurals name="notifications_ticker_text">
+        <item quantity="other">Uudet Google+-ilmoitukset</item>
+        <item quantity="one">Google+ -ilmoitus</item>
+    </plurals>
+    <plurals name="notification_single_post">
+        <item quantity="other">%d uutta toimintaa</item>
+        <item quantity="one">%d uusi toiminta</item>
+    </plurals>
+    <plurals name="notifications_content_text">
+        <item quantity="other">%1$s (%2$d)</item>
+        <item quantity="one">%1$s (%2$d)</item>
+    </plurals>
+    <plurals name="audience_display_selection_count">
+        <item quantity="other">%d valittu</item>
+        <item quantity="one">%d valittu</item>
+    </plurals>
+    <plurals name="circle_count_and_matched_email">
+        <item quantity="other">%1$d piiriä, %2$s</item>
+        <item quantity="one">%1$d piiri, %2$s</item>
+    </plurals>
+    <plurals name="delete_circles_dialog_title">
+        <item quantity="other">Poista piirejä</item>
+        <item quantity="one">Poista piiri</item>
+    </plurals>
+    <plurals name="delete_circles_dialog_message">
+        <item quantity="other">Haluatko poistaa nämä piirit pysyvästi?</item>
+        <item quantity="one">Haluatko poistaa tämän piirin pysyvästi?</item>
+    </plurals>
+    <plurals name="circle_button_more_circles">
+        <item quantity="other">%d lisää</item>
+        <item quantity="one">%d lisää</item>
+    </plurals>
+    <plurals name="num_minutes_ago">
+        <item quantity="other">%d min</item>
+        <item quantity="one">%d min</item>
+    </plurals>
+    <plurals name="num_hours_ago">
+        <item quantity="other">%d tuntia</item>
+        <item quantity="one">%d tunti</item>
+    </plurals>
+    <plurals name="num_days_ago">
+        <item quantity="other">%d päivää</item>
+        <item quantity="one">%d päivä</item>
+    </plurals>
+    <plurals name="profile_added_by">
+        <item quantity="other">"Lisännyt
+%s ihmistä"</item>
+        <item quantity="zero">"Lisännyt
+%s ihmistä"</item>
+        <item quantity="one">"Lisännyt
+%s henkilö"</item>
+    </plurals>
+    <plurals name="profile_local_review_count">
+        <item quantity="other">%d arvostelua</item>
+        <item quantity="one">%d arvostelu</item>
+    </plurals>
+    <plurals name="hangout_plus_others">
+        <item quantity="other">+%d muuta</item>
+        <item quantity="one">+1 muu</item>
+    </plurals>
+    <plurals name="card_hangout_with_people">
+        <item quantity="other">ALOITA HANGOUT %d HENKILÖN KANSSA</item>
+        <item quantity="one">ALOITA HANGOUT 1 HENKILÖN KANSSA</item>
+    </plurals>
+    <plurals name="stream_one_up_comment_count">
+        <item quantity="other">%d kommenttia</item>
+        <item quantity="one">%d kommentti</item>
+    </plurals>
+    <plurals name="stream_one_up_stage_hangout_over">
+        <item quantity="other">%d HENKILÖÄ OLI HANGOUTISSA</item>
+        <item quantity="one">1 HENKILÖ OLI HANGOUTISSA</item>
+    </plurals>
+    <plurals name="plus_one_accessibility_description">
+        <item quantity="other">%d plus yksi -merkintää</item>
+        <item quantity="one">%d plus yksi -merkintä</item>
+    </plurals>
+    <plurals name="accessibility_notification_count_description">
+        <item quantity="other">%d uutta Google+ -ilmoitusta</item>
+        <item quantity="one">%d uusi Google+ -ilmoitus</item>
+    </plurals>
+    <plurals name="audience_hidden_user_count">
+        <item quantity="other">%d muuta</item>
+        <item quantity="one">+1 muu</item>
+    </plurals>
+    <plurals name="common_friend_count">
+        <item quantity="other">%d yhteistä ihmistä</item>
+        <item quantity="one">Yksi yhteinen henkilö</item>
+    </plurals>
+    <plurals name="added_to_circle_notification_message">
+        <item quantity="other">Piireihin lisätty %d henkilöä</item>
+        <item quantity="one">Piireihin lisätty yksi henkilö</item>
+    </plurals>
+    <plurals name="square_members_count">
+        <item quantity="other">%d jäsentä</item>
+        <item quantity="one">%d jäsen</item>
+    </plurals>
+</resources>

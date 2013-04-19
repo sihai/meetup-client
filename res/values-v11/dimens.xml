@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="widget_margin_left">12.0dip</dimen>
+    <dimen name="widget_margin_top">4.0dip</dimen>
+    <dimen name="widget_margin_right">12.0dip</dimen>
+    <dimen name="widget_margin_bottom">20.0dip</dimen>
+    <dimen name="label_preference_margin_left">10.0dip</dimen>
+    <dimen name="host_spinner_margin_left">-20.0dip</dimen>
+    <dimen name="dropdownListPreferredItemHeight">48.0dip</dimen>
+</resources>

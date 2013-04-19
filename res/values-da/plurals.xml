@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="album_photo_count">
+        <item quantity="other">%d fotos</item>
+        <item quantity="zero">%d fotos</item>
+        <item quantity="one">%d foto</item>
+    </plurals>
+    <plurals name="from_your_phone_selected_count">
+        <item quantity="other">%d valgt</item>
+        <item quantity="one">%d valgt</item>
+    </plurals>
+    <plurals name="delete_photo_dialog_title">
+        <item quantity="other">Slet disse fotos?</item>
+        <item quantity="one">Slet dette foto?</item>
+    </plurals>
+    <plurals name="delete_remote_photo_dialog_message">
+        <item quantity="other">Er du sikker på, at du vil slette disse fotos fra dette Google+ album? Denne handling kan ikke fortrydes.</item>
+        <item quantity="one">Er du sikker på, at du vil slette dette foto fra dette Google+ album? Denne handling kan ikke fortrydes.</item>
+    </plurals>
+    <plurals name="delete_local_photo_dialog_message">
+        <item quantity="other">Er du sikker på, at du vil slette disse billeder fra din enhed? De er muligvis dine eneste kopier, og du kan ikke fortryde sletningen.</item>
+        <item quantity="one">Er du sikker på, at du vil slette dette billede fra din enhed? Det er muligvis din eneste kopi, og du kan ikke fortryde sletningen.</item>
+    </plurals>
+    <plurals name="delete_photo_pending">
+        <item quantity="other">Sletter fotos...</item>
+        <item quantity="one">Sletter foto...</item>
+    </plurals>
+    <plurals name="notifications_instant_upload_title">
+        <item quantity="other">Nye billeder er klar til deling</item>
+        <item quantity="one">Nye billeder er klar til deling</item>
+    </plurals>
+    <plurals name="notifications_instant_upload_text">
+        <item quantity="other">%d billeder</item>
+        <item quantity="one">%d billede</item>
+    </plurals>
+    <plurals name="notifications_instant_upload_known_faces_text">
+        <item quantity="other">Nye billeder af %s.</item>
+        <item quantity="one">Nyt billede af %s.</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_comment">
+        <item quantity="other">%d nye kommentarer</item>
+        <item quantity="one">%d ny kommentar</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_plus_one">
+        <item quantity="other">%d nye +1</item>
+        <item quantity="one">%d ny +1</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_reshare">
+        <item quantity="other">%d nye videredelinger</item>
+        <item quantity="one">%d ny videredeling</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_mention">
+        <item quantity="other">%d nye omtaler</item>
+        <item quantity="one">%d ny omtale</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_share">
+        <item quantity="other">%d nye delinger</item>
+        <item quantity="one">%d ny deling</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_post">
+        <item quantity="other">%d nye indlæg</item>
+        <item quantity="one">%d nyt indlæg</item>
+    </plurals>
+    <plurals name="notification_square_multi_post_unread">
+        <item quantity="other">%s nye indlæg blev delt</item>
+        <item quantity="one">%s nyt indlæg blev delt</item>
+    </plurals>
+    <plurals name="notification_square_multi_post_read">
+        <item quantity="other">Nye indlæg blev delt</item>
+        <item quantity="one">Nyt indlæg blev delt</item>
+    </plurals>
+    <plurals name="event_invitee_with_guests">
+        <item quantity="other">%1$s (+%2$d gæster)</item>
+        <item quantity="one">%1$s (+%2$d gæst)</item>
+    </plurals>
+    <plurals name="event_invitee_other_count">
+        <item quantity="other">+ %d andre</item>
+        <item quantity="one">+ %d anden</item>
+    </plurals>
+    <plurals name="event_add_guest_count">
+        <item quantity="other">+ %d gæster</item>
+        <item quantity="one">+ %d gæst</item>
+    </plurals>
+    <plurals name="sign_out_message">
+        <item quantity="other">%d elementer venter på at blive uploadet. Hvis du logger ud, annullerer du de ventende uploads.</item>
+        <item quantity="one">%d element venter på at blive uploadet. Hvis du logger ud, annullerer du den ventende upload.</item>
+    </plurals>
+    <plurals name="share_photo_count">
+        <item quantity="other">%d billeder</item>
+        <item quantity="one">%d billede</item>
+    </plurals>
+    <plurals name="plus_one_people_more_plus_ones">
+        <item quantity="other">+%d mere</item>
+        <item quantity="one">+1 mere</item>
+    </plurals>
+    <plurals name="plusoned_by_unknowns">
+        <item quantity="other">fra %d personer</item>
+        <item quantity="one">fra 1 person</item>
+    </plurals>
+    <plurals name="plusoned_by_you_and_unknowns">
+        <item quantity="other">fra dig og %d andre</item>
+        <item quantity="one">fra dig og 1 anden</item>
+    </plurals>
+    <plurals name="plusoned_by_one_known_and_unknowns">
+        <item quantity="other">fra %1$s og %2$d andre</item>
+        <item quantity="one">fra %s og 1 anden</item>
+    </plurals>
+    <plurals name="plusoned_by_you_and_one_known_and_unknowns">
+        <item quantity="other">fra dig, %1$s og %2$d andre</item>
+        <item quantity="one">fra dig, %s og 1 anden</item>
+    </plurals>
+    <plurals name="plusoned_by_two_known_and_unknowns">
+        <item quantity="other">fra %1$s, %2$s og %3$d andre</item>
+        <item quantity="one">fra %1$s, %2$s og 1 anden</item>
+    </plurals>
+    <plurals name="plusoned_by_you_and_two_known_and_unknowns">
+        <item quantity="other">fra dig, %1$s, %2$s og %3$d andre</item>
+        <item quantity="one">fra dig, %1$s, %2$s og 1 anden</item>
+    </plurals>
+    <plurals name="comments">
+        <item quantity="other">%d kommentarer</item>
+        <item quantity="one">%d kommentar</item>
+    </plurals>
+    <plurals name="delete_photo">
+        <item quantity="other">Slet fotos</item>
+        <item quantity="one">Slet foto</item>
+    </plurals>
+    <plurals name="circle_entry_content_description">
+        <item quantity="other">%1$s, %2$d medlemmer</item>
+        <item quantity="one">%1$s, %2$d medlem</item>
+    </plurals>
+    <plurals name="notifications_ticker_text">
+        <item quantity="other">Nye Google+ underretninger</item>
+        <item quantity="one">Ny Google+ underretning</item>
+    </plurals>
+    <plurals name="notification_single_post">
+        <item quantity="other">%d nye aktiviteter</item>
+        <item quantity="one">%d ny aktivitet</item>
+    </plurals>
+    <plurals name="notifications_content_text">
+        <item quantity="other">%1$s (%2$d)</item>
+        <item quantity="one">%1$s (%2$d)</item>
+    </plurals>
+    <plurals name="audience_display_selection_count">
+        <item quantity="other">%d valgt</item>
+        <item quantity="one">%d valgt</item>
+    </plurals>
+    <plurals name="circle_count_and_matched_email">
+        <item quantity="other">%1$d cirkler, %2$s</item>
+        <item quantity="one">%1$d cirkel, %2$s</item>
+    </plurals>
+    <plurals name="delete_circles_dialog_title">
+        <item quantity="other">Slet cirkler</item>
+        <item quantity="one">Slet cirkel</item>
+    </plurals>
+    <plurals name="delete_circles_dialog_message">
+        <item quantity="other">Vil du slette disse cirkler for altid?</item>
+        <item quantity="one">Vil du slette denne cirkel for altid?</item>
+    </plurals>
+    <plurals name="circle_button_more_circles">
+        <item quantity="other">%d mere</item>
+        <item quantity="one">%d mere</item>
+    </plurals>
+    <plurals name="num_minutes_ago">
+        <item quantity="other">%d min.</item>
+        <item quantity="one">%d min.</item>
+    </plurals>
+    <plurals name="num_hours_ago">
+        <item quantity="other">%d timer</item>
+        <item quantity="one">%d time</item>
+    </plurals>
+    <plurals name="num_days_ago">
+        <item quantity="other">%d dage</item>
+        <item quantity="one">%d dag</item>
+    </plurals>
+    <plurals name="profile_added_by">
+        <item quantity="other">"Tilføjet af
+%s personer"</item>
+        <item quantity="zero">"Tilføjet af
+%s personer"</item>
+        <item quantity="one">"Tilføjet af
+%s person"</item>
+    </plurals>
+    <plurals name="profile_local_review_count">
+        <item quantity="other">%d anmeldelser</item>
+        <item quantity="one">%d anmeldelse</item>
+    </plurals>
+    <plurals name="hangout_plus_others">
+        <item quantity="other">+%d andre</item>
+        <item quantity="one">+1 anden</item>
+    </plurals>
+    <plurals name="card_hangout_with_people">
+        <item quantity="other">HANGOUT MED %d PERSONER</item>
+        <item quantity="one">HANGOUT MED 1 PERSON</item>
+    </plurals>
+    <plurals name="stream_one_up_comment_count">
+        <item quantity="other">%d kommentarer</item>
+        <item quantity="one">%d kommentar</item>
+    </plurals>
+    <plurals name="stream_one_up_stage_hangout_over">
+        <item quantity="other">%d PERSONER VAR PÅ ET HANGOUT</item>
+        <item quantity="one">1 PERSON VAR PÅ ET HANGOUT</item>
+    </plurals>
+    <plurals name="plus_one_accessibility_description">
+        <item quantity="other">%d plus en</item>
+        <item quantity="one">%d plus en</item>
+    </plurals>
+    <plurals name="accessibility_notification_count_description">
+        <item quantity="other">%d nye Google+ underretninger</item>
+        <item quantity="one">%d ny Google+ underretning</item>
+    </plurals>
+    <plurals name="audience_hidden_user_count">
+        <item quantity="other">+%d andre</item>
+        <item quantity="one">+1 mere</item>
+    </plurals>
+    <plurals name="common_friend_count">
+        <item quantity="other">%d personer til fælles</item>
+        <item quantity="one">Én person til fælles</item>
+    </plurals>
+    <plurals name="added_to_circle_notification_message">
+        <item quantity="other">%d personer blev føjet til cirkler</item>
+        <item quantity="one">En person blev føjet til cirkler</item>
+    </plurals>
+    <plurals name="square_members_count">
+        <item quantity="other">%d medlemmer</item>
+        <item quantity="one">%d medlem</item>
+    </plurals>
+</resources>

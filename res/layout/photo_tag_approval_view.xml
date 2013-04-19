@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.galaxy.meetup.client.android.ui.view.PhotoTagFullWidthLayout android:orientation="horizontal" android:id="@id/tag_approval" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.galaxy.meetup.client.android.ui.view.PhotoTagAvatarView android:gravity="center" android:id="@id/avatar" style="@style/PhotoView.Tag.Avatar" />
+    <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:id="@id/tag_text" android:paddingLeft="@dimen/photo_tag_scroller_text_padding_left" android:paddingRight="@dimen/photo_tag_scroller_text_padding_right" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+        <com.galaxy.meetup.client.android.ui.view.PhotoTagSpanner android:paddingLeft="@dimen/photo_tag_scroller_text_padding_left" android:paddingRight="@dimen/photo_tag_scroller_text_padding_right" android:layout_width="fill_parent" android:layout_height="0.0dip" />
+        <TextView android:textSize="@dimen/photo_tag_scroller_name_text_size" android:textColor="@color/photo_tag_scroller_name_text_color" android:id="@id/name" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+        <TextView android:textSize="@dimen/photo_tag_scroller_secondary_text_size" android:textColor="@color/photo_tag_scroller_secondary_text_color" android:id="@id/second" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/photo_view_tagged_you" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:id="@id/tag_buttons" android:layout_width="wrap_content" android:layout_height="fill_parent">
+        <ImageView android:id="@id/tag_approve" android:background="@drawable/photo_tag_selector" android:layout_width="@dimen/photo_tag_scroller_button_width" android:layout_height="@dimen/photo_tag_scroller_button_height" android:layout_marginRight="@dimen/photo_tag_scroller_button_margin" android:src="@drawable/ic_cab_done_holo_dark" />
+        <ImageView android:id="@id/tag_deny" android:background="@drawable/photo_tag_selector" android:layout_width="@dimen/photo_tag_scroller_button_width" android:layout_height="@dimen/photo_tag_scroller_button_height" android:src="@drawable/ic_clear_normal" />
+    </LinearLayout>
+</com.galaxy.meetup.client.android.ui.view.PhotoTagFullWidthLayout>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="dialog_background_color">#00000000</color>
+    <color name="image_selected_stroke">#ff33b5e5</color>
+    <color name="compose_bar_share_button_enabled">#ffffffff</color>
+    <color name="compose_bar_share_button_disabled">#ff727272</color>
+    <color name="profile_selected_item">#ff99d6eb</color>
+    <color name="person_card_add_button_text_color">#ff666666</color>
+    <color name="one_up_divider">#ff33b5e5</color>
+</resources>

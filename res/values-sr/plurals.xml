@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="album_photo_count">
+        <item quantity="other">Фотографија: %d</item>
+        <item quantity="zero">Фотографија: %d</item>
+        <item quantity="one">%d фотограф.</item>
+    </plurals>
+    <plurals name="from_your_phone_selected_count">
+        <item quantity="other">Изабраних: %d</item>
+        <item quantity="one">Изабраних: %d</item>
+    </plurals>
+    <plurals name="delete_photo_dialog_title">
+        <item quantity="other">Желите ли да избришете овe сликe?</item>
+        <item quantity="one">Желите ли да избришете ову слику?</item>
+    </plurals>
+    <plurals name="delete_remote_photo_dialog_message">
+        <item quantity="other">Да ли стварно желите да избришете ове слике из овог Google+ албума? Ова радња не може да се опозове.</item>
+        <item quantity="one">Да ли стварно желите да избришете ову слику из овог Google+ албума? Ова радња не може да се опозове.</item>
+    </plurals>
+    <plurals name="delete_local_photo_dialog_message">
+        <item quantity="other">Да ли стварно желите да избришете ове слике са уређаја? То су можда једине копије које имате, а њихово брисање не може да се опозове.</item>
+        <item quantity="one">Да ли стварно желите да избришете ову слику са уређаја? То је можда једина копија коју имате, а њено брисање не може да се опозове.</item>
+    </plurals>
+    <plurals name="delete_photo_pending">
+        <item quantity="other">Брисање слика...</item>
+        <item quantity="one">Брисање слике...</item>
+    </plurals>
+    <plurals name="notifications_instant_upload_title">
+        <item quantity="other">Нове слике су спремне за дељење</item>
+        <item quantity="one">Нова слика је спремна за дељење</item>
+    </plurals>
+    <plurals name="notifications_instant_upload_text">
+        <item quantity="other">Слика: %d</item>
+        <item quantity="one">%d слика</item>
+    </plurals>
+    <plurals name="notifications_instant_upload_known_faces_text">
+        <item quantity="other">Нове слике на којима су %s.</item>
+        <item quantity="one">Нова слика на којој су %s.</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_comment">
+        <item quantity="other">Нових коментара: %d</item>
+        <item quantity="one">Нових коментара: %d</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_plus_one">
+        <item quantity="other">Нових +1 ставки: %d</item>
+        <item quantity="one">Нових +1 ставки: %d</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_reshare">
+        <item quantity="other">Нових поновних дељења: %d</item>
+        <item quantity="one">Нових поновних дељења: %d</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_mention">
+        <item quantity="other">Нових помињања: %d</item>
+        <item quantity="one">Нових помињања: %d</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_share">
+        <item quantity="other">Нових дељења: %d</item>
+        <item quantity="one">Нових дељења: %d</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_post">
+        <item quantity="other">Нових постова: %d</item>
+        <item quantity="one">Нових постова: %d</item>
+    </plurals>
+    <plurals name="notification_square_multi_post_unread">
+        <item quantity="other">Нових дељених постова: %s</item>
+        <item quantity="one">%s нови дељени пост</item>
+    </plurals>
+    <plurals name="notification_square_multi_post_read">
+        <item quantity="other">Нови дељени постови</item>
+        <item quantity="one">Нови дељени пост</item>
+    </plurals>
+    <plurals name="event_invitee_with_guests">
+        <item quantity="other">%1$s (+%2$d гостију)</item>
+        <item quantity="one">%1$s (+%2$d гост)</item>
+    </plurals>
+    <plurals name="event_invitee_other_count">
+        <item quantity="other">+ још %d</item>
+        <item quantity="one">+ још %d</item>
+    </plurals>
+    <plurals name="event_add_guest_count">
+        <item quantity="other">+ још %d гостију</item>
+        <item quantity="one">+ још %d гост</item>
+    </plurals>
+    <plurals name="sign_out_message">
+        <item quantity="other">Ставке (%d) чекају на отпремање. Ако се одјавите, сва отпремања на чекању ће бити отказана.</item>
+        <item quantity="one">%d ставка чека на отпремање. Ако се одјавите, отпремање на чекању ће бити отказано.</item>
+    </plurals>
+    <plurals name="share_photo_count">
+        <item quantity="other">Слика: %d</item>
+        <item quantity="one">%d слика</item>
+    </plurals>
+    <plurals name="plus_one_people_more_plus_ones">
+        <item quantity="other">+ још %d</item>
+        <item quantity="one">+ још 1</item>
+    </plurals>
+    <plurals name="plusoned_by_unknowns">
+        <item quantity="other">особa: %d</item>
+        <item quantity="one">1 особа</item>
+    </plurals>
+    <plurals name="plusoned_by_you_and_unknowns">
+        <item quantity="other">ви и други (%d)</item>
+        <item quantity="one">ви и још 1 особа</item>
+    </plurals>
+    <plurals name="plusoned_by_one_known_and_unknowns">
+        <item quantity="other"> %1$s и још %2$d</item>
+        <item quantity="one">" %s и још 1 особа"</item>
+    </plurals>
+    <plurals name="plusoned_by_you_and_one_known_and_unknowns">
+        <item quantity="other">ви, %1$s и још %2$d</item>
+        <item quantity="one">ви, %s и још 1 особа</item>
+    </plurals>
+    <plurals name="plusoned_by_two_known_and_unknowns">
+        <item quantity="other"> %1$s, %2$s и још %3$d</item>
+        <item quantity="one">%1$s, %2$s и још 1 особа</item>
+    </plurals>
+    <plurals name="plusoned_by_you_and_two_known_and_unknowns">
+        <item quantity="other">ви, %1$s, %2$s и други (%3$d)</item>
+        <item quantity="one">ви, %1$s, %2$s и још 1 особа</item>
+    </plurals>
+    <plurals name="comments">
+        <item quantity="other">Коментара: %d</item>
+        <item quantity="one">%d коментар</item>
+    </plurals>
+    <plurals name="delete_photo">
+        <item quantity="other">Избриши слике</item>
+        <item quantity="one">Избриши слику</item>
+    </plurals>
+    <plurals name="circle_entry_content_description">
+        <item quantity="other">%1$s; чланова: %2$d</item>
+        <item quantity="one">%1$s; %2$d члан</item>
+    </plurals>
+    <plurals name="notifications_ticker_text">
+        <item quantity="other">Нова Google+ обавештења</item>
+        <item quantity="one">Ново Google+ обавештење</item>
+    </plurals>
+    <plurals name="notification_single_post">
+        <item quantity="other">Нових активности: %d</item>
+        <item quantity="one">Нових активности: %d</item>
+    </plurals>
+    <plurals name="notifications_content_text">
+        <item quantity="other">%1$s (%2$d)</item>
+        <item quantity="one">%1$s (%2$d)</item>
+    </plurals>
+    <plurals name="audience_display_selection_count">
+        <item quantity="other">Изабраних: %d</item>
+        <item quantity="one">Изабраних: %d</item>
+    </plurals>
+    <plurals name="circle_count_and_matched_email">
+        <item quantity="other">%1$d круг(ов)а, %2$s</item>
+        <item quantity="one">%1$d круг, %2$s</item>
+    </plurals>
+    <plurals name="delete_circles_dialog_title">
+        <item quantity="other">Брисање кругова</item>
+        <item quantity="one">Избриши круг</item>
+    </plurals>
+    <plurals name="delete_circles_dialog_message">
+        <item quantity="other">Желите ли да трајно избришете ове кругове?</item>
+        <item quantity="one">Желите ли да трајно избришете овај круг?</item>
+    </plurals>
+    <plurals name="circle_button_more_circles">
+        <item quantity="other">још %d</item>
+        <item quantity="one">још %d</item>
+    </plurals>
+    <plurals name="num_minutes_ago">
+        <item quantity="other">%d мин</item>
+        <item quantity="one">%d мин</item>
+    </plurals>
+    <plurals name="num_hours_ago">
+        <item quantity="other">%d сата(и)</item>
+        <item quantity="one">%d сат</item>
+    </plurals>
+    <plurals name="num_days_ago">
+        <item quantity="other">%d дана</item>
+        <item quantity="one">%d дан</item>
+    </plurals>
+    <plurals name="profile_added_by">
+        <item quantity="other">"Додало га/ју је људи:
+%s"</item>
+        <item quantity="zero">"Додало га/ју је
+%s људи"</item>
+        <item quantity="one">"Додала га/ју је
+%s особа"</item>
+    </plurals>
+    <plurals name="profile_local_review_count">
+        <item quantity="other">Рецензија: %d</item>
+        <item quantity="one">%d рецензија</item>
+    </plurals>
+    <plurals name="hangout_plus_others">
+        <item quantity="other">+ још %d</item>
+        <item quantity="one">+ још 1</item>
+    </plurals>
+    <plurals name="card_hangout_with_people">
+        <item quantity="other">HANGOUT СА ЉУДИМА (%d)</item>
+        <item quantity="one">HANGOUT СА 1 ОСОБОМ</item>
+    </plurals>
+    <plurals name="stream_one_up_comment_count">
+        <item quantity="other">Коментара: %d</item>
+        <item quantity="one">%d коментар</item>
+    </plurals>
+    <plurals name="stream_one_up_stage_hangout_over">
+        <item quantity="other">ОСОБА КОЈЕ СУ БИЛЕ У HANGOUT-У: %d</item>
+        <item quantity="one">1 ОСОБА ЈЕ БИЛА У HANGOUT-У</item>
+    </plurals>
+    <plurals name="plus_one_accessibility_description">
+        <item quantity="other">Плус један: %d</item>
+        <item quantity="one">%d плус један</item>
+    </plurals>
+    <plurals name="accessibility_notification_count_description">
+        <item quantity="other">Нових Google+ обавештења: %d</item>
+        <item quantity="one">%d ново Google+ обавештење</item>
+    </plurals>
+    <plurals name="audience_hidden_user_count">
+        <item quantity="other">+ још %d</item>
+        <item quantity="one">+ још 1</item>
+    </plurals>
+    <plurals name="common_friend_count">
+        <item quantity="other">Заједничких особа: %d</item>
+        <item quantity="one">Једна заједничка особа</item>
+    </plurals>
+    <plurals name="added_to_circle_notification_message">
+        <item quantity="other">Људи (%d) су додати у кругове</item>
+        <item quantity="one">Једна особа је додата у кругове</item>
+    </plurals>
+    <plurals name="square_members_count">
+        <item quantity="other">Чланова: %d</item>
+        <item quantity="one">%d члан</item>
+    </plurals>
+</resources>

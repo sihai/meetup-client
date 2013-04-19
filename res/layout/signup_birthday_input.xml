@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<view style="@style/Signup.Entry.Layout" class="com.galaxy.meetup.client.oob.BirthdayFieldLayout"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:id="@id/label" style="@style/Signup.Entry.Label" />
+    <DatePicker android:id="@id/input" style="@style/Signup.Entry.Birthday" />
+</view>

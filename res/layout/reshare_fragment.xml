@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:id="@id/mention_scroll_view" android:background="@color/compose_update_bg" android:layout_width="fill_parent" android:layout_height="fill_parent" android:fillViewport="true"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <com.galaxy.meetup.client.android.ui.view.MentionMultiAutoCompleteTextView android:id="@id/reshare_text" android:paddingLeft="8.0dip" android:paddingRight="8.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="8.0dip" android:minLines="7" style="@style/ComposeUpdate.Editor" />
+        <View android:background="@color/reshare_top_border" android:layout_width="fill_parent" android:layout_height="1.0dip" />
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <ImageView android:id="@id/reshare_avatar" android:layout_width="24.0dip" android:layout_height="24.0dip" android:layout_marginLeft="16.0dip" android:layout_marginTop="8.0dip" android:layout_marginRight="16.0dip" android:layout_marginBottom="8.0dip" />
+            <TextView android:textSize="12.0sp" android:textColor="@color/reshare_text" android:layout_gravity="center_vertical" android:id="@id/reshare_info" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+        </LinearLayout>
+        <View android:background="@color/compose_update_top_border" android:layout_width="fill_parent" android:layout_height="1.0dip" />
+        <com.galaxy.meetup.client.android.ui.view.AudienceView android:id="@id/audience_view" android:background="@color/compose_update_add_bg" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+        <View android:background="@color/compose_update_top_border" android:layout_width="fill_parent" android:layout_height="1.0dip" />
+        <View android:background="@color/compose_update_add_bg" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/audience_scroll_container" android:paddingLeft="2.0dip" android:paddingTop="2.0dip" android:paddingRight="2.0dip" android:paddingBottom="2.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/audience_button" android:background="?listSelector" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+        <ImageView android:id="@id/audience_to_icon" android:paddingTop="12.0dip" android:paddingRight="4.0dip" android:paddingBottom="12.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minWidth="56.0dip" android:contentDescription="@string/post_add_audience" />
+        <TextView android:textSize="20.0sp" android:textColor="@color/compose_add_text" android:id="@id/audience_to_text" android:paddingLeft="14.0dip" android:paddingTop="12.0dip" android:paddingRight="4.0dip" android:paddingBottom="12.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/post_to" />
+        <com.galaxy.meetup.client.android.ui.view.ConstrainedTextView android:textSize="18.0sp" android:textColor="@color/compose_add_text" android:id="@id/audience_names_container" android:padding="4.0dip" android:layout_width="0.0dip" android:layout_height="wrap_content" android:maxLines="2" android:layout_weight="1.0" />
+    </LinearLayout>
+    <ImageView android:layout_gravity="center" android:id="@id/chevron_icon" android:background="?listSelector" android:paddingTop="12.0dip" android:paddingBottom="12.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_down" android:minWidth="56.0dip" android:contentDescription="@string/post_add_audience" />
+</LinearLayout>

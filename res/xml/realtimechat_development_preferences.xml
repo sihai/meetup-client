@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="Development Settings" android:order="2500">
+        <ListPreference android:entries="@array/realtimechat_backends" android:layout="@layout/label_preference" android:title="Backend" android:key="@string/realtimechat_backend_key" android:summary="The backend to connect to" android:defaultValue="@string/debug_realtimechat_default_backend" android:entryValues="@array/realtimechat_backends" />
+        <Preference android:layout="@layout/label_preference" android:title="Android Id" android:key="@string/realtimechat_android_id_key" />
+        <Preference android:layout="@layout/label_preference" android:title="C2DM registration" android:key="@string/realtimechat_c2dm_registration_key" />
+    </PreferenceCategory>
+</PreferenceScreen>

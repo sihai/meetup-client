@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView android:background="@color/plus_one_confirm_background" android:layout_width="fill_parent" android:layout_height="0.0dip" android:fillViewport="true" android:layout_weight="1.0">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <RelativeLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="@dimen/plus_one_user_margin">
+                <com.galaxy.meetup.client.android.ui.view.AvatarView android:id="@id/plus_one_user_avatar" android:layout_width="@dimen/avatar_dimension" android:layout_height="@dimen/avatar_dimension" android:layout_margin="@dimen/plus_one_avatar_margin" size="small" />
+                <TextView android:textSize="@dimen/plus_one_user_name_text_size" android:textColor="@color/stream_content_color" android:id="@id/plus_one_user_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/plus_one_user_name_marginLeft" android:layout_marginTop="@dimen/plus_one_user_name_margin" android:layout_marginRight="@dimen/plus_one_user_name_margin" android:layout_marginBottom="@dimen/plus_one_user_name_margin" android:layout_toRightOf="@id/plus_one_user_avatar" />
+                <LinearLayout android:orientation="horizontal" android:id="@id/plusone_icon_text" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/plus_one_title_margin" android:layout_toRightOf="@id/plus_one_user_avatar" android:layout_below="@id/plus_one_user_name" android:layout_alignLeft="@id/plus_one_user_name">
+                    <ImageView android:layout_gravity="center" android:id="@id/plus_one_app_icon" android:layout_width="@dimen/fav_icon_size" android:layout_height="@dimen/fav_icon_size" android:layout_marginRight="@dimen/plusone_icon_marginRight" android:scaleType="fitCenter" />
+                    <TextView android:textSize="@dimen/plus_one_app_name_text_size" android:textColor="@color/plus_one_app_name" android:layout_gravity="center_vertical" android:id="@id/plus_one_app_name" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                </LinearLayout>
+            </RelativeLayout>
+            <LinearLayout android:orientation="vertical" android:background="@color/plus_one_content_bg" android:padding="@dimen/plus_one_ui_padding" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="@dimen/plus_one_ui_margin">
+                <FrameLayout android:id="@id/plusone_preview_container" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="@dimen/plus_one_preview_margin" />
+                <Button android:textStyle="bold" android:layout_gravity="center_horizontal" android:id="@id/share" android:background="@drawable/widgets_gray_button_background" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="@dimen/plus_one_share_margin" android:text="@string/plusone_share_action" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+    <LinearLayout android:orientation="horizontal" style="@style/BottomActionBar">
+        <Button android:id="@id/plusone_confirm_button" android:background="@drawable/ads_plus_one_button_confirm_colors" android:layout_width="0.0dip" android:layout_height="fill_parent" android:text="@string/plusone_ok" android:layout_weight="1.0" style="@style/BottomActionBar.ActionButton" />
+        <TextView android:layout_gravity="center_vertical" android:background="@color/plus_one_confirm_splitter" android:layout_width="@dimen/plus_one_confirm_splitter_width" android:layout_height="@dimen/plus_one_confirm_splitter_height" />
+        <Button android:id="@id/plusone_cancel_button" android:background="@drawable/ads_plus_one_button_cancel_colors" android:layout_width="0.0dip" android:layout_height="fill_parent" android:text="@string/plusone_undo" android:layout_weight="1.0" style="@style/BottomActionBar.ActionButton" />
+    </LinearLayout>
+</LinearLayout>

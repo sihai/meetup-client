@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:icon="@drawable/hangout_ic_menu_video_mute" android:id="@id/hangout_video_toggle_menu_item" android:visible="false" android:title="@string/hangout_menu_video_mute" android:showAsAction="ifRoom" />
+</menu>

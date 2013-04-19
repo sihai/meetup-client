@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:padding="10.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <TextView android:textAppearance="?android:textAppearance" android:id="@id/minorHangoutMessage" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/hangout_minor_warning_message" />
+        <CheckBox android:id="@id/minorHangoutDontShow" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/hangout_minor_dontshow_again" />
+    </LinearLayout>
+</ScrollView>

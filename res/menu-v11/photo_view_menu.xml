@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@id/action_bar_progress_spinner" android:background="@null" android:showAsAction="always" android:actionLayout="@layout/action_bar_progress_spinner_layout" android:selectableItemBackground="@null" />
+    <item android:icon="@drawable/ic_menu_reshare" android:id="@id/share" android:visibility="gone" android:title="@string/menu_photo_share" android:showAsAction="always" />
+    <item android:icon="@drawable/ic_actionbar_plusonegray" android:id="@id/add_plus1" android:title="@string/menu_add_plus_one" android:showAsAction="always" />
+    <item android:icon="@drawable/ic_actionbar_plusonered" android:id="@id/remove_plus1" android:visibility="gone" android:title="@string/menu_remove_plus_one" android:showAsAction="always" />
+    <item android:icon="@drawable/ic_menu_set_as_profile" android:id="@id/set_profile_photo" android:title="@string/menu_set_profile_photo" android:showAsAction="never" />
+    <item android:icon="@drawable/ic_menu_wallpaper" android:id="@id/set_wallpaper" android:title="@string/menu_set_wallpaper_photo" android:showAsAction="never" />
+    <item android:icon="@drawable/ic_menu_remove_tag" android:id="@id/remove_tag" android:visibility="gone" android:title="@string/menu_remove_tag" android:showAsAction="never" />
+    <item android:icon="@drawable/ic_menu_refresh" android:id="@id/refresh" android:title="@string/menu_refresh_photo" android:showAsAction="never" />
+    <item android:icon="@drawable/ic_menu_delete" android:id="@id/delete" android:title="@string/menu_delete_photo" android:showAsAction="never" />
+    <item android:icon="@drawable/ic_menu_delete" android:id="@id/report_abuse" android:title="@string/menu_report_photo" android:showAsAction="never" />
+    <item android:icon="@drawable/ic_menu_download" android:id="@id/download" android:title="@string/menu_download_photo" android:showAsAction="never" />
+    <item android:icon="@drawable/ic_menu_feedback" android:id="@id/feedback" android:title="@string/home_menu_feedback" android:showAsAction="never" />
+    <item android:icon="@drawable/ic_menu_help" android:id="@id/help" android:title="@string/menu_home_help" android:showAsAction="never" />
+</menu>

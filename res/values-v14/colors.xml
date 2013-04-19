@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="color" name="image_selected_stroke">@*android:color/holo_blue_light</item>
+    <item type="color" name="preference_label_on">@*android:color/holo_blue_light</item>
+    <item type="color" name="one_up_divider">@*android:color/holo_blue_light</item>
+</resources>

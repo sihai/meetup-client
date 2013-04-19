@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView android:id="@id/ratings_scroll_view" android:background="@color/write_review_bg" android:fadingEdge="none" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <RelativeLayout android:id="@id/write_review_top_bar" android:background="@color/write_review_bar_bg" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <com.galaxy.meetup.client.android.ui.view.EsImageView android:id="@id/business_photo" android:layout_width="49.0dip" android:layout_height="49.0dip" android:layout_marginRight="8.0dip" android:layout_alignParentLeft="true" android:layout_alignParentTop="true" android:contentDescription="@string/business_photo_description" />
+                <TextView android:ellipsize="end" android:id="@id/business_title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="2.0dip" android:singleLine="true" android:layout_toRightOf="@id/business_photo" android:layout_alignParentTop="true" style="@style/WriteReview.BusinessTitle" />
+                <TextView android:ellipsize="end" android:id="@id/business_address" android:layout_width="fill_parent" android:layout_height="wrap_content" android:singleLine="true" android:layout_toRightOf="@id/business_photo" android:layout_below="@id/business_title" style="@style/WriteReview.BusinessAddress" />
+            </RelativeLayout>
+            <LinearLayout android:orientation="vertical" android:padding="16.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                <LinearLayout android:orientation="vertical" android:id="@id/aspect_ratings" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+                <include layout="@layout/write_review_cost" />
+                <View android:layout_width="fill_parent" android:layout_height="1.0dip" style="@style/WriteReview.Divider" />
+                <include layout="@layout/write_review_text" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+    <LinearLayout android:orientation="vertical" android:background="@color/write_review_bar_bg" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <View android:layout_width="fill_parent" android:layout_height="1.0dip" style="@style/WriteReview.Divider" />
+        <TextView android:ellipsize="end" android:id="@id/posting_publicly_text" android:padding="10.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:singleLine="true" style="@style/WriteReview.PostingPubliclyText" />
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <Button android:id="@id/cancel_button" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="1.0" style="@style/WriteReview.Button" />
+        <View android:layout_width="1.0dip" android:layout_height="fill_parent" style="@style/WriteReview.ButtonDivider" />
+        <Button android:id="@id/publish_button" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="1.0" style="@style/WriteReview.Button" />
+    </LinearLayout>
+</LinearLayout>

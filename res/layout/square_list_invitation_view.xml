@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.galaxy.meetup.client.android.ui.view.SquareListInvitationView android:id="@id/square" android:background="@drawable/bg_tacos" android:paddingLeft="@dimen/card_border_left_padding" android:paddingTop="@dimen/card_border_top_padding" android:paddingRight="@dimen/card_border_right_padding" android:paddingBottom="@dimen/card_border_bottom_padding" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/layout" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <RelativeLayout android:layout_width="fill_parent" android:layout_height="68.0dip">
+            <com.galaxy.meetup.client.android.ui.view.AvatarView android:id="@id/inviter_avatar" android:layout_width="40.0dip" android:layout_height="40.0dip" android:layout_marginLeft="@dimen/square_card_padding" android:layout_centerVertical="true" round="true" size="medium" scale="true" />
+            <TextView android:textSize="14.0sp" android:textColor="@color/square_card_description" android:id="@id/invitation_text" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/square_card_padding" android:layout_marginRight="40.0dip" android:maxLines="2" android:layout_toRightOf="@id/inviter_avatar" android:layout_centerVertical="true" />
+            <ImageView android:id="@id/dismiss" android:background="?buttonSelectableBackground" android:padding="12.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_friend_dismiss" android:layout_alignParentTop="true" android:layout_alignParentRight="true" android:contentDescription="@string/square_dismiss_invitation_content_description" />
+            <View android:id="@id/divider" android:background="@color/square_card_divider" android:layout_width="wrap_content" android:layout_height="1.0dip" android:layout_alignParentBottom="true" />
+        </RelativeLayout>
+        <include layout="@layout/square_item_header" />
+    </LinearLayout>
+</com.galaxy.meetup.client.android.ui.view.SquareListInvitationView>

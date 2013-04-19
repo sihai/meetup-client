@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/share_preview" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:id="@id/album_layout" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/album_layout_margin" android:layout_alignParentLeft="true" android:layout_alignParentTop="true">
+        <ImageView android:layout_gravity="center" android:id="@id/album_border" android:layout_width="@dimen/stream_skyjam_media_border_size" android:layout_height="@dimen/stream_skyjam_media_border_size" android:src="@drawable/album_border" />
+        <com.galaxy.meetup.client.android.ui.view.EsImageView android:layout_gravity="center" android:id="@id/album" android:layout_width="@dimen/stream_skyjam_media_size" android:layout_height="@dimen/stream_skyjam_media_size" android:src="@drawable/album_border" />
+    </FrameLayout>
+    <TextView android:textSize="@dimen/stream_skyjam_title_text_size" android:textStyle="bold" android:textColor="@color/stream_skyjam_title_color" android:id="@id/skyjam_header" android:paddingLeft="@dimen/stream_skyjam_right_margin" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_toRightOf="@id/album_layout" android:layout_alignParentTop="true" />
+    <TextView android:textSize="@dimen/stream_skyjam_artist_text_size" android:textColor="@color/stream_skyjam_artist_color" android:id="@id/skyjam_subheader1" android:paddingLeft="@dimen/stream_skyjam_right_margin" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_toRightOf="@id/album_layout" android:layout_below="@id/skyjam_header" />
+    <TextView android:textSize="@dimen/stream_skyjam_album_text_size" android:textColor="@color/stream_skyjam_album_color" android:id="@id/skyjam_subheader2" android:paddingLeft="@dimen/stream_skyjam_right_margin" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_toRightOf="@id/album_layout" android:layout_below="@id/skyjam_subheader1" />
+</RelativeLayout>

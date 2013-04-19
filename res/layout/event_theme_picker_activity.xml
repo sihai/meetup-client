@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include layout="@layout/title_layout_light" />
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:id="@id/tab_button_bar" style="@style/TabBar">
+            <com.galaxy.meetup.client.android.ui.view.TabButton android:id="@id/event_themes_featured_button" android:text="@string/event_themes_featured_tab_text" style="@style/Tab" />
+            <View style="@style/TabSeparator" />
+            <com.galaxy.meetup.client.android.ui.view.TabButton android:id="@id/event_themes_patterns_button" android:text="@string/event_themes_patterns_tab_text" style="@style/Tab" />
+        </LinearLayout>
+        <com.galaxy.meetup.client.android.ui.view.TabContainer android:id="@id/fragment_container" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+            <FrameLayout android:id="@id/event_themes_featured_fragment" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+            <FrameLayout android:id="@id/event_themes_patterns_fragment" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+        </com.galaxy.meetup.client.android.ui.view.TabContainer>
+    </LinearLayout>
+</LinearLayout>

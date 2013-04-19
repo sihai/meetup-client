@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="album_photo_count">
+        <item quantity="other">%d عکس</item>
+        <item quantity="zero">%d عکس</item>
+        <item quantity="one">%d عکس</item>
+    </plurals>
+    <plurals name="from_your_phone_selected_count">
+        <item quantity="other">%d مورد انتخاب شد</item>
+        <item quantity="one">%d مورد انتخاب شد</item>
+    </plurals>
+    <plurals name="delete_photo_dialog_title">
+        <item quantity="other">این عکس‌ها حذف شوند؟</item>
+        <item quantity="one">این عکس حذف شود؟</item>
+    </plurals>
+    <plurals name="delete_remote_photo_dialog_message">
+        <item quantity="other">آیا مطمئن هستید می‌خواهید این عکس‌ها را از این آلبوم Google+‎ حذف کنید؟ این عملکرد قابل بازگشت نیست.</item>
+        <item quantity="one">آیا مطمئن هستید می‌خواهید این عکس را از این آلبوم Google+‎ حذف کنید؟ این عملکرد قابل بازگشت نیست.</item>
+    </plurals>
+    <plurals name="delete_local_photo_dialog_message">
+        <item quantity="other">آیا مطمئن هستید که می‌خواهید این عکس‌ها را از دستگاه خود حذف کنید؟ ممکن است این عکس‌ها تنها نسخه‌های شما باشند و حذف آنها قابل لغو نباشد.</item>
+        <item quantity="one">آیا مطمئن هستید که می‌خواهید این عکس را از دستگاه خود حذف کنید؟ ممکن است این تنها نسخه شما باشد و حذف آن قابل لغو نباشد.</item>
+    </plurals>
+    <plurals name="delete_photo_pending">
+        <item quantity="other">در حال حذف عکس‌ها...</item>
+        <item quantity="one">در حال حذف عکس...</item>
+    </plurals>
+    <plurals name="notifications_instant_upload_title">
+        <item quantity="other">عکس‌های جدید آماده اشتراک‌گذاری</item>
+        <item quantity="one">عکس‌ جدید آماده اشتراک‌گذاری</item>
+    </plurals>
+    <plurals name="notifications_instant_upload_text">
+        <item quantity="other">%d عکس</item>
+        <item quantity="one">%d عکس</item>
+    </plurals>
+    <plurals name="notifications_instant_upload_known_faces_text">
+        <item quantity="other">عکس‌های جدید از %s.</item>
+        <item quantity="one">عکس جدیدی از %s.</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_comment">
+        <item quantity="other">%d نظر جدید</item>
+        <item quantity="one">%d نظر جدید</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_plus_one">
+        <item quantity="other">%d 1+ جدید</item>
+        <item quantity="one">%d 1+ جدید</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_reshare">
+        <item quantity="other">%d اشتراک‌گذاری مجدد جدید</item>
+        <item quantity="one">%d اشتراک‌گذاری مجدد جدید</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_mention">
+        <item quantity="other">%d ذکر نام جدید</item>
+        <item quantity="one">%d ذکر نام جدید</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_share">
+        <item quantity="other">%d اشتراک‌گذاری جدید</item>
+        <item quantity="one">%d اشتراک‌گذاری جدید</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_post">
+        <item quantity="other">%d پست جدید</item>
+        <item quantity="one">%d پست جدید</item>
+    </plurals>
+    <plurals name="notification_square_multi_post_unread">
+        <item quantity="other">%s پست جدید اشتراک‌گذاری شد</item>
+        <item quantity="one">%s پست جدید اشتراک‌گذاری شد</item>
+    </plurals>
+    <plurals name="notification_square_multi_post_read">
+        <item quantity="other">پست جدید اشتراک‌گذاری شد</item>
+        <item quantity="one">پست جدید اشتراک‌گذاری شد</item>
+    </plurals>
+    <plurals name="event_invitee_with_guests">
+        <item quantity="other">%1$s (+%2$d مهمان)</item>
+        <item quantity="one">%1$s (+%2$d مهمان)</item>
+    </plurals>
+    <plurals name="event_invitee_other_count">
+        <item quantity="other">+ %d نفر دیگر</item>
+        <item quantity="one">+ %d نفر دیگر</item>
+    </plurals>
+    <plurals name="event_add_guest_count">
+        <item quantity="other">+ %d مهمان</item>
+        <item quantity="one">+ %d مهمان</item>
+    </plurals>
+    <plurals name="sign_out_message">
+        <item quantity="other">%d مورد در انتظار آپلود شدن هستند. با خروج از برنامه، تمام مواردی که هنوز آپلود نشده‌اند، لغو می‌شوند.</item>
+        <item quantity="one">%d مورد در انتظار آپلود شدن هستند. با خروج از برنامه، مواردی که هنوز آپلود نشده‌اند، لغو می‌شوند.</item>
+    </plurals>
+    <plurals name="share_photo_count">
+        <item quantity="other">%d عکس</item>
+        <item quantity="one">%d عکس</item>
+    </plurals>
+    <plurals name="plus_one_people_more_plus_ones">
+        <item quantity="other">%d+ نفر دیگر</item>
+        <item quantity="one">1+ بیشتر</item>
+    </plurals>
+    <plurals name="plusoned_by_unknowns">
+        <item quantity="other">توسط %d نفر</item>
+        <item quantity="one">توسط ۱ نفر</item>
+    </plurals>
+    <plurals name="plusoned_by_you_and_unknowns">
+        <item quantity="other">توسط شما و %d نفر دیگر</item>
+        <item quantity="one">توسط شما و ۱ نفر دیگر</item>
+    </plurals>
+    <plurals name="plusoned_by_one_known_and_unknowns">
+        <item quantity="other">توسط %1$s و %2$d نفر دیگر</item>
+        <item quantity="one">توسط %s و ۱ نفر دیگر</item>
+    </plurals>
+    <plurals name="plusoned_by_you_and_one_known_and_unknowns">
+        <item quantity="other">توسط شما، %1$s و %2$d نفر دیگر</item>
+        <item quantity="one">توسط شما، %s، و ۱ نفر دیگر</item>
+    </plurals>
+    <plurals name="plusoned_by_two_known_and_unknowns">
+        <item quantity="other">توسط %1$s، %2$s و %3$d نفر دیگر</item>
+        <item quantity="one">توسط %1$s، %2$s و ۱ نفر دیگر</item>
+    </plurals>
+    <plurals name="plusoned_by_you_and_two_known_and_unknowns">
+        <item quantity="other">توسط شما، %1$s، %2$s و %3$d نفر دیگر</item>
+        <item quantity="one">توسط شما، %1$s، %2$s و ۱ نفر دیگر</item>
+    </plurals>
+    <plurals name="comments">
+        <item quantity="other">%d نظر</item>
+        <item quantity="one">%d نظر</item>
+    </plurals>
+    <plurals name="delete_photo">
+        <item quantity="other">حذف عکس‌ها</item>
+        <item quantity="one">حذف عکس</item>
+    </plurals>
+    <plurals name="circle_entry_content_description">
+        <item quantity="other">%1$s؛ %2$d عضو</item>
+        <item quantity="one">%1$s؛ %2$d عضو</item>
+    </plurals>
+    <plurals name="notifications_ticker_text">
+        <item quantity="other">اعلان‌های جدید Google+‎</item>
+        <item quantity="one">اعلان جدید Google+‎</item>
+    </plurals>
+    <plurals name="notification_single_post">
+        <item quantity="other">%d فعالیت جدید</item>
+        <item quantity="one">%d فعالیت جدید</item>
+    </plurals>
+    <plurals name="notifications_content_text">
+        <item quantity="other">%1$s (%2$d)</item>
+        <item quantity="one">%1$s (%2$d)</item>
+    </plurals>
+    <plurals name="audience_display_selection_count">
+        <item quantity="other">%d انتخاب شد</item>
+        <item quantity="one">%d انتخاب شد</item>
+    </plurals>
+    <plurals name="circle_count_and_matched_email">
+        <item quantity="other">%1$d حلقه، %2$s</item>
+        <item quantity="one">%1$d حلقه، %2$s</item>
+    </plurals>
+    <plurals name="delete_circles_dialog_title">
+        <item quantity="other">حذف حلقه‌ها</item>
+        <item quantity="one">حذف حلقه</item>
+    </plurals>
+    <plurals name="delete_circles_dialog_message">
+        <item quantity="other">آیا می‌خواهید این حلقه‌ها را برای همیشه حذف کنید؟</item>
+        <item quantity="one">آیا می‌خواهید این حلقه را برای همیشه حذف کنید؟</item>
+    </plurals>
+    <plurals name="circle_button_more_circles">
+        <item quantity="other">%d مورد دیگر</item>
+        <item quantity="one">%d مورد دیگر</item>
+    </plurals>
+    <plurals name="num_minutes_ago">
+        <item quantity="other">%d دقیقه</item>
+        <item quantity="one">%d دقیقه</item>
+    </plurals>
+    <plurals name="num_hours_ago">
+        <item quantity="other">%d ساعت</item>
+        <item quantity="one">%d ساعت</item>
+    </plurals>
+    <plurals name="num_days_ago">
+        <item quantity="other">%d روز</item>
+        <item quantity="one">%d روز</item>
+    </plurals>
+    <plurals name="profile_added_by">
+        <item quantity="other">"افزوده شده توسط
+%s نفر"</item>
+        <item quantity="zero">"افزوده شده توسط
+%s نفر"</item>
+        <item quantity="one">"افزوده شده توسط
+%s شخص"</item>
+    </plurals>
+    <plurals name="profile_local_review_count">
+        <item quantity="other">%d نظر</item>
+        <item quantity="one">%d نظر</item>
+    </plurals>
+    <plurals name="hangout_plus_others">
+        <item quantity="other">%d+ نفر دیگر</item>
+        <item quantity="one">+ ۱ مورد بیشتر</item>
+    </plurals>
+    <plurals name="card_hangout_with_people">
+        <item quantity="other">Hangout با %d نفر</item>
+        <item quantity="one">Hangout با ۱ نفر</item>
+    </plurals>
+    <plurals name="stream_one_up_comment_count">
+        <item quantity="other">%d نظر</item>
+        <item quantity="one">%d نظر</item>
+    </plurals>
+    <plurals name="stream_one_up_stage_hangout_over">
+        <item quantity="other">%d نفر در hangout بودند</item>
+        <item quantity="one">۱ نفر در hangout بود</item>
+    </plurals>
+    <plurals name="plus_one_accessibility_description">
+        <item quantity="other">%d پلاس‌وان</item>
+        <item quantity="one">%d پلاس‌وان</item>
+    </plurals>
+    <plurals name="accessibility_notification_count_description">
+        <item quantity="other">%d اعلانیه جدید Google+‎</item>
+        <item quantity="one">%d اعلانیه جدید Google+‎</item>
+    </plurals>
+    <plurals name="audience_hidden_user_count">
+        <item quantity="other">%d نفر دیگر</item>
+        <item quantity="one">۱ نفر دیگر</item>
+    </plurals>
+    <plurals name="common_friend_count">
+        <item quantity="other">%d نفر مشترک</item>
+        <item quantity="one">یک نفر مشترک</item>
+    </plurals>
+    <plurals name="added_to_circle_notification_message">
+        <item quantity="other">%d نفر به حلقه‌ها اضافه شدند</item>
+        <item quantity="one">یک نفر به حلقه‌ها اضافه شد</item>
+    </plurals>
+    <plurals name="square_members_count">
+        <item quantity="other">%d عضو</item>
+        <item quantity="one">%d عضو</item>
+    </plurals>
+</resources>

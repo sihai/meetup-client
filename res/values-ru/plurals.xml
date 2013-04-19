@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="album_photo_count">
+        <item quantity="other">%d фото</item>
+        <item quantity="zero">%d фото</item>
+        <item quantity="one">%d фото</item>
+    </plurals>
+    <plurals name="from_your_phone_selected_count">
+        <item quantity="other">%d</item>
+        <item quantity="one">%d</item>
+    </plurals>
+    <plurals name="delete_photo_dialog_title">
+        <item quantity="other">Удалить эти фотографии?</item>
+        <item quantity="one">Удалить эту фотографию?</item>
+    </plurals>
+    <plurals name="delete_remote_photo_dialog_message">
+        <item quantity="other">Удалить фото из альбома Google+ навсегда?</item>
+        <item quantity="one">Удалить фото из альбома Google+ навсегда?</item>
+    </plurals>
+    <plurals name="delete_local_photo_dialog_message">
+        <item quantity="other">Удалить фото с устройства? У них может не быть копий. Отменить действие не удастся.</item>
+        <item quantity="one">Удалить фото с устройства? У него может не быть копий. Отменить действие не удастся.</item>
+    </plurals>
+    <plurals name="delete_photo_pending">
+        <item quantity="other">Удаление...</item>
+        <item quantity="one">Удаление...</item>
+    </plurals>
+    <plurals name="notifications_instant_upload_title">
+        <item quantity="other">Добавлены новые фото</item>
+        <item quantity="one">Добавлено новое фото</item>
+    </plurals>
+    <plurals name="notifications_instant_upload_text">
+        <item quantity="other">%d фото</item>
+        <item quantity="one">%d фото</item>
+    </plurals>
+    <plurals name="notifications_instant_upload_known_faces_text">
+        <item quantity="other">Добавлены фото c пользователями %s</item>
+        <item quantity="one">Добавлено фото c пользователями %s</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_comment">
+        <item quantity="other">%d чел. прокомментировали</item>
+        <item quantity="one">%d чел. прокомментировал</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_plus_one">
+        <item quantity="other">%d чел. добавили +1</item>
+        <item quantity="one">%d чел. добавил +1</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_reshare">
+        <item quantity="other">%d чел. опубликовали у себя</item>
+        <item quantity="one">%d чел. опубликовал у себя</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_mention">
+        <item quantity="other">%d чел. упомянули вас</item>
+        <item quantity="one">%d чел. упомянул вас</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_share">
+        <item quantity="other">%d чел. поделились</item>
+        <item quantity="one">%d чел. поделился</item>
+    </plurals>
+    <plurals name="notifications_single_post_title_post">
+        <item quantity="other">%d чел. опубликовали запись</item>
+        <item quantity="one">%d чел. опубликовал запись</item>
+    </plurals>
+    <plurals name="notification_square_multi_post_unread">
+        <item quantity="other">Новых записей: %s</item>
+        <item quantity="one">Новых записей: %s</item>
+    </plurals>
+    <plurals name="notification_square_multi_post_read">
+        <item quantity="other">В сообществе новые записи</item>
+        <item quantity="one">В сообществе новая запись</item>
+    </plurals>
+    <plurals name="event_invitee_with_guests">
+        <item quantity="other">%1$s (и ещё %2$d чел.)</item>
+        <item quantity="one">%1$s (и ещё %2$d чел.)</item>
+    </plurals>
+    <plurals name="event_invitee_other_count">
+        <item quantity="other">и ещё %d чел.</item>
+        <item quantity="one">и ещё %d чел.</item>
+    </plurals>
+    <plurals name="event_add_guest_count">
+        <item quantity="other">и ещё %d чел.</item>
+        <item quantity="one">и ещё %d чел.</item>
+    </plurals>
+    <plurals name="sign_out_message">
+        <item quantity="other">Несколько файлов (%d) еще не загружено. Если вы выйдите из аккаунта, загрузка будет отменена.</item>
+        <item quantity="one">%d файл еще не загружен. Если вы выйдете из аккаунта, загрузка будет отменена.</item>
+    </plurals>
+    <plurals name="share_photo_count">
+        <item quantity="other">%d фото</item>
+        <item quantity="one">%d фото</item>
+    </plurals>
+    <plurals name="plus_one_people_more_plus_ones">
+        <item quantity="other">%d чел.</item>
+        <item quantity="one">и еще 1 чел.</item>
+    </plurals>
+    <plurals name="plusoned_by_unknowns">
+        <item quantity="other">%d чел.</item>
+        <item quantity="one">1 чел.</item>
+    </plurals>
+    <plurals name="plusoned_by_you_and_unknowns">
+        <item quantity="other">вы и еще %d чел.</item>
+        <item quantity="one">вы и еще 1 чел.</item>
+    </plurals>
+    <plurals name="plusoned_by_one_known_and_unknowns">
+        <item quantity="other">%1$s и еще %2$d чел.</item>
+        <item quantity="one">%s и еще 1 чел.</item>
+    </plurals>
+    <plurals name="plusoned_by_you_and_one_known_and_unknowns">
+        <item quantity="other">вы, %1$s и еще %2$d</item>
+        <item quantity="one">вы, %s и еще 1 чел.</item>
+    </plurals>
+    <plurals name="plusoned_by_two_known_and_unknowns">
+        <item quantity="other">%1$s, %2$s и еще %3$d чел.</item>
+        <item quantity="one">%1$s, %2$s и еще 1 чел.</item>
+    </plurals>
+    <plurals name="plusoned_by_you_and_two_known_and_unknowns">
+        <item quantity="other">вы, %1$s, %2$s и еще %3$d</item>
+        <item quantity="one">вы, %1$s, %2$s и еще 1 чел.</item>
+    </plurals>
+    <plurals name="comments">
+        <item quantity="other">Комментариев: %d</item>
+        <item quantity="one">Комментариев: %d</item>
+    </plurals>
+    <plurals name="delete_photo">
+        <item quantity="other">Удалить</item>
+        <item quantity="one">Удалить</item>
+    </plurals>
+    <plurals name="circle_entry_content_description">
+        <item quantity="other">%1$s: %2$d чел.</item>
+        <item quantity="one">%1$s: %2$d чел.</item>
+    </plurals>
+    <plurals name="notifications_ticker_text">
+        <item quantity="other">Новые оповещения Google+</item>
+        <item quantity="one">Оповещение Google+</item>
+    </plurals>
+    <plurals name="notification_single_post">
+        <item quantity="other">Новых действий: %d</item>
+        <item quantity="one">Новых действий: %d</item>
+    </plurals>
+    <plurals name="notifications_content_text">
+        <item quantity="other">%1$s (%2$d)</item>
+        <item quantity="one">%1$s (%2$d)</item>
+    </plurals>
+    <plurals name="audience_display_selection_count">
+        <item quantity="other">Выбрано: %d</item>
+        <item quantity="one">Выбрано: %d</item>
+    </plurals>
+    <plurals name="circle_count_and_matched_email">
+        <item quantity="other">круги %1$d, %2$s</item>
+        <item quantity="one">Круг "%1$d", %2$s</item>
+    </plurals>
+    <plurals name="delete_circles_dialog_title">
+        <item quantity="other">Удаление кругов</item>
+        <item quantity="one">Удаление круга</item>
+    </plurals>
+    <plurals name="delete_circles_dialog_message">
+        <item quantity="other">Удалить эти круги навсегда?</item>
+        <item quantity="one">Удалить этот круг навсегда?</item>
+    </plurals>
+    <plurals name="circle_button_more_circles">
+        <item quantity="other">еще %d</item>
+        <item quantity="one">и еще %d</item>
+    </plurals>
+    <plurals name="num_minutes_ago">
+        <item quantity="other">%d мин.</item>
+        <item quantity="one">%d мин.</item>
+    </plurals>
+    <plurals name="num_hours_ago">
+        <item quantity="other">%d ч.</item>
+        <item quantity="one">%d ч.</item>
+    </plurals>
+    <plurals name="num_days_ago">
+        <item quantity="other">%d дн.</item>
+        <item quantity="one">%d дн.</item>
+    </plurals>
+    <plurals name="profile_added_by">
+        <item quantity="other">"Добавили в круги
+%s чел."</item>
+        <item quantity="zero">"Добавили в круги
+%s чел."</item>
+        <item quantity="one">"Добавил в круги
+%s чел."</item>
+    </plurals>
+    <plurals name="profile_local_review_count">
+        <item quantity="other">Отзывов: %d</item>
+        <item quantity="one">Отзывов: %d</item>
+    </plurals>
+    <plurals name="hangout_plus_others">
+        <item quantity="other">и еще %d чел.</item>
+        <item quantity="one">и еще 1 чел.</item>
+    </plurals>
+    <plurals name="card_hangout_with_people">
+        <item quantity="other">ПРИСОЕДИНИЛИСЬ: %d ЧЕЛ.</item>
+        <item quantity="one">ПРИСОЕДИНИЛИСЬ: 1 ЧЕЛ.</item>
+    </plurals>
+    <plurals name="stream_one_up_comment_count">
+        <item quantity="other">%d</item>
+        <item quantity="one">%d</item>
+    </plurals>
+    <plurals name="stream_one_up_stage_hangout_over">
+        <item quantity="other">НА ВИДЕОВСТРЕЧЕ БЫЛО %d ЧЕЛ.</item>
+        <item quantity="one">НА ВИДЕОВСТРЕЧЕ БЫЛ 1 ЧЕЛ.</item>
+    </plurals>
+    <plurals name="plus_one_accessibility_description">
+        <item quantity="other">+%d</item>
+        <item quantity="one">+%d</item>
+    </plurals>
+    <plurals name="accessibility_notification_count_description">
+        <item quantity="other">Новых оповещений: %d</item>
+        <item quantity="one">Оповещения Google+ (%d)</item>
+    </plurals>
+    <plurals name="audience_hidden_user_count">
+        <item quantity="other">и ещё %d</item>
+        <item quantity="one">и ещё 1</item>
+    </plurals>
+    <plurals name="common_friend_count">
+        <item quantity="other">Общих связей: %d</item>
+        <item quantity="one">Общих связей: 1</item>
+    </plurals>
+    <plurals name="added_to_circle_notification_message">
+        <item quantity="other">Пользователи (%d) добавлены в круги</item>
+        <item quantity="one">Пользователь добавлен в круги</item>
+    </plurals>
+    <plurals name="square_members_count">
+        <item quantity="other">Участников: %d</item>
+        <item quantity="one">Участников: %d</item>
+    </plurals>
+</resources>

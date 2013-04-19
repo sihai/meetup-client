@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.galaxy.meetup.client.android.ui.view.HostActionBar android:background="@color/title_background" android:layout_width="fill_parent" android:layout_height="@dimen/host_action_bar_height"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:id="@id/up" android:paddingRight="16.0dip" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_alignParentLeft="true" android:layout_centerVertical="true" android:contentDescription="@string/main_menu_content_description" style="@style/Theme.Host.ActionBar.Button">
+        <ImageView android:layout_width="wrap_content" android:layout_height="fill_parent" android:src="@drawable/ic_menu_back" android:scaleType="center" style="@style/Theme.Host.ActionBar.Up" />
+        <FrameLayout android:layout_gravity="center_vertical" android:id="@id/icon_container" android:layout_width="32.0dip" android:layout_height="32.0dip">
+            <ImageView android:id="@id/icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_gplus_red_32" android:scaleType="center" />
+            <TextView android:textSize="18.0sp" android:textStyle="bold" android:textColor="#ffffffff" android:gravity="center" android:id="@id/notification_count" android:background="@drawable/badge_red" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+            <ImageView android:id="@id/notification_count_overflow" android:background="@drawable/badge_red" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@drawable/ic_notification_coffeemug" android:scaleType="center" />
+        </FrameLayout>
+    </LinearLayout>
+    <LinearLayout android:id="@id/done" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginRight="16.0dip" android:layout_toRightOf="@id/up" android:layout_centerVertical="true" android:layout_alignWithParentIfMissing="true" android:contentDescription="@string/signup_done" style="@style/Theme.Host.ActionBar.Button">
+        <ImageView android:layout_width="56.0dip" android:layout_height="fill_parent" android:src="@drawable/ic_cab_done_holo_light" android:scaleType="center" />
+        <View android:background="#ffbbbbbb" android:layout_width="1.0dip" android:layout_height="fill_parent" android:layout_marginTop="8.0dip" android:layout_marginBottom="8.0dip" />
+    </LinearLayout>
+    <ImageView android:id="@id/menu" android:visibility="gone" android:layout_width="56.0dip" android:layout_height="wrap_content" android:layout_alignParentRight="true" android:layout_centerVertical="true" android:layout_alignWithParentIfMissing="true" style="?android:attr/actionOverflowButtonStyle" />
+    <ImageView android:id="@id/refresh_button" android:visibility="gone" android:layout_width="56.0dip" android:layout_height="fill_parent" android:src="@drawable/ic_refresh" android:scaleType="center" android:layout_toLeftOf="@id/menu" android:layout_alignWithParentIfMissing="true" android:contentDescription="@string/menu_refresh" style="@style/Theme.Host.ActionBar.Button" />
+    <FrameLayout android:id="@id/progress_indicator" android:visibility="gone" android:layout_width="56.0dip" android:layout_height="fill_parent" android:layout_toLeftOf="@id/refresh_button" android:layout_alignWithParentIfMissing="true">
+        <ProgressBar android:layout_gravity="center" android:layout_width="24.0dip" android:layout_height="24.0dip" android:indeterminate="true" style="?android:attr/progressBarStyleSmall" />
+    </FrameLayout>
+    <ImageView android:id="@id/action_button_2" android:visibility="gone" android:layout_width="56.0dip" android:layout_height="fill_parent" android:scaleType="center" android:layout_toLeftOf="@id/progress_indicator" android:layout_alignWithParentIfMissing="true" style="@style/Theme.Host.ActionBar.Button" />
+    <ImageView android:id="@id/action_button_1" android:visibility="gone" android:layout_width="56.0dip" android:layout_height="fill_parent" android:scaleType="center" android:layout_toLeftOf="@id/action_button_2" android:layout_alignWithParentIfMissing="true" style="@style/Theme.Host.ActionBar.Button" />
+    <ImageView android:id="@id/share_menu_anchor" android:visibility="gone" android:layout_width="56.0dip" android:layout_height="fill_parent" android:src="@drawable/ic_compose" android:scaleType="center" android:layout_toLeftOf="@id/action_button_1" android:layout_alignWithParentIfMissing="true" android:contentDescription="@string/share_menu_anchor_content_description" style="@style/Theme.Host.ActionBar.Button" />
+    <TextView android:textSize="16.0sp" android:textColor="#ffffffff" android:id="@id/title" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="4.0dip" android:layout_toLeftOf="@id/share_menu_anchor" android:layout_toRightOf="@id/done" android:layout_centerVertical="true" android:layout_alignWithParentIfMissing="true" />
+    <com.galaxy.meetup.client.android.ui.view.HostActionBarWidgetLayout android:id="@id/search_view_container" android:visibility="gone" android:layout_width="320.0dip" android:layout_height="fill_parent" android:maxWidth="320.0dip" android:layout_toLeftOf="@id/share_menu_anchor" android:layout_toRightOf="@id/title" android:layout_alignWithParentIfMissing="true">
+        <include layout="@layout/action_bar_search_bar" />
+    </com.galaxy.meetup.client.android.ui.view.HostActionBarWidgetLayout>
+    <com.galaxy.meetup.client.android.ui.view.HostActionBarWidgetLayout android:id="@id/primary_spinner_container" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginLeft="@dimen/host_spinner_margin_left" android:layout_marginRight="4.0dip" android:maxWidth="240.0dip" android:layout_toLeftOf="@id/share_menu_anchor" android:layout_toRightOf="@id/search_view_container" android:layout_alignWithParentIfMissing="true">
+        <include layout="@layout/action_bar_spinner" />
+    </com.galaxy.meetup.client.android.ui.view.HostActionBarWidgetLayout>
+</com.galaxy.meetup.client.android.ui.view.HostActionBar>

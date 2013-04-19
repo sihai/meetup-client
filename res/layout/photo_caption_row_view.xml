@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:background="@color/photo_caption_background_color" android:paddingLeft="@dimen/photo_caption_left_padding" android:paddingRight="@dimen/photo_caption_right_padding" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="@dimen/photo_caption_text_size" android:textColor="@color/photo_caption_color" android:layout_gravity="center_vertical" android:id="@id/photo_caption" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+</FrameLayout>

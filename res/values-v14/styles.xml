@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.EmeraldSea" parent="@*android:style/Theme.Holo.Light">
+        <item name="android:actionBarStyle">@style/EsActionBar</item>
+        <item name="android:windowActionModeOverlay">true</item>
+        <item name="buttonBarStyle">?android:buttonBarStyle</item>
+        <item name="buttonBarButtonStyle">?android:buttonBarButtonStyle</item>
+        <item name="listSelector">?android:listChoiceBackgroundIndicator</item>
+        <item name="editAudienceBackground">?android:editTextBackground</item>
+        <item name="editLocationBackground">?android:editTextBackground</item>
+        <item name="buttonSelectableBackground">?android:selectableItemBackground</item>
+    </style>
+    <style name="Theme.DarkActionBar" parent="@*android:style/Theme.Holo.Light.DarkActionBar">
+        <item name="android:actionBarStyle">@style/EsActionBar</item>
+        <item name="android:windowActionModeOverlay">true</item>
+        <item name="buttonBarStyle">?android:buttonBarStyle</item>
+        <item name="buttonBarButtonStyle">?android:buttonBarButtonStyle</item>
+        <item name="listSelector">?android:listChoiceBackgroundIndicator</item>
+        <item name="editAudienceBackground">?android:editTextBackground</item>
+        <item name="editLocationBackground">?android:editTextBackground</item>
+        <item name="buttonSelectableBackground">?android:selectableItemBackground</item>
+    </style>
+    <style name="Theme.SignIn" parent="@*android:style/Theme.Light">
+        <item name="android:windowBackground">@*android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowActionBar">false</item>
+    </style>
+    <style name="Theme.EmeraldSea.Dark" parent="@*android:style/Theme.Holo">
+        <item name="android:windowActionModeOverlay">true</item>
+        <item name="buttonBarButtonStyle">?android:buttonBarButtonStyle</item>
+        <item name="listSelector">?android:listChoiceBackgroundIndicator</item>
+        <item name="editAudienceBackground">?android:editTextBackground</item>
+        <item name="editLocationBackground">?android:editTextBackground</item>
+        <item name="buttonSelectableBackground">?android:selectableItemBackground</item>
+    </style>
+    <style name="Theme.Messenger" parent="@style/Theme.DarkActionBar">
+        <item name="android:windowActionBarOverlay">true</item>
+    </style>
+    <style name="Theme.Hangout.InHangout" parent="@style/Theme.DarkActionBar">
+        <item name="android:actionBarStyle">@style/HangoutActionBar</item>
+        <item name="android:windowActionBarOverlay">true</item>
+    </style>
+</resources>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.galaxy.meetup.client.android.ui.view.PhotoLayout android:orientation="vertical" android:id="@id/photo_header_layout" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <com.galaxy.meetup.client.android.ui.view.PhotoHeaderView android:id="@id/photo_header_view" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/photo_tag_layout" android:background="@drawable/photo_tag_scroller_background" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <LinearLayout android:gravity="center" android:id="@id/photo_tag_list_toggle" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <TextView android:textSize="@dimen/photo_tag_title_text_size" android:textStyle="bold" android:textColor="@color/photo_tag_title_text_color" android:gravity="center" android:id="@id/photo_tag_list_title" android:layout_width="wrap_content" android:layout_height="@dimen/photo_tag_title_height" android:text="@string/photo_tag_title_view" android:drawablePadding="@dimen/photo_tag_title_notification_padding" />
+            </LinearLayout>
+            <com.galaxy.meetup.client.android.ui.view.PhotoTagScroller android:layout_gravity="center" android:id="@id/photo_tag_list" android:paddingLeft="@dimen/photo_tag_scroller_padding_left" android:paddingTop="@dimen/photo_tag_scroller_padding_top" android:paddingRight="@dimen/photo_tag_scroller_padding_right" android:paddingBottom="@dimen/photo_tag_scroller_padding_bottom" android:visibility="gone" android:scrollbars="none" android:layout_width="wrap_content" android:layout_height="@dimen/photo_tag_scroller_height">
+                <LinearLayout android:orientation="horizontal" android:id="@id/photo_tags" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+            </com.galaxy.meetup.client.android.ui.view.PhotoTagScroller>
+        </LinearLayout>
+        <com.galaxy.meetup.client.android.ui.view.PhotoInfoView android:id="@id/photo_view_header_info" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_alignBottom="@id/photo_header_view" />
+    </com.galaxy.meetup.client.android.ui.view.PhotoLayout>
+    <FrameLayout android:id="@*android:id/empty" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_centerInParent="true">
+        <TextView android:textSize="18.0sp" android:gravity="center" android:id="@id/list_empty_text" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+        <LinearLayout android:layout_gravity="center" android:id="@id/list_empty_progress" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <ProgressBar android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" android:indeterminate="true" style="?android:attr/progressBarStyleSmall" />
+            <TextView android:textSize="18.0sp" android:textColor="#ffffffff" android:id="@id/list_empty_progress_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:text="@string/loading" />
+        </LinearLayout>
+    </FrameLayout>
+</RelativeLayout>

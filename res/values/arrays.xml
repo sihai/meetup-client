@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="realtimechat_acl_options_keys">
+        <item>@string/key_acl_setting_anyone</item>
+        <item>@string/key_acl_setting_my_circles</item>
+        <item>@string/key_acl_setting_extended_circles</item>
+    </string-array>
+    <string-array name="realtimechat_acl_options_labels">
+        <item>@string/realtimechat_acl_anyone</item>
+        <item>@string/realtimechat_acl_my_circles</item>
+        <item>@string/realtimechat_acl_extended_circles</item>
+    </string-array>
+    <string-array name="photo_connection_preference_entry_values">
+        <item>WIFI_OR_MOBILE</item>
+        <item>WIFI_ONLY</item>
+    </string-array>
+    <string-array name="photo_connection_preference_entry_labels">
+        <item>@string/photo_connection_wifi_and_mobile</item>
+        <item>@string/photo_connection_wifi_only</item>
+    </string-array>
+    <string-array name="video_connection_preference_entry_values">
+        <item>WIFI_OR_MOBILE</item>
+        <item>WIFI_ONLY</item>
+    </string-array>
+    <string-array name="video_connection_preference_entry_labels">
+        <item>@string/photo_connection_wifi_and_mobile</item>
+        <item>@string/photo_connection_wifi_only</item>
+    </string-array>
+    <string-array name="photo_upload_size_preference_entry_values">
+        <item>FULL</item>
+        <item>STANDARD</item>
+    </string-array>
+    <string-array name="photo_upload_size_preference_entry_labels">
+        <item>@string/photo_upload_size_full</item>
+        <item>@string/photo_upload_size_standard</item>
+    </string-array>
+    <string-array name="photo_upload_size_preference_entry_summaries">
+        <item>@string/photo_upload_size_preference_entry_summary_full</item>
+        <item>@string/photo_upload_size_preference_entry_summary_standard</item>
+    </string-array>
+    <string-array name="network_statistics_types">
+        <item>Bytes sent+received</item>
+        <item>Bytes sent</item>
+        <item>Bytes received</item>
+        <item>Network+processing time</item>
+        <item>Network time</item>
+        <item>Processing time</item>
+        <item>Requests</item>
+    </string-array>
+    <string-array name="network_statistics_types_units">
+        <item>bytes</item>
+        <item>bytes</item>
+        <item>bytes</item>
+        <item>ms</item>
+        <item>ms</item>
+        <item>ms</item>
+        <item>requests</item>
+    </string-array>
+    <string-array name="event_activity_invite_strings">
+        <item>@string/event_activity_invite_1</item>
+        <item>@string/event_activity_invite_2</item>
+        <item>@string/event_activity_invite_3</item>
+        <item>@string/event_activity_invite_4</item>
+        <item>@string/event_activity_invite</item>
+    </string-array>
+    <string-array name="event_activity_rsvp_yes_strings">
+        <item>@string/event_activity_rsvp_yes_1</item>
+        <item>@string/event_activity_rsvp_yes_2</item>
+        <item>@string/event_activity_rsvp_yes_3</item>
+        <item>@string/event_activity_rsvp_yes_4</item>
+        <item>@string/event_activity_rsvp_yes</item>
+    </string-array>
+    <string-array name="event_activity_rsvp_no_strings">
+        <item>@string/event_activity_rsvp_no_1</item>
+        <item>@string/event_activity_rsvp_no_2</item>
+        <item>@string/event_activity_rsvp_no_3</item>
+        <item>@string/event_activity_rsvp_no_4</item>
+        <item>@string/event_activity_rsvp_no</item>
+    </string-array>
+    <string-array name="event_activity_checked_in_strings">
+        <item>@string/event_activity_checked_in_1</item>
+        <item>@string/event_activity_checked_in_2</item>
+        <item>@string/event_activity_checked_in_3</item>
+        <item>@string/event_activity_checked_in_4</item>
+        <item>@string/event_activity_checked_in</item>
+    </string-array>
+    <array name="incoming_hangout_widget_2way_targets">
+        <item>@drawable/ic_hangout_ringing_accept</item>
+        <item>@null</item>
+        <item>@drawable/ic_hangout_ringing_ignore</item>
+        <item>@null</item>
+    </array>
+    <array name="incoming_hangout_widget_2way_target_descriptions">
+        <item>@string/hangout_ringing_accept</item>
+        <item>@null</item>
+        <item>@string/hangout_ringing_ignore</item>
+        <item>@null</item>
+    </array>
+    <array name="incoming_hangout_widget_2way_direction_descriptions">
+        <item>@string/hangout_ringing_accept</item>
+        <item>@null</item>
+        <item>@string/hangout_ringing_ignore</item>
+        <item>@null</item>
+    </array>
+    <string-array name="event_spinner_items">
+        <item>@string/events_current_tab_text</item>
+        <item>@string/events_past_tab_text</item>
+    </string-array>
+    <string-array name="square_list_spinner_items">
+        <item>@string/square_invited_item_text</item>
+        <item>@string/square_member_item_text</item>
+        <item>@string/square_suggested_item_text</item>
+    </string-array>
+    <string-array name="realtimechat_backends">
+        <item>realtime-chat@bot.talk.google.com</item>
+        <item>realtime-chat-dev@bot.talk.google.com</item>
+        <item>realtime-chat-canary@bot.talk.google.com</item>
+    </string-array>
+    <integer-array name="emotishare_id">
+        <item>0x1f620</item>
+        <item>0x1f62d</item>
+        <item>0x1f623</item>
+        <item>0x263a</item>
+        <item>0x1f631</item>
+        <item>0x1f605</item>
+        <item>0x1f618</item>
+        <item>0x1f601</item>
+        <item>0x1f612</item>
+        <item>0x1f61e</item>
+        <item>0x1f637</item>
+        <item>0x1f61c</item>
+        <item>0x1f60f</item>
+        <item>0x1f609</item>
+        <item>0x1f630</item>
+        <item>0x2603</item>
+        <item>0x1f3a9</item>
+        <item>0x1f48c</item>
+        <item>0x1f340</item>
+        <item>0x1f33b</item>
+    </integer-array>
+    <integer-array name="emotishare_release_generation">
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>
+        <item>2</item>
+        <item>2</item>
+        <item>3</item>
+        <item>3</item>
+        <item>3</item>
+    </integer-array>
+    <string-array name="emotishare_name">
+        <item>@string/emotishare_name_anger</item>
+        <item>@string/emotishare_name_crying</item>
+        <item>@string/emotishare_name_frustration</item>
+        <item>@string/emotishare_name_happy</item>
+        <item>@string/emotishare_name_astonished</item>
+        <item>@string/emotishare_name_joy</item>
+        <item>@string/emotishare_name_kiss</item>
+        <item>@string/emotishare_name_lol</item>
+        <item>@string/emotishare_name_unamused</item>
+        <item>@string/emotishare_name_sad</item>
+        <item>@string/emotishare_name_sick</item>
+        <item>@string/emotishare_name_silly</item>
+        <item>@string/emotishare_name_smirk</item>
+        <item>@string/emotishare_name_wink</item>
+        <item>@string/emotishare_name_worried</item>
+        <item>@string/emotishare_name_winter</item>
+        <item>@string/emotishare_name_new_year</item>
+        <item>@string/emotishare_name_valentine</item>
+        <item>@string/emotishare_name_st_patty</item>
+        <item>@string/emotishare_name_spring</item>
+    </string-array>
+    <string-array name="emotishare_type">
+        <item>ANGRY</item>
+        <item>CRYING</item>
+        <item>FRUSTRATED</item>
+        <item>HAPPY</item>
+        <item>ASTONISHED</item>
+        <item>JOY</item>
+        <item>KISS</item>
+        <item>LOL</item>
+        <item>UNAMUSED</item>
+        <item>SAD</item>
+        <item>SICK</item>
+        <item>SILLY</item>
+        <item>SMIRK</item>
+        <item>WINK</item>
+        <item>WORRIED</item>
+        <item>WINTER</item>
+        <item>NEWYEAR</item>
+        <item>VALENTINE</item>
+        <item>STPATTY</item>
+        <item>SPRING</item>
+    </string-array>
+    <string-array name="emotishare_category">
+        <item>Faces</item>
+        <item>Faces</item>
+        <item>Faces</item>
+        <item>Faces</item>
+        <item>Faces</item>
+        <item>Faces</item>
+        <item>Faces</item>
+        <item>Faces</item>
+        <item>Faces</item>
+        <item>Faces</item>
+        <item>Faces</item>
+        <item>Faces</item>
+        <item>Faces</item>
+        <item>Faces</item>
+        <item>Faces</item>
+        <item>Seasonal</item>
+        <item>Holiday</item>
+        <item>Holiday</item>
+        <item>Holiday</item>
+        <item>Seasonal</item>
+    </string-array>
+    <string-array name="emotishare_share_text">
+        <item>@string/emotishare_text_anger</item>
+        <item>@string/emotishare_text_crying</item>
+        <item>@string/emotishare_text_frustration</item>
+        <item>@string/emotishare_text_happy</item>
+        <item>@string/emotishare_text_astonished</item>
+        <item>@string/emotishare_text_joy</item>
+        <item>@string/emotishare_text_kiss</item>
+        <item>@string/emotishare_text_lol</item>
+        <item>@string/emotishare_text_unamused</item>
+        <item>@string/emotishare_text_sad</item>
+        <item>@string/emotishare_text_sick</item>
+        <item>@string/emotishare_text_silly</item>
+        <item>@string/emotishare_text_smirk</item>
+        <item>@string/emotishare_text_wink</item>
+        <item>@string/emotishare_text_worried</item>
+        <item>@string/emotishare_text_winter</item>
+        <item>@string/emotishare_text_new_year</item>
+        <item>@string/emotishare_text_valentine</item>
+        <item>@string/emotishare_text_st_patty</item>
+        <item>@string/emotishare_text_spring</item>
+    </string-array>
+    <string-array name="emotishare_description">
+        <item>@string/emotishare_description_anger</item>
+        <item>@string/emotishare_description_crying</item>
+        <item>@string/emotishare_description_frustration</item>
+        <item>@string/emotishare_description_happy</item>
+        <item>@string/emotishare_description_astonished</item>
+        <item>@string/emotishare_description_joy</item>
+        <item>@string/emotishare_description_kiss</item>
+        <item>@string/emotishare_description_lol</item>
+        <item>@string/emotishare_description_unamused</item>
+        <item>@string/emotishare_description_sad</item>
+        <item>@string/emotishare_description_sick</item>
+        <item>@string/emotishare_description_silly</item>
+        <item>@string/emotishare_description_smirk</item>
+        <item>@string/emotishare_description_wink</item>
+        <item>@string/emotishare_description_worried</item>
+        <item>@string/emotishare_description_winter</item>
+        <item>@string/emotishare_description_new_year</item>
+        <item>@string/emotishare_description_valentine</item>
+        <item>@string/emotishare_description_st_patty</item>
+        <item>@string/emotishare_description_spring</item>
+    </string-array>
+    <string-array name="emotishare_icon_uri">
+        <item>http://www.gstatic.com/s2/oz/images/emotishare/hdpi/angry_icon.png</item>
+        <item>http://www.gstatic.com/s2/oz/images/emotishare/hdpi/crying_icon.png</item>
+        <item>http://www.gstatic.com/s2/oz/images/emotishare/hdpi/frustrated_icon.png</item>
+        <item>http://www.gstatic.com/s2/oz/images/emotishare/hdpi/happy_icon.png</item>
+        <item>http://www.gstatic.com/s2/oz/images/emotishare/hdpi/scared_icon.png</item>
+        <item>http://www.gstatic.com/s2/oz/images/emotishare/hdpi/joy_icon.png</item>
+        <item>http://www.gstatic.com/s2/oz/images/emotishare/hdpi/kiss_icon.png</item>
+        <item>http://www.gstatic.com/s2/oz/images/emotishare/hdpi/lol_icon.png</item>
+        <item>http://www.gstatic.com/s2/oz/images/emotishare/hdpi/meh_icon.png</item>
+        <item>http://www.gstatic.com/s2/oz/images/emotishare/hdpi/sad_icon.png</item>
+        <item>http://www.gstatic.com/s2/oz/images/emotishare/hdpi/sick_icon.png</item>
+        <item>http://www.gstatic.com/s2/oz/images/emotishare/hdpi/silly_icon.png</item>
+        <item>http://www.gstatic.com/s2/oz/images/emotishare/hdpi/smirk_icon.png</item>
+        <item>http://www.gstatic.com/s2/oz/images/emotishare/hdpi/wink_icon.png</item>
+        <item>http://www.gstatic.com/s2/oz/images/emotishare/hdpi/worried_icon.png</item>
+        <item>http://www.gstatic.com/s2/oz/images/emotishare/hdpi/winter_icon.png</item>
+        <item>http://www.gstatic.com/s2/oz/images/emotishare/hdpi/new_year_icon.png</item>
+        <item>http://www.gstatic.com/s2/oz/images/emotishare/hdpi/valentines_day_icon.png</item>
+        <item>http://www.gstatic.com/s2/oz/images/emotishare/hdpi/st_pattys_day_icon.png</item>
+        <item>http://www.gstatic.com/s2/oz/images/emotishare/hdpi/spring_icon.png</item>
+    </string-array>
+    <string-array name="emotishare_image_uri">
+        <item>http://www.gstatic.com/s2/oz/images/emotishare/mdpi/angry_image.gif</item>
+        <item>http://www.gstatic.com/s2/oz/images/emotishare/mdpi/crying_image.gif</item>
+        <item>http://www.gstatic.com/s2/oz/images/emotishare/mdpi/frustrated_image.gif</item>
+        <item>http://www.gstatic.com/s2/oz/images/emotishare/mdpi/happy_image.gif</item>
+        <item>http://www.gstatic.com/s2/oz/images/emotishare/mdpi/scared_image.gif</item>
+        <item>http://www.gstatic.com/s2/oz/images/emotishare/mdpi/joy_image.gif</item>
+        <item>http://www.gstatic.com/s2/oz/images/emotishare/mdpi/kiss_image.gif</item>
+        <item>http://www.gstatic.com/s2/oz/images/emotishare/mdpi/lol_image.gif</item>
+        <item>http://www.gstatic.com/s2/oz/images/emotishare/mdpi/meh_image.gif</item>
+        <item>http://www.gstatic.com/s2/oz/images/emotishare/mdpi/sad_image.gif</item>
+        <item>http://www.gstatic.com/s2/oz/images/emotishare/mdpi/sick_image.gif</item>
+        <item>http://www.gstatic.com/s2/oz/images/emotishare/mdpi/silly_image.gif</item>
+        <item>http://www.gstatic.com/s2/oz/images/emotishare/mdpi/smirk_image.gif</item>
+        <item>http://www.gstatic.com/s2/oz/images/emotishare/mdpi/wink_image.gif</item>
+        <item>http://www.gstatic.com/s2/oz/images/emotishare/mdpi/worried_image.gif</item>
+        <item>http://www.gstatic.com/s2/oz/images/emotishare/hdpi/winter_image.gif</item>
+        <item>http://www.gstatic.com/s2/oz/images/emotishare/hdpi/new_year_image.gif</item>
+        <item>http://www.gstatic.com/s2/oz/images/emotishare/hdpi/valentines_day_image.gif</item>
+        <item>http://www.gstatic.com/s2/oz/images/emotishare/hdpi/st_pattys_day_image.gif</item>
+        <item>http://www.gstatic.com/s2/oz/images/emotishare/hdpi/spring_image.gif</item>
+    </string-array>
+</resources>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@id/menu_hangout_debug_upload_logs" android:title="Upload logs" />
+    <item android:id="@id/menu_hangout_debug_simulate_network_error" android:title="Simulate network error" />
+    <item android:id="@id/menu_hangout_debug_stress_join" android:title="Stress join" />
+</menu>

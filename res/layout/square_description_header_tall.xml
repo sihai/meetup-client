@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/square" android:padding="8.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_centerVertical="true">
+        <ImageView android:id="@id/squares_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_communities" android:layout_centerHorizontal="true" />
+        <TextView android:textSize="14.0sp" android:textStyle="bold" android:textColor="@color/square_card_name" android:gravity="center" android:id="@id/suggestions_title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/square_card_padding" android:text="@string/square_suggestions_title" android:layout_below="@id/squares_icon" />
+        <TextView android:textSize="14.0sp" android:textColor="@color/square_card_description" android:gravity="center" android:id="@id/suggestions_description" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/square_suggestions_description" android:layout_below="@id/suggestions_title" />
+    </RelativeLayout>
+</RelativeLayout>
