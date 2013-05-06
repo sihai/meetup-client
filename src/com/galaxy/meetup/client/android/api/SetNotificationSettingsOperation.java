@@ -17,10 +17,11 @@ import com.galaxy.meetup.client.android.network.PlusiOperation;
 import com.galaxy.meetup.client.android.network.http.HttpOperation;
 import com.galaxy.meetup.server.client.domain.DataMobileSettings;
 import com.galaxy.meetup.server.client.domain.DataNotificationSettings;
-import com.galaxy.meetup.server.client.domain.GenericJson;
 import com.galaxy.meetup.server.client.domain.OzDataSettings;
 import com.galaxy.meetup.server.client.domain.request.SettingsSetRequest;
 import com.galaxy.meetup.server.client.domain.response.SettingsSetResponse;
+import com.galaxy.meetup.server.client.v2.request.Request;
+import com.galaxy.meetup.server.client.v2.response.Response;
 
 /**
  * 
@@ -37,16 +38,16 @@ public class SetNotificationSettingsOperation extends PlusiOperation {
         mSettings = notificationsettingsdata;
     }
 
-    protected final void handleResponse(GenericJson genericjson) throws IOException
+    protected final void handleResponse(Response response) throws IOException
     {
-        SettingsSetResponse settingssetresponse = (SettingsSetResponse)genericjson;
+        SettingsSetResponse settingssetresponse = (SettingsSetResponse)response;
         if(settingssetresponse.success != null && !settingssetresponse.success.booleanValue())
             throw new ProtocolException("SettingsSetRequest failed");
         else
             return;
     }
 
-    protected final GenericJson populateRequest()
+    protected final Request populateRequest()
     {
         SettingsSetRequest settingssetrequest = new SettingsSetRequest();
         ArrayList arraylist = new ArrayList();

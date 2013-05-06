@@ -16,13 +16,14 @@ import com.galaxy.meetup.server.client.domain.DataPersonList;
 import com.galaxy.meetup.server.client.domain.DataSyncStateToken;
 import com.galaxy.meetup.server.client.domain.DataSystemGroups;
 import com.galaxy.meetup.server.client.domain.DataViewerCircles;
-import com.galaxy.meetup.server.client.domain.GenericJson;
 import com.galaxy.meetup.server.client.domain.LoadSocialNetworkRequestPersonListOptions;
 import com.galaxy.meetup.server.client.domain.LoadSocialNetworkRequestSystemGroupsOptions;
 import com.galaxy.meetup.server.client.domain.LoadSocialNetworkRequestViewerCirclesOptions;
 import com.galaxy.meetup.server.client.domain.request.LoadSocialNetworkRequest;
 import com.galaxy.meetup.server.client.domain.response.LoadSocialNetworkResponse;
 import com.galaxy.meetup.server.client.util.JsonUtil;
+import com.galaxy.meetup.server.client.v2.request.Request;
+import com.galaxy.meetup.server.client.v2.response.Response;
 
 /**
  * 
@@ -64,15 +65,15 @@ public class LoadSocialNetworkOperation extends PlusiOperation {
         return mSystemGroups;
     }
 
-    protected final void handleResponse(GenericJson genericjson) throws IOException
+    protected final void handleResponse(Response response) throws IOException
     {
-        LoadSocialNetworkResponse loadsocialnetworkresponse = (LoadSocialNetworkResponse)genericjson;
+        LoadSocialNetworkResponse loadsocialnetworkresponse = (LoadSocialNetworkResponse)response;
         mCircleList = loadsocialnetworkresponse.viewerCircles;
         mSystemGroups = loadsocialnetworkresponse.systemGroups;
         mPersonList = loadsocialnetworkresponse.personList;
     }
 
-    protected final GenericJson populateRequest() {
+    protected final Request populateRequest() {
         LoadSocialNetworkRequest loadsocialnetworkrequest = new LoadSocialNetworkRequest();
         if(mLoadCircles)
         {

@@ -13,7 +13,7 @@ import android.content.Context;
 import android.text.TextUtils;
 
 import com.galaxy.meetup.client.android.R;
-import com.galaxy.meetup.server.client.domain.EventTime;
+import com.galaxy.meetup.server.client.v2.domain.EventTime;
 
 /**
  * 

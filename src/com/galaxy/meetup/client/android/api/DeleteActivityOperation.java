@@ -13,9 +13,10 @@ import com.galaxy.meetup.client.android.content.EsAccount;
 import com.galaxy.meetup.client.android.content.EsPostsData;
 import com.galaxy.meetup.client.android.network.PlusiOperation;
 import com.galaxy.meetup.client.android.network.http.HttpOperation;
-import com.galaxy.meetup.server.client.domain.GenericJson;
 import com.galaxy.meetup.server.client.domain.request.DeleteActivityRequest;
 import com.galaxy.meetup.server.client.domain.response.DeleteActivityResponse;
+import com.galaxy.meetup.server.client.v2.request.Request;
+import com.galaxy.meetup.server.client.v2.response.Response;
 
 /**
  * 
@@ -32,17 +33,17 @@ public class DeleteActivityOperation extends PlusiOperation {
         mActivityId = s;
     }
 
-    protected final void handleResponse(GenericJson genericjson) throws IOException
+    protected final void handleResponse(Response response) throws IOException
     {
         EsPostsData.deleteActivity(mContext, mAccount, mActivityId);
     }
 
     @Override
-    protected final GenericJson populateRequest()
+    protected final Request populateRequest()
     {
-    	DeleteActivityRequest genericjson = new DeleteActivityRequest();
-    	genericjson.activityId = mActivityId;
-    	return genericjson;
+    	DeleteActivityRequest response = new DeleteActivityRequest();
+    	response.activityId = mActivityId;
+    	return response;
     }
 
 }

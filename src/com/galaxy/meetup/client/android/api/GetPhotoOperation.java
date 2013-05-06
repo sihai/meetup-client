@@ -14,10 +14,11 @@ import com.galaxy.meetup.client.android.content.EsPhotosDataApiary;
 import com.galaxy.meetup.client.android.network.PlusiOperation;
 import com.galaxy.meetup.client.android.network.http.HttpOperation;
 import com.galaxy.meetup.server.client.domain.DataPhoto;
-import com.galaxy.meetup.server.client.domain.GenericJson;
 import com.galaxy.meetup.server.client.domain.RequestsPhotoOptions;
 import com.galaxy.meetup.server.client.domain.request.GetPhotoRequest;
 import com.galaxy.meetup.server.client.domain.response.GetPhotoResponse;
+import com.galaxy.meetup.server.client.v2.request.Request;
+import com.galaxy.meetup.server.client.v2.response.Response;
 
 /**
  * 
@@ -42,15 +43,15 @@ public class GetPhotoOperation extends PlusiOperation {
         return mDataPhoto;
     }
 
-    protected final void handleResponse(GenericJson genericjson) throws IOException
+    protected final void handleResponse(Response response) throws IOException
     {
-        GetPhotoResponse getphotoresponse = (GetPhotoResponse)genericjson;
+        GetPhotoResponse getphotoresponse = (GetPhotoResponse)response;
         onStartResultProcessing();
         mDataPhoto = getphotoresponse.photo;
         EsPhotosDataApiary.insertPhoto(mContext, mAccount, null, getphotoresponse.photo, getphotoresponse.isDownloadable);
     }
 
-    protected final GenericJson populateRequest()
+    protected final Request populateRequest()
     {
         GetPhotoRequest getphotorequest = new GetPhotoRequest();
         getphotorequest.ownerId = mUserId;

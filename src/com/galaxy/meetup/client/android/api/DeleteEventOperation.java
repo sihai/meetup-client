@@ -14,9 +14,10 @@ import com.galaxy.meetup.client.android.content.EsEventData;
 import com.galaxy.meetup.client.android.network.PlusiOperation;
 import com.galaxy.meetup.client.android.network.http.HttpOperation;
 import com.galaxy.meetup.server.client.domain.EventSelector;
-import com.galaxy.meetup.server.client.domain.GenericJson;
 import com.galaxy.meetup.server.client.domain.request.DeleteEventRequest;
 import com.galaxy.meetup.server.client.domain.response.DeleteEventResponse;
+import com.galaxy.meetup.server.client.v2.request.Request;
+import com.galaxy.meetup.server.client.v2.response.Response;
 
 /**
  * 
@@ -35,12 +36,12 @@ public class DeleteEventOperation extends PlusiOperation {
         mAuthKey = s1;
     }
 
-    protected final void handleResponse(GenericJson genericjson) throws IOException
+    protected final void handleResponse(Response response) throws IOException
     {
         EsEventData.deleteEvent(mContext, mAccount, mEventId);
     }
 
-    protected final GenericJson populateRequest()
+    protected final Request populateRequest()
     {
     	
         DeleteEventRequest deleteeventrequest = new DeleteEventRequest();

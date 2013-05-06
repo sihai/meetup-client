@@ -14,9 +14,10 @@ import com.galaxy.meetup.client.android.content.EsEventData;
 import com.galaxy.meetup.client.android.network.PlusiOperation;
 import com.galaxy.meetup.client.android.network.http.HttpOperation;
 import com.galaxy.meetup.server.client.domain.EventSelector;
-import com.galaxy.meetup.server.client.domain.GenericJson;
 import com.galaxy.meetup.server.client.domain.request.GetEventInviteeListRequest;
 import com.galaxy.meetup.server.client.domain.response.GetEventInviteeListResponse;
+import com.galaxy.meetup.server.client.v2.request.Request;
+import com.galaxy.meetup.server.client.v2.response.Response;
 
 /**
  * 
@@ -37,13 +38,13 @@ public class GetEventInviteeListOperation extends PlusiOperation {
         mAuthKey = s1;
     }
 
-    protected final void handleResponse(GenericJson genericjson) throws IOException
+    protected final void handleResponse(Response response) throws IOException
     {
-        GetEventInviteeListResponse geteventinviteelistresponse = (GetEventInviteeListResponse)genericjson;
+        GetEventInviteeListResponse geteventinviteelistresponse = (GetEventInviteeListResponse)response;
         EsEventData.insertEventInviteeList(mContext, mAccount, mEventId, geteventinviteelistresponse.invitee);
     }
 
-    protected final GenericJson populateRequest()
+    protected final Request populateRequest()
     {
         GetEventInviteeListRequest geteventinviteelistrequest = new GetEventInviteeListRequest();
         geteventinviteelistrequest.eventId = mEventId;

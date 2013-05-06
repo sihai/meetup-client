@@ -13,9 +13,10 @@ import com.galaxy.meetup.client.android.content.EsAccount;
 import com.galaxy.meetup.client.android.content.EsPeopleData;
 import com.galaxy.meetup.client.android.network.PlusiOperation;
 import com.galaxy.meetup.client.android.network.http.HttpOperation;
-import com.galaxy.meetup.server.client.domain.GenericJson;
 import com.galaxy.meetup.server.client.domain.request.ModifyCirclePropertiesRequest;
 import com.galaxy.meetup.server.client.domain.response.ModifyCirclePropertiesResponse;
+import com.galaxy.meetup.server.client.v2.request.Request;
+import com.galaxy.meetup.server.client.v2.response.Response;
 
 /**
  * 
@@ -36,13 +37,13 @@ public class ModifyCirclePropertiesOperation extends PlusiOperation {
         mJustFollowing = flag;
     }
 
-    protected final void handleResponse(GenericJson genericjson)
+    protected final void handleResponse(Response response)
         throws IOException
     {
         EsPeopleData.modifyCircleProperties(mContext, mAccount, mCircleId, mCircleName, mJustFollowing);
     }
 
-    protected final GenericJson populateRequest()
+    protected final Request populateRequest()
     {
         ModifyCirclePropertiesRequest modifycirclepropertiesrequest = new ModifyCirclePropertiesRequest();
         if(mCircleId.startsWith("f."))

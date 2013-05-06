@@ -14,9 +14,10 @@ import com.galaxy.meetup.client.android.content.EsAccount;
 import com.galaxy.meetup.client.android.content.EsPhotosDataApiary;
 import com.galaxy.meetup.client.android.network.PlusiOperation;
 import com.galaxy.meetup.client.android.network.http.HttpOperation;
-import com.galaxy.meetup.server.client.domain.GenericJson;
 import com.galaxy.meetup.server.client.domain.request.DeletePhotosRequest;
 import com.galaxy.meetup.server.client.domain.response.DeletePhotosResponse;
+import com.galaxy.meetup.server.client.v2.request.Request;
+import com.galaxy.meetup.server.client.v2.response.Response;
 
 /**
  * 
@@ -33,9 +34,9 @@ public class DeletePhotosOperation extends PlusiOperation {
         mPhotoIds = list;
     }
 
-    protected final void handleResponse(GenericJson genericjson) throws IOException
+    protected final void handleResponse(Response response) throws IOException
     {
-        DeletePhotosResponse deletephotosresponse = (DeletePhotosResponse)genericjson;
+        DeletePhotosResponse deletephotosresponse = (DeletePhotosResponse)response;
         onStartResultProcessing();
         if(deletephotosresponse.success.booleanValue())
         {
@@ -46,11 +47,11 @@ public class DeletePhotosOperation extends PlusiOperation {
         }
     }
 
-    protected final GenericJson populateRequest()
+    protected final Request populateRequest()
     {
-    	DeletePhotosRequest genericjson = new DeletePhotosRequest();
-    	genericjson.photoId = mPhotoIds;
-    	return genericjson;
+    	DeletePhotosRequest response = new DeletePhotosRequest();
+    	response.photoId = mPhotoIds;
+    	return response;
     }
 
 }

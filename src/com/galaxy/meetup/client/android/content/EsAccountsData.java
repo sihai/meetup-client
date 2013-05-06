@@ -44,7 +44,6 @@ import com.galaxy.meetup.client.android.service.SkyjamPlaybackService;
 import com.galaxy.meetup.client.util.AccountsUtil;
 import com.galaxy.meetup.client.util.EsLog;
 import com.galaxy.meetup.client.util.Property;
-import com.galaxy.meetup.server.client.domain.GenericJson;
 import com.galaxy.meetup.server.client.domain.GetMobileExperimentsResponseExperiment;
 import com.galaxy.meetup.server.client.domain.GetMobileExperimentsResponseExperimentValue;
 import com.galaxy.meetup.server.client.domain.ShareboxSettings;
@@ -634,13 +633,13 @@ public class EsAccountsData {
     private static void loadExperiments(Context context, EsAccount esaccount)
     {
         String s = context.getSharedPreferences("accounts", 0).getString((new StringBuilder()).append(esaccount.getName()).append(".flags").toString(), null);
-        List list = null;
+        List<GetMobileExperimentsResponseExperiment> list = null;
         if(s != null)
-            list = ((ExperimentList)JsonUtil.toBean(s, ExperimentList.class)).flags;
+            list = ((ExperimentList)JsonUtil.toBean(s, ExperimentList.class)).flagList;
         loadExperiments(list);
     }
 
-    private static void loadExperiments(List list)
+    private static void loadExperiments(List<GetMobileExperimentsResponseExperiment> list)
     {
     	synchronized(sExperiments) {
     		sExperiments.clear();
@@ -762,9 +761,9 @@ public class EsAccountsData {
     public static void insertExperiments(Context context, EsAccount esaccount, List list)
     {
         ExperimentList experimentlist = new ExperimentList();
-        experimentlist.flags = list;
+        experimentlist.flagList = list;
         String s = (new StringBuilder()).append(esaccount.getName()).append(".flags").toString();
-        String s1 = experimentlist.toJsonString();
+        String s1 = JsonUtil.toJsonString(experimentlist);
         SharedPreferences sharedpreferences = context.getSharedPreferences("accounts", 0);
         if(!TextUtils.equals(sharedpreferences.getString(s, null), s1))
         {
@@ -1001,9 +1000,17 @@ public class EsAccountsData {
         // TODO
     }
     
-    public static class ExperimentList extends GenericJson {
+    public static class ExperimentList {
 
-        public List flags;
+        public List<GetMobileExperimentsResponseExperiment> flagList;
+
+		public List<GetMobileExperimentsResponseExperiment> getFlagList() {
+			return flagList;
+		}
+
+		public void setFlagList(List<GetMobileExperimentsResponseExperiment> flagList) {
+			this.flagList = flagList;
+		}
 
     }
     

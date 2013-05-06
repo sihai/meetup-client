@@ -29,6 +29,7 @@ public class LocationPickerActivity extends HostActivity implements
 	
 	public LocationPickerActivity()
     {
+		System.out.println("test");
     }
 
     protected final Fragment createDefaultFragment()

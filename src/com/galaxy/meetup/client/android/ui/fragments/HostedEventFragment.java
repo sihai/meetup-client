@@ -72,11 +72,11 @@ import com.galaxy.meetup.client.android.ui.view.EventRsvpLayout;
 import com.galaxy.meetup.client.android.ui.view.EventUpdate;
 import com.galaxy.meetup.client.android.ui.view.HostActionBar;
 import com.galaxy.meetup.client.util.ImageUtils;
-import com.galaxy.meetup.client.util.MapUtils;
 import com.galaxy.meetup.client.util.MediaStoreUtils;
 import com.galaxy.meetup.client.util.ScreenMetrics;
-import com.galaxy.meetup.server.client.domain.PlusEvent;
 import com.galaxy.meetup.server.client.util.JsonUtil;
+import com.galaxy.meetup.server.client.v2.domain.Event;
+import com.galaxy.meetup.server.client.v2.domain.EventOptions;
 
 /**
  * 
@@ -99,7 +99,7 @@ public class HostedEventFragment extends HostedEsFragment
     private Integer mCommentReqId;
     private Integer mDeleteReqId;
     private boolean mError;
-    private PlusEvent mEvent;
+    private Event mEvent;
     private String mEventId;
     private boolean mEventLoaded;
     private EventActiveState mEventState;
@@ -386,17 +386,17 @@ public class HostedEventFragment extends HostedEsFragment
     private void updateActiveEventState()
     {
         boolean flag = true;
-        long l = System.currentTimeMillis();
+        long now = System.currentTimeMillis();
         mEventState.hasUserInteracted = mHasUserInteracted;
         String s = getAccount().getGaiaId();
-        mEventState.isOwner = TextUtils.equals(s, mEvent.creatorObfuscatedId);
+        mEventState.isOwner = TextUtils.equals(s, mEvent.getPublisher());
         mEventState.isInstantShareAvailable = false;
         mEventState.isInstantShareExpired = false;
         EventActiveState eventactivestate;
-        if(EsEventData.isInstantShareAllowed(mEvent, s, l))
+        if(EsEventData.isInstantShareAllowed(mEvent, s, now))
             mEventState.isInstantShareAvailable = flag;
         else
-        if(EsEventData.isEventOver(mEvent, l))
+        if(EsEventData.isEventOver(mEvent, now))
         {
             mEventState.isInstantShareExpired = flag;
         } else
@@ -404,7 +404,7 @@ public class HostedEventFragment extends HostedEsFragment
             if(mRefreshRunnable == null)
                 mRefreshRunnable = new EventRefreshRunnable();
             mHandler.removeCallbacks(mRefreshRunnable);
-            long l1 = EsEventData.timeUntilInstantShareAllowed(mEvent, s, l);
+            long l1 = EsEventData.timeUntilInstantShareAllowed(mEvent, s, now);
             if(l1 > 0L)
                 mHandler.postDelayed(mRefreshRunnable, l1);
         }
@@ -818,7 +818,7 @@ public class HostedEventFragment extends HostedEsFragment
 
     public final void onHangoutClicked()
     {
-        if(mEvent.hangoutInfo != null)
+        if(mEvent.getHangoutInfo() != null)
             startActivity(Intents.getEventHangoutActivityIntent(getActivity(), mAccount, mEventId));
     }
 
@@ -864,10 +864,12 @@ public class HostedEventFragment extends HostedEsFragment
                         flag3 = true;
                     else
                         flag3 = false;
-                    if(mEvent.eventOptions != null && Boolean.TRUE.equals(mEvent.eventOptions.broadcast))
+                    
+                    EventOptions options = mEvent.getOptions();
+                    if(null != options && options.isBroadcast())
                         dialogtype = DialogType.ON_AIR;
                     else
-                    if(Boolean.TRUE.equals(mEvent.isPublic))
+                    if(Boolean.TRUE.equals(mEvent.isPublic()))
                         dialogtype = DialogType.PUBLIC;
                     else
                         dialogtype = DialogType.PRIVATE;
@@ -915,8 +917,8 @@ public class HostedEventFragment extends HostedEsFragment
 	            if(cursor.moveToFirst())
 	            {
 	                mSource = cursor.getInt(6);
-	                mEvent = (PlusEvent)JsonUtil.fromByteArray(cursor.getBlob(1), PlusEvent.class);
-	                mAuthKey = mEvent.authKey;
+	                mEvent = (Event)JsonUtil.fromByteArray(cursor.getBlob(1), Event.class);
+	                mAuthKey = mEvent.getAuthKey();
 	                boolean flag;
 	                if(cursor.getInt(5) != 0)
 	                    flag = true;
@@ -996,8 +998,9 @@ public class HostedEventFragment extends HostedEsFragment
 
     public final void onLocationClicked()
     {
-        if(mEvent.location != null)
-            MapUtils.showDrivingDirections(getActivity(), mEvent.location);
+        if(mEvent.getLocation() != null)
+        	;
+            //MapUtils.showDrivingDirections(getActivity(), mEvent.getLocation());
     }
 
     public final boolean onOptionsItemSelected(MenuItem menuitem)
@@ -1046,20 +1049,19 @@ public class HostedEventFragment extends HostedEsFragment
         photoviewintentbuilder.setAccount(getAccount());
         if(s != null)
         {
-            String s4;
-            if(mEvent.name != null)
-                s4 = mEvent.name;
+            String name;
+            if(mEvent.getName() != null)
+            	name = mEvent.getName();
             else
-                s4 = getString(R.string.event_activity_title);
-            photoviewintentbuilder.setAlbumName(s4);
+            	name = getString(R.string.event_activity_title);
+            photoviewintentbuilder.setAlbumName(name);
             photoviewintentbuilder.setPhotoId(Long.valueOf(Long.parseLong(s)));
             photoviewintentbuilder.setGaiaId(s2);
             photoviewintentbuilder.setEventId(mEventId);
-        } else
-        {
+        } else {
             String s3;
-            if(mEvent.name != null)
-                s3 = mEvent.name;
+            if(mEvent.getName() != null)
+                s3 = mEvent.getName();
             else
                 s3 = getString(R.string.event_activity_title);
             photoviewintentbuilder.setAlbumName(s3);
@@ -1094,7 +1096,7 @@ public class HostedEventFragment extends HostedEsFragment
         super.onPrepareOptionsMenu(menu);
         boolean flag;
         boolean flag1;
-        if(mEvent != null && mAccount != null && TextUtils.equals(mEvent.creatorObfuscatedId, mAccount.getGaiaId()))
+        if(mEvent != null && mAccount != null && TextUtils.equals(mEvent.getPublisher(), mAccount.getGaiaId()))
             flag = true;
         else
             flag = false;
@@ -1242,7 +1244,7 @@ public class HostedEventFragment extends HostedEsFragment
         String s1 = mAuthKey;
         String s2;
         if(mEvent != null)
-            s2 = mEvent.creatorObfuscatedId;
+            s2 = mEvent.getPublisher();
         else
             s2 = null;
         startActivity(Intents.getEventInviteeListActivityIntent(fragmentactivity, esaccount, s, s1, s2));
@@ -1304,7 +1306,7 @@ public class HostedEventFragment extends HostedEsFragment
             String s1 = hostedeventfragment.mAuthKey;
             String s2;
             if(hostedeventfragment.mEvent != null)
-                s2 = hostedeventfragment.mEvent.creatorObfuscatedId;
+                s2 = hostedeventfragment.mEvent.getPublisher();
             else
                 s2 = null;
             hostedeventfragment.mInviteReqId = Integer.valueOf(EsService.invitePeopleToEvent(fragmentactivity, esaccount, s, s1, s2, audiencedata));

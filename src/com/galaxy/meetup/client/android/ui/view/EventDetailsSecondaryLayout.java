@@ -14,7 +14,8 @@ import android.widget.TextView;
 import com.galaxy.meetup.client.android.R;
 import com.galaxy.meetup.client.android.content.EsEventData;
 import com.galaxy.meetup.client.android.ui.fragments.EventActiveState;
-import com.galaxy.meetup.server.client.domain.PlusEvent;
+import com.galaxy.meetup.server.client.v2.domain.Event;
+import com.galaxy.meetup.server.client.v2.domain.EventOptions;
 
 /**
  * 
@@ -80,16 +81,17 @@ public class EventDetailsSecondaryLayout extends ExactLayout implements android.
         addPadding(0, 0, 0, sPadding);
     }
 
-    public final void bind(PlusEvent plusevent, EventActiveState eventactivestate, EventActionListener eventactionlistener)
+    public final void bind(Event event, EventActiveState eventactivestate, EventActionListener eventactionlistener)
     {
         boolean flag = true;
         boolean flag1;
         byte byte0;
-        if(System.currentTimeMillis() > EsEventData.getEventEndTime(plusevent))
+        if(System.currentTimeMillis() > EsEventData.getEventEndTime(event))
             flag1 = flag;
         else
             flag1 = false;
-        if(plusevent.eventOptions == null || plusevent.eventOptions.hideGuestList == null || !plusevent.eventOptions.hideGuestList.booleanValue() || eventactivestate.isOwner)
+        EventOptions options = event.getOptions();
+        if(null != options || !options.isHideGuestList() || eventactivestate.isOwner)
             flag = false;
         mHideInvitees = flag;
         if(mHideInvitees)
@@ -98,7 +100,7 @@ public class EventDetailsSecondaryLayout extends ExactLayout implements android.
             byte0 = 0;
         mViewInvitees.setVisibility(byte0);
         mGuestSummary.setVisibility(byte0);
-        mGuestSummary.bind(plusevent, eventactionlistener, flag1);
+        mGuestSummary.bind(event, eventactionlistener, flag1);
         mListener = eventactionlistener;
         invalidate();
     }

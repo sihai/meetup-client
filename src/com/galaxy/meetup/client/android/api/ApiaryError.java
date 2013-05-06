@@ -6,14 +6,12 @@ package com.galaxy.meetup.client.android.api;
 
 import java.util.List;
 
-import com.galaxy.meetup.server.client.domain.GenericJson;
-
 /**
  * 
  * @author sihai
  * 
  */
-public class ApiaryError extends GenericJson {
+public class ApiaryError {
 
 	public Integer code;
 	public String domain;

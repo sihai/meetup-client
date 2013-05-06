@@ -16,9 +16,10 @@ import com.galaxy.meetup.client.android.content.EsPostsData;
 import com.galaxy.meetup.client.android.network.PlusiOperation;
 import com.galaxy.meetup.client.android.network.http.HttpOperation;
 import com.galaxy.meetup.server.client.domain.Comment;
-import com.galaxy.meetup.server.client.domain.GenericJson;
 import com.galaxy.meetup.server.client.domain.request.EditCommentRequest;
 import com.galaxy.meetup.server.client.domain.response.EditCommentResponse;
+import com.galaxy.meetup.server.client.v2.request.Request;
+import com.galaxy.meetup.server.client.v2.response.Response;
 
 /**
  * 
@@ -39,9 +40,9 @@ public class EditCommentStreamOperation extends PlusiOperation {
         mContent = s2;
     }
 
-    protected final void handleResponse(GenericJson genericjson) throws IOException
+    protected final void handleResponse(Response response) throws IOException
     {
-        EditCommentResponse editcommentresponse = (EditCommentResponse)genericjson;
+        EditCommentResponse editcommentresponse = (EditCommentResponse)response;
         if(editcommentresponse != null)
         {
             Comment comment = editcommentresponse.comment;
@@ -53,7 +54,7 @@ public class EditCommentStreamOperation extends PlusiOperation {
         }
     }
 
-    protected final GenericJson populateRequest()
+    protected final Request populateRequest()
     {
         EditCommentRequest editcommentrequest = new EditCommentRequest();
         editcommentrequest.activityId = mActivityId;

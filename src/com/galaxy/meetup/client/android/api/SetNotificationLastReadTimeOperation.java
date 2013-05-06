@@ -12,9 +12,10 @@ import android.content.Intent;
 import com.galaxy.meetup.client.android.content.EsAccount;
 import com.galaxy.meetup.client.android.network.PlusiOperation;
 import com.galaxy.meetup.client.android.network.http.HttpOperation;
-import com.galaxy.meetup.server.client.domain.GenericJson;
 import com.galaxy.meetup.server.client.domain.request.UpdateNotificationsLastReadTimeRequest;
 import com.galaxy.meetup.server.client.domain.response.UpdateNotificationsLastReadTimeResponse;
+import com.galaxy.meetup.server.client.v2.request.Request;
+import com.galaxy.meetup.server.client.v2.response.Response;
 
 /**
  * 
@@ -31,15 +32,15 @@ public class SetNotificationLastReadTimeOperation extends PlusiOperation {
         mReadTimestamp = d;
     }
 
-    protected final void handleResponse(GenericJson genericjson) throws IOException
+    protected final void handleResponse(Response response) throws IOException
     {
         onStartResultProcessing();
     }
 
-    protected final GenericJson populateRequest()
+    protected final Request populateRequest()
     {
-    	UpdateNotificationsLastReadTimeRequest genericjson = new UpdateNotificationsLastReadTimeRequest();
-    	genericjson.timeMs = Double.valueOf(mReadTimestamp);
-    	return genericjson;
+    	UpdateNotificationsLastReadTimeRequest response = new UpdateNotificationsLastReadTimeRequest();
+    	response.timeMs = Double.valueOf(mReadTimestamp);
+    	return response;
     }
 }

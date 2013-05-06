@@ -65,13 +65,12 @@ import com.galaxy.meetup.client.android.ui.view.TypeableAudienceView;
 import com.galaxy.meetup.client.util.EventDateUtils;
 import com.galaxy.meetup.client.util.StringUtils;
 import com.galaxy.meetup.client.util.TimeZoneHelper;
-import com.galaxy.meetup.server.client.domain.EventOptions;
-import com.galaxy.meetup.server.client.domain.EventTime;
-import com.galaxy.meetup.server.client.domain.Place;
-import com.galaxy.meetup.server.client.domain.PlusEvent;
-import com.galaxy.meetup.server.client.domain.ThemeImage;
-import com.galaxy.meetup.server.client.domain.ThemeSpecification;
 import com.galaxy.meetup.server.client.util.JsonUtil;
+import com.galaxy.meetup.server.client.v2.domain.Event;
+import com.galaxy.meetup.server.client.v2.domain.EventTime;
+import com.galaxy.meetup.server.client.v2.domain.Location;
+import com.galaxy.meetup.server.client.v2.domain.ThemeImage;
+import com.galaxy.meetup.server.client.v2.domain.ThemeSpecification;
 
 /**
  * 
@@ -97,13 +96,13 @@ public class EditEventFragment extends EsFragment implements
     private Button mEndDateView;
     private Button mEndTimeView;
     private boolean mError;
-    private PlusEvent mEvent;
+    private Event mEvent;
     private TextWatcher mEventDescriptionTextWatcher;
     private String mEventId;
     private boolean mEventLoaded;
     private TextWatcher mEventNameTextWatcher;
     private EditText mEventNameView;
-    private int mEventThemeId;
+    private Long mEventThemeId;
     private EventThemeView mEventThemeView;
     private String mExternalId;
     private final Handler mHandler = new Handler(Looper.getMainLooper());
@@ -134,79 +133,74 @@ public class EditEventFragment extends EsFragment implements
     private Spinner mTimeZoneSpinner;
     private TimeZoneSpinnerAdapter mTimeZoneSpinnerAdapter;
 
-    public EditEventFragment()
-    {
+    public EditEventFragment() {
         mNewEvent = true;
         mEventNameTextWatcher = new TextWatcher() {
 
-            public final void afterTextChanged(Editable editable)
-            {
-            }
+			public final void afterTextChanged(Editable editable) {
+			}
 
-            public final void beforeTextChanged(CharSequence charsequence, int i, int j, int k)
-            {
-            }
+			public final void beforeTextChanged(CharSequence charsequence, int i, int j, int k) {
+			}
 
-            public final void onTextChanged(CharSequence charsequence, int i, int j, int k)
-            {
-                String s = mEventNameView.getText().toString().trim();
-                if(!TextUtils.equals(mEvent.name, s))
-                {
-                    mEvent.name = s;
-                    mChanged = true;
-                    if(mListener != null)
-                    {
-                        OnEditEventListener _tmp = mListener;
-                    }
-                }
-            }
+			public final void onTextChanged(CharSequence charsequence, int i, int j, int k) {
+				String s = mEventNameView.getText().toString().trim();
+				if (!TextUtils.equals(mEvent.getName(), s)) {
+					mEvent.setName(s);
+					mChanged = true;
+				}
+			}
         };
         mEventDescriptionTextWatcher = new TextWatcher() {
 
-            public final void afterTextChanged(Editable editable)
-            {
-            }
+			public final void afterTextChanged(Editable editable) {
+			}
 
-            public final void beforeTextChanged(CharSequence charsequence, int i, int j, int k)
-            {
-            }
+			public final void beforeTextChanged(CharSequence charsequence, int i, int j, int k) {
+			}
 
-            public final void onTextChanged(CharSequence charsequence, int i, int j, int k)
-            {
-                String s = mDescriptionView.getText().toString().trim();
-                if(!TextUtils.equals(mEvent.description, s))
-                {
-                    mEvent.description = s;
-                    mChanged = true;
-                    if(mListener != null)
-                    {
-                        OnEditEventListener _tmp = mListener;
-                    }
-                }
-            }
+			public final void onTextChanged(CharSequence charsequence, int i, int j, int k) {
+				String s = mDescriptionView.getText().toString().trim();
+				if (!TextUtils.equals(mEvent.getDescription(), s)) {
+					mEvent.setDescription(s);
+					mChanged = true;
+				}
+			}
         };
     }
 
-    private void bindEndDate()
-    {
-        if(mEvent.endTime != null)
-            mEndDateView.setText(EventDateUtils.getSingleDateDisplayLine(getActivity(), mEvent.endTime.timeMs.longValue(), getTimeZone(mEvent.endTime)));
+    private void bindEndDate() {
+        if(null != mEvent.getEndTime())
+            mEndDateView.setText(EventDateUtils.getSingleDateDisplayLine(getActivity(), mEvent.getEndTime().getTimeMs(), getTimeZone(mEvent.getEndTime())));
         else
             mEndDateView.setText(null);
     }
 
-    private void bindEndTime()
-    {
-        if(mEvent.endTime != null && getActivity() != null)
-            mEndTimeView.setText(EventDateUtils.getDisplayTime(getActivity(), mEvent.endTime.timeMs.longValue(), getTimeZone(mEvent.endTime)));
+    private void bindEndTime() {
+        if(null != mEvent.getEndTime() && getActivity() != null)
+            mEndTimeView.setText(EventDateUtils.getDisplayTime(getActivity(), mEvent.getEndTime().getTimeMs(), getTimeZone(mEvent.getEndTime())));
         else
             mEndTimeView.setText(null);
     }
+    
+    private void bindStartDate() {
+    	if(null != mEvent.getStartTime())
+    		mStartDateView.setText(EventDateUtils.getSingleDateDisplayLine(getActivity(), mEvent.getStartTime().getTimeMs(), getTimeZone(mEvent.getStartTime())));
+        else
+        	mStartDateView.setText(null);
+    }
 
-    private void bindEvent()
-    {
-        if(mEvent != null)
-        {
+    private void bindStartTime() {
+        if(null != mEvent.getStartTime() && getActivity() != null) {
+            mStartTimeView.setText(EventDateUtils.getDisplayTime(getActivity(), mEvent.getStartTime().getTimeMs(), getTimeZone(mEvent.getStartTime())));
+    
+        } else {
+        	mStartTimeView.setText(null);
+        }
+    }
+
+    private void bindEvent() {
+        if(mEvent != null) {
             TypeableAudienceView typeableaudienceview = mAudienceView;
             int i;
             if(mNewEvent)
@@ -214,8 +208,8 @@ public class EditEventFragment extends EsFragment implements
             else
                 i = 8;
             typeableaudienceview.setVisibility(i);
-            mEventNameView.setText(mEvent.name);
-            mDescriptionView.setText(mEvent.description);
+            mEventNameView.setText(mEvent.getName());
+            mDescriptionView.setText(mEvent.getDescription());
             bindStartDate();
             bindEndDate();
             bindTimeZoneSpinner();
@@ -225,52 +219,35 @@ public class EditEventFragment extends EsFragment implements
         }
     }
 
-    private void bindLocation()
-    {
-        Place place = mEvent.location;
-        if(place != null)
-            mLocationView.setText(place.name);
+    private void bindLocation() {
+        if(null != mEvent.getLocation())
+            mLocationView.setText(mEvent.getLocation().buildAddress());
         else
             mLocationView.setText(null);
     }
 
-    private void bindStartDate()
-    {
-        mStartDateView.setText(EventDateUtils.getSingleDateDisplayLine(getActivity(), mEvent.startTime.timeMs.longValue(), getTimeZone(mEvent.startTime)));
-    }
-
-    private void bindStartTime()
-    {
-        if(mEvent.startTime != null && getActivity() != null)
-            mStartTimeView.setText(EventDateUtils.getDisplayTime(getActivity(), mEvent.startTime.timeMs.longValue(), getTimeZone(mEvent.startTime)));
-    }
-
-    private void bindTimeZoneSpinner()
-    {
-        if(mEvent.startTime != null)
+    private void bindTimeZoneSpinner() {
+        if(null != mEvent.getStartTime())
         {
             Calendar calendar = Calendar.getInstance();
-            calendar.setTimeInMillis(mEvent.startTime.timeMs.longValue());
+            calendar.setTimeInMillis(mEvent.getStartTime().getTimeMs());
             TimeZoneHelper timezonehelper = mTimeZoneHelper;
             getActivity();
             timezonehelper.configure(calendar);
             mTimeZoneSpinnerAdapter.setTimeZoneHelper(mTimeZoneHelper);
-            mCurrentSpinnerPosition = mTimeZoneHelper.getTimeZonePos(mEvent.startTime.timezone, null);
+            mCurrentSpinnerPosition = mTimeZoneHelper.getTimeZonePos(mEvent.getStartTime().getTimezone(), null);
             mTimeZoneSpinner.setSelection(mCurrentSpinnerPosition);
         }
     }
 
-    private void clearEndTime()
-    {
-        mEvent.endTime = null;
+    private void clearEndTime() {
+        mEvent.setEndTime(null);
     }
 
-    private void enableEventPicker()
-    {
+    private void enableEventPicker() {
         mHandler.post(new Runnable() {
 
-            public final void run()
-            {
+            public final void run() {
                 mThemeSelectionButton.setVisibility(0);
                 mThemeSelectionTextView.setVisibility(0);
                 mThemeProgressBar.setVisibility(8);
@@ -279,13 +256,11 @@ public class EditEventFragment extends EsFragment implements
         });
     }
 
-    private EsAccount getAccount()
-    {
+    private EsAccount getAccount() {
         return (EsAccount)getActivity().getIntent().getExtras().get("account");
     }
 
-    private static long getDefaultEventTime()
-    {
+    private static long getDefaultEventTime() {
         Calendar calendar = Calendar.getInstance();
         calendar.add(12, 90);
         calendar.set(12, 0);
@@ -294,8 +269,7 @@ public class EditEventFragment extends EsFragment implements
         return calendar.getTimeInMillis();
     }
 
-    private TimeZone getTimeZone(EventTime eventtime)
-    {
+    private TimeZone getTimeZone(EventTime eventtime) {
         TimeZone timezone;
         if(eventtime != null)
             timezone = mTimeZoneHelper.getTimeZone(eventtime.timezone, null);
@@ -304,8 +278,7 @@ public class EditEventFragment extends EsFragment implements
         return timezone;
     }
 
-    private boolean isEmptyAudience()
-    {
+    private boolean isEmptyAudience() {
         AudienceData audiencedata = mAudienceView.getAudience();
         boolean flag;
         if(audiencedata.getCircleCount() + audiencedata.getUserCount() == 0)
@@ -315,113 +288,95 @@ public class EditEventFragment extends EsFragment implements
         return flag;
     }
 
-    private void onAudienceChanged()
-    {
-        if(mListener != null)
-        {
-            OnEditEventListener _tmp = mListener;
-        }
-    }
+	private void onAudienceChanged() {
+		if (mListener != null) {
+			OnEditEventListener _tmp = mListener;
+		}
+	}
 
-    private void recordUserAction(OzActions ozactions)
-    {
+    private void recordUserAction(OzActions ozactions) {
         FragmentActivity fragmentactivity = getActivity();
         EsAccount esaccount = getAccount();
         if(esaccount != null)
             EsAnalytics.recordActionEvent(fragmentactivity, esaccount, ozactions, OzViews.getViewForLogging(fragmentactivity));
     }
 
-    private void setEndTime(Calendar calendar)
-    {
+    private void setEndTime(Calendar calendar) {
         long l = calendar.getTimeInMillis();
         TimeZone timezone = calendar.getTimeZone();
-        if(mEvent.endTime == null)
-        {
-            mEvent.endTime = new EventTime();
-            mEvent.endTime.timeMs = Long.valueOf(getDefaultEventTime());
+        if(null == mEvent.getEndTime()) {
+        	EventTime endTime = new EventTime();
+        	endTime.setTimeMs(Long.valueOf(getDefaultEventTime()));
+        	mEvent.setEndTime(endTime);
         }
-        if(mEvent.endTime.timeMs.longValue() != l)
-        {
-            mEvent.endTime.timeMs = Long.valueOf(l);
-            mEvent.endTime.timezone = timezone.getID();
+        if(mEvent.getEndTime().getTimeMs().longValue() != l) {
+        	mEvent.getEndTime().setTimeMs(Long.valueOf(l));
+            mEvent.getEndTime().setTimezone(timezone.getID());
             mChanged = true;
         }
     }
 
-    private void setEventTheme(int i, String s, Uri uri, boolean flag) {
+    private void setEventTheme(long themeId, String imageURL, Uri imageURI, boolean flag) {
     	if(null == mEvent) {
     		return;
     	}
     	
-    	if(mEvent.themeSpecification == null)
-            mEvent.themeSpecification = new ThemeSpecification();
-        if(flag || mEvent.themeSpecification.themeId == null)
-        {
-            mEventThemeId = i;
-            mEvent.themeSpecification.themeId = Integer.valueOf(i);
-            if(uri != null)
+    	if(null == mEvent.getThemeSpecification()) {
+            mEvent.setThemeSpecification(new ThemeSpecification());
+    	}
+        if(flag || null == mEvent.getThemeSpecification().getThemeId()) {
+            mEventThemeId = themeId;
+            mEvent.getThemeSpecification().setThemeId(themeId);
+            if(null != imageURI)
             {
-                mEventThemeView.setDefaultImageUri(uri);
+                mEventThemeView.setDefaultImageUri(imageURI);
                 enableEventPicker();
             }
-            mEventThemeView.setImageUrl(s);
-        } else
-        if(mEvent.themeSpecification.themeId.intValue() == i)
-        {
-            mEventThemeId = i;
-            if(uri != null)
-            {
-                mEventThemeView.setDefaultImageUri(uri);
+            mEventThemeView.setImageUrl(imageURL);
+        } else if(mEvent.getThemeSpecification().getThemeId().longValue() == themeId) {
+            mEventThemeId = themeId;
+            if(null != imageURI) {
+                mEventThemeView.setDefaultImageUri(imageURI);
                 enableEventPicker();
             }
-            mEventThemeView.setImageUrl(s);
+            mEventThemeView.setImageUrl(imageURL);
         }
     }
 
-    private void setStartTime(Calendar calendar)
-    {
+    private void setStartTime(Calendar calendar) {
         long l = calendar.getTimeInMillis();
         TimeZone timezone = calendar.getTimeZone();
         boolean flag;
-        if(mEvent.startTime.timezone != null)
+        if(mEvent.getStartTime().getTimezone() != null)
             flag = true;
         else
             flag = false;
-        if(mEvent.startTime.timeMs.longValue() != l || !flag)
-        {
-            mEvent.startTime.timeMs = Long.valueOf(l);
-            mEvent.startTime.timezone = timezone.getID();
+        if(mEvent.getStartTime().getTimeMs().longValue() != l || !flag) {
+            mEvent.getStartTime().setTimeMs(l);
+            mEvent.getStartTime().setTimezone(timezone.getID());
             bindTimeZoneSpinner();
             mChanged = true;
         }
     }
 
-    private void updateView(View view)
-    {
-        if(view != null && !mNewEvent)
-        {
+    private void updateView(View view) {
+        if(view != null && !mNewEvent) {
             TextView textview = (TextView)view.findViewById(R.id.server_error);
             View view1 = view.findViewById(R.id.content);
-            if(mEvent != null)
-            {
+            if(mEvent != null) {
                 textview.setVisibility(8);
                 view1.setVisibility(0);
                 showContent(view);
-            } else
-            if(!mEventLoaded)
-            {
+            } else if(!mEventLoaded) {
                 view1.setVisibility(8);
                 textview.setVisibility(8);
                 showEmptyViewProgress(view);
-            } else
-            if(mError)
-            {
+            } else if(mError) {
                 textview.setVisibility(0);
                 textview.setText(R.string.event_details_error);
                 view1.setVisibility(8);
                 showContent(view);
-            } else
-            {
+            } else {
                 textview.setVisibility(0);
                 textview.setText(R.string.event_does_not_exist);
                 view1.setVisibility(8);
@@ -430,37 +385,32 @@ public class EditEventFragment extends EsFragment implements
         }
     }
 
-    public final void createEvent()
-    {
-        if(mEvent == null)
-        {
-            mEvent = new PlusEvent();
-            mEvent.eventOptions = new EventOptions();
-            mEvent.eventOptions.openEventAcl = Boolean.valueOf(true);
-            mEvent.eventOptions.openPhotoAcl = Boolean.valueOf(true);
-            mEvent.startTime = new EventTime();
-            mEvent.startTime.timeMs = Long.valueOf(getDefaultEventTime());
+    public final void createEvent() {
+        if(mEvent == null) {
+            mEvent = new Event();
+            mEvent.setPublisher(this.getAccount().getName());
+            EventTime startTime = new EventTime();
+            startTime.setTimeMs(getDefaultEventTime());
             TimeZoneHelper.TimeZoneInfo timezoneinfo = mTimeZoneHelper.getCurrentTimeZoneInfo();
-            EventTime _tmp = mEvent.startTime;
             TimeZone timezone = timezoneinfo.getTimeZone();
-            mEvent.startTime.timezone = timezone.getID();
+            startTime.setTimezone(timezone.getID());
+            mEvent.setStartTime(startTime);
             mExternalId = (new StringBuilder()).append(System.currentTimeMillis()).append(".").append(StringUtils.randomString(32)).toString();
-            mEventThemeId = -1;
+            mEventThemeId = -1L;
         }
     }
 
-    public final void editEvent(String s, String s1, String s2)
-    {
-        mEventId = s;
-        mOwnerId = s1;
-        mAuthKey = s2;
-        mEventThemeId = -1;
+    public final void editEvent(String eventId, String ownerName, String authKey) {
+        mEventId = eventId;
+        mOwnerId = ownerName;
+        mAuthKey = authKey;
+        mEventThemeId = -1L;
         mNewEvent = false;
     }
 
-    protected final void handleServiceCallback(int i, ServiceResult serviceresult) {
+    protected final void handleServiceCallback(int requestId, ServiceResult serviceresult) {
     	
-    	if(null == mPendingRequestId || i != mPendingRequestId.intValue()) {
+    	if(null == mPendingRequestId || requestId != mPendingRequestId.intValue()) {
     		return;
     	}
     	
@@ -468,31 +418,25 @@ public class EditEventFragment extends EsFragment implements
         if(dialogfragment != null)
             dialogfragment.dismiss();
         mPendingRequestId = null;
-        if(serviceresult != null && serviceresult.hasError())
-        {
-            FragmentActivity fragmentactivity1 = getActivity();
-            int k;
+        FragmentActivity fragmentactivity = getActivity();
+        int resourceId;
+        if(serviceresult != null && serviceresult.hasError()) {
             if(mNewEvent)
-                k = R.string.create_event_server_error;
+                resourceId = R.string.create_event_server_error;
             else
-                k = R.string.transient_server_error;
-            Toast.makeText(fragmentactivity1, k, 0).show();
-        } else
-        if(mListener != null)
-        {
-            FragmentActivity fragmentactivity = getActivity();
-            int j;
+                resourceId = R.string.transient_server_error;
+            Toast.makeText(fragmentactivity, resourceId, 0).show();
+        } else if(mListener != null) {
             if(mNewEvent)
-                j = R.string.event_create_successful;
+            	resourceId = R.string.event_create_successful;
             else
-                j = R.string.event_save_successful;
-            Toast.makeText(fragmentactivity, j, 0).show();
+            	resourceId = R.string.event_save_successful;
+            Toast.makeText(fragmentactivity, resourceId, 0).show();
             mListener.onEventSaved();
         }
     }
 
-    protected final boolean isEmpty()
-    {
+    protected final boolean isEmpty() {
         boolean flag;
         if(mEvent != null)
             flag = true;
@@ -510,11 +454,11 @@ public class EditEventFragment extends EsFragment implements
         switch(i)
         {
         case 0: // '\0'
-            byte abyte0[] = intent.getByteArrayExtra("location");
-            if(abyte0 == null)
-                mEvent.location = null;
+            byte[] bytes = intent.getByteArrayExtra("location");
+            if(null == bytes)
+                mEvent.setLocation(null);
             else
-                mEvent.location = (Place)JsonUtil.fromByteArray(abyte0, Place.class);
+                mEvent.setLocation((Location)JsonUtil.fromByteArray(bytes, Location.class));
             bindLocation();
             break;
 
@@ -543,9 +487,7 @@ public class EditEventFragment extends EsFragment implements
     {
         super.onAttach(activity);
         mTimeZoneHelper = new TimeZoneHelper(getActivity().getApplicationContext());
-        TimeZoneHelper timezonehelper = mTimeZoneHelper;
-        getActivity().getApplicationContext();
-        timezonehelper.configure(Calendar.getInstance());
+        mTimeZoneHelper.configure(Calendar.getInstance());
     }
 
     public final void onChangeCirclesAction(String s, String s1)
@@ -559,72 +501,68 @@ public class EditEventFragment extends EsFragment implements
     }
 
     public void onClick(View view) {
-        int i = view.getId();
-        if(R.id.edit_audience == i) {
+        int viewId = view.getId();
+        
+        if(R.id.edit_audience == viewId) {
         	recordUserAction(OzActions.COMPOSE_CHANGE_ACL);
             startActivityForResult(Intents.getEditAudienceActivityIntent(getActivity(), getAccount(), getString(R.string.event_invite_activity_title), mAudienceView.getAudience(), 11, false, false, true, false), 2);
             return;
-        }
-        
-        if(i == R.id.start_date)
-        {
+        } else if(viewId == R.id.start_date) {
             DatePickerFragmentDialog datepickerfragmentdialog = new DatePickerFragmentDialog(1);
             datepickerfragmentdialog.setTargetFragment(this, 0);
             Bundle bundle = new Bundle();
-            bundle.putLong("date_time", mEvent.startTime.timeMs.longValue());
-            bundle.putString("time_zone", mEvent.startTime.timezone);
+            bundle.putLong("date_time", mEvent.getStartTime().getTimeMs());
+            bundle.putString("time_zone", mEvent.getStartTime().getTimezone());
             datepickerfragmentdialog.setArguments(bundle);
             datepickerfragmentdialog.show(getFragmentManager(), "date");
-        } else if(i == R.id.end_date) {
+        } else if(viewId == R.id.end_date) {
             DatePickerFragmentDialog datepickerfragmentdialog1 = new DatePickerFragmentDialog(0);
             datepickerfragmentdialog1.setTargetFragment(this, 0);
-            Bundle bundle1 = new Bundle();
-            if(mEvent.endTime != null)
-                bundle1.putLong("date_time", mEvent.endTime.timeMs.longValue());
+            Bundle bundle = new Bundle();
+            if(null != mEvent.getEndTime())
+            	bundle.putLong("date_time", mEvent.getEndTime().getTimeMs());
             else
-                bundle1.putLong("date_time", mEvent.startTime.timeMs.longValue());
-            bundle1.putString("time_zone", mEvent.startTime.timezone);
-            datepickerfragmentdialog1.setArguments(bundle1);
+            	bundle.putLong("date_time", mEvent.getStartTime().getTimeMs());
+            bundle.putString("time_zone", mEvent.getStartTime().getTimezone());
+            datepickerfragmentdialog1.setArguments(bundle);
             datepickerfragmentdialog1.show(getFragmentManager(), "date");
-        } else if(i == R.id.start_time) {
+        } else if(viewId == R.id.start_time) {
             TimePickerFragmentDialog timepickerfragmentdialog = new TimePickerFragmentDialog(1);
             timepickerfragmentdialog.setTargetFragment(this, 0);
-            Bundle bundle2 = new Bundle();
-            bundle2.putLong("date_time", mEvent.startTime.timeMs.longValue());
-            bundle2.putString("time_zone", mEvent.startTime.timezone);
-            timepickerfragmentdialog.setArguments(bundle2);
+            Bundle bundle = new Bundle();
+            bundle.putLong("date_time", mEvent.getStartTime().getTimeMs());
+            bundle.putString("time_zone", mEvent.getStartTime().getTimezone());
+            timepickerfragmentdialog.setArguments(bundle);
             timepickerfragmentdialog.show(getFragmentManager(), "time");
-        } else if(i == R.id.end_time) {
-            TimePickerFragmentDialog timepickerfragmentdialog1 = new TimePickerFragmentDialog(0);
-            timepickerfragmentdialog1.setTargetFragment(this, 0);
-            Bundle bundle3 = new Bundle();
-            if(mEvent.endTime != null)
-                bundle3.putLong("date_time", mEvent.endTime.timeMs.longValue());
+        } else if(viewId == R.id.end_time) {
+            TimePickerFragmentDialog timepickerfragmentdialog = new TimePickerFragmentDialog(0);
+            timepickerfragmentdialog.setTargetFragment(this, 0);
+            Bundle bundle = new Bundle();
+            if(null != mEvent.getEndTime())
+                bundle.putLong("date_time", mEvent.getEndTime().getTimeMs());
             else
-                bundle3.putLong("date_time", 0x6ddd00L + mEvent.startTime.timeMs.longValue());
-            bundle3.putString("time_zone", mEvent.startTime.timezone);
-            timepickerfragmentdialog1.setArguments(bundle3);
-            timepickerfragmentdialog1.show(getFragmentManager(), "time");
-        } else if(i == R.id.location_text) {
+                bundle.putLong("date_time", 0x6ddd00L + mEvent.getStartTime().getTimeMs());
+            bundle.putString("time_zone", mEvent.getStartTime().getTimezone());
+            timepickerfragmentdialog.setArguments(bundle);
+            timepickerfragmentdialog.show(getFragmentManager(), "time");
+        } else if(viewId == R.id.location_text) {
             recordUserAction(OzActions.COMPOSE_CHANGE_LOCATION);
-            startActivityForResult(Intents.getEventLocationActivityIntent(getActivity(), getAccount(), mEvent.location), 0);
-        } else if(i == R.id.select_theme_button) {
+            //startActivity(Intents.getChooseLocationIntent(getActivity(), getAccount(), false, null));
+            startActivityForResult(Intents.getEventLocationActivityIntent(getActivity(), getAccount(), mEvent.getLocation()), 0);
+        } else if(viewId == R.id.select_theme_button) {
             startActivityForResult(Intents.getEventThemePickerIntent(getActivity(), getAccount()), 1);
         }
     }
 
-    public final void onCreate(Bundle bundle)
-    {
+    public final void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if(bundle != null)
-        {
+        if(bundle != null) {
             mNewEvent = bundle.getBoolean("new_event");
             mEventId = bundle.getString("event_id");
             mOwnerId = bundle.getString("owner_id");
-            if(bundle.containsKey("event"))
-            {
-                byte abyte0[] = bundle.getByteArray("event");
-                mEvent = (PlusEvent)JsonUtil.fromByteArray(abyte0, PlusEvent.class);
+            if(bundle.containsKey("event")) {
+                byte[] bytes = bundle.getByteArray("event");
+                mEvent = (Event)JsonUtil.fromByteArray(bytes, Event.class);
             }
             if(bundle.containsKey("request_id"))
                 mPendingRequestId = Integer.valueOf(bundle.getInt("request_id"));
@@ -735,26 +673,23 @@ public class EditEventFragment extends EsFragment implements
     {
     }
 
-    public final void onDialogPositiveClick(Bundle bundle, String s)
-    {
+    public final void onDialogPositiveClick(Bundle bundle, String s) {
         if("quit".equals(s) && mListener != null)
             mListener.onEventClosed();
     }
 
-    public final void onDiscard()
-    {
+    public final void onDiscard() {
         if(!mNewEvent) {
-        	if(mChanged)
-            {
+        	if(mChanged) {
                 AlertFragmentDialog alertfragmentdialog = AlertFragmentDialog.newInstance(getString(R.string.edit_event_quit_title), getString(R.string.edit_event_quit_question), getString(R.string.yes), getString(R.string.no));
                 alertfragmentdialog.setTargetFragment(this, 0);
                 alertfragmentdialog.show(getFragmentManager(), "quit");
-            } else
-            if(mListener != null)
+            } else if(mListener != null) {
                 mListener.onEventClosed();
+            }
         } else { 
         	boolean flag;
-            if(!TextUtils.isEmpty(mEvent.name) || !TextUtils.isEmpty(mEvent.description) || !isEmptyAudience())
+            if(!TextUtils.isEmpty(mEvent.getName()) || !TextUtils.isEmpty(mEvent.getDescription()) || !isEmptyAudience())
                 flag = true;
             else
                 flag = false;
@@ -770,93 +705,79 @@ public class EditEventFragment extends EsFragment implements
         }
     }
 
-    public final void onDismissSuggestionAction(String s, String s1)
-    {
+    public final void onDismissSuggestionAction(String s, String s1) {
     }
 
-    public final void onEndDateCleared()
-    {
+    public final void onEndDateCleared() {
         clearEndTime();
         bindEndDate();
         bindEndTime();
     }
 
-    public final void onEndDateSet(int i, int j, int k)
-    {
+    public final void onEndDateSet(int i, int j, int k) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeZone(((TimeZoneHelper.TimeZoneInfo)mTimeZoneSpinner.getSelectedItem()).getTimeZone());
-        if(mEvent.endTime != null)
-            calendar.setTimeInMillis(mEvent.endTime.timeMs.longValue());
+        if(null != mEvent.getEndTime())
+            calendar.setTimeInMillis(mEvent.getEndTime().getTimeMs());
         else
-            calendar.setTimeInMillis(0x6ddd00L + mEvent.startTime.timeMs.longValue());
-        if(mEvent.endTime == null || calendar.get(1) != i || calendar.get(2) != j || calendar.get(5) != k)
-        {
+            calendar.setTimeInMillis(0x6ddd00L + mEvent.getStartTime().getTimeMs());
+        if(null == mEvent.getEndTime() || calendar.get(1) != i || calendar.get(2) != j || calendar.get(5) != k) {
             calendar.set(i, j, k);
             long l = calendar.getTimeInMillis();
-            if(mEvent.startTime.timeMs.longValue() > l)
-                mEvent.startTime.timeMs.longValue();
+            if(mEvent.getStartTime().getTimeMs().longValue() > l)
+                mEvent.getStartTime().getTimeMs().longValue();
             setEndTime(calendar);
             bindEndDate();
             bindEndTime();
-            OnEditEventListener _tmp = mListener;
         }
     }
 
-    public final void onEndTimeCleared()
-    {
+    public final void onEndTimeCleared() {
         clearEndTime();
         bindEndTime();
         bindEndDate();
     }
 
-    public final void onEndTimeSet(int i, int j)
-    {
+    public final void onEndTimeSet(int i, int j) {
         Calendar calendar = Calendar.getInstance();
-        if(mEvent.endTime != null)
-            calendar.setTimeInMillis(mEvent.endTime.timeMs.longValue());
+        if(null != mEvent.getEndTime())
+            calendar.setTimeInMillis(mEvent.getEndTime().getTimeMs());
         else
-            calendar.setTimeInMillis(0x6ddd00L + mEvent.startTime.timeMs.longValue());
-        if(mEvent.endTime == null || calendar.get(11) != i || calendar.get(12) != j)
-        {
+            calendar.setTimeInMillis(0x6ddd00L + mEvent.getStartTime().getTimeMs());
+        if(null == mEvent.getEndTime() || calendar.get(11) != i || calendar.get(12) != j) {
             calendar.set(11, i);
             calendar.set(12, j);
             calendar.setTimeZone(((TimeZoneHelper.TimeZoneInfo)mTimeZoneSpinner.getSelectedItem()).getTimeZone());
             long l = calendar.getTimeInMillis();
-            if(mEvent.startTime.timeMs.longValue() > l)
-                mEvent.startTime.timeMs.longValue();
+            if(mEvent.getStartTime().getTimeMs().longValue() > l)
+                mEvent.getStartTime().getTimeMs().longValue();
             setEndTime(calendar);
             bindEndTime();
             bindEndDate();
-            OnEditEventListener _tmp = mListener;
         }
     }
 
-    public final void onImageLoaded()
-    {
+    public final void onImageLoaded() {
         enableEventPicker();
     }
 
-    public void onItemSelected(AdapterView adapterview, View view, int i, long l)
-    {
-        if(i != mCurrentSpinnerPosition)
-        {
+    public void onItemSelected(AdapterView adapterview, View view, int position, long l) {
+        if(position != mCurrentSpinnerPosition) {
             TimeZoneHelper.TimeZoneInfo timezoneinfo = (TimeZoneHelper.TimeZoneInfo)mTimeZoneSpinner.getSelectedItem();
             long l1 = timezoneinfo.getOffset();
             long l2 = mTimeZoneHelper.getCurrentTimeZoneInfo().getOffset();
-            if(!TextUtils.isEmpty(mEvent.startTime.timezone))
-            {
-                TimeZone timezone = TimeZoneHelper.getSystemTimeZone(mEvent.startTime.timezone);
+            if(!TextUtils.isEmpty(mEvent.getStartTime().getTimezone())) {
+                TimeZone timezone = TimeZoneHelper.getSystemTimeZone(mEvent.getStartTime().getTimezone());
                 l2 = mTimeZoneHelper.getOffset(timezone);
             }
             long l3 = l2 - l1;
-            mEvent.startTime.timezone = timezoneinfo.getTimeZone().getID();
-            EventTime eventtime = mEvent.startTime;
-            eventtime.timeMs = Long.valueOf(l3 + eventtime.timeMs.longValue());
-            if(mEvent.endTime != null && mEvent.endTime.timeMs != null)
-            {
-                EventTime eventtime1 = mEvent.endTime;
-                eventtime1.timeMs = Long.valueOf(l3 + eventtime1.timeMs.longValue());
-                mEvent.endTime.timezone = mEvent.startTime.timezone;
+            mEvent.getStartTime().setTimezone(timezoneinfo.getTimeZone().getID());
+            EventTime eventtime = mEvent.getStartTime();
+            eventtime.setTimeMs(Long.valueOf(l3 + eventtime.getTimeMs().longValue()));
+            if(null != mEvent.getEndTime() && null != mEvent.getEndTime().getTimeMs()) {
+                EventTime eventtime1 = mEvent.getEndTime();
+                eventtime1.setTimeMs(Long.valueOf(l3 + eventtime1.getTimeMs().longValue()));
+                mEvent.getEndTime().setTimezone(mEvent.getStartTime().getTimezone());
             }
         }
     }
@@ -864,31 +785,24 @@ public class EditEventFragment extends EsFragment implements
     public final void onLoadFinished(Loader loader, Object obj) {
         Cursor cursor = (Cursor)obj;
         int id = loader.getId();
-        ThemeImage themeimage;
-        int i;
         if(0 == id) {
-        	if(cursor != null && cursor.moveToFirst())
-            {
-                int j = cursor.getInt(0);
-                String s = cursor.getString(1);
+        	if(cursor != null && cursor.moveToFirst()) {
+                int themeId = cursor.getInt(0);
+                String imageURL = cursor.getString(1);
                 String s1 = cursor.getString(2);
                 Uri uri;
-                if(!TextUtils.isEmpty(s1))
-                {
-                    android.net.Uri.Builder builder = new android.net.Uri.Builder();
-                    builder.path(s1);
-                    uri = builder.build();
-                } else
-                {
-                    uri = null;
-                }
-                setEventTheme(j, s, uri, false);
-            } else
-            if(mEvent != null && mEvent.theme != null)
-            {
-                themeimage = EsEventData.getThemeImage(mEvent.theme);
+				if (!TextUtils.isEmpty(s1)) {
+					android.net.Uri.Builder builder = new android.net.Uri.Builder();
+					builder.path(s1);
+					uri = builder.build();
+				} else {
+					uri = null;
+				}
+                setEventTheme(themeId, imageURL, uri, false);
+            } else if(mEvent != null && null != mEvent.getTheme()) {
+            	ThemeImage themeimage = EsEventData.getThemeImage(mEvent.getTheme());
                 if(themeimage != null)
-                    setEventTheme(mEventThemeId, themeimage.url, null, true);
+                    setEventTheme(mEventThemeId, themeimage.getUrl(), null, true);
             }
         } else if(1 == id) {
         	mEventLoaded = true;
@@ -896,16 +810,15 @@ public class EditEventFragment extends EsFragment implements
         		mError = true;
         	} else {
         		mError = false;
-                if(cursor.moveToFirst())
-                {
-                    mEvent = (PlusEvent)JsonUtil.fromByteArray(cursor.getBlob(0), PlusEvent.class);
-                    mAuthKey = mEvent.authKey;
-                    i = -1;
-                    if(mEvent.theme != null)
-                        i = mEvent.theme.themeId.intValue();
-                    if(i != mEventThemeId)
+                if(cursor.moveToFirst()) {
+                    mEvent = (Event)JsonUtil.fromByteArray(cursor.getBlob(0), Event.class);
+                    mAuthKey = mEvent.getAuthKey();
+                    Long themeId = -1L;
+                    if(null != mEvent.getTheme())
+                    	themeId = mEvent.getTheme().getId();
+                    if(!themeId.equals(mEventThemeId))
                     {
-                        mEventThemeId = i;
+                        mEventThemeId = themeId;
                         getLoaderManager().restartLoader(0, null, this);
                     }
                     bindEvent();
@@ -979,61 +892,52 @@ public class EditEventFragment extends EsFragment implements
             mAudienceAdapter.onStart();
     }
 
-    public final void onStartDateSet(int i, int j, int k)
-    {
+    public final void onStartDateSet(int i, int j, int k) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeZone(((TimeZoneHelper.TimeZoneInfo)mTimeZoneSpinner.getSelectedItem()).getTimeZone());
-        calendar.setTimeInMillis(mEvent.startTime.timeMs.longValue());
-        if(calendar.get(1) != i || calendar.get(2) != j || calendar.get(5) != k)
-        {
+        calendar.setTimeInMillis(mEvent.getStartTime().getTimeMs());
+        if(calendar.get(1) != i || calendar.get(2) != j || calendar.get(5) != k) {
             calendar.set(i, j, k);
             setStartTime(calendar);
             bindStartDate();
             bindStartTime();
-            if(mEvent.endTime != null && mEvent.endTime.timeMs.longValue() < calendar.getTimeInMillis())
-            {
+            if(null != mEvent.getEndTime() && mEvent.getEndTime().getTimeMs().longValue() < calendar.getTimeInMillis()) {
                 calendar.add(13, 7200);
                 setEndTime(calendar);
                 bindEndDate();
                 bindEndTime();
             }
-            OnEditEventListener _tmp = mListener;
         }
     }
 
-    public final void onStartTimeSet(int i, int j)
-    {
+    public final void onStartTimeSet(int i, int j) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeZone(((TimeZoneHelper.TimeZoneInfo)mTimeZoneSpinner.getSelectedItem()).getTimeZone());
-        calendar.setTimeInMillis(mEvent.startTime.timeMs.longValue());
-        if(calendar.get(11) != i || calendar.get(12) != j)
-        {
+        calendar.setTimeInMillis(mEvent.getStartTime().getTimeMs().longValue());
+        if(calendar.get(11) != i || calendar.get(12) != j) {
             calendar.set(11, i);
             calendar.set(12, j);
             long l = calendar.getTimeInMillis();
             setStartTime(calendar);
             bindStartTime();
-            if(mEvent.endTime != null && mEvent.endTime.timeMs.longValue() < l)
+            if(null != mEvent.getEndTime() && mEvent.getEndTime().getTimeMs().longValue() < l)
             {
                 calendar.add(13, 7200);
                 setEndTime(calendar);
                 bindEndDate();
                 bindEndTime();
             }
-            OnEditEventListener _tmp = mListener;
         }
     }
 
-    public final void onStop()
-    {
+    public final void onStop() {
         super.onStop();
         if(mAudienceAdapter != null)
             mAudienceAdapter.onStop();
     }
 
-    public final void onUnblockPersonAction(String s, boolean flag)
-    {
-    }
+	public final void onUnblockPersonAction(String s, boolean flag) {
+	}
 
     /**
      * 保存
@@ -1042,7 +946,7 @@ public class EditEventFragment extends EsFragment implements
         boolean flag = true;
         if(mEvent == null)
             flag = false;
-        else if(TextUtils.isEmpty(mEvent.name)) {
+        else if(TextUtils.isEmpty(mEvent.getName())) {
             Toast.makeText(getActivity(), getResources().getString(R.string.event_no_title_hint), 0).show();
             flag = false;
         } else if(mNewEvent) {
@@ -1180,15 +1084,13 @@ public class EditEventFragment extends EsFragment implements
 	        return timepickerdialog;
 	    }
 
-	    public final void onSaveInstanceState(Bundle bundle)
-	    {
+	    public final void onSaveInstanceState(Bundle bundle) {
 	        super.onSaveInstanceState(bundle);
 	        bundle.putInt("type", mType);
 	        bundle.putBoolean("cancelled", mCancelled);
 	    }
 
-	    public void onTimeSet(TimePicker timepicker, int i, int j)
-	    {
+	    public void onTimeSet(TimePicker timepicker, int i, int j) {
 	        if(!mCancelled)
 	        {
 	            EditEventFragment editeventfragment = (EditEventFragment)getTargetFragment();

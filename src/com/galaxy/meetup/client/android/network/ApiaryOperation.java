@@ -23,8 +23,8 @@ import com.galaxy.meetup.client.android.network.http.HttpRequestConfiguration;
 import com.galaxy.meetup.client.android.network.http.MeetupRequest;
 import com.galaxy.meetup.client.android.service.AndroidNotification;
 import com.galaxy.meetup.client.util.EsLog;
-import com.galaxy.meetup.server.client.domain.GenericJson;
 import com.galaxy.meetup.server.client.util.JsonUtil;
+import com.galaxy.meetup.server.client.v2.response.Response;
 
 /**
  * 
@@ -50,21 +50,21 @@ public abstract class ApiaryOperation extends HttpOperation {
 		this(context, esaccount, url, intent, operationlistener, httprequestconfiguration, "POST", responseClass);
 	}
     
-	protected abstract GenericJson populateRequest();
+	protected abstract com.galaxy.meetup.server.client.v2.request.Request populateRequest();
 	
-	protected abstract void handleResponse(GenericJson genericjson) throws IOException;
+	protected abstract void handleResponse(Response response) throws IOException;
 	
-	protected MeetupRequest createHttpEntity(GenericJson genericjson)
+	protected MeetupRequest createHttpEntity(com.galaxy.meetup.server.client.v2.request.Request reqeust)
     {
-        return new MeetupRequest(genericjson);
+        return new MeetupRequest(mAccount, reqeust);
     }
 
 	public MeetupRequest createPostData() {
-		GenericJson genericjson = populateRequest();
+		com.galaxy.meetup.server.client.v2.request.Request reqeust = populateRequest();
         if(EsLog.isLoggable("HttpTransaction", 3) || EsLog.isLoggable(getLogTag(), 3)) {
-        	EsLog.doWriteToLog(3, "HttpTransaction", (new StringBuilder("Apiary request: ")).append(genericjson.getClass().getSimpleName()).append("\n").append(genericjson.toJsonString()).toString());
+        	EsLog.doWriteToLog(3, "HttpTransaction", (new StringBuilder("Apiary request: ")).append(reqeust.getClass().getSimpleName()).append("\n").append(JsonUtil.toJsonString(reqeust)).toString());
         }
-        return createHttpEntity(genericjson);
+        return createHttpEntity(reqeust);
     }
 
     protected String getLogTag()
@@ -96,10 +96,10 @@ public abstract class ApiaryOperation extends HttpOperation {
 
     public final void onHttpHandleContentFromStream(InputStream inputstream) throws IOException {
         onStartResultProcessing();
-        GenericJson genericjson = (GenericJson)JsonUtil.fromInputStream(inputstream, responseClass);
+        Response response = (Response)JsonUtil.fromInputStream(inputstream, responseClass);
         if(EsLog.isLoggable("HttpTransaction", 2) || EsLog.isLoggable(getLogTag(), 2))
-        	EsLog.doWriteToLog(2, "HttpTransaction", (new StringBuilder("Apiary response: ")).append(genericjson.getClass().getSimpleName()).append("\n").append(genericjson.toJsonString()).toString());
-        handleResponse(genericjson);
+        	EsLog.doWriteToLog(2, "HttpTransaction", (new StringBuilder("Apiary response: ")).append(response.getClass().getSimpleName()).append("\n").append(JsonUtil.toJsonString(response)).toString());
+        handleResponse(response);
     }
 
     public void onHttpReadErrorFromStream(InputStream inputstream, String s, int i, Header aheader[], int j) throws IOException {

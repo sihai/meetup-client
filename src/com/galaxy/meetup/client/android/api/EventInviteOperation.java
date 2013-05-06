@@ -15,6 +15,8 @@ import com.galaxy.meetup.client.android.network.http.HttpOperation;
 import com.galaxy.meetup.server.client.domain.EventSelector;
 import com.galaxy.meetup.server.client.domain.GenericJson;
 import com.galaxy.meetup.server.client.domain.request.InviteEventRequest;
+import com.galaxy.meetup.server.client.v2.request.Request;
+import com.galaxy.meetup.server.client.v2.response.Response;
 
 /**
  * 
@@ -37,11 +39,11 @@ public class EventInviteOperation extends PlusiOperation {
         mAudience = audiencedata;
     }
 
-    protected final void handleResponse(GenericJson genericjson)
+    protected final void handleResponse(Response response)
     {
     }
 
-    protected final GenericJson populateRequest()
+    protected final Request populateRequest()
     {
         InviteEventRequest inviteeventrequest = new InviteEventRequest();
         inviteeventrequest.eventId = mEventId;

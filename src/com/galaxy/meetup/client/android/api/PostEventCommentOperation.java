@@ -17,9 +17,10 @@ import com.galaxy.meetup.client.android.content.EsEventData;
 import com.galaxy.meetup.client.android.network.PlusiOperation;
 import com.galaxy.meetup.client.android.network.http.HttpOperation;
 import com.galaxy.meetup.server.client.domain.Comment;
-import com.galaxy.meetup.server.client.domain.GenericJson;
 import com.galaxy.meetup.server.client.domain.request.PostCommentRequest;
 import com.galaxy.meetup.server.client.domain.response.PostCommentResponse;
+import com.galaxy.meetup.server.client.v2.request.Request;
+import com.galaxy.meetup.server.client.v2.response.Response;
 
 /**
  * 
@@ -41,9 +42,9 @@ public class PostEventCommentOperation extends PlusiOperation {
         mEventId = s1;
     }
 
-    protected final void handleResponse(GenericJson genericjson) throws IOException
+    protected final void handleResponse(Response response) throws IOException
     {
-        PostCommentResponse postcommentresponse = (PostCommentResponse)genericjson;
+        PostCommentResponse postcommentresponse = (PostCommentResponse)response;
         if(postcommentresponse != null)
         {
             Comment comment = postcommentresponse.comment;
@@ -73,7 +74,7 @@ public class PostEventCommentOperation extends PlusiOperation {
         }
     }
 
-    protected final GenericJson populateRequest()
+    protected final Request populateRequest()
     {
         PostCommentRequest postcommentrequest = new PostCommentRequest();
         long l = System.currentTimeMillis();

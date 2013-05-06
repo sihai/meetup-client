@@ -16,10 +16,11 @@ import com.galaxy.meetup.client.android.content.EsAccountsData;
 import com.galaxy.meetup.client.android.network.PlusiOperation;
 import com.galaxy.meetup.client.android.network.http.HttpOperation;
 import com.galaxy.meetup.client.util.Property;
-import com.galaxy.meetup.server.client.domain.GenericJson;
 import com.galaxy.meetup.server.client.domain.GetMobileExperimentsRequestRequestedFlag;
 import com.galaxy.meetup.server.client.domain.request.GetMobileExperimentsRequest;
 import com.galaxy.meetup.server.client.domain.response.GetMobileExperimentsResponse;
+import com.galaxy.meetup.server.client.v2.request.Request;
+import com.galaxy.meetup.server.client.v2.response.Response;
 
 /**
  * 
@@ -33,13 +34,13 @@ public class GetMobileExperimentsOperation extends PlusiOperation {
         super(context, esaccount, "getmobileexperiments", null, null, GetMobileExperimentsResponse.class);
     }
 
-    protected final void handleResponse(GenericJson genericjson) throws IOException
+    protected final void handleResponse(Response response) throws IOException
     {
-        GetMobileExperimentsResponse getmobileexperimentsresponse = (GetMobileExperimentsResponse)genericjson;
+        GetMobileExperimentsResponse getmobileexperimentsresponse = (GetMobileExperimentsResponse)response;
         EsAccountsData.insertExperiments(mContext, mAccount, getmobileexperimentsresponse.experiment);
     }
 
-    protected final GenericJson populateRequest()
+    protected final Request populateRequest()
     {
         GetMobileExperimentsRequest getmobileexperimentsrequest = new GetMobileExperimentsRequest();
         getmobileexperimentsrequest.requestedflag = new ArrayList();

@@ -53,6 +53,7 @@ public class EventLocationFragment extends EsListFragment implements
 	private static final String LOCATION_PROJECTION[] = {
         "_id", "type", "title", "description", "location"
     };
+	
     private double mCurrentLatitude;
     private double mCurrentLongitude;
     private String mInitialQuery;
@@ -63,76 +64,57 @@ public class EventLocationFragment extends EsListFragment implements
     private EditText mLocationText;
     private String mQuery;
     
-    public EventLocationFragment()
-    {
-        mLocationListener = new LocationListener() {
+	public EventLocationFragment() {
+		mLocationListener = new LocationListener() {
 
-            public final void onLocationChanged(Location location)
-            {
-                removeLocationListener();
-                EventLocationFragment.access$100(EventLocationFragment.this, location.getLatitude(), location.getLongitude());
-            }
+			public final void onLocationChanged(Location location) {
+				removeLocationListener();
+				locationChanged(location.getLatitude(), location.getLongitude());
+			}
 
-            public final void onProviderDisabled(String s)
-            {
-            }
+			public final void onProviderDisabled(String s) {
+			}
 
-            public final void onProviderEnabled(String s)
-            {
-            }
+			public final void onProviderEnabled(String s) {
+			}
 
-            public final void onStatusChanged(String s, int i, Bundle bundle)
-            {
-            }
-        };
-    }
+			public final void onStatusChanged(String s, int i, Bundle bundle) {
+			}
+		};
+	}
 
-    private void buildLocationQuery()
-    {
-        if(!TextUtils.isEmpty(mQuery) && isCurrentLocationKnown())
-        {
-            Location location = new Location((String)null);
-            location.setLatitude(mCurrentLatitude);
-            location.setLongitude(mCurrentLongitude);
-            mLocationQuery = new LocationQuery(location, mQuery);
-        } else
-        {
-            mLocationQuery = null;
-        }
-    }
+	private void buildLocationQuery() {
+		if (!TextUtils.isEmpty(mQuery) && isCurrentLocationKnown()) {
+			Location location = new Location((String) null);
+			location.setLatitude(mCurrentLatitude);
+			location.setLongitude(mCurrentLongitude);
+			mLocationQuery = new LocationQuery(location, mQuery);
+		} else {
+			mLocationQuery = null;
+		}
+	}
 
-    private EsAccount getAccount()
-    {
-        return (EsAccount)getActivity().getIntent().getExtras().get("account");
-    }
+	private EsAccount getAccount() {
+		return (EsAccount) getActivity().getIntent().getExtras().get("account");
+	}
 
-    private boolean isCurrentLocationKnown()
-    {
-        boolean flag;
-        if(mCurrentLatitude != 0.0D && mCurrentLongitude != 0.0D)
-            flag = true;
-        else
-            flag = false;
-        return flag;
-    }
+	private boolean isCurrentLocationKnown() {
+		return mCurrentLatitude != 0.0D && mCurrentLongitude != 0.0D;
+	}
 
-    private void removeLocationListener()
-    {
-        if(mLocationController != null)
-        {
-            mLocationController.release();
-            mLocationController = null;
-        }
-    }
+	private void removeLocationListener() {
+		if (mLocationController != null) {
+			mLocationController.release();
+			mLocationController = null;
+		}
+	}
 
-    private void runQuery()
-    {
-        if(mLocationQuery != null)
-        {
-            getLoaderManager().restartLoader(0, null, this);
-            EsService.getNearbyLocations(getActivity(), getAccount(), mLocationQuery);
-        }
-    }
+	private void runQuery() {
+		if (mLocationQuery != null) {
+			getLoaderManager().restartLoader(0, null, this);
+			EsService.getNearbyLocations(getActivity(), getAccount(), mLocationQuery);
+		}
+	}
 
     private void updateAdapter(Cursor cursor) {
         EsMatrixCursor esmatrixcursor = new EsMatrixCursor(LOCATION_PROJECTION);
@@ -178,43 +160,38 @@ public class EventLocationFragment extends EsListFragment implements
         mAdapter.swapCursor(esmatrixcursor);
     }
 
-    public void afterTextChanged(Editable editable)
-    {
-    }
+	public void afterTextChanged(Editable editable) {
+	}
 
-    public void beforeTextChanged(CharSequence charsequence, int i, int j, int k)
-    {
-    }
+	public void beforeTextChanged(CharSequence charsequence, int i, int j, int k) {
+	}
 
-    public final void onAttach(Activity activity)
-    {
-        super.onAttach(activity);
-        if(!isCurrentLocationKnown())
-        {
-            SharedPreferences sharedpreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
-            if(sharedpreferences.contains("event.current.latitude"))
-            {
-                mCurrentLatitude = Double.parseDouble(sharedpreferences.getString("event.current.latitude", "0"));
-                mCurrentLongitude = Double.parseDouble(sharedpreferences.getString("event.current.longitude", "0"));
-            }
-        }
-    }
+	/**
+	 * 当fragment添加到activity中时，会调用fragment的方法onAttach()
+	 */
+	public final void onAttach(Activity activity) {
+		super.onAttach(activity);
+		if (!isCurrentLocationKnown()) {
+			SharedPreferences sharedpreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
+			if (sharedpreferences.contains("event.current.latitude")) {
+				mCurrentLatitude = Double.parseDouble(sharedpreferences.getString("event.current.latitude", "0"));
+				mCurrentLongitude = Double.parseDouble(sharedpreferences.getString("event.current.longitude", "0"));
+			}
+		}
+	}
 
-    public final void onCreate(Bundle bundle)
-    {
-        super.onCreate(bundle);
-        if(bundle != null)
-        {
-            mQuery = bundle.getString("query");
-            mCurrentLatitude = bundle.getDouble("latitude");
-            mCurrentLongitude = bundle.getDouble("longitude");
-            buildLocationQuery();
-        }
-        getLoaderManager().initLoader(0, null, this);
-    }
+	public final void onCreate(Bundle bundle) {
+		super.onCreate(bundle);
+		if (bundle != null) {
+			mQuery = bundle.getString("query");
+			mCurrentLatitude = bundle.getDouble("latitude");
+			mCurrentLongitude = bundle.getDouble("longitude");
+			buildLocationQuery();
+		}
+		getLoaderManager().initLoader(0, null, this);
+	}
 
-    public final Loader onCreateLoader(int i, Bundle bundle)
-    {
+    public final Loader onCreateLoader(int i, Bundle bundle) {
         String s;
         android.net.Uri uri;
         if(mLocationQuery == null)
@@ -227,8 +204,7 @@ public class EventLocationFragment extends EsListFragment implements
         }, null, null, null);
     }
 
-    public final View onCreateView(LayoutInflater layoutinflater, ViewGroup viewgroup, Bundle bundle)
-    {
+    public final View onCreateView(LayoutInflater layoutinflater, ViewGroup viewgroup, Bundle bundle) {
         View view = super.onCreateView(layoutinflater, viewgroup, bundle, R.layout.event_location_fragment);
         mAdapter = new EventLocationAdapter(getActivity());
         ((ListView)mListView).setAdapter(mAdapter);
@@ -239,13 +215,11 @@ public class EventLocationFragment extends EsListFragment implements
         return view;
     }
 
-    public final View onCreateView(LayoutInflater layoutinflater, ViewGroup viewgroup, Bundle bundle, int i)
-    {
+    public final View onCreateView(LayoutInflater layoutinflater, ViewGroup viewgroup, Bundle bundle, int i) {
         return super.onCreateView(layoutinflater, viewgroup, bundle, i);
     }
 
-    public final void onDestroyView()
-    {
+    public final void onDestroyView() {
         super.onDestroyView();
     }
 
@@ -271,23 +245,19 @@ public class EventLocationFragment extends EsListFragment implements
             mListener.onLocationSelected(place);
     }
 
-    public final void onLoadFinished(Loader loader, Object obj)
-    {
+    public final void onLoadFinished(Loader loader, Object obj) {
         updateAdapter((Cursor)obj);
     }
 
-    public final void onLoaderReset(Loader loader)
-    {
+    public final void onLoaderReset(Loader loader) {
     }
 
-    public final void onPause()
-    {
+    public final void onPause() {
         super.onPause();
         removeLocationListener();
     }
 
-    public final void onResume()
-    {
+    public final void onResume() {
         super.onResume();
         if(mLocationController == null)
             mLocationController = new LocationController(getActivity(), getAccount(), true, 3000L, null, mLocationListener);
@@ -295,70 +265,65 @@ public class EventLocationFragment extends EsListFragment implements
             mLocationController.init();
     }
 
-    public final void onSaveInstanceState(Bundle bundle)
-    {
+    public final void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
         bundle.putString("query", mQuery);
         bundle.putDouble("latitude", mCurrentLatitude);
         bundle.putDouble("longitude", mCurrentLongitude);
     }
 
-    public void onScroll(AbsListView abslistview, int i, int j, int k)
-    {
+    public void onScroll(AbsListView abslistview, int i, int j, int k) {
         super.onScroll(abslistview, i, j, k);
     }
 
-    public void onScrollStateChanged(AbsListView abslistview, int i)
-    {
+    public void onScrollStateChanged(AbsListView abslistview, int i) {
         super.onScrollStateChanged(abslistview, i);
     }
 
-    public void onTextChanged(CharSequence charsequence, int i, int j, int k)
-    {
-        String s = mLocationText.getText().toString().trim();
-        if(!TextUtils.equals(mQuery, s))
-        {
-            mQuery = s;
-            if(isAdded())
-            {
-                updateAdapter(null);
-                buildLocationQuery();
-                runQuery();
-            }
-        }
-    }
+	public void onTextChanged(CharSequence charsequence, int i, int j, int k) {
+		String s = mLocationText.getText().toString().trim();
+		if (!TextUtils.equals(mQuery, s)) {
+			mQuery = s;
+			if (isAdded()) {
+				updateAdapter(null);
+				buildLocationQuery();
+				runQuery();
+			}
+		}
+	}
 
-    public final void setInitialQueryString(String s)
-    {
+    public final void setInitialQueryString(String s){
         mInitialQuery = s;
     }
 
-    public final void setOnLocationSelectedListener(OnLocationSelectedListener onlocationselectedlistener)
-    {
+    public final void setOnLocationSelectedListener(OnLocationSelectedListener onlocationselectedlistener) {
         mListener = onlocationselectedlistener;
     }
     
-    static void access$100(EventLocationFragment eventlocationfragment, double d, double d1)
-    {
-        if(eventlocationfragment.isCurrentLocationKnown())
-        {
-            float af[] = new float[1];
-            Location.distanceBetween(eventlocationfragment.mCurrentLatitude, eventlocationfragment.mCurrentLongitude, d, d1, af);
-            if(af[0] < 200F) {
+    /**
+     * 
+     * @param latitude
+     * @param longitude
+     */
+    private void locationChanged(double latitude, double longitude) {
+        if(isCurrentLocationKnown()) {
+            float result[] = new float[1];
+            Location.distanceBetween(mCurrentLatitude, mCurrentLongitude, latitude, longitude, result);
+            if(result[0] < 200F) {
                 return;
             }
         }
-        eventlocationfragment.mCurrentLatitude = d;
-        eventlocationfragment.mCurrentLongitude = d1;
-        android.content.SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(eventlocationfragment.getActivity()).edit();
-        editor.putString("event.current.latitude", Double.toString(eventlocationfragment.mCurrentLatitude));
-        editor.putString("event.current.longitude", Double.toString(eventlocationfragment.mCurrentLongitude));
+        mCurrentLatitude = latitude;
+        mCurrentLongitude = longitude;
+        android.content.SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(getActivity()).edit();
+        editor.putString("event.current.latitude", Double.toString(mCurrentLatitude));
+        editor.putString("event.current.longitude", Double.toString(mCurrentLongitude));
         if(android.os.Build.VERSION.SDK_INT >= 9)
             editor.apply();
         else
             editor.commit();
-        eventlocationfragment.buildLocationQuery();
-        eventlocationfragment.runQuery();
+        buildLocationQuery();
+        runQuery();
     }
     
     //==================================================================================================================
@@ -366,8 +331,7 @@ public class EventLocationFragment extends EsListFragment implements
     //==================================================================================================================
     private static final class EventLocationAdapter extends EsCursorAdapter {
 
-        public final void bindView(View view, Context context, Cursor cursor)
-        {
+        public final void bindView(View view, Context context, Cursor cursor) {
             ImageView imageview;
             TextView textview;
             TextView textview1;
@@ -409,9 +373,8 @@ public class EventLocationFragment extends EsListFragment implements
         }
     }
 
-    public static interface OnLocationSelectedListener
-    {
+    public static interface OnLocationSelectedListener {
 
-        public abstract void onLocationSelected(Place place);
+        void onLocationSelected(Place place);
     }
 }

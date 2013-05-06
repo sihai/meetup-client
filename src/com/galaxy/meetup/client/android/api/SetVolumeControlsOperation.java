@@ -16,12 +16,13 @@ import com.galaxy.meetup.client.android.content.EsAccount;
 import com.galaxy.meetup.client.android.content.EsPeopleData;
 import com.galaxy.meetup.client.android.network.PlusiOperation;
 import com.galaxy.meetup.client.android.network.http.HttpOperation;
-import com.galaxy.meetup.server.client.domain.GenericJson;
 import com.galaxy.meetup.server.client.domain.VolumeControlKey;
 import com.galaxy.meetup.server.client.domain.VolumeControlMap;
 import com.galaxy.meetup.server.client.domain.VolumeControlPair;
 import com.galaxy.meetup.server.client.domain.request.SetVolumeControlsRequest;
 import com.galaxy.meetup.server.client.domain.response.SetVolumeControlsResponse;
+import com.galaxy.meetup.server.client.v2.request.Request;
+import com.galaxy.meetup.server.client.v2.response.Response;
 
 /**
  * 
@@ -72,9 +73,9 @@ public class SetVolumeControlsOperation extends PlusiOperation {
     	return s;
     }
 
-    protected final void handleResponse(GenericJson genericjson) throws IOException
+    protected final void handleResponse(Response response) throws IOException
     {
-        if(!((SetVolumeControlsResponse)genericjson).value.booleanValue())
+        if(!((SetVolumeControlsResponse)response).value.booleanValue())
             throw new IllegalStateException("SetVolumeControls: unexpected server failure.");
         if(mCircleToVolumeMap != null)
             EsPeopleData.setCircleVolumes(mContext, mAccount, mCircleToVolumeMap);
@@ -82,7 +83,7 @@ public class SetVolumeControlsOperation extends PlusiOperation {
             EsPeopleData.setCircleVolume(mContext, mAccount, mCircleId, mVolume);
     }
 
-    protected final GenericJson populateRequest()
+    protected final Request populateRequest()
     {
         SetVolumeControlsRequest setvolumecontrolsrequest = new SetVolumeControlsRequest();
         ArrayList arraylist = new ArrayList();

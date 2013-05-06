@@ -16,11 +16,12 @@ import com.galaxy.meetup.client.android.network.PlusiOperation;
 import com.galaxy.meetup.client.android.network.http.HttpOperation;
 import com.galaxy.meetup.server.client.domain.ActivityFilters;
 import com.galaxy.meetup.server.client.domain.FieldRequestOptions;
-import com.galaxy.meetup.server.client.domain.GenericJson;
 import com.galaxy.meetup.server.client.domain.NearbyStreamRequestLatLongE7;
 import com.galaxy.meetup.server.client.domain.UpdateFilter;
 import com.galaxy.meetup.server.client.domain.request.NearbyStreamRequest;
 import com.galaxy.meetup.server.client.domain.response.NearbyStreamResponse;
+import com.galaxy.meetup.server.client.v2.request.Request;
+import com.galaxy.meetup.server.client.v2.response.Response;
 
 /**
  * 
@@ -38,9 +39,9 @@ public class CheckNearbyStreamChangeOperation extends PlusiOperation {
         mLocation = dblocation;
     }
 
-    protected final void handleResponse(GenericJson genericjson) throws IOException
+    protected final void handleResponse(Response response) throws IOException
     {
-        NearbyStreamResponse nearbystreamresponse = (NearbyStreamResponse)genericjson;
+        NearbyStreamResponse nearbystreamresponse = (NearbyStreamResponse)response;
         String s = EsPostsData.buildActivitiesStreamKey(null, null, mLocation, false, 2);
         mStreamHasChanged = EsPostsData.hasStreamChanged(mContext, mAccount, s, nearbystreamresponse.stream.update);
     }
@@ -51,7 +52,7 @@ public class CheckNearbyStreamChangeOperation extends PlusiOperation {
     }
 
     @Override
-    protected final GenericJson populateRequest()
+    protected final Request populateRequest()
     {
         NearbyStreamRequest nearbystreamrequest = new NearbyStreamRequest();
         nearbystreamrequest.latLongE7 = new NearbyStreamRequestLatLongE7();

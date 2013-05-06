@@ -32,10 +32,10 @@ import com.galaxy.meetup.client.util.EventDateUtils;
 import com.galaxy.meetup.client.util.ImageUtils;
 import com.galaxy.meetup.client.util.TextPaintUtils;
 import com.galaxy.meetup.client.util.TimeZoneHelper;
-import com.galaxy.meetup.server.client.domain.HangoutInfo;
-import com.galaxy.meetup.server.client.domain.Place;
-import com.galaxy.meetup.server.client.domain.PlusEvent;
-import com.galaxy.meetup.server.client.domain.ThemeImage;
+import com.galaxy.meetup.server.client.v2.domain.Event;
+import com.galaxy.meetup.server.client.v2.domain.HangoutInfo;
+import com.galaxy.meetup.server.client.v2.domain.Location;
+import com.galaxy.meetup.server.client.v2.domain.ThemeImage;
 
 /**
  * 
@@ -83,7 +83,7 @@ public class EventCardDrawer implements OnAvatarChangeListener,
     private StaticLayout mDateLayout;
     private Point mDateLayoutCorner;
     float mDividerLines[];
-    PlusEvent mEventInfo;
+    Event mEventInfo;
     private boolean mIgnoreHeight;
     private Bitmap mLocationIcon;
     private Rect mLocationIconRect;
@@ -209,12 +209,12 @@ public class EventCardDrawer implements OnAvatarChangeListener,
         ImageCache.registerAvatarChangeListener(this);
     }
 
-    public final void bind(EsAccount esaccount, CardView cardview, PlusEvent plusevent, ClickableUserImage.UserImageClickListener userimageclicklistener)
+    public final void bind(EsAccount esaccount, CardView cardview, Event plusevent, ClickableUserImage.UserImageClickListener userimageclicklistener)
     {
         bind(esaccount, cardview, plusevent, null, null, userimageclicklistener);
     }
 
-    public final void bind(EsAccount esaccount, CardView cardview, PlusEvent plusevent, String s, CharSequence charsequence, ClickableUserImage.UserImageClickListener userimageclicklistener)
+    public final void bind(EsAccount esaccount, CardView cardview, Event plusevent, String s, CharSequence charsequence, ClickableUserImage.UserImageClickListener userimageclicklistener)
     {
         clear();
         mEventInfo = plusevent;
@@ -235,7 +235,7 @@ public class EventCardDrawer implements OnAvatarChangeListener,
             if(s != null)
                 s1 = s;
             else
-                s1 = mEventInfo.getCreatorObfuscatedId();
+                s1 = mEventInfo.getPublisher();
             mAvatar = new ClickableUserImage(cardview1, s1, null, null, userimageclicklistener, 2);
             mAttribution = charsequence;
             mContainingCardView.addClickableItem(mAvatar);
@@ -397,7 +397,7 @@ public class EventCardDrawer implements OnAvatarChangeListener,
         if((mThemeImage == null || mThemeImageRect.width() != k || mThemeImageRect.height() != i2 || mThemeImageRect.top != j || mThemeImageRect.left != i) && mThemeInfo != null)
         {
             mThemeImageRect.set(i, j, i + k, j + i2);
-            EventThemeImageRequest eventthemeimagerequest = new EventThemeImageRequest(ImageUtils.getCenterCroppedAndResizedUrl(k, i2, mThemeInfo.url));
+            EventThemeImageRequest eventthemeimagerequest = new EventThemeImageRequest(ImageUtils.getCenterCroppedAndResizedUrl(k, i2, mThemeInfo.getUrl()));
             mThemeImage = new RemoteImage(mContainingCardView, eventthemeimagerequest);
             mThemeImage.load();
         }
@@ -460,7 +460,7 @@ public class EventCardDrawer implements OnAvatarChangeListener,
         }
     	
         int l5 = j1 + (k5 + j3);
-        mNameLayout = layoutTextLabel(i3, l5, k3, mEventInfo.name, mNameLayoutCorner, sEventNameTextPaint, true);
+        mNameLayout = layoutTextLabel(i3, l5, k3, mEventInfo.getName(), mNameLayoutCorner, sEventNameTextPaint, true);
         int i6 = l5 + mNameLayout.getHeight();
         if(mAttribution != null)
         {
@@ -469,12 +469,12 @@ public class EventCardDrawer implements OnAvatarChangeListener,
             i6 = k7 + mCreatorLayout.getHeight();
         }
         int j6 = i6 + l1;
-        mDateLayout = layoutTextLabel(i3, j6, k3, EventDateUtils.getSingleDisplayLine(mContainingCardView.getContext(), mEventInfo.startTime, null, false, null), mDateLayoutCorner, sEventInfoTextPaint, true);
+        mDateLayout = layoutTextLabel(i3, j6, k3, EventDateUtils.getSingleDisplayLine(mContainingCardView.getContext(), mEventInfo.getStartTime(), null, false, null), mDateLayoutCorner, sEventInfoTextPaint, true);
         int k6 = j6 + mDateLayout.getHeight();
         boolean flag1 = EsEventData.isEventHangout(mEventInfo);
         Calendar calendar = Calendar.getInstance();
-        calendar.setTimeInMillis(mEventInfo.startTime.timeMs.longValue());
-        String s = TimeZoneHelper.getDisplayString(mEventInfo.startTime.timezone, calendar, flag1);
+        calendar.setTimeInMillis(mEventInfo.getStartTime().getTimeMs().longValue());
+        String s = TimeZoneHelper.getDisplayString(mEventInfo.getStartTime().getTimezone(), calendar, flag1);
         if(s != null)
         {
             int j7 = k6 + l1;
@@ -487,15 +487,12 @@ public class EventCardDrawer implements OnAvatarChangeListener,
             mTypeLabel = new ClickableButton(mContainingCardView.getContext(), null, sOnAirTitle, sOnAirPaint, sOnAirNinePatch, sOnAirNinePatch, null, i3, i7);
             k6 = i7 + mTypeLabel.getRect().height();
         }
-        Place place = mEventInfo.location;
-        HangoutInfo hangoutinfo = mEventInfo.hangoutInfo;
+        Location location = mEventInfo.getLocation();
+        HangoutInfo hangoutinfo = mEventInfo.getHangoutInfo();
         String s1;
-        if(place != null)
+        if(location != null)
         {
-            if(place.address != null)
-                s2 = place.address.name;
-            else
-                s2 = place.name;
+            s2 = location.buildAddress();
             mLocationIcon = sLocationBitmap;
             s1 = s2;
         } else

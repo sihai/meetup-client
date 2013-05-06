@@ -13,9 +13,10 @@ import com.galaxy.meetup.client.android.content.EsAccount;
 import com.galaxy.meetup.client.android.content.PeopleData;
 import com.galaxy.meetup.client.android.network.PlusiOperation;
 import com.galaxy.meetup.client.android.network.http.HttpOperation;
-import com.galaxy.meetup.server.client.domain.GenericJson;
 import com.galaxy.meetup.server.client.domain.request.MuteUserRequest;
 import com.galaxy.meetup.server.client.domain.response.MuteUserResponse;
+import com.galaxy.meetup.server.client.v2.request.Request;
+import com.galaxy.meetup.server.client.v2.response.Response;
 
 /**
  * 
@@ -40,14 +41,14 @@ public class MuteUserOperation extends PlusiOperation {
         return sFactory;
     }
 
-    protected final void handleResponse(GenericJson genericjson)
+    protected final void handleResponse(Response response)
         throws IOException
     {
-        MuteUserResponse muteuserresponse = (MuteUserResponse)genericjson;
+        MuteUserResponse muteuserresponse = (MuteUserResponse)response;
         mDb.setMuteState(mGaiaId, muteuserresponse.isMuted.booleanValue());
     }
 
-    protected final GenericJson populateRequest()
+    protected final Request populateRequest()
     {
         MuteUserRequest muteuserrequest = new MuteUserRequest();
         muteuserrequest.obfuscatedGaiaId = mGaiaId;

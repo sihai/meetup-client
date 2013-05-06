@@ -13,6 +13,7 @@ import android.util.AttributeSet;
 import com.galaxy.meetup.client.android.service.EsService;
 import com.galaxy.meetup.server.client.domain.PlusEvent;
 import com.galaxy.meetup.server.client.util.JsonUtil;
+import com.galaxy.meetup.server.client.v2.domain.Event;
 
 
 /**
@@ -50,12 +51,12 @@ public class EventStreamCardView extends StreamCardView {
     {
         super.init(cursor, i, j, onclicklistener, itemclicklistener, viewedlistener, streamplusbarclicklistener, streammediaclicklistener);
         byte abyte0[] = cursor.getBlob(13);
-        PlusEvent plusevent;
+        Event event;
         if(abyte0 != null)
-            plusevent = (PlusEvent)JsonUtil.fromByteArray(abyte0, PlusEvent.class);
+            event = (Event)JsonUtil.fromByteArray(abyte0, Event.class);
         else
-            plusevent = null;
-        mDrawer.bind(EsService.getActiveAccount(getContext()), this, plusevent, mAuthorGaiaId, mAttribution, mItemClickListener);
+            event = null;
+        mDrawer.bind(EsService.getActiveAccount(getContext()), this, event, mAuthorGaiaId, mAttribution, mItemClickListener);
     }
 
     protected final int layoutElements(int i, int j, int k, int l)

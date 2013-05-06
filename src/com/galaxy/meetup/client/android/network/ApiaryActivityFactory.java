@@ -13,6 +13,7 @@ import com.galaxy.meetup.client.android.api.CallToActionData;
 import com.galaxy.meetup.client.util.EsLog;
 import com.galaxy.meetup.server.client.domain.MediaLayout;
 import com.galaxy.meetup.server.client.domain.response.LinkPreviewResponse;
+import com.galaxy.meetup.server.client.util.JsonUtil;
 
 /**
  * 
@@ -43,7 +44,7 @@ public class ApiaryActivityFactory {
         if(linkpreviewresponse == null)
             throw new NullPointerException("");
         if(EsLog.isLoggable("ApiaryActivityFactory", 3))
-            Log.d("ApiaryActivityFactory", linkpreviewresponse.toJsonString());
+            Log.d("ApiaryActivityFactory", JsonUtil.toJsonString(linkpreviewresponse));
         if(linkpreviewresponse.mediaLayout == null || linkpreviewresponse.mediaLayout.isEmpty())
             throw new IllegalArgumentException("Media layout must be specified");
         MediaLayout medialayout = (MediaLayout)linkpreviewresponse.mediaLayout.get(0);

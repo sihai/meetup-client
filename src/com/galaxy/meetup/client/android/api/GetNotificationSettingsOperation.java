@@ -24,9 +24,10 @@ import com.galaxy.meetup.server.client.domain.DataMobileSettings;
 import com.galaxy.meetup.server.client.domain.DataNotificationSettings;
 import com.galaxy.meetup.server.client.domain.DataNotificationSettingsFetchParams;
 import com.galaxy.meetup.server.client.domain.DataNotificationSettingsNotificationsSettingsCategoryInfo;
-import com.galaxy.meetup.server.client.domain.GenericJson;
 import com.galaxy.meetup.server.client.domain.request.SettingsFetchRequest;
 import com.galaxy.meetup.server.client.domain.response.SettingsFetchResponse;
+import com.galaxy.meetup.server.client.v2.request.Request;
+import com.galaxy.meetup.server.client.v2.response.Response;
 
 /**
  * 
@@ -47,10 +48,10 @@ public class GetNotificationSettingsOperation extends PlusiOperation {
         return mNotificationSettings;
     }
 
-    protected final void handleResponse(GenericJson genericjson) throws IOException
+    protected final void handleResponse(Response response) throws IOException
     {
         int i = 0;
-        SettingsFetchResponse settingsfetchresponse = (SettingsFetchResponse)genericjson;
+        SettingsFetchResponse settingsfetchresponse = (SettingsFetchResponse)response;
         if(settingsfetchresponse.settings == null || settingsfetchresponse.settings.notificationSettings == null)
             throw new ProtocolException("Notification settings missing from response");
         DataNotificationSettings datanotificationsettings = settingsfetchresponse.settings.notificationSettings;
@@ -89,7 +90,7 @@ public class GetNotificationSettingsOperation extends PlusiOperation {
         mNotificationSettings = new NotificationSettingsData(datanotificationsettings.emailAddress, datamobilesettings.mobileNotificationType, arraylist);
     }
 
-    protected final GenericJson populateRequest()
+    protected final Request populateRequest()
     {
         SettingsFetchRequest settingsfetchrequest = new SettingsFetchRequest();
         DataNotificationSettingsFetchParams datanotificationsettingsfetchparams = new DataNotificationSettingsFetchParams();

@@ -19,11 +19,12 @@ import com.galaxy.meetup.server.client.domain.ActivityFilters;
 import com.galaxy.meetup.server.client.domain.ActivityRequestData;
 import com.galaxy.meetup.server.client.domain.ClientEmbedOptions;
 import com.galaxy.meetup.server.client.domain.FieldRequestOptions;
-import com.galaxy.meetup.server.client.domain.GenericJson;
 import com.galaxy.meetup.server.client.domain.SearchQuery;
 import com.galaxy.meetup.server.client.domain.UpdateFilter;
 import com.galaxy.meetup.server.client.domain.request.SearchQueryRequest;
 import com.galaxy.meetup.server.client.domain.response.SearchQueryResponse;
+import com.galaxy.meetup.server.client.v2.request.Request;
+import com.galaxy.meetup.server.client.v2.response.Response;
 
 /**
  * 
@@ -42,10 +43,10 @@ public class SearchActivitiesOperation extends PlusiOperation {
         mContinuationToken = s1;
     }
 
-    protected final void handleResponse(GenericJson genericjson)
+    protected final void handleResponse(Response response)
         throws IOException
     {
-        SearchQueryResponse searchqueryresponse = (SearchQueryResponse)genericjson;
+        SearchQueryResponse searchqueryresponse = (SearchQueryResponse)response;
         if(searchqueryresponse.results != null && searchqueryresponse.results.activityResults != null)
         {
             EsPostsData.updateStreamActivities(mContext, mAccount, SearchUtils.getSearchKey(mQuery), searchqueryresponse.results.activityResults.stream.update, "DEFAULT", mContinuationToken, searchqueryresponse.results.activityResults.shownActivitiesBlob, null);
@@ -56,7 +57,7 @@ public class SearchActivitiesOperation extends PlusiOperation {
         }
     }
 
-    protected final GenericJson populateRequest()
+    protected final Request populateRequest()
     {
         SearchQueryRequest searchqueryrequest = new SearchQueryRequest();
         searchqueryrequest.searchQuery = new SearchQuery();

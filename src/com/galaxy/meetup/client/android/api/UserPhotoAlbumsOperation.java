@@ -15,9 +15,10 @@ import com.galaxy.meetup.client.android.content.EsPhotosDataApiary;
 import com.galaxy.meetup.client.android.network.PlusiOperation;
 import com.galaxy.meetup.client.android.network.http.HttpOperation;
 import com.galaxy.meetup.client.android.service.EsSyncAdapterService;
-import com.galaxy.meetup.server.client.domain.GenericJson;
 import com.galaxy.meetup.server.client.domain.request.UserPhotoAlbumsRequest;
 import com.galaxy.meetup.server.client.domain.response.UserPhotoAlbumsResponse;
+import com.galaxy.meetup.server.client.v2.request.Request;
+import com.galaxy.meetup.server.client.v2.response.Response;
 
 /**
  * 
@@ -41,9 +42,9 @@ public class UserPhotoAlbumsOperation extends PlusiOperation {
         this(context, esaccount, null, s, intent, operationlistener);
     }
 
-    protected final void handleResponse(GenericJson genericjson) throws IOException
+    protected final void handleResponse(Response response) throws IOException
     {
-        UserPhotoAlbumsResponse userphotoalbumsresponse = (UserPhotoAlbumsResponse)genericjson;
+        UserPhotoAlbumsResponse userphotoalbumsresponse = (UserPhotoAlbumsResponse)response;
         onStartResultProcessing();
         String s;
         if(mOwnerId == null)
@@ -53,7 +54,7 @@ public class UserPhotoAlbumsOperation extends PlusiOperation {
         EsPhotosDataApiary.insertAlbums(mContext, mAccount, mSyncState, s, userphotoalbumsresponse.aggregateAlbum, userphotoalbumsresponse.nonAggregateAlbum);
     }
 
-    protected final GenericJson populateRequest()
+    protected final Request populateRequest()
     {
         UserPhotoAlbumsRequest userphotoalbumsrequest = new UserPhotoAlbumsRequest();
         boolean flag;

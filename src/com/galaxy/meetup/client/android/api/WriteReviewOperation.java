@@ -17,12 +17,13 @@ import com.galaxy.meetup.client.android.content.GooglePlaceReview;
 import com.galaxy.meetup.client.android.network.PlusiOperation;
 import com.galaxy.meetup.client.android.network.http.HttpOperation;
 import com.galaxy.meetup.server.client.domain.AbuseSignals;
-import com.galaxy.meetup.server.client.domain.GenericJson;
 import com.galaxy.meetup.server.client.domain.PriceLevelsProto;
 import com.galaxy.meetup.server.client.domain.PriceProto;
 import com.galaxy.meetup.server.client.domain.ZagatAspectRatingProto;
 import com.galaxy.meetup.server.client.domain.request.WritePlaceReviewRequest;
 import com.galaxy.meetup.server.client.domain.response.WritePlaceReviewResponse;
+import com.galaxy.meetup.server.client.v2.request.Request;
+import com.galaxy.meetup.server.client.v2.response.Response;
 
 /**
  * 
@@ -41,12 +42,12 @@ public class WriteReviewOperation extends PlusiOperation {
         cid = s;
     }
 
-    protected final void handleResponse(GenericJson genericjson)
+    protected final void handleResponse(Response response)
         throws IOException
     {
     }
 
-    protected final GenericJson populateRequest()
+    protected final Request populateRequest()
     {
         WritePlaceReviewRequest writeplacereviewrequest = new WritePlaceReviewRequest();
         writeplacereviewrequest.cid = cid;

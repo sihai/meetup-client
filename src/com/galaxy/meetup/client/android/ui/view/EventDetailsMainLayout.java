@@ -17,7 +17,8 @@ import com.galaxy.meetup.client.android.R;
 import com.galaxy.meetup.client.android.content.EsEventData;
 import com.galaxy.meetup.client.android.ui.fragments.EventActiveState;
 import com.galaxy.meetup.client.util.TextPaintUtils;
-import com.galaxy.meetup.server.client.domain.PlusEvent;
+import com.galaxy.meetup.server.client.util.StringUtil;
+import com.galaxy.meetup.server.client.v2.domain.Event;
 
 /**
  * 
@@ -104,28 +105,27 @@ public class EventDetailsMainLayout extends ExactLayout implements
         addView(mRsvpLabel);
     }
 
-    public final void bind(PlusEvent plusevent, EventActiveState eventactivestate, EventActionListener eventactionlistener)
+    public final void bind(Event plusevent, EventActiveState eventactivestate, EventActionListener eventactionlistener)
     {
         mListener = eventactionlistener;
-        long l;
         TextView textview;
         String s;
-        if(plusevent.displayContent != null && plusevent.displayContent.descriptionHtml != null && !TextUtils.isEmpty(plusevent.displayContent.descriptionHtml))
+        /*if(plusevent.displayContent != null && plusevent.displayContent.descriptionHtml != null && !TextUtils.isEmpty(plusevent.displayContent.descriptionHtml))
             mDescriptionTextView.setHtmlText(plusevent.displayContent.descriptionHtml, false);
-        else
-        if(plusevent.description != null && !TextUtils.isEmpty(plusevent.description))
-            mDescriptionTextView.setText(plusevent.description, false);
+        else*/
+        String description = plusevent.getDescription();
+        if(StringUtil.isBlank(description))
+            mDescriptionTextView.setText(description, false);
         else
             mDescriptionTextView.setText(null, false);
-        l = System.currentTimeMillis();
         textview = mRsvpLabel;
-        if(EsEventData.isEventOver(plusevent, l))
+        if(EsEventData.isEventOver(plusevent, System.currentTimeMillis()))
             s = sWentLabelText;
         else
             s = sGoingLabelText;
         textview.setText(s);
         mTimeRow.bind(plusevent);
-        if(plusevent.location != null || plusevent.hangoutInfo != null)
+        if(plusevent.getLocation() != null || plusevent.getHangoutInfo() != null)
         {
             mLocationRow.bind(plusevent, eventactionlistener);
             mLocationRow.setVisibility(0);

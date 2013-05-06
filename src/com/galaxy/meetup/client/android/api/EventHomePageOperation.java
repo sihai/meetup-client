@@ -13,9 +13,10 @@ import com.galaxy.meetup.client.android.content.EsAccount;
 import com.galaxy.meetup.client.android.content.EsEventData;
 import com.galaxy.meetup.client.android.network.PlusiOperation;
 import com.galaxy.meetup.client.android.network.http.HttpOperation;
-import com.galaxy.meetup.server.client.domain.GenericJson;
 import com.galaxy.meetup.server.client.domain.request.EventsHomeRequest;
 import com.galaxy.meetup.server.client.domain.response.EventsHomeResponse;
+import com.galaxy.meetup.server.client.v2.request.Request;
+import com.galaxy.meetup.server.client.v2.response.Response;
 
 /**
  * 
@@ -24,20 +25,19 @@ import com.galaxy.meetup.server.client.domain.response.EventsHomeResponse;
  */
 public class EventHomePageOperation extends PlusiOperation {
 
-	public EventHomePageOperation(Context context, EsAccount esaccount, Intent intent, HttpOperation.OperationListener operationlistener)
-    {
-        super(context, esaccount, "eventhome", intent, operationlistener, EventsHomeResponse.class);
-    }
+	public EventHomePageOperation(Context context, EsAccount esaccount,
+			Intent intent, HttpOperation.OperationListener operationlistener) {
+		super(context, esaccount, "event_home", intent, operationlistener, EventsHomeResponse.class);
+	}
 
-    protected final void handleResponse(GenericJson genericjson) throws IOException
-    {
-    	EventsHomeResponse r = (EventsHomeResponse)genericjson;
-        EsEventData.insertEventHomeList(mContext, mAccount, r.getUpcoming(),  r.getDeclinedUpcoming(),  r.getPast(),  r.getResolvedPerson());
-    }
+	protected final void handleResponse(Response response) throws IOException {
+		EventsHomeResponse r = (EventsHomeResponse) response;
+		EsEventData.insertEventHomeList(mContext, mAccount, r.getUpcoming(),
+				r.getDeclinedUpcoming(), r.getPast(), r.getResolvedPerson());
+	}
 
-    protected final GenericJson populateRequest()
-    {
-    	return new EventsHomeRequest();
-    }
+	protected final Request populateRequest() {
+		return new EventsHomeRequest();
+	}
     
 }

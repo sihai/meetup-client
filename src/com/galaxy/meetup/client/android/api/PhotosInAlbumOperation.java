@@ -18,10 +18,11 @@ import com.galaxy.meetup.client.android.network.http.HttpOperation;
 import com.galaxy.meetup.client.android.service.EsSyncAdapterService;
 import com.galaxy.meetup.server.client.domain.DataAlbum;
 import com.galaxy.meetup.server.client.domain.DataPhoto;
-import com.galaxy.meetup.server.client.domain.GenericJson;
 import com.galaxy.meetup.server.client.domain.RequestsPhotoOptions;
 import com.galaxy.meetup.server.client.domain.request.PhotosInAlbumRequest;
 import com.galaxy.meetup.server.client.domain.response.PhotosInAlbumResponse;
+import com.galaxy.meetup.server.client.v2.request.Request;
+import com.galaxy.meetup.server.client.v2.response.Response;
 
 /**
  * 
@@ -61,11 +62,11 @@ public class PhotosInAlbumOperation extends PlusiOperation {
         this(context, esaccount, null, s, s1, false, intent, operationlistener, s2);
     }
 
-    protected final void handleResponse(GenericJson genericjson) throws IOException
+    protected final void handleResponse(Response response) throws IOException
     {
         List list;
         DataAlbum dataalbum;
-        PhotosInAlbumResponse photosinalbumresponse = (PhotosInAlbumResponse)genericjson;
+        PhotosInAlbumResponse photosinalbumresponse = (PhotosInAlbumResponse)response;
         onStartResultProcessing();
         list = photosinalbumresponse.photo;
         dataalbum = photosinalbumresponse.album;
@@ -100,7 +101,7 @@ public class PhotosInAlbumOperation extends PlusiOperation {
         
     }
 
-    protected final GenericJson populateRequest()
+    protected final Request populateRequest()
     {
         PhotosInAlbumRequest photosinalbumrequest = new PhotosInAlbumRequest();
         RequestsPhotoOptions requestsphotooptions = new RequestsPhotoOptions();

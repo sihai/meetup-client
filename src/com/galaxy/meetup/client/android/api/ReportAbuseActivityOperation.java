@@ -16,9 +16,10 @@ import com.galaxy.meetup.client.android.content.EsPostsData;
 import com.galaxy.meetup.client.android.network.PlusiOperation;
 import com.galaxy.meetup.client.android.network.http.HttpOperation;
 import com.galaxy.meetup.server.client.domain.DataAbuseReport;
-import com.galaxy.meetup.server.client.domain.GenericJson;
 import com.galaxy.meetup.server.client.domain.request.ReportAbuseActivityRequest;
 import com.galaxy.meetup.server.client.domain.response.ReportAbuseActivityResponse;
+import com.galaxy.meetup.server.client.v2.request.Request;
+import com.galaxy.meetup.server.client.v2.response.Response;
 
 /**
  * 
@@ -57,7 +58,7 @@ public class ReportAbuseActivityOperation extends PlusiOperation {
         this(context, esaccount, intent, operationlistener, s, null, s1, flag, "SPAM", flag1);
     }
 
-    protected final void handleResponse(GenericJson genericjson) throws IOException
+    protected final void handleResponse(Response response) throws IOException
     {
         if(mCommentId != null) {
         	if(mDeleteComment)
@@ -70,7 +71,7 @@ public class ReportAbuseActivityOperation extends PlusiOperation {
         }
     }
 
-    protected final GenericJson populateRequest()
+    protected final Request populateRequest()
     {
         ReportAbuseActivityRequest reportabuseactivityrequest = new ReportAbuseActivityRequest();
         ArrayList arraylist = new ArrayList(1);

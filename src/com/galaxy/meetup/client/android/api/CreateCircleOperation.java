@@ -13,9 +13,10 @@ import com.galaxy.meetup.client.android.content.EsAccount;
 import com.galaxy.meetup.client.android.content.EsPeopleData;
 import com.galaxy.meetup.client.android.network.PlusiOperation;
 import com.galaxy.meetup.client.android.network.http.HttpOperation;
-import com.galaxy.meetup.server.client.domain.GenericJson;
 import com.galaxy.meetup.server.client.domain.request.CreateCircleRequest;
 import com.galaxy.meetup.server.client.domain.response.CreateCircleResponse;
+import com.galaxy.meetup.server.client.v2.request.Request;
+import com.galaxy.meetup.server.client.v2.response.Response;
 
 /**
  * 
@@ -34,14 +35,14 @@ public class CreateCircleOperation extends PlusiOperation {
         mJustFollowing = flag;
     }
 
-    protected final void handleResponse(GenericJson genericjson) throws IOException
+    protected final void handleResponse(Response response) throws IOException
     {
-        CreateCircleResponse createcircleresponse = (CreateCircleResponse)genericjson;
+        CreateCircleResponse createcircleresponse = (CreateCircleResponse)response;
         EsPeopleData.insertNewCircle(mContext, getAccount(), createcircleresponse.circleId.focusId, mCircleName, createcircleresponse.nameSortKey, mJustFollowing);
     }
 
     @Override
-    protected final GenericJson populateRequest()
+    protected final Request populateRequest()
     {
         CreateCircleRequest createcirclerequest = new CreateCircleRequest();
         createcirclerequest.name = mCircleName;

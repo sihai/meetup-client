@@ -17,9 +17,10 @@ import com.galaxy.meetup.client.android.network.http.ApiaryHttpRequestConfigurat
 import com.galaxy.meetup.client.android.network.http.HttpOperation;
 import com.galaxy.meetup.client.android.network.http.MeetupRequest;
 import com.galaxy.meetup.client.util.EsLog;
-import com.galaxy.meetup.server.client.domain.GenericJson;
 import com.galaxy.meetup.server.client.domain.request.UploadMediaRequest;
 import com.galaxy.meetup.server.client.domain.response.UploadMediaResponse;
+import com.galaxy.meetup.server.client.v2.request.Request;
+import com.galaxy.meetup.server.client.v2.response.Response;
 
 /**
  * 
@@ -69,10 +70,10 @@ public class UploadMediaOperation extends PlusiOperation {
         mTopOffset = integer;
     }
 
-    protected final MeetupRequest createHttpEntity(GenericJson genericjson)
+    protected final MeetupRequest createHttpEntity(Request request)
     {
-        UploadMediaRequest uploadmediarequest = (UploadMediaRequest)genericjson;
-        return new MeetupRequest(uploadmediarequest, mPayloadData);
+        UploadMediaRequest uploadmediarequest = (UploadMediaRequest)request;
+        return new MeetupRequest(mAccount, uploadmediarequest, mPayloadData);
     }
 
     public final UploadMediaResponse getUploadMediaResponse()
@@ -80,10 +81,10 @@ public class UploadMediaOperation extends PlusiOperation {
         return mResponse;
     }
 
-    protected final void handleResponse(GenericJson genericjson) throws IOException
+    protected final void handleResponse(Response response) throws IOException
     {
         UploadMediaResponse uploadmediaresponse;
-        uploadmediaresponse = (UploadMediaResponse)genericjson;
+        uploadmediaresponse = (UploadMediaResponse)response;
         onStartResultProcessing();
         mResponse = uploadmediaresponse;
         if(!uploadmediaresponse.setProfilePhotoSucceeded.booleanValue()) {
@@ -103,7 +104,7 @@ public class UploadMediaOperation extends PlusiOperation {
         }
     }
 
-    protected final GenericJson populateRequest()
+    protected final Request populateRequest()
     {
         UploadMediaRequest uploadmediarequest = new UploadMediaRequest();
         uploadmediarequest.ownerId = mOwnerId;

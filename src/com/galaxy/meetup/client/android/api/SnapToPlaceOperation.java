@@ -18,10 +18,11 @@ import com.galaxy.meetup.client.android.content.EsPostsData;
 import com.galaxy.meetup.client.android.network.PlusiOperation;
 import com.galaxy.meetup.client.android.network.http.HttpOperation;
 import com.galaxy.meetup.client.util.PrimitiveUtils;
-import com.galaxy.meetup.server.client.domain.GenericJson;
 import com.galaxy.meetup.server.client.domain.LocationResult;
 import com.galaxy.meetup.server.client.domain.request.SnapToPlaceRequest;
 import com.galaxy.meetup.server.client.domain.response.SnapToPlaceResponse;
+import com.galaxy.meetup.server.client.v2.request.Request;
+import com.galaxy.meetup.server.client.v2.response.Response;
 
 /**
  * 
@@ -62,12 +63,11 @@ public class SnapToPlaceOperation extends PlusiOperation {
         return mPreciseLocation;
     }
 
-    protected final void handleResponse(GenericJson genericjson) throws IOException {
-        DbLocation dblocation;
+    protected final void handleResponse(Response response) throws IOException {
+        DbLocation dblocation = null;
         ArrayList arraylist;
         int i = 0;
-        dblocation = null;
-        SnapToPlaceResponse snaptoplaceresponse = (SnapToPlaceResponse)genericjson;
+        SnapToPlaceResponse snaptoplaceresponse = (SnapToPlaceResponse)response;
         if(snaptoplaceresponse.preciseLocation != null)
             mPreciseLocation = new DbLocation(1, snaptoplaceresponse.preciseLocation.location);
         if(snaptoplaceresponse.cityLocation != null)
@@ -153,7 +153,7 @@ public class SnapToPlaceOperation extends PlusiOperation {
         return flag;
     }
 
-    protected final GenericJson populateRequest()
+    protected final Request populateRequest()
     {
         SnapToPlaceRequest snaptoplacerequest = new SnapToPlaceRequest();
         Location location = mLocationQuery.getLocation();

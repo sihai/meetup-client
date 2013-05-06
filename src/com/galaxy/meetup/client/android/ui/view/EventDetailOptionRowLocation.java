@@ -13,7 +13,8 @@ import android.view.View.OnClickListener;
 import android.widget.ImageView;
 
 import com.galaxy.meetup.client.android.R;
-import com.galaxy.meetup.server.client.domain.PlusEvent;
+import com.galaxy.meetup.server.client.v2.domain.Event;
+import com.galaxy.meetup.server.client.v2.domain.Location;
 
 /**
  * 
@@ -51,36 +52,23 @@ public class EventDetailOptionRowLocation extends EventDetailsOptionRowLayout
         super(context, attributeset, i);
     }
 
-    public final void bind(PlusEvent plusevent, EventActionListener eventactionlistener)
+    public final void bind(Event event, EventActionListener eventactionlistener)
     {
         boolean flag;
-        if(plusevent.location != null)
-            flag = true;
+        Location location = event.getLocation();
+        if(null != location)
+        	mLocation = true;
         else
-            flag = false;
-        mLocation = flag;
+        	mLocation = false;
         mListener = eventactionlistener;
-        if(mLocation)
-        {
+        if(mLocation) {
             mTypeIcon.setImageDrawable(sLocationIcon);
             mLaunchIcon.setImageDrawable(sDirectionIcon);
-            String s1;
-            String s2;
-            if(plusevent.location.address != null)
-            {
-                s1 = plusevent.location.description;
-                s2 = plusevent.location.address.name;
-            } else
-            {
-                s1 = plusevent.location.name;
-                s2 = null;
-            }
-            super.bind(s1, s2, mTypeIcon, mLaunchIcon);
-        } else
-        {
+            super.bind(location.buildAddress(), (String)null, mTypeIcon, mLaunchIcon);
+        } else {
             mTypeIcon.setImageDrawable(sHangoutIcon);
             String s = sHangoutbeforeText;
-            long i = System.currentTimeMillis() - plusevent.startTime.timeMs.longValue();
+            long i = System.currentTimeMillis() - event.getStartTime().getTimeMs().longValue();
             ImageView imageview = null;
             if(i > 0)
             {

@@ -46,17 +46,18 @@ import com.galaxy.meetup.client.android.service.EsSyncAdapterService;
 import com.galaxy.meetup.client.util.AccountsUtil;
 import com.galaxy.meetup.client.util.EsLog;
 import com.galaxy.meetup.client.util.NotificationUtils;
-import com.galaxy.meetup.client.util.PrimitiveUtils;
 import com.galaxy.meetup.server.client.domain.DataPhoto;
 import com.galaxy.meetup.server.client.domain.EmbedsPerson;
 import com.galaxy.meetup.server.client.domain.GenericJson;
 import com.galaxy.meetup.server.client.domain.Invitee;
 import com.galaxy.meetup.server.client.domain.InviteeSummary;
 import com.galaxy.meetup.server.client.domain.PlusEvent;
-import com.galaxy.meetup.server.client.domain.Theme;
-import com.galaxy.meetup.server.client.domain.ThemeImage;
 import com.galaxy.meetup.server.client.domain.Update;
 import com.galaxy.meetup.server.client.util.JsonUtil;
+import com.galaxy.meetup.server.client.v2.domain.Event;
+import com.galaxy.meetup.server.client.v2.domain.EventOptions;
+import com.galaxy.meetup.server.client.v2.domain.Theme;
+import com.galaxy.meetup.server.client.v2.domain.ThemeImage;
 
 /**
  * 
@@ -76,6 +77,21 @@ public class EsEventData {
     private static File sEventThemePlaceholderDir;
     private static Object sEventThemesLock = new Object();
 
+    public static boolean canAddPhotos(Event event, String userId) {
+        boolean flag = false;
+        if(event != null) {
+        	EventOptions options = event.getOptions();
+        	if(!TextUtils.equals(userId, event.getPublisher()) && null != options)
+            {
+                flag = options.isOpenPhotoAcl();
+            } else {
+            	flag = true;
+            }
+        }
+        return flag;
+        
+    }
+    
     public static boolean canAddPhotos(PlusEvent plusevent, String s) {
         boolean flag = false;
         if(plusevent != null) {
@@ -92,6 +108,20 @@ public class EsEventData {
         return flag;
         
     }
+    
+	public static boolean canInviteOthers(Event event, EsAccount esaccount) {
+		boolean flag = true;
+		if (event != null && esaccount != null) {
+			if (!TextUtils.equals(event.getPublisher(), esaccount.getGaiaId())) {
+				// TODO
+				flag = true;
+			}
+		} else {
+			flag = false;
+		}
+
+		return flag;
+	}
     
     public static boolean canInviteOthers(PlusEvent plusevent, EsAccount esaccount)
     {
@@ -118,6 +148,12 @@ public class EsEventData {
         return flag;
     }
     
+    public static boolean canRsvp(Event event)
+    {
+        // FIXME
+    	return true;
+    }
+    
     public static boolean canRsvp(PlusEvent plusevent)
     {
         boolean flag;
@@ -128,6 +164,11 @@ public class EsEventData {
         return flag;
     }
 
+    public static boolean canViewerAddPhotos(Event plusevent) {
+        // FIXME
+    	return true;
+    }
+    
     public static boolean canViewerAddPhotos(PlusEvent plusevent)
     {
         boolean flag;
@@ -187,6 +228,29 @@ public class EsEventData {
         enableInstantShareInternal(context, null, null, null, null, 0L, 0L);
     }
 
+    public static void enableInstantShare(Context context, boolean flag, Event plusevent)
+    {
+    	if(EsLog.isLoggable("EsEventData", 4))
+            Log.i("EsEventData", (new StringBuilder("#enableInstantShare; event: ")).append(plusevent.get_id()).toString());
+        AlarmManager alarmmanager = (AlarmManager)context.getSystemService("alarm");
+        android.app.PendingIntent pendingintent = Intents.getEventFinishedIntent(context, plusevent.get_id());
+        long l = getEventEndTime(plusevent);
+        long l1 = System.currentTimeMillis();
+        alarmmanager.cancel(pendingintent);
+        if(flag && 5000L + l1 < l)
+        {
+            if(EsLog.isLoggable("EsEventData", 4))
+                Log.i("EsEventData", (new StringBuilder("#enableInstantShare; start IS; now: ")).append(l1).append(", end: ").append(l).append(", wake in: ").append(l - l1).toString());
+            enableInstantShareInternal(context, EsAccountsData.getActiveAccount(context), plusevent.get_id(), plusevent.getPublisher(), plusevent.getName(), l1, l);
+            alarmmanager.set(0, l, pendingintent);
+        } else
+        {
+            if(EsLog.isLoggable("EsEventData", 4))
+                Log.i("EsEventData", (new StringBuilder("#enableInstantShare; event over; now: ")).append(l1).append(", end: ").append(l).toString());
+            disableInstantShare(context);
+        }
+    }
+    
     public static void enableInstantShare(Context context, boolean flag, PlusEvent plusevent)
     {
         if(EsLog.isLoggable("EsEventData", 4))
@@ -210,12 +274,10 @@ public class EsEventData {
         }
     }
     
-    public static Cursor getMyCurrentEvents(Context context, EsAccount esaccount, long l, String as[])
-    {
+    public static Cursor getMyCurrentEvents(Context context, EsAccount esaccount, long now, String as[]) {
         SQLiteDatabase sqlitedatabase = EsDatabaseHelper.getDatabaseHelper(context, esaccount).getReadableDatabase();
-        String as1[] = new String[1];
-        as1[0] = Long.toString(l);
-        return sqlitedatabase.query("events", as, "mine = 1 AND ? < end_time AND source = 1", as1, null, null, "end_time ASC");
+        String[] parameters = new String[]{Long.toString(now)};
+        return sqlitedatabase.query("events", as, "mine = 1 AND ? < end_time", parameters, null, null, "end_time ASC");
     }
     
     public static InviteeSummary getInviteeSummary(PlusEvent plusevent, String s)
@@ -287,6 +349,23 @@ public class EsEventData {
         }, null, null, null);
     }
     
+    public static int getRsvpStatus(Event plusevent)
+    {
+        String s = getRsvpType(plusevent);
+        int i;
+        if("CHECKIN".equals(s) || "ATTENDING".equals(s))
+            i = 1;
+        else
+        if("MAYBE".equals(s))
+            i = 2;
+        else
+        if("NOT_ATTENDING".equals(s) || "NOT_ATTENDING_AND_REMOVE".equals(s))
+            i = 3;
+        else
+            i = 0;
+        return i;
+    }
+    
     public static int getRsvpStatus(PlusEvent plusevent)
     {
         String s = getRsvpType(plusevent);
@@ -304,6 +383,12 @@ public class EsEventData {
         return i;
     }
 
+    public static String getRsvpType(Event plusevent)
+    {
+        // FIXME
+        return "NOT_RESPONDED";
+    }
+    
     public static String getRsvpType(PlusEvent plusevent)
     {
         String s;
@@ -334,13 +419,13 @@ public class EsEventData {
         return s;
     }
     
-    public static Cursor getEventTheme(Context context, EsAccount esaccount, int i, String as[])
+    public static Cursor getEventTheme(Context context, EsAccount esaccount, Long eventThemeId, String as[])
     {
         SQLiteDatabase sqlitedatabase = EsDatabaseHelper.getDatabaseHelper(context, esaccount).getReadableDatabase();
         String s;
         String as1[];
         Cursor cursor;
-        if(i == -1)
+        if(eventThemeId.equals(-1L))
         {
             s = "is_default!=0";
             as1 = null;
@@ -348,7 +433,7 @@ public class EsEventData {
         {
             s = "theme_id=?";
             as1 = new String[1];
-            as1[0] = Integer.toString(i);
+            as1[0] = Long.toString(eventThemeId);
         }
         cursor = sqlitedatabase.query("event_themes", as, s, as1, null, null, "theme_id");
         if(cursor.getCount() == 0)
@@ -387,6 +472,14 @@ public class EsEventData {
         return cursor;
     }
     
+    public static boolean isEventOver(Event event, long time)
+    {
+        if(time > getEventEndTime(event))
+            return true;
+        else
+            return false;
+    }
+    
     public static boolean isEventOver(PlusEvent plusevent, long l)
     {
         boolean flag;
@@ -397,9 +490,23 @@ public class EsEventData {
         return flag;
     }
     
+    public static boolean isViewerCheckedIn(Event event)
+    {
+        return "CHECKIN".equals(getRsvpType(event));
+    }
+    
     public static boolean isViewerCheckedIn(PlusEvent plusevent)
     {
         return "CHECKIN".equals(getRsvpType(plusevent));
+    }
+    
+    public static boolean isEventHangout(Event event)
+    {
+        EventOptions options = event.getOptions();
+        if(null != options && options.isHangout())
+        	return true;
+        else
+            return false;
     }
     
     public static boolean isEventHangout(PlusEvent plusevent)
@@ -410,6 +517,16 @@ public class EsEventData {
         else
             flag = false;
         return flag;
+    }
+    
+    public static long getEventEndTime(Event event)
+    {
+        long l;
+        if(event.getEndTime() == null || event.getEndTime().getTimeMs() == null)
+            l = 0x6ddd00L + event.getStartTime().getTimeMs().longValue();
+        else
+            l = event.getEndTime().getTimeMs().longValue();
+        return l;
     }
     
     public static long getEventEndTime(PlusEvent plusevent)
@@ -425,10 +542,10 @@ public class EsEventData {
     public static ThemeImage getThemeImage(Theme theme) {
         ThemeImage themeimage = null;
         if(theme != null) {
-            List list = theme.getImage();
+            List imageList = theme.getImageList();
             themeimage = null;
-            if(list != null) {
-                Iterator iterator = theme.getImage().iterator();
+            if(imageList != null) {
+                Iterator iterator = imageList.iterator();
                 do {
                     if(!iterator.hasNext())
                         break;
@@ -489,6 +606,23 @@ public class EsEventData {
             });
     }
     
+    public static long timeUntilInstantShareAllowed(Event event, String userId, long now)
+    {
+        long l2;
+        if(isInstantShareAllowed(event, userId, now))
+        {
+            l2 = 0L;
+        } else
+        {
+            long l1 = getEventEndTime(event);
+            if(!canAddPhotos(event, userId) || now > l1)
+                l2 = -1L;
+            else
+                l2 = event.getStartTime().getTimeMs().longValue() - 0xa4cb80L - now;
+        }
+        return l2;
+    }
+    
     public static long timeUntilInstantShareAllowed(PlusEvent plusevent, String s, long l)
     {
         long l2;
@@ -544,7 +678,7 @@ public class EsEventData {
     
     public static void insertEventHomeList(Context context, EsAccount esaccount, List list, List list1, List list2, List list3)
     {
-        SQLiteDatabase sqlitedatabase;
+        /*SQLiteDatabase sqlitedatabase;
         ArrayList arraylist;
         String s;
         Set set;
@@ -589,56 +723,28 @@ public class EsEventData {
 	        context.getContentResolver().notifyChange(EsProvider.EVENTS_ALL_URI, null);
         } finally {
         	sqlitedatabase.endTransaction();
-        }
+        }*/
     }
     
-    private static void insertEventListInTransaction(Context context, SQLiteDatabase sqlitedatabase, String s, List list, Set set, int ai[], List list1, List list2)
-    {
-        if(list != null)
-        {
-            Iterator iterator = list.iterator();
-            while(iterator.hasNext()) 
-            {
-                PlusEvent plusevent = (PlusEvent)iterator.next();
-                if(!isMine(plusevent, s))
-                {
-                    ai[4] = 1 + ai[4];
-                } else
-                {
-                    boolean flag = set.remove(plusevent.getId());
-                    int i;
-                    if(insertEventInTransaction(context, s, sqlitedatabase, plusevent.getId(), null, plusevent, null, list1, null, list2))
-                    {
-                        if(flag)
-                            i = 1;
-                        else
-                            i = 0;
-                    } else
-                    {
-                        i = 2;
-                    }
-                    ai[i] = 1 + ai[i];
-                }
-            }
-        }
+    private static boolean isMine(Event event, String userId) {
+    	return TextUtils.equals(event.getPublisher(), userId);
     }
     
-    private static boolean isMine(PlusEvent plusevent, String s) {
-    	
-    	boolean isMine = s.equals(plusevent.creatorObfuscatedId) || (plusevent.viewerInfo != null && plusevent.viewerInfo.rsvpType != null);
-    	if(isMine) {
-    		return true;
-    	}
-    	
-    	List<InviteeSummary> list = plusevent.inviteeSummary;
-    	if(null != list) {
-    		for(InviteeSummary inviteesummary : list) {
-    			if(null != inviteesummary.setByViewer && inviteesummary.setByViewer.booleanValue()) {
-    				return true;
-    			}
-    		}
-    	}
-    	return true;
+    /**
+     * 
+     * @param context
+     * @param esaccount
+     * @param event
+     */
+    public static void insertEvent(Context context, EsAccount esaccount, Event event) {
+    	SQLiteDatabase sqlitedatabase = EsDatabaseHelper.getDatabaseHelper(context, esaccount).getWritableDatabase();
+    	try {
+        	sqlitedatabase.beginTransaction();
+        	insertEventInTransaction(context, esaccount.getGaiaId(), sqlitedatabase, event);
+        	context.getContentResolver().notifyChange(EsProvider.EVENTS_ALL_URI, null);
+        } finally {
+        	sqlitedatabase.endTransaction();
+        }
     }
     
     public static void insertEvent(Context context, EsAccount esaccount, String s, PlusEvent plusevent, Update update)
@@ -1005,7 +1111,7 @@ public class EsEventData {
     
     public static String setRsvpType(Context context, EsAccount esaccount, String s, String s1) {
     	
-        boolean flag;
+        /*boolean flag;
         String s2;
         Cursor cursor = null;
         PlusEvent plusevent = null;
@@ -1105,7 +1211,74 @@ public class EsEventData {
         	if(null != cursor) {
         		cursor.close();
         	}
-        }
+        }*/
+    	
+    	return null;
+    }
+    
+    /**
+     * 
+     * @param context
+     * @param userId
+     * @param sqlitedatabase
+     * @param event
+     * @return
+     */
+    static  boolean insertEventInTransaction(Context context, String userId, SQLiteDatabase sqlitedatabase, Event event) {
+    	
+    	boolean isNew = true;
+    	Cursor cursor = null;
+    	
+    	try {
+    		int fingerPrint = 0;
+    		int source = 0;
+    		int canComment = 0;
+    		cursor = sqlitedatabase.query("events", new String[] {"fingerprint", "source", "can_comment"}, "event_id=?", 
+    				new String[] {event.get_id()}, null, null, null);
+    		if(cursor.moveToFirst()) {
+    			isNew = false;
+    			fingerPrint = cursor.getInt(0);
+    			source = cursor.getInt(1);
+    			canComment = cursor.getInt(2);
+    		}
+    		
+    		// 
+    		byte[] bytes = JsonUtil.toByteArray(event);
+    		int newfingerPrint = Arrays.hashCode(bytes);
+    		if(newfingerPrint != fingerPrint) {
+    			ContentValues contentvalues = new ContentValues();
+    			contentvalues.put("refresh_timestamp", Long.valueOf(System.currentTimeMillis()));
+                contentvalues.put("name", event.getName());
+                contentvalues.put("event_data", bytes);
+                contentvalues.put("mine", Boolean.valueOf(isMine(event, userId)));
+                // FIXME
+                contentvalues.put("can_invite_people", Boolean.valueOf(true));
+                contentvalues.put("can_post_photos", Boolean.valueOf(true));
+                contentvalues.put("can_comment", Boolean.valueOf(true));
+                contentvalues.put("start_time", Long.valueOf(event.getStartTime().getTimeMs().longValue()));
+                contentvalues.put("end_time", Long.valueOf(event.getEndTime().getTimeMs().longValue()));
+                contentvalues.put("fingerprint", Integer.valueOf(newfingerPrint));
+                
+				if (isNew) {
+					contentvalues.put("event_id", event.get_id());
+					sqlitedatabase.insert("events", null, contentvalues);
+				} else {
+					sqlitedatabase.update("events", contentvalues, "event_id=?", new String[] { event.get_id() });
+				}
+    		}
+    	} finally {
+    		if(null != cursor) {
+    			cursor.close();
+    		}
+    	}
+    	
+    	insertReferencedPeopleInTransaction(context, event, sqlitedatabase);
+    	
+    	return true;
+    }
+    
+    private static void insertReferencedPeopleInTransaction(Context context, Event event, SQLiteDatabase sqlitedatabase) {
+        String eventId = event.get_id();
     }
     
     private static boolean insertEventInTransaction(Context context, String s, SQLiteDatabase sqlitedatabase, String s1, String s2, PlusEvent plusevent, Update update, List list, 
@@ -1117,7 +1290,7 @@ public class EsEventData {
     static boolean insertEventInTransaction(Context context, String s, SQLiteDatabase sqlitedatabase, String s1, String s2, PlusEvent plusevent, Update update, Long long1, 
             List list, int i)
     {
-        long l;
+        /*long l;
         boolean flag;
         Cursor cursor;
         l = System.currentTimeMillis();
@@ -1249,7 +1422,9 @@ public class EsEventData {
         insertReferencedPeopleInTransaction(context, plusevent, list, sqlitedatabase);
         flag7 = flag6;
         
-        return flag7;
+        return flag7;*/
+    	
+    	return true;
         
     }
     
@@ -1433,10 +1608,16 @@ public class EsEventData {
         
     }
     
-    public static boolean isInstantShareAllowed(PlusEvent plusevent, String s, long l)
+    public static boolean isInstantShareAllowed(Event event, String userId, long now)
+    {
+        // FIXME
+    	return true;
+    }
+    
+    public static boolean isInstantShareAllowed(PlusEvent plusevent, String userId, long now)
     {
         boolean flag = true;
-        boolean flag1 = canAddPhotos(plusevent, s);
+        boolean flag1 = canAddPhotos(plusevent, userId);
         boolean flag2;
         long l1;
         long l2;
@@ -1446,7 +1627,7 @@ public class EsEventData {
             flag2 = false;
         l1 = plusevent.getStartTime().getTimeMs().longValue() - 0xa4cb80L;
         l2 = getEventEndTime(plusevent) - 5000L;
-        if(!flag1 || !flag2 || l <= l1 || l >= l2)
+        if(!flag1 || !flag2 || now <= l1 || now >= l2)
             flag = false;
         return flag;
     }

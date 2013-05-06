@@ -19,6 +19,8 @@ import com.galaxy.meetup.client.util.PlatformContractUtils;
 import com.galaxy.meetup.client.util.Property;
 import com.galaxy.meetup.server.client.domain.GenericJson;
 import com.galaxy.meetup.server.client.domain.Plusones;
+import com.galaxy.meetup.server.client.v2.request.Request;
+import com.galaxy.meetup.server.client.v2.response.Response;
 
 /**
  * 
@@ -44,14 +46,14 @@ public class PlusOnesOperation extends ApiaryOperation {
         return mPlusones;
     }
 
-    protected final void handleResponse(GenericJson genericjson) throws IOException
+    protected final void handleResponse(Response response) throws IOException
     {
-        mPlusones = (Plusones)genericjson;
+        /*mPlusones = (Plusones)response;*/
     }
 
-    protected final GenericJson populateRequest()
+    protected final Request populateRequest()
     {
-        return new GenericJson();
+        return new Request();
     }
 
 }

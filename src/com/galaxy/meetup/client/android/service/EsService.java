@@ -150,7 +150,6 @@ import com.galaxy.meetup.server.client.domain.CommonContent;
 import com.galaxy.meetup.server.client.domain.DataImage;
 import com.galaxy.meetup.server.client.domain.DataPhoto;
 import com.galaxy.meetup.server.client.domain.GoogleReviewProto;
-import com.galaxy.meetup.server.client.domain.PlusEvent;
 import com.galaxy.meetup.server.client.domain.ScrapbookInfo;
 import com.galaxy.meetup.server.client.domain.ScrapbookInfoFullBleedPhoto;
 import com.galaxy.meetup.server.client.domain.ScrapbookInfoOffset;
@@ -159,6 +158,7 @@ import com.galaxy.meetup.server.client.domain.request.MobileOutOfBoxRequest;
 import com.galaxy.meetup.server.client.domain.response.MobileOutOfBoxResponse;
 import com.galaxy.meetup.server.client.domain.response.UploadMediaResponse;
 import com.galaxy.meetup.server.client.util.JsonUtil;
+import com.galaxy.meetup.server.client.v2.domain.Event;
 
 /**
  * 
@@ -167,6 +167,9 @@ import com.galaxy.meetup.server.client.util.JsonUtil;
  */
 public class EsService extends Service implements ServiceThread.IntentProcessor {
 
+	static final int OP_CODE_CREATE_EVENT = 903;
+	static final int OP_CODE_UPDATE_EVENT = 904;
+	
 	private static Map<Integer, AccountSettingsData> sAccountSettingsResponses = Collections.synchronizedMap(new ResultsLinkedHashMap<Integer, AccountSettingsData>());
     private static volatile EsAccount sActiveAccount;
     private static BlockUserOperation.Factory sBlockUserOperationFactory;
@@ -645,23 +648,23 @@ public class EsService extends Service implements ServiceThread.IntentProcessor 
         return startCommand(context, intent);
     }
 	
-	public static int createEvent(Context context, EsAccount esaccount, PlusEvent plusevent, AudienceData audiencedata, String s)
+	public static int createEvent(Context context, EsAccount esaccount, Event event, AudienceData audiencedata, String s)
     {
         Intent intent = sIntentPool.get(context, EsService.class);
-        intent.putExtra("op", 903);
+        intent.putExtra("op", OP_CODE_CREATE_EVENT);
         intent.putExtra("acc", esaccount);
-        intent.putExtra("event", JsonUtil.toByteArray(plusevent));
+        intent.putExtra("event", JsonUtil.toByteArray(event));
         intent.putExtra("audience", audiencedata);
         intent.putExtra("external_id", s);
         return startCommand(context, intent);
     }
 	
-	public static int updateEvent(Context context, EsAccount esaccount, PlusEvent plusevent)
+	public static int updateEvent(Context context, EsAccount esaccount, Event event)
     {
         Intent intent = sIntentPool.get(context, EsService.class);
-        intent.putExtra("op", 904);
+        intent.putExtra("op", OP_CODE_UPDATE_EVENT);
         intent.putExtra("acc", esaccount);
-        intent.putExtra("event", JsonUtil.toByteArray(plusevent));
+        intent.putExtra("event", JsonUtil.toByteArray(event));
         return startCommand(context, intent);
     }
 	
@@ -1265,6 +1268,8 @@ public class EsService extends Service implements ServiceThread.IntentProcessor 
     }
     
     public final void onIntentProcessed(Intent intent, ServiceResult serviceresult, Object obj) {
+    	
+    	Iterator it = sListeners.iterator();
     	
         int op = intent.getIntExtra("op", -1);
         int rid = intent.getIntExtra("rid", -1);
@@ -1968,15 +1973,13 @@ public class EsService extends Service implements ServiceThread.IntentProcessor 
             while(iterator12.hasNext()) 
                 ((EsServiceListener)iterator12.next()).onSendEventRsvpComplete(rid, serviceresult);
         	break;
-        case 903:
-        	Iterator iterator11 = sListeners.iterator();
-            while(iterator11.hasNext()) 
-                ((EsServiceListener)iterator11.next()).onCreateEventComplete(rid, serviceresult);
+        case OP_CODE_CREATE_EVENT:
+            while(it.hasNext()) 
+                ((EsServiceListener)it.next()).onCreateEventComplete(rid, serviceresult);
         	break;
-        case 904:
-        	Iterator iterator10 = sListeners.iterator();
-            while(iterator10.hasNext()) 
-                ((EsServiceListener)iterator10.next()).onUpdateEventComplete(rid, serviceresult);
+        case OP_CODE_UPDATE_EVENT:
+            while(it.hasNext()) 
+                ((EsServiceListener)it.next()).onUpdateEventComplete(rid, serviceresult);
         	break;
         case 906:
         	Iterator iterator8 = sListeners.iterator();
@@ -3583,20 +3586,20 @@ public class EsService extends Service implements ServiceThread.IntentProcessor 
 	        })).start();
 			flag = true;
 			break;
-		case 903:
+		case OP_CODE_CREATE_EVENT:
 			CreateEventOperation createeventoperation = new CreateEventOperation(
 					context,
 					account,
-					(PlusEvent) JsonUtil.fromByteArray(intent.getByteArrayExtra("event"), PlusEvent.class),
+					(Event) JsonUtil.fromByteArray(intent.getByteArrayExtra("event"), Event.class),
 					(AudienceData) intent.getParcelableExtra("audience"),
 					intent.getStringExtra("external_id"), intent,
 					mOperationListener);
 			createeventoperation.startThreaded();
 			flag = true;
 			break;
-		case 904:
-			PlusEvent plusevent = (PlusEvent)JsonUtil.fromByteArray(intent.getByteArrayExtra("event"), PlusEvent.class);
-	        UpdateEventOperation updateeventoperation = new UpdateEventOperation(context, account, plusevent, intent, mOperationListener);
+		case OP_CODE_UPDATE_EVENT:
+			Event event = (Event)JsonUtil.fromByteArray(intent.getByteArrayExtra("event"), Event.class);
+	        UpdateEventOperation updateeventoperation = new UpdateEventOperation(context, account, event, intent, mOperationListener);
 	        updateeventoperation.startThreaded();
 			flag = true;
 			break;

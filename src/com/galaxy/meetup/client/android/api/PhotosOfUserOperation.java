@@ -16,10 +16,11 @@ import com.galaxy.meetup.client.android.network.PlusiOperation;
 import com.galaxy.meetup.client.android.network.http.HttpOperation;
 import com.galaxy.meetup.client.android.service.EsSyncAdapterService;
 import com.galaxy.meetup.server.client.domain.DataPhoto;
-import com.galaxy.meetup.server.client.domain.GenericJson;
 import com.galaxy.meetup.server.client.domain.RequestsPhotoOptions;
 import com.galaxy.meetup.server.client.domain.request.PhotosOfUserRequest;
 import com.galaxy.meetup.server.client.domain.response.PhotosOfUserResponse;
+import com.galaxy.meetup.server.client.v2.request.Request;
+import com.galaxy.meetup.server.client.v2.response.Response;
 
 /**
  * 
@@ -45,9 +46,9 @@ public class PhotosOfUserOperation extends PlusiOperation {
         this(context, esaccount, null, s, false, intent, operationlistener);
     }
 
-    protected final void handleResponse(GenericJson genericjson) throws IOException
+    protected final void handleResponse(Response response) throws IOException
     {
-        PhotosOfUserResponse photosofuserresponse = (PhotosOfUserResponse)genericjson;
+        PhotosOfUserResponse photosofuserresponse = (PhotosOfUserResponse)response;
         onStartResultProcessing();
         if(TextUtils.equals(mUserId, mAccount.getGaiaId()))
         {
@@ -65,7 +66,7 @@ public class PhotosOfUserOperation extends PlusiOperation {
             EsPhotosDataApiary.insertUserPhotos(mContext, mAccount, mSyncState, photosofuserresponse.approvedPhoto, photosofuserresponse.unapprovedPhoto, mUserId);
     }
 
-    protected final GenericJson populateRequest()
+    protected final Request populateRequest()
     {
         PhotosOfUserRequest photosofuserrequest = new PhotosOfUserRequest();
         photosofuserrequest.ownerId = mUserId;

@@ -6,6 +6,7 @@ package com.galaxy.meetup.client.android.ui.view;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -17,6 +18,8 @@ import com.galaxy.meetup.client.android.content.EsEventData;
 import com.galaxy.meetup.server.client.domain.Invitee;
 import com.galaxy.meetup.server.client.domain.InviteeSummary;
 import com.galaxy.meetup.server.client.domain.PlusEvent;
+import com.galaxy.meetup.server.client.v2.domain.Event;
+import com.galaxy.meetup.server.client.v2.domain.EventMember;
 
 /**
  * 
@@ -57,6 +60,14 @@ public class EventInviteeSummaryLayout extends ExactLayout {
         init(context, attributeset, i);
     }
 
+    private static int getGaiaIds(Event event, String s, List<String> userNameList) {
+        List<EventMember> emList = event.getMemberList();
+        for(EventMember em : emList) {
+        	userNameList.add(em.getUserName());
+        }
+        return userNameList.size();
+    }
+    
     private static int getGaiaIds(PlusEvent plusevent, String s, ArrayList arraylist)
     {
         InviteeSummary inviteesummary = EsEventData.getInviteeSummary(plusevent, s);
@@ -107,7 +118,7 @@ public class EventInviteeSummaryLayout extends ExactLayout {
         mSize = 0;
     }
 
-    public final void bind(PlusEvent plusevent, EventActionListener eventactionlistener, boolean flag)
+    public final void bind(Event plusevent, EventActionListener eventactionlistener, boolean flag)
     {
         ArrayList arraylist = new ArrayList();
         mSize = 0 + getGaiaIds(plusevent, "ATTENDING", arraylist) + getGaiaIds(plusevent, "MAYBE", arraylist) + getGaiaIds(plusevent, "NOT_RESPONDED", arraylist);

@@ -34,7 +34,7 @@ public class LocationQuery implements Parcelable {
 
     };
     
-    public LocationQuery(Location location, String s)
+    public LocationQuery(Location location, String query)
     {
         if(location == null)
         {
@@ -42,22 +42,17 @@ public class LocationQuery implements Parcelable {
         } else
         {
             mLocation = location;
-            mQuery = s;
+            mQuery = query;
             mKey = buildKey();
             return;
         }
     }
 
-    private LocationQuery(Parcel parcel)
+    LocationQuery(Parcel parcel)
     {
         mLocation = (Location)parcel.readParcelable(LocationQuery.class.getClassLoader());
         mQuery = parcel.readString();
         mKey = buildKey();
-    }
-
-    LocationQuery(Parcel parcel, byte byte0)
-    {
-        this(parcel);
     }
 
     private String buildKey()

@@ -13,9 +13,10 @@ import com.galaxy.meetup.client.android.content.EsAccount;
 import com.galaxy.meetup.client.android.content.EsPostsData;
 import com.galaxy.meetup.client.android.network.PlusiOperation;
 import com.galaxy.meetup.client.android.network.http.HttpOperation;
-import com.galaxy.meetup.server.client.domain.GenericJson;
 import com.galaxy.meetup.server.client.domain.request.MuteActivityRequest;
 import com.galaxy.meetup.server.client.domain.response.MuteActivityResponse;
+import com.galaxy.meetup.server.client.v2.request.Request;
+import com.galaxy.meetup.server.client.v2.response.Response;
 
 /**
  * 
@@ -34,12 +35,12 @@ public class MuteActivityOperation extends PlusiOperation {
         mIsMuted = flag;
     }
 
-    protected final void handleResponse(GenericJson genericjson) throws IOException
+    protected final void handleResponse(Response response) throws IOException
     {
         EsPostsData.muteActivity(mContext, mAccount, mActivityId, mIsMuted);
     }
 
-    protected final GenericJson populateRequest()
+    protected final Request populateRequest()
     {
         MuteActivityRequest muteactivityrequest = new MuteActivityRequest();
         muteactivityrequest.activityId = mActivityId;

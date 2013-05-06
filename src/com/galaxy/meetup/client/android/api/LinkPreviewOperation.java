@@ -19,9 +19,10 @@ import com.galaxy.meetup.client.android.network.PlusiOperation;
 import com.galaxy.meetup.client.android.network.http.HttpOperation;
 import com.galaxy.meetup.client.util.Property;
 import com.galaxy.meetup.server.client.domain.ClientEmbedOptions;
-import com.galaxy.meetup.server.client.domain.GenericJson;
 import com.galaxy.meetup.server.client.domain.request.LinkPreviewRequest;
 import com.galaxy.meetup.server.client.domain.response.LinkPreviewResponse;
+import com.galaxy.meetup.server.client.v2.request.Request;
+import com.galaxy.meetup.server.client.v2.response.Response;
 
 /**
  * 
@@ -46,14 +47,14 @@ public class LinkPreviewOperation extends PlusiOperation {
         return mActivity;
     }
 
-    protected final void handleResponse(GenericJson genericjson) throws IOException
+    protected final void handleResponse(Response response) throws IOException
     {
-        LinkPreviewResponse linkpreviewresponse = (LinkPreviewResponse)genericjson;
+        LinkPreviewResponse linkpreviewresponse = (LinkPreviewResponse)response;
         if(linkpreviewresponse != null)
             mActivity = ApiaryActivityFactory.getApiaryActivity(linkpreviewresponse);
     }
 
-    protected final GenericJson populateRequest()
+    protected final Request populateRequest()
     {
         LinkPreviewRequest linkpreviewrequest = new LinkPreviewRequest();
         linkpreviewrequest.content = mSourceUrl;

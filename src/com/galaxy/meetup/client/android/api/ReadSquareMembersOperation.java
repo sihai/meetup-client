@@ -21,12 +21,13 @@ import com.galaxy.meetup.client.android.content.PersonData;
 import com.galaxy.meetup.client.android.network.PlusiOperation;
 import com.galaxy.meetup.client.android.network.http.HttpOperation;
 import com.galaxy.meetup.client.util.PrimitiveUtils;
-import com.galaxy.meetup.server.client.domain.GenericJson;
 import com.galaxy.meetup.server.client.domain.MemberList;
 import com.galaxy.meetup.server.client.domain.MemberListQuery;
 import com.galaxy.meetup.server.client.domain.SquareMember;
 import com.galaxy.meetup.server.client.domain.request.ReadSquareMembersOzRequest;
 import com.galaxy.meetup.server.client.domain.response.ReadSquareMembersOzResponse;
+import com.galaxy.meetup.server.client.v2.request.Request;
+import com.galaxy.meetup.server.client.v2.response.Response;
 
 /**
  * 
@@ -51,10 +52,10 @@ public class ReadSquareMembersOperation extends PlusiOperation {
         return mSquareMembers;
     }
 
-    protected final void handleResponse(GenericJson genericjson) throws IOException
+    protected final void handleResponse(Response response) throws IOException
     {
         int i = 0;
-        ReadSquareMembersOzResponse readsquaremembersozresponse = (ReadSquareMembersOzResponse)genericjson;
+        ReadSquareMembersOzResponse readsquaremembersozresponse = (ReadSquareMembersOzResponse)response;
         int j;
         List list;
         ArrayList arraylist;
@@ -93,7 +94,7 @@ public class ReadSquareMembersOperation extends PlusiOperation {
         
     }
 
-    protected final GenericJson populateRequest()
+    protected final Request populateRequest()
     {
         ReadSquareMembersOzRequest readsquaremembersozrequest = new ReadSquareMembersOzRequest();
         MemberListQuery memberlistquery = new MemberListQuery();

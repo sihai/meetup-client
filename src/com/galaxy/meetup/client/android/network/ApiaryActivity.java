@@ -206,7 +206,7 @@ public class ApiaryActivity implements Parcelable {
     public void writeToParcel(Parcel parcel, int i)
     {
         if(mLinkPreview != null)
-            parcel.writeString(mLinkPreview.toJsonString());
+            parcel.writeString(JsonUtil.toJsonString(mLinkPreview));
         else
             parcel.writeString(null);
         parcel.writeBundle(mContentDeepLinkMetadata);

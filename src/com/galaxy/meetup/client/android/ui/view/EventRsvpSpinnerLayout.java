@@ -22,7 +22,7 @@ import android.widget.TextView;
 import com.galaxy.meetup.client.android.R;
 import com.galaxy.meetup.client.android.content.EsEventData;
 import com.galaxy.meetup.client.android.ui.fragments.EventActiveState;
-import com.galaxy.meetup.server.client.domain.PlusEvent;
+import com.galaxy.meetup.server.client.v2.domain.Event;
 
 /**
  * 
@@ -40,7 +40,7 @@ public class EventRsvpSpinnerLayout extends ExactLayout implements
     private static int sPadding;
     private EventActionButtonLayout mActionButton;
     private int mCurrentSelectionIndex;
-    private PlusEvent mEvent;
+    private Event mEvent;
     private EventActionListener mEventActionListener;
     private boolean mEventOver;
     private EventRsvpListener mListener;
@@ -90,7 +90,7 @@ public class EventRsvpSpinnerLayout extends ExactLayout implements
         setPadding(sPadding, sPadding, sPadding, sPadding);
     }
 
-    public final void bind(PlusEvent plusevent, EventActiveState eventactivestate, EventRsvpListener eventrsvplistener, EventActionListener eventactionlistener)
+    public final void bind(Event plusevent, EventActiveState eventactivestate, EventRsvpListener eventrsvplistener, EventActionListener eventactionlistener)
     {
         mListener = eventrsvplistener;
         mEventActionListener = eventactionlistener;

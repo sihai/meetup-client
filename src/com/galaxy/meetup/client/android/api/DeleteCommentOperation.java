@@ -14,9 +14,10 @@ import com.galaxy.meetup.client.android.content.EsPhotosDataApiary;
 import com.galaxy.meetup.client.android.content.EsPostsData;
 import com.galaxy.meetup.client.android.network.PlusiOperation;
 import com.galaxy.meetup.client.android.network.http.HttpOperation;
-import com.galaxy.meetup.server.client.domain.GenericJson;
 import com.galaxy.meetup.server.client.domain.request.DeleteCommentRequest;
 import com.galaxy.meetup.server.client.domain.response.DeleteCommentResponse;
+import com.galaxy.meetup.server.client.v2.request.Request;
+import com.galaxy.meetup.server.client.v2.response.Response;
 
 /**
  * 
@@ -33,17 +34,17 @@ public class DeleteCommentOperation extends PlusiOperation {
         mCommentId = s;
     }
 
-    protected final void handleResponse(GenericJson genericjson) throws IOException
+    protected final void handleResponse(Response response) throws IOException
     {
         EsPostsData.deleteComment(mContext, mAccount, mCommentId);
         EsPhotosDataApiary.deletePhotoComment(mContext, mAccount, mCommentId);
     }
 
-    protected final GenericJson populateRequest()
+    protected final Request populateRequest()
     {
-    	DeleteCommentRequest genericjson = new DeleteCommentRequest();
-        genericjson.commentId = mCommentId;
-        return genericjson;
+    	DeleteCommentRequest response = new DeleteCommentRequest();
+        response.commentId = mCommentId;
+        return response;
     }
 
 }

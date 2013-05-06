@@ -20,6 +20,8 @@ import com.galaxy.meetup.server.client.domain.GenericJson;
 import com.galaxy.meetup.server.client.domain.MobileSettingsUser;
 import com.galaxy.meetup.server.client.domain.MobileSettingsUserInfo;
 import com.galaxy.meetup.server.client.domain.response.GetMobileSettingsResponse;
+import com.galaxy.meetup.server.client.v2.request.Request;
+import com.galaxy.meetup.server.client.v2.response.Response;
 
 /**
  * 
@@ -42,14 +44,14 @@ public class GetSettingsOperation extends PlusiOperation {
         return mSettings;
     }
 
-    protected final void handleResponse(GenericJson genericjson) throws IOException
+    protected final void handleResponse(Response response) throws IOException
     {
         MobileSettingsUser mobilesettingsuser;
         MobileSettingsUserInfo mobilesettingsuserinfo;
         String s;
         String s1;
         boolean flag;
-        GetMobileSettingsResponse getmobilesettingsresponse = (GetMobileSettingsResponse)genericjson;
+        GetMobileSettingsResponse getmobilesettingsresponse = (GetMobileSettingsResponse)response;
         if(getmobilesettingsresponse.user == null || getmobilesettingsresponse.user.info == null || TextUtils.isEmpty(getmobilesettingsresponse.user.info.obfuscatedGaiaId))
         {
             Log.e("HttpTransaction", "Settings response missing gaid ID");
@@ -99,8 +101,8 @@ public class GetSettingsOperation extends PlusiOperation {
         return flag;
     }
 
-    protected final GenericJson populateRequest()
+    protected final Request populateRequest()
     {
-    	return new GenericJson();
+    	return new Request();
     }
 }

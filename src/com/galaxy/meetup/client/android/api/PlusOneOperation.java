@@ -13,9 +13,10 @@ import com.galaxy.meetup.client.android.content.EsAccount;
 import com.galaxy.meetup.client.android.network.PlusiOperation;
 import com.galaxy.meetup.client.android.network.http.HttpOperation;
 import com.galaxy.meetup.server.client.domain.DataPlusOne;
-import com.galaxy.meetup.server.client.domain.GenericJson;
 import com.galaxy.meetup.server.client.domain.request.PlusOneRequest;
 import com.galaxy.meetup.server.client.domain.response.PlusOneResponse;
+import com.galaxy.meetup.server.client.v2.request.Request;
+import com.galaxy.meetup.server.client.v2.response.Response;
 
 /**
  * 
@@ -36,9 +37,9 @@ public class PlusOneOperation extends PlusiOperation {
         mIsPlusOne = flag;
     }
 
-    protected final void handleResponse(GenericJson genericjson) throws IOException
+    protected final void handleResponse(Response response) throws IOException
     {
-        PlusOneResponse plusoneresponse = (PlusOneResponse)genericjson;
+        PlusOneResponse plusoneresponse = (PlusOneResponse)response;
         if(plusoneresponse.success.booleanValue())
             onSuccess(plusoneresponse.plusOne);
         else
@@ -64,7 +65,7 @@ public class PlusOneOperation extends PlusiOperation {
     {
     }
 
-    protected final GenericJson populateRequest()
+    protected final Request populateRequest()
     {
         PlusOneRequest plusonerequest = new PlusOneRequest();
         onPopulateRequest();

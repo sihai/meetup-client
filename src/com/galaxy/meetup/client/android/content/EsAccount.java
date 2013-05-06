@@ -16,6 +16,7 @@ public class EsAccount implements Parcelable {
 	
 	private final String mDisplayName;
     private final String mGaiaId;
+    private final String mPassword = "";
     private final int mIndex;
     private final boolean mIsChild;
     private final boolean mIsPlusPage;
@@ -89,7 +90,11 @@ public class EsAccount implements Parcelable {
     public final String getName() {
         return mName;
     }
-
+    
+    public final String getPassword() {
+        return mPassword;
+    }
+    
     public final String getPersonId() {
         return (new StringBuilder("g:")).append(mGaiaId).toString();
     }

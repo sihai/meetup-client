@@ -153,8 +153,9 @@ public class SuggestionGridView extends LinearLayout implements
             String s = (String)entry.getKey();
             Integer integer = (Integer)scrollpositions.positions.get(s);
             Integer integer1 = (Integer)scrollpositions.offsets.get(s);
-            if(integer != null && integer1 != null)
+            if(integer != null && integer1 != null) {
                 ((ColumnGridView)entry.getValue()).setSelectionFromTop(integer.intValue(), integer1.intValue());
+            }
         } while(true);
     }
     

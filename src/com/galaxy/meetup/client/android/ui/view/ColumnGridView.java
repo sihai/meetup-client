@@ -7,7 +7,6 @@ package com.galaxy.meetup.client.android.ui.view;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
 
 import android.content.Context;
@@ -44,6 +43,14 @@ import com.galaxy.meetup.client.android.R;
  */
 public class ColumnGridView extends ViewGroup {
 
+	private static final String TAG = "ColumnGridView";
+	
+	public static final int COLUMN_COUNT_AUTO = -1;
+	
+	private static final int TOUCH_MODE_IDLE = 0;
+    private static final int TOUCH_MODE_DRAGGING = 1;
+    private static final int TOUCH_MODE_FLINGING = 2;
+    
 	private int mActivePointerId;
     private ListAdapter mAdapter;
     private Bug6713624LinkedHashMap mBug6713624LinkedHashMap;
@@ -175,455 +182,262 @@ public class ColumnGridView extends ViewGroup {
         removeCallbacks(mSetPressedRunnable);
     }
 
-    private int fillDown(int i, int j)
+    private int fillDown(int fromPosition, int overhang)
     {
-        int k;
-        int l;
-        int i1;
-        int j1;
-        int k1;
-        int l1;
-        int j7;
-        int k7;
-        int l7;
-        if(mHorizontalOrientation)
-            k = getPaddingTop();
-        else
-            k = getPaddingLeft();
-        l = mItemMargin;
-        i1 = getColumnSize();
-        if(mHorizontalOrientation)
-            j1 = getWidth() - getPaddingRight();
-        else
-            j1 = getHeight() - getPaddingBottom();
-        k1 = j1 + j;
-        l1 = getNextColumnDown(mItemEnd);
-        for(int i2 = i; l1 >= 0 && mItemEnd[l1] < k1; i2++)
-        {
-            int i3 = mItemCount;
-            if(i2 >= i3)
-                break;
-            View view = obtainView(i2, null);
-            LayoutParams layoutparams = (LayoutParams)view.getLayoutParams();
-            int j3;
-            int k3;
-            LayoutRecord layoutrecord;
-            boolean flag;
-            int i4;
-            int j4;
-            int k4;
-            if(view.getParent() != this)
-                if(mInLayout)
-                    addViewInLayout(view, -1, layoutparams);
-                else
-                    addView(view);
-            j3 = Math.min(mColCount, layoutparams.minorSpan);
-            k3 = i1 * j3 + l * (j3 - 1);
-            if(j3 > 1)
-            {
-                int ai1[] = mItemEnd;
-                layoutrecord = getNextRecordDown(i2, j3, ai1);
-                l1 = layoutrecord.column;
-            } else
-            {
-                mBug6713624LinkedHashMap.put("filldown - get", Integer.valueOf(i2));
-                layoutrecord = (LayoutRecord)mLayoutRecords.get(i2);
+    	final int paddingLeft = getPaddingLeft();
+        final int paddingRight = getPaddingRight();
+        final int itemMargin = mItemMargin;
+        final int colWidth =
+                (getWidth() - paddingLeft - paddingRight - itemMargin * (mColCount - 1)) / mColCount;
+        final int gridBottom = getHeight() - getPaddingBottom();
+        final int fillTo = gridBottom + overhang;
+        int nextCol = getNextColumnDown();
+        int position = fromPosition;
+
+        while (nextCol >= 0 && mItemEnd[nextCol] < fillTo && position < mItemCount) {
+            final View child = obtainView(position, null);
+            LayoutParams lp = (LayoutParams) child.getLayoutParams();
+
+            if (child.getParent() != this) {
+                if (mInLayout) {
+                    addViewInLayout(child, -1, lp);
+                } else {
+                    addView(child);
+                }
             }
-            flag = false;
-            if(layoutrecord == null)
-            {
-                layoutrecord = new LayoutRecord();
-                mBug6713624LinkedHashMap.put("filldown - put", Integer.valueOf(i2));
-                mLayoutRecords.put(i2, layoutrecord);
-                int l3 = l1;
-                layoutrecord.column = l3;
-                layoutrecord.span = j3;
-            } else
-            if(j3 != layoutrecord.span)
-            {
-                layoutrecord.span = j3;
-                int i8 = l1;
-                layoutrecord.column = i8;
-                flag = true;
-            } else
-            {
-                l1 = layoutrecord.column;
-                flag = false;
+
+            final int span = Math.min(mColCount, lp.minorSpan);
+            final int widthSize = colWidth * span + itemMargin * (span - 1);
+            final int widthSpec = MeasureSpec.makeMeasureSpec(widthSize, MeasureSpec.EXACTLY);
+
+            LayoutRecord rec;
+            if (span > 1) {
+                rec = getNextRecordDown(position, span, mItemEnd);
+                nextCol = rec.column;
+            } else {
+                rec = (LayoutRecord)mLayoutRecords.get(position);
             }
-            if(mHasStableIds)
-            {
-                long l8 = mAdapter.getItemId(i2);
-                layoutrecord.id = l8;
-                layoutparams.id = l8;
+
+            boolean invalidateAfter = false;
+            if (rec == null) {
+                rec = new LayoutRecord();
+                mLayoutRecords.put(position, rec);
+                rec.column = nextCol;
+                rec.span = span;
+            } else if (span != rec.span) {
+                rec.span = span;
+                rec.column = nextCol;
+                invalidateAfter = true;
+            } else {
+                nextCol = rec.column;
             }
-            layoutparams.column = l1;
-            if(mHorizontalOrientation)
-            {
-                j4 = android.view.View.MeasureSpec.makeMeasureSpec(k3, 0x40000000);
-                
-                if(layoutparams.width == -2)
-                    i4 = android.view.View.MeasureSpec.makeMeasureSpec(0, 0);
-                else
-                if(layoutparams.width == -1)
-                    i4 = android.view.View.MeasureSpec.makeMeasureSpec(l * (-1 + layoutparams.majorSpan) + (int)((float)(i1 * layoutparams.majorSpan) * mRatio), 0x40000000);
-                else
-                    i4 = android.view.View.MeasureSpec.makeMeasureSpec(layoutparams.width, 0x40000000);
-            } else
-            {
-                i4 = android.view.View.MeasureSpec.makeMeasureSpec(k3, 0x40000000);
-                if(layoutparams.height == -2)
-                    j4 = android.view.View.MeasureSpec.makeMeasureSpec(0, 0);
-                else
-                if(layoutparams.height == -1)
-                    j4 = android.view.View.MeasureSpec.makeMeasureSpec(l * (-1 + layoutparams.majorSpan) + (int)((float)(i1 * layoutparams.majorSpan) * mRatio), 0x40000000);
-                else
-                    j4 = android.view.View.MeasureSpec.makeMeasureSpec(layoutparams.height, 0x40000000);
+
+            if (mHasStableIds) {
+                final long id = mAdapter.getItemId(position);
+                rec.id = id;
+                lp.id = id;
             }
-            view.measure(i4, j4);
-            if(mHorizontalOrientation)
-                k4 = view.getMeasuredWidth();
-            else
-                k4 = view.getMeasuredHeight();
-            if(flag || k4 != layoutrecord.size && layoutrecord.size > 0)
-                invalidateLayoutRecordsAfterPosition(i2);
-            layoutrecord.size = k4;
-            int l4;
-            int i5;
-            int j5;
-            int k5;
-            int l5;
-            int i6;
-            int j6;
-            if(j3 > 1)
-            {
-                int i7 = mItemEnd[l1];
-                j7 = l1 + 1;
-                do
-                {
-                    k7 = l1 + j3;
-                    if(j7 >= k7)
-                        break;
-                    l7 = mItemEnd[j7];
-                    if(l7 > i7)
-                        i7 = l7;
-                    j7++;
-                } while(true);
-                l4 = i7;
-            } else
-            {
-                l4 = mItemEnd[l1];
+
+            lp.column = nextCol;
+
+            final int heightSpec;
+            if (lp.height == LayoutParams.WRAP_CONTENT) {
+                heightSpec = MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED);
+            } else {
+                heightSpec = MeasureSpec.makeMeasureSpec(lp.height, MeasureSpec.EXACTLY);
             }
-            if(mHorizontalOrientation)
-            {
-                i5 = l4 + l;
-                j5 = i5 + k4;
-                k5 = k + l1 * (i1 + l);
-                l5 = k5 + view.getMeasuredHeight();
-                i6 = j5;
-            } else
-            {
-                i5 = k + l1 * (i1 + l);
-                j5 = i5 + view.getMeasuredWidth();
-                k5 = l4 + l;
-                l5 = k5 + k4;
-                i6 = l5;
+            child.measure(widthSpec, heightSpec);
+
+            final int childHeight = child.getMeasuredHeight();
+            if (invalidateAfter || (childHeight != rec.size && rec.size > 0)) {
+                invalidateLayoutRecordsAfterPosition(position);
             }
-            view.layout(i5, k5, j5, l5);
-            j6 = l1;
-            do
-            {
-                int k6 = l1 + j3;
-                if(j6 >= k6)
-                    break;
-                int ai[] = mItemEnd;
-                int l6 = j6 - l1;
-                ai[j6] = i6 + layoutrecord.getMarginAfter(l6);
-                j6++;
-            } while(true);
-            l1 = getNextColumnDown(mItemEnd);
+            rec.size = childHeight;
+
+            final int startFrom;
+            if (span > 1) {
+                int lowest = mItemEnd[nextCol];
+                for (int i = nextCol + 1; i < nextCol + span; i++) {
+                    final int bottom = mItemEnd[i];
+                    if (bottom > lowest) {
+                        lowest = bottom;
+                    }
+                }
+                startFrom = lowest;
+            } else {
+                startFrom = mItemEnd[nextCol];
+            }
+            final int childTop = startFrom + itemMargin;
+            final int childBottom = childTop + childHeight;
+            final int childLeft = paddingLeft + nextCol * (colWidth + itemMargin);
+            final int childRight = childLeft + child.getMeasuredWidth();
+            child.layout(childLeft, childTop, childRight, childBottom);
+
+            for (int i = nextCol; i < nextCol + span; i++) {
+            	mItemEnd[i] = childBottom + rec.getMarginAfter(i - nextCol);
+            }
+
+            nextCol = getNextColumnDown();
+            position++;
         }
 
-        int j2 = 0;
-        int k2 = 0;
-        do
-        {
-            int l2 = mColCount;
-            if(k2 < l2)
-            {
-                if(mItemEnd[k2] > j2)
-                    j2 = mItemEnd[k2];
-                k2++;
-            } else
-            {
-                return j2 - j1;
+        int lowestView = 0;
+        for (int i = 0; i < mColCount; i++) {
+            if (mItemEnd[i] > lowestView) {
+                lowestView = mItemEnd[i];
             }
-        } while(true);
+        }
+        return lowestView - gridBottom;
     }
     
-    private int fillUp(int i, int j) {
-    	int k;
-        int l;
-        int i1;
-        int j1;
-        int l1;
-        boolean flag;
-        int i2;
-        View view;
-        LayoutParams layoutparams;
-        int j3;
-        int k3;
-        LayoutRecord layoutrecord;
-        LayoutRecord layoutrecord1;
-        int j9;
-        int k9;
-        int i10;
-        int i11;
-        int k1;
-        int i3;
-        int j11;
-        int k11;
-        
-        int j2;
-        int k2;
-        int l2;
-        boolean flag1;
-        int l3;
-        int i4;
-        int j4;
-        int k4;
-        int l4;
-        int i5;
-        int j5;
-        int k5;
-        int l5;
-        int i6;
-        int j6;
-        int k6;
-        int l6;
-        int i7;
-        int j7;
-        int k7;
-        int ai[];
-        int l7;
-        int i8;
-        int j8;
-        int k8;
-        int l8;
-        long l9;
-        int i9;
-        int j10;
-        int k10;
-        int l10;
-        int l11;
-        
-        
-        if(mHorizontalOrientation)
-            k = getPaddingTop();
-        else
-            k = getPaddingLeft();
-        l = mItemMargin;
-        i1 = getColumnSize();
-        if(mHorizontalOrientation)
-            j1 = getPaddingLeft();
-        else
-            j1 = getPaddingTop();
-        k1 = j1 - j;
-        l1 = getNextColumnUp();
-        flag = true;
-        i2 = i;
-        
-        while(!(l1 < 0 || mItemStart[l1] <= k1 && flag || i2 < 0)) {
-        	i3 = mItemCount;
-            if(i2 < i3) {
-            	view = obtainView(i2, null);
-            	layoutparams = (LayoutParams)view.getLayoutParams();
-	            if(view.getParent() != this)
-	                if(mInLayout)
-	                    addViewInLayout(view, 0, layoutparams);
-	                else
-	                    addView(view, 0);
-	            j3 = Math.min(mColCount, layoutparams.minorSpan);
-	            k3 = i1 * j3 + l * (j3 - 1);
-	            
-	            if(j3 <= 1) {
-	            	mBug6713624LinkedHashMap.put("fillup - get", Integer.valueOf(i2));
-	                layoutrecord = (LayoutRecord)mLayoutRecords.get(i2);
-	                flag1 = false;
-	                if(layoutrecord == null)
-	                {
-	                    layoutrecord = new LayoutRecord();
-	                    mBug6713624LinkedHashMap.put("fillup - put", Integer.valueOf(i2));
-	                    mLayoutRecords.put(i2, layoutrecord);
-	                    l3 = l1;
-	                    layoutrecord.column = l3;
-	                    layoutrecord.span = j3;
-	                } else
-	                if(j3 != layoutrecord.span)
-	                {
-	                    layoutrecord.span = j3;
-	                    i9 = l1;
-	                    layoutrecord.column = i9;
-	                    flag1 = true;
-	                } else
-	                {
-	                    l1 = layoutrecord.column;
-	                    flag1 = false;
-	                }
-	                if(mHasStableIds)
-	                {
-	                    l9 = mAdapter.getItemId(i2);
-	                    layoutrecord.id = l9;
-	                    layoutparams.id = l9;
-	                }
-	                layoutparams.column = l1;
-	                if(mHorizontalOrientation)
-	                {
-	                    j4 = android.view.View.MeasureSpec.makeMeasureSpec(k3, 0x40000000);
-	                    if(layoutparams.width == -2)
-	                        i4 = android.view.View.MeasureSpec.makeMeasureSpec(0, 0);
-	                    else
-	                    if(layoutparams.width == -1)
-	                        i4 = android.view.View.MeasureSpec.makeMeasureSpec(l * (-1 + layoutparams.majorSpan) + (int)((float)(i1 * layoutparams.majorSpan) * mRatio), 0x40000000);
-	                    else
-	                        i4 = android.view.View.MeasureSpec.makeMeasureSpec(layoutparams.width, 0x40000000);
-	                } else
-	                {
-	                    i4 = android.view.View.MeasureSpec.makeMeasureSpec(k3, 0x40000000);
-	                    if(layoutparams.height == -2)
-	                        j4 = android.view.View.MeasureSpec.makeMeasureSpec(0, 0);
-	                    else
-	                    if(layoutparams.height == -1)
-	                        j4 = android.view.View.MeasureSpec.makeMeasureSpec(l * (-1 + layoutparams.majorSpan) + (int)((float)(i1 * layoutparams.majorSpan) * mRatio), 0x40000000);
-	                    else
-	                        j4 = android.view.View.MeasureSpec.makeMeasureSpec(layoutparams.height, 0x40000000);
-	                }
-	                view.measure(i4, j4);
-	                if(mHorizontalOrientation)
-	                    k4 = view.getMeasuredWidth();
-	                else
-	                    k4 = view.getMeasuredHeight();
-	                if(flag1 || k4 != layoutrecord.size && layoutrecord.size > 0)
-	                    invalidateLayoutRecordsBeforePosition(i2);
-	                layoutrecord.size = k4;
-	                if(j3 > 1)
-	                {
-	                    i8 = mItemStart[l1];
-	                    j8 = l1 + 1;
-	                    do
-	                    {
-	                        k8 = l1 + j3;
-	                        if(j8 >= k8)
-	                            break;
-	                        l8 = mItemStart[j8];
-	                        if(l8 < i8)
-	                            i8 = l8;
-	                        j8++;
-	                    } while(true);
-	                    l4 = i8;
-	                } else
-	                {
-	                    l4 = mItemStart[l1];
-	                }
-	                if(mHorizontalOrientation)
-	                {
-	                    l5 = l4;
-	                    k5 = l4 - k4;
-	                    j5 = k + l1 * (i1 + l);
-	                    i5 = j5 + view.getMeasuredHeight();
-	                    i6 = k5;
-	                } else
-	                {
-	                    i5 = l4;
-	                    j5 = l4 - k4;
-	                    k5 = k + l1 * (i1 + l);
-	                    l5 = k5 + view.getMeasuredWidth();
-	                    i6 = j5;
-	                }
-	                view.layout(k5, j5, l5, i5);
-	                j6 = l1;
-	                do
-	                {
-	                    k6 = l1 + j3;
-	                    if(j6 >= k6)
-	                        break;
-	                    ai = mItemStart;
-	                    l7 = j6 - l1;
-	                    ai[j6] = i6 - layoutrecord.getMarginBefore(l7) - l;
-	                    j6++;
-	                } while(true);
-	                flag = layoutparams.isBoxStart;
-	                l6 = mItemStart[0];
-	                i7 = 1;
-	                do
-	                {
-	                    j7 = mColCount;
-	                    if(i7 >= j7 || !flag)
-	                        break;
-	                    if(mItemStart[i7] != l6)
-	                        flag = false;
-	                    i7++;
-	                } while(true);
-	                l1 = getNextColumnUp();
-	                k7 = i2 - 1;
-	                mFirstPosition = i2;
-	                i2 = k7;
-	            } else {
-	            	mBug6713624LinkedHashMap.put("getnextrecordup - get", Integer.valueOf(i2));
-	                layoutrecord1 = (LayoutRecord)mLayoutRecords.get(i2);
-	                if(layoutrecord1 != null) {
-	                	if(layoutrecord1.span != j3)
-	                    {
-	                        throw new IllegalStateException((new StringBuilder("Invalid LayoutRecord! Record had span=")).append(layoutrecord1.span).append(" but caller requested span=").append(j3).append(" for position=").append(i2).toString());
-	                    }
-	                } else { 
-	                	layoutrecord = new LayoutRecord();
-	                    layoutrecord.span = j3;
-	                    mBug6713624LinkedHashMap.put("getnextrecordup - put", Integer.valueOf(i2));
-	                    mLayoutRecords.put(i2, layoutrecord);
-	                    
-	                    j9 = -1;
-	                    k9 = 0x80000000;
-	                    i10 = mColCount - j3;
-	                    
-	                    if(i10 < 0) {
-	                    	j10 = j9;
-	                        layoutrecord.column = j10;
-	                        for(k10 = 0; k10 < j3; k10++)
-	                        {
-	                            l10 = mItemStart[k10 + j9] - k9;
-	                            layoutrecord.setMarginAfter(k10, l10);
-	                        }
+    private int fillUp(int fromPosition, int overhang) {
+    	final int paddingLeft = getPaddingLeft();
+        final int paddingRight = getPaddingRight();
+        final int itemMargin = mItemMargin;
+        final int colWidth =
+                (getWidth() - paddingLeft - paddingRight - itemMargin * (mColCount - 1)) / mColCount;
+        final int gridTop = getPaddingTop();
+        final int fillTo = gridTop - overhang;
+        int nextCol = getNextColumnUp();
+        int position = fromPosition;
 
-	                        l1 = layoutrecord.column;
-	                    } else {
-	                    	i11 = 0x7fffffff;
-	                        j11 = i10;
-	                        k11 = i10 + j3;
-	                        
-	                    }
-	                }
-	            }
+        while (nextCol >= 0 && mItemStart[nextCol] > fillTo && position >= 0) {
+            final View child = obtainView(position, null);
+            LayoutParams lp = (LayoutParams) child.getLayoutParams();
+
+            if (child.getParent() != this) {
+                if (mInLayout) {
+                    addViewInLayout(child, 0, lp);
+                } else {
+                    addView(child, 0);
+                }
+            }
+
+            final int span = Math.min(mColCount, lp.minorSpan);
+            final int widthSize = colWidth * span + itemMargin * (span - 1);
+            final int widthSpec = MeasureSpec.makeMeasureSpec(widthSize, MeasureSpec.EXACTLY);
+
+            LayoutRecord rec;
+            if (span > 1) {
+                rec = getNextRecordUp(position, span);
+                nextCol = rec.column;
             } else {
-            	
+                rec = (LayoutRecord)mLayoutRecords.get(position);
+            }
+
+            boolean invalidateBefore = false;
+            if (rec == null) {
+                rec = new LayoutRecord();
+                mLayoutRecords.put(position, rec);
+                rec.column = nextCol;
+                rec.span = span;
+            } else if (span != rec.span) {
+                rec.span = span;
+                rec.column = nextCol;
+                invalidateBefore = true;
+            } else {
+                nextCol = rec.column;
+            }
+
+            if (mHasStableIds) {
+                final long id = mAdapter.getItemId(position);
+                rec.id = id;
+                lp.id = id;
+            }
+
+            lp.column = nextCol;
+
+            final int heightSpec;
+            if (lp.height == LayoutParams.WRAP_CONTENT) {
+                heightSpec = MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED);
+            } else {
+                heightSpec = MeasureSpec.makeMeasureSpec(lp.height, MeasureSpec.EXACTLY);
+            }
+            child.measure(widthSpec, heightSpec);
+
+            final int childHeight = child.getMeasuredHeight();
+            if (invalidateBefore || (childHeight != rec.size && rec.size > 0)) {
+                invalidateLayoutRecordsBeforePosition(position);
+            }
+            rec.size = childHeight;
+
+            final int startFrom;
+            if (span > 1) {
+                int highest = mItemStart[nextCol];
+                for (int i = nextCol + 1; i < nextCol + span; i++) {
+                    final int top = mItemStart[i];
+                    if (top < highest) {
+                        highest = top;
+                    }
+                }
+                startFrom = highest;
+            } else {
+                startFrom = mItemStart[nextCol];
+            }
+            final int childBottom = startFrom;
+            final int childTop = childBottom - childHeight;
+            final int childLeft = paddingLeft + nextCol * (colWidth + itemMargin);
+            final int childRight = childLeft + child.getMeasuredWidth();
+            child.layout(childLeft, childTop, childRight, childBottom);
+
+            for (int i = nextCol; i < nextCol + span; i++) {
+                mItemStart[i] = childTop - rec.getMarginBefore(i - nextCol) - itemMargin;
+            }
+
+            nextCol = getNextColumnUp();
+            mFirstPosition = position--;
+        }
+
+        int highestView = getHeight();
+        for (int i = 0; i < mColCount; i++) {
+            if (mItemStart[i] < highestView) {
+                highestView = mItemStart[i];
             }
         }
-        
-        j2 = getHeight();
-        k2 = 0;
-        do
-        {
-            l2 = mColCount;
-            if(k2 < l2)
-            {
-                if(mItemStart[k2] < j2)
-                    j2 = mItemStart[k2];
-                k2++;
-            } else
-            {
-                return j1 - j2;
+        return gridTop - highestView;
+    }
+    
+    /**
+     * Return a LayoutRecord for the given position
+     * @param position
+     * @param span
+     * @return
+     */
+    final LayoutRecord getNextRecordUp(int position, int span) {
+        LayoutRecord rec = (LayoutRecord)mLayoutRecords.get(position);
+        if (rec == null) {
+            rec = new LayoutRecord();
+            rec.span = span;
+            mLayoutRecords.put(position, rec);
+        } else if (rec.span != span) {
+            throw new IllegalStateException("Invalid LayoutRecord! Record had span=" + rec.span +
+                    " but caller requested span=" + span + " for position=" + position);
+        }
+        int targetCol = -1;
+        int bottomMost = Integer.MIN_VALUE;
+
+        final int colCount = mColCount;
+        for (int i = colCount - span; i >= 0; i--) {
+            int top = Integer.MAX_VALUE;
+            for (int j = i; j < i + span; j++) {
+                final int singleTop = mItemStart[j];
+                if (singleTop < top) {
+                    top = singleTop;
+                }
             }
-        } while(true);
-        
+            if (top > bottomMost) {
+                bottomMost = top;
+                targetCol = i;
+            }
+        }
+
+        rec.column = targetCol;
+
+        for (int i = 0; i < span; i++) {
+            rec.setMarginAfter(i, mItemStart[i + targetCol] - bottomMost);
+        }
+
+        return rec;
     }
     
     public LayoutParams generateDefaultLayoutParams() {
@@ -646,21 +460,19 @@ public class ColumnGridView extends ViewGroup {
         return layoutparams1;
     }
 
-    private int getNextColumnDown(int ai[]) {
-        int i = -1;
-        int j = 0x7fffffff;
-        int k = mColCount;
-        for(int l = 0; l < k; l++)
-        {
-            int i1 = ai[l];
-            if(i1 < j)
-            {
-                j = i1;
-                i = l;
+    final int getNextColumnDown() {
+        int result = -1;
+        int topMost = Integer.MAX_VALUE;
+
+        final int colCount = mColCount;
+        for (int i = 0; i < colCount; i++) {
+            final int bottom = mItemEnd[i];
+            if (bottom < topMost) {
+                topMost = bottom;
+                result = i;
             }
         }
-
-        return i;
+        return result;
     }
 
     private int getNextColumnUp() {
@@ -775,7 +587,7 @@ public class ColumnGridView extends ViewGroup {
                 view2 = mRecycler.getScrapView(k);
             view3 = mAdapter.getView(i, view2, this);
             if(view3 != view2 && view2 != null)
-                mRecycler.addScrap(view2, getChildCount());
+                mRecycler.addScrap(view2);
             LayoutParams layoutparams;
             obj = view3.getLayoutParams();
             if(view3.getParent() != this)
@@ -800,415 +612,157 @@ public class ColumnGridView extends ViewGroup {
         return view4;
     }
 
-    private void populate()
-    {
-    	int i;
-    	int k;
-        int l;
-        int i1;
-        int j1;
-        int k1;
-        int l1;
-        int i2;
-        int j2;
-        int l12;
-        int i14;
-        int j14;
-        boolean flag;
-        
-        int k8;
-        int k9;
-        int l9;
-        int i10;
-        int j10;
-        int k10;
-        int l10;
-        int i11;
-        int j11;
-        int k11;
-        int l11;
-        int i12;
-        LayoutRecord layoutrecord3;
-        int j12;
-        int k12;
-        int i13;
-        int j13;
-        int k13;
-        int l13;
-        
-        int k2;
-        int l2;
-        int i3;
-        int j3;
-        int k3;
-        int ai[];
-        int l3;
-        int i4;
-        int j4;
-        int k4;
-        int l4;
-        View view;
-        LayoutParams layoutparams;
-        int i5;
-        int j5;
-        LayoutRecord layoutrecord;
-        int k5;
-        LayoutRecord layoutrecord1;
-        boolean flag1;
-        int l5;
-        int i6;
-        int j6;
-        int k6;
-        int l6;
-        int i7;
-        int j7;
-        int k7;
-        int l7;
-        int i8;
-        long l8;
-        int j8;
-        View view1;
-        LayoutParams layoutparams1;
-        LayoutRecord layoutrecord2;
-        
-        
-        
-        if(getWidth() != 0 && getHeight() != 0)
-        {
-            if(mColCount == -1)
-            {
-                if(mHorizontalOrientation)
-                    j14 = getHeight() / mMinColWidth;
-                else
-                    j14 = getWidth() / mMinColWidth;
-                if(j14 != mColCount)
-                    mColCount = j14;
-            }
-            i = mColCount;
-            if(mItemStart == null || mItemStart.length != i)
-            {
-                mItemStart = new int[i];
-                mItemEnd = new int[i];
-                int j;
-                if(mHorizontalOrientation)
-                    j = getPaddingLeft();
-                else
-                    j = getPaddingTop();
-                k = j + mRestoreOffset;
-                Arrays.fill(mItemStart, k);
-                Arrays.fill(mItemEnd, k);
-                mBug6713624LinkedHashMap.put("populate - clear", Integer.valueOf(0));
-                mLayoutRecords.clear();
-                if(mInLayout)
-                    removeAllViewsInLayout();
-                else
-                    removeAllViews();
-                mRestoreOffset = 0;
-            }
-            mPopulating = true;
-            flag = mDataChanged;
-            if(mHorizontalOrientation)
-                l = getPaddingTop();
-            else
-                l = getPaddingLeft();
-            i1 = mItemMargin;
-            j1 = getColumnSize();
-            k1 = -1;
-            l1 = -1;
-            Arrays.fill(mItemEnd, 0x80000000);
-            i2 = getChildCount();
-            j2 = 0;
-            while(j2 < i2) 
-            {
-                View view2 = getChildAt(j2);
-                LayoutParams layoutparams2 = (LayoutParams)view2.getLayoutParams();
-                int i9 = layoutparams2.column;
-                int j9 = j2 + mFirstPosition;
-                boolean flag2;
-                View view3;
-                if(flag || view2.isLayoutRequested())
-                    flag2 = true;
-                else
-                    flag2 = false;
-                
-                if(flag)
-                {
-                    view3 = obtainView(j9, view2);
-                    
-                    if(view3 != view2)
-                    {
-                        removeViewAt(j2);
-                        addView(view3, j2);
-                    } else
-                    {
-                        view3 = view2;
-                    }
-                    i14 = layoutparams2.minorSpan;
-                    layoutparams2 = (LayoutParams)view3.getLayoutParams();
-                    if(layoutparams2.minorSpan != i14)
-                        Log.e("ColumnGridView", "Span changed!");
-                    layoutparams2.column = i9;
-                } else
-                {
-                    view3 = view2;
-                }
-                k9 = Math.min(mColCount, layoutparams2.minorSpan);
-                l9 = j1 * k9 + i1 * (k9 - 1);
-                if(flag2)
-                {
-                    if(mHorizontalOrientation)
-                    {
-                        l13 = android.view.View.MeasureSpec.makeMeasureSpec(l9, 0x40000000);
-                        if(layoutparams2.width == -2)
-                        {
-                            j13 = android.view.View.MeasureSpec.makeMeasureSpec(0, 0);
-                            k13 = l13;
-                        } else
-                        if(layoutparams2.width == -1)
-                        {
-                            j13 = android.view.View.MeasureSpec.makeMeasureSpec(i1 * (-1 + layoutparams2.majorSpan) + (int)((float)(j1 * layoutparams2.majorSpan) * mRatio), 0x40000000);
-                            k13 = l13;
-                        } else
-                        {
-                            j13 = android.view.View.MeasureSpec.makeMeasureSpec(layoutparams2.width, 0x40000000);
-                            k13 = l13;
-                        }
-                    } else
-                    {
-                        j13 = android.view.View.MeasureSpec.makeMeasureSpec(l9, 0x40000000);
-                        if(layoutparams2.height == -2)
-                            k13 = android.view.View.MeasureSpec.makeMeasureSpec(0, 0);
-                        else
-                        if(layoutparams2.height == -1)
-                            k13 = android.view.View.MeasureSpec.makeMeasureSpec(i1 * (-1 + layoutparams2.majorSpan) + (int)((float)(j1 * layoutparams2.majorSpan) * mRatio), 0x40000000);
-                        else
-                            k13 = android.view.View.MeasureSpec.makeMeasureSpec(layoutparams2.height, 0x40000000);
-                    }
-                    view3.measure(j13, k13);
-                }
-                if(mItemEnd[i9] > 0x80000000)
-                    i10 = i1 + mItemEnd[i9];
-                else
-                if(mHorizontalOrientation)
-                    i10 = view3.getLeft();
-                else
-                    i10 = view3.getTop();
-                if(k9 > 1)
-                {
-                    l12 = i9 + 1;
-                    while(l12 < i9 + k9) 
-                    {
-                        i13 = i1 + mItemEnd[l12];
-                        if(i13 <= i10)
-                            i13 = i10;
-                        l12++;
-                        i10 = i13;
-                    }
-                }
-                if(mHorizontalOrientation)
-                    j10 = view3.getMeasuredWidth();
-                else
-                    j10 = view3.getMeasuredHeight();
-                if(mHorizontalOrientation)
-                {
-                    l10 = i10 + j10;
-                    l11 = l + i9 * (j1 + i1);
-                    i11 = l11 + view3.getMeasuredHeight();
-                    j11 = l10;
-                } else
-                {
-                    k10 = l + i9 * (j1 + i1);
-                    l10 = k10 + view3.getMeasuredWidth();
-                    i11 = i10 + j10;
-                    j11 = i11;
-                    k11 = i10;
-                    i10 = k10;
-                    l11 = k11;
-                }
-                view3.layout(i10, l11, l10, i11);
-                for(i12 = i9; i12 < i9 + k9; i12++)
-                    mItemEnd[i12] = j11;
+    private void populate() {
+        if (getWidth() == 0 || getHeight() == 0) {
+            return;
+        }
 
-                mBug6713624LinkedHashMap.put("layoutchildren - get", Integer.valueOf(j9));
-                layoutrecord3 = (LayoutRecord)mLayoutRecords.get(j9);
-                if(layoutrecord3 != null && layoutrecord3.size != j10)
-                {
-                    layoutrecord3.size = j10;
-                    j12 = j9;
-                } else
-                {
-                    j12 = k1;
-                }
-                if(layoutrecord3 != null && layoutrecord3.span != k9)
-                {
-                    layoutrecord3.span = k9;
-                    k12 = j9;
-                } else
-                {
-                    k12 = l1;
-                }
-                j2++;
-                l1 = k12;
-                k1 = j12;
+        if (mColCount == COLUMN_COUNT_AUTO) {
+            final int colCount = getWidth() / mMinColWidth;
+            if (colCount != mColCount) {
+                mColCount = colCount;
             }
-            for(k2 = 0; k2 < mColCount; k2++)
-                if(mItemEnd[k2] == 0x80000000)
-                    mItemEnd[k2] = mItemStart[k2];
+        }
 
-            if(k1 >= 0 || l1 >= 0)
-            {
-                if(k1 >= 0)
-                    invalidateLayoutRecordsBeforePosition(k1);
-                if(l1 >= 0)
-                    invalidateLayoutRecordsAfterPosition(l1);
-                l2 = 0;
-                while(l2 < i2) 
-                {
-                    j8 = l2 + mFirstPosition;
-                    view1 = getChildAt(l2);
-                    layoutparams1 = (LayoutParams)view1.getLayoutParams();
-                    mBug6713624LinkedHashMap.put("layoutchildren - get2", Integer.valueOf(j8));
-                    layoutrecord2 = (LayoutRecord)mLayoutRecords.get(j8);
-                    if(layoutrecord2 == null)
-                    {
-                        layoutrecord2 = new LayoutRecord();
-                        mBug6713624LinkedHashMap.put("layoutchildren - put2", Integer.valueOf(j8));
-                        mLayoutRecords.put(j8, layoutrecord2);
-                    }
-                    layoutrecord2.column = layoutparams1.column;
-                    if(mHorizontalOrientation)
-                        k8 = view1.getWidth();
-                    else
-                        k8 = view1.getHeight();
-                    layoutrecord2.size = k8;
-                    layoutrecord2.id = layoutparams1.id;
-                    layoutrecord2.span = Math.min(mColCount, layoutparams1.minorSpan);
-                    l2++;
-                }
+        final int colCount = mColCount;
+        if (mItemStart == null || mItemStart.length != colCount) {
+            mItemStart = new int[colCount];
+            mItemEnd = new int[colCount];
+            final int top = getPaddingTop();
+            final int offset = top + Math.min(mRestoreOffset, 0);
+            Arrays.fill(mItemStart, offset);
+            Arrays.fill(mItemEnd, offset);
+            mLayoutRecords.clear();
+            if (mInLayout) {
+                removeAllViewsInLayout();
+            } else {
+                removeAllViews();
             }
-            i3 = mFirstPosition;
-            if(mInLayout)
-            {
-                ai = new int[mColCount];
-                l3 = mItemMargin;
-                i4 = getColumnSize();
-                j4 = getNextColumnDown(ai);
-                k4 = 0;
-                l4 = j4;
-                while(k4 < i3 && k4 < mItemCount) 
-                {
-                    view = obtainView(k4, null);
-                    layoutparams = (LayoutParams)view.getLayoutParams();
-                    i5 = Math.min(mColCount, layoutparams.minorSpan);
-                    j5 = i4 * i5 + l3 * (i5 - 1);
-                    if(i5 > 1)
-                    {
-                        layoutrecord1 = getNextRecordDown(k4, i5, ai);
-                        k5 = layoutrecord1.column;
-                    } else
-                    {
-                        mBug6713624LinkedHashMap.put("prefilldown - get", Integer.valueOf(k4));
-                        layoutrecord = (LayoutRecord)mLayoutRecords.get(k4);
-                        k5 = l4;
-                        layoutrecord1 = layoutrecord;
-                    }
-                    flag1 = false;
-                    if(layoutrecord1 == null)
-                    {
-                        layoutrecord1 = new LayoutRecord();
-                        mBug6713624LinkedHashMap.put("prefilldown - put", Integer.valueOf(k4));
-                        mLayoutRecords.put(k4, layoutrecord1);
-                        layoutrecord1.column = k5;
-                        layoutrecord1.span = i5;
-                    } else
-                    if(i5 != layoutrecord1.span)
-                    {
-                        layoutrecord1.span = i5;
-                        layoutrecord1.column = k5;
-                        flag1 = true;
-                    } else
-                    {
-                        k5 = layoutrecord1.column;
-                        flag1 = false;
-                    }
-                    if(mHasStableIds)
-                    {
-                        l8 = mAdapter.getItemId(k4);
-                        layoutrecord1.id = l8;
-                        layoutparams.id = l8;
-                    }
-                    layoutparams.column = k5;
-                    if(mHorizontalOrientation)
-                    {
-                        i8 = android.view.View.MeasureSpec.makeMeasureSpec(j5, 0x40000000);
-                        if(layoutparams.width == -2)
-                        {
-                            l5 = android.view.View.MeasureSpec.makeMeasureSpec(0, 0);
-                            i6 = i8;
-                        } else
-                        if(layoutparams.width == -1)
-                        {
-                            l5 = android.view.View.MeasureSpec.makeMeasureSpec(l3 * (-1 + layoutparams.majorSpan) + (int)((float)(i4 * layoutparams.majorSpan) * mRatio), 0x40000000);
-                            i6 = i8;
-                        } else
-                        {
-                            l5 = android.view.View.MeasureSpec.makeMeasureSpec(layoutparams.width, 0x40000000);
-                            i6 = i8;
-                        }
-                    } else
-                    {
-                        l5 = android.view.View.MeasureSpec.makeMeasureSpec(j5, 0x40000000);
-                        if(layoutparams.height == -2)
-                            i6 = android.view.View.MeasureSpec.makeMeasureSpec(0, 0);
-                        else
-                        if(layoutparams.height == -1)
-                            i6 = android.view.View.MeasureSpec.makeMeasureSpec(l3 * (-1 + layoutparams.majorSpan) + (int)((float)(i4 * layoutparams.majorSpan) * mRatio), 0x40000000);
-                        else
-                            i6 = android.view.View.MeasureSpec.makeMeasureSpec(layoutparams.height, 0x40000000);
-                    }
-                    view.measure(l5, i6);
-                    if(mHorizontalOrientation)
-                        j6 = view.getMeasuredWidth();
-                    else
-                        j6 = view.getMeasuredHeight();
-                    if(flag1 || j6 != layoutrecord1.size && layoutrecord1.size > 0)
-                        invalidateLayoutRecordsAfterPosition(k4);
-                    layoutrecord1.size = j6;
-                    if(i5 > 1)
-                    {
-                        k6 = ai[k5];
-                        k7 = k5 + 1;
-                        while(k7 < k5 + i5) 
-                        {
-                            l7 = ai[k7];
-                            if(l7 <= k6)
-                                l7 = k6;
-                            k7++;
-                            k6 = l7;
-                        }
-                    } else
-                    {
-                        k6 = ai[k5];
-                    }
-                    l6 = l3 + (k6 + j6);
-                    for(i7 = k5; i7 < k5 + i5; i7++)
-                        ai[i7] = l6 + layoutrecord1.getMarginAfter(i7 - k5);
+            mRestoreOffset = 0;
+        }
 
-                    j7 = getNextColumnDown(ai);
-                    k4++;
-                    l4 = j7;
+        mPopulating = true;
+        layoutChildren(mDataChanged);
+        fillDown(mFirstPosition + getChildCount(), 0);
+        fillUp(mFirstPosition - 1, 0);
+        mPopulating = false;
+        mDataChanged = false;
+    }
+    
+    /**
+     * Measure and layout all currently visible children.
+     *
+     * @param queryAdapter true to requery the adapter for view data
+     */
+    final void layoutChildren(boolean queryAdapter) {
+        final int paddingLeft = getPaddingLeft();
+        final int paddingRight = getPaddingRight();
+        final int itemMargin = mItemMargin;
+        final int colWidth =
+                (getWidth() - paddingLeft - paddingRight - itemMargin * (mColCount - 1)) / mColCount;
+        int rebuildLayoutRecordsBefore = -1;
+        int rebuildLayoutRecordsAfter = -1;
+
+        Arrays.fill(mItemEnd, Integer.MIN_VALUE);
+
+        final int childCount = getChildCount();
+        for (int i = 0; i < childCount; i++) {
+            View child = getChildAt(i);
+            LayoutParams lp = (LayoutParams) child.getLayoutParams();
+            final int col = lp.column;
+            final int position = mFirstPosition + i;
+            final boolean needsLayout = queryAdapter || child.isLayoutRequested();
+
+            if (queryAdapter) {
+                View newView = obtainView(position, child);
+                if (newView != child) {
+                    removeViewAt(i);
+                    addView(newView, i);
+                    child = newView;
                 }
+                lp = (LayoutParams) child.getLayoutParams(); // Might have changed
             }
-            fillDown(mFirstPosition + getChildCount(), 0);
-            j3 = -1 + mFirstPosition;
-            if(mRestoreOffset > 0)
-                k3 = mRestoreOffset;
-            else
-                k3 = 0;
-            fillUp(j3, k3);
-            setVisibleOffset();
-            mPopulating = false;
-            mDataChanged = false;
+
+            final int span = Math.min(mColCount, lp.minorSpan);
+            final int widthSize = colWidth * span + itemMargin * (span - 1);
+
+            if (needsLayout) {
+                final int widthSpec = MeasureSpec.makeMeasureSpec(widthSize, MeasureSpec.EXACTLY);
+
+                final int heightSpec;
+                if (lp.height == LayoutParams.WRAP_CONTENT) {
+                    heightSpec = MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED);
+                } else {
+                    heightSpec = MeasureSpec.makeMeasureSpec(lp.height, MeasureSpec.EXACTLY);
+                }
+
+                child.measure(widthSpec, heightSpec);
+            }
+
+            int childTop = mItemEnd[col] > Integer.MIN_VALUE ?
+                    mItemEnd[col] + mItemMargin : child.getTop();
+            if (span > 1) {
+                int lowest = childTop;
+                for (int j = col + 1; j < col + span; j++) {
+                    final int bottom = mItemEnd[j] + mItemMargin;
+                    if (bottom > lowest) {
+                        lowest = bottom;
+                    }
+                }
+                childTop = lowest;
+            }
+            final int childHeight = child.getMeasuredHeight();
+            final int childBottom = childTop + childHeight;
+            final int childLeft = paddingLeft + col * (colWidth + itemMargin);
+            final int childRight = childLeft + child.getMeasuredWidth();
+            child.layout(childLeft, childTop, childRight, childBottom);
+
+            for (int j = col; j < col + span; j++) {
+                mItemEnd[j] = childBottom;
+            }
+
+            final LayoutRecord rec = (LayoutRecord)mLayoutRecords.get(position);
+            if (rec != null && rec.size != childHeight) {
+                // Invalidate our layout records for everything before this.
+                rec.size = childHeight;
+                rebuildLayoutRecordsBefore = position;
+            }
+
+            if (rec != null && rec.span != span) {
+                // Invalidate our layout records for everything after this.
+                rec.span = span;
+                rebuildLayoutRecordsAfter = position;
+            }
+        }
+
+        // Update mItemEnd for any empty columns
+        for (int i = 0; i < mColCount; i++) {
+            if (mItemEnd[i] == Integer.MIN_VALUE) {
+                mItemEnd[i] = mItemStart[i];
+            }
+        }
+
+        if (rebuildLayoutRecordsBefore >= 0 || rebuildLayoutRecordsAfter >= 0) {
+            if (rebuildLayoutRecordsBefore >= 0) {
+                invalidateLayoutRecordsBeforePosition(rebuildLayoutRecordsBefore);
+            }
+            if (rebuildLayoutRecordsAfter >= 0) {
+                invalidateLayoutRecordsAfterPosition(rebuildLayoutRecordsAfter);
+            }
+            for (int i = 0; i < childCount; i++) {
+                final int position = mFirstPosition + i;
+                final View child = getChildAt(i);
+                final LayoutParams lp = (LayoutParams) child.getLayoutParams();
+                LayoutRecord rec = (LayoutRecord)mLayoutRecords.get(position);
+                if (rec == null) {
+                    rec = new LayoutRecord();
+                    mLayoutRecords.put(position, rec);
+                }
+                rec.column = lp.column;
+                rec.size = child.getHeight();
+                rec.id = lp.id;
+                rec.span = Math.min(mColCount, lp.minorSpan);
+            }
         }
     }
 
@@ -1264,11 +818,193 @@ public class ColumnGridView extends ViewGroup {
         } while(true);
     }
     
-    private boolean trackMotionScroll(int i, boolean flag)
-    {
-        // FIXME
-    	return true;
+    @Override
+    public void computeScroll() {
+        if (mScroller.computeScrollOffset()) {
+            final int y = mScroller.getCurrY();
+            final int dy = (int) (y - mLastTouch);
+            mLastTouch = y;
+            final boolean stopped = !trackMotionScroll(dy, false);
+
+            if (!stopped && !mScroller.isFinished()) {
+                ViewCompat.postInvalidateOnAnimation(this);
+            } else {
+                if (stopped) {
+                    final int overScrollMode = ViewCompat.getOverScrollMode(this);
+                    if (overScrollMode != ViewCompat.OVER_SCROLL_NEVER) {
+                        final EdgeEffectCompat edge;
+                        if (dy > 0) {
+                            edge = mStartEdge;
+                        } else {
+                            edge = mEndEdge;
+                        }
+                        edge.onAbsorb(Math.abs((int) mScroller.getCurrVelocity()));
+                        ViewCompat.postInvalidateOnAnimation(this);
+                    }
+                    mScroller.abortAnimation();
+                }
+                mScrollState = TOUCH_MODE_IDLE;
+            }
+        }
     }
+    
+    /**
+    *
+    * @param deltaY Pixels that content should move by
+    * @return true if the movement completed, false if it was stopped prematurely.
+    */
+   private boolean trackMotionScroll(int deltaY, boolean allowOverScroll) {
+       final boolean contentFits = contentFits();
+       final int allowOverhang = Math.abs(deltaY);
+
+       final int overScrolledBy;
+       final int movedBy;
+       if (!contentFits) {
+           final int overhang;
+           final boolean up;
+           mPopulating = true;
+           if (deltaY > 0) {
+               overhang = fillUp(mFirstPosition - 1, allowOverhang);
+               up = true;
+           } else {
+               overhang = fillDown(mFirstPosition + getChildCount(), allowOverhang) + mItemMargin;
+               up = false;
+           }
+           movedBy = Math.min(overhang, allowOverhang);
+           offsetChildren(up ? movedBy : -movedBy);
+           recycleOffscreenViews();
+           mPopulating = false;
+           overScrolledBy = allowOverhang - overhang;
+       } else {
+           overScrolledBy = allowOverhang;
+           movedBy = 0;
+       }
+
+       if (allowOverScroll) {
+           final int overScrollMode = ViewCompat.getOverScrollMode(this);
+
+           if (overScrollMode == ViewCompat.OVER_SCROLL_ALWAYS ||
+                   (overScrollMode == ViewCompat.OVER_SCROLL_IF_CONTENT_SCROLLS && !contentFits)) {
+
+               if (overScrolledBy > 0) {
+                   EdgeEffectCompat edge = deltaY > 0 ? mStartEdge : mEndEdge;
+                   edge.onPull((float) Math.abs(deltaY) / getHeight());
+                   ViewCompat.postInvalidateOnAnimation(this);
+               }
+           }
+       }
+
+       return deltaY == 0 || movedBy != 0;
+   }
+   
+   private void recycleOffscreenViews() {
+       final int height = getHeight();
+       final int clearAbove = -mItemMargin;
+       final int clearBelow = height + mItemMargin;
+       for (int i = getChildCount() - 1; i >= 0; i--) {
+           final View child = getChildAt(i);
+           if (child.getTop() <= clearBelow)  {
+               // There may be other offscreen views, but we need to maintain
+               // the invariant documented above.
+               break;
+           }
+
+           if (mInLayout) {
+               removeViewsInLayout(i, 1);
+           } else {
+               removeViewAt(i);
+           }
+
+           mRecycler.addScrap(child);
+       }
+
+       while (getChildCount() > 0) {
+           final View child = getChildAt(0);
+           if (child.getBottom() >= clearAbove) {
+               // There may be other offscreen views, but we need to maintain
+               // the invariant documented above.
+               break;
+           }
+
+           if (mInLayout) {
+               removeViewsInLayout(0, 1);
+           } else {
+               removeViewAt(0);
+           }
+
+           mRecycler.addScrap(child);
+           mFirstPosition++;
+       }
+
+       final int childCount = getChildCount();
+       if (childCount > 0) {
+           // Repair the top and bottom column boundaries from the views we still have
+           Arrays.fill(mItemStart, Integer.MAX_VALUE);
+           Arrays.fill(mItemEnd, Integer.MIN_VALUE);
+
+           for (int i = 0; i < childCount; i++){
+               final View child = getChildAt(i);
+               final LayoutParams lp = (LayoutParams) child.getLayoutParams();
+               final int top = child.getTop() - mItemMargin;
+               final int bottom = child.getBottom();
+               final LayoutRecord rec = (LayoutRecord)mLayoutRecords.get(mFirstPosition + i);
+
+               final int colEnd = lp.column + Math.min(mColCount, lp.minorSpan);
+               for (int col = lp.column; col < colEnd; col++) {
+                   final int colTop = top - rec.getMarginBefore(col - lp.column);
+                   final int colBottom = bottom + rec.getMarginAfter(col - lp.column);
+                   if (colTop < mItemStart[col]) {
+                       mItemStart[col] = colTop;
+                   }
+                   if (colBottom > mItemEnd[col]) {
+                       mItemEnd[col] = colBottom;
+                   }
+               }
+           }
+
+           for (int col = 0; col < mColCount; col++) {
+               if (mItemStart[col] == Integer.MAX_VALUE) {
+                   // If one was untouched, both were.
+                   mItemStart[col] = 0;
+                   mItemEnd[col] = 0;
+               }
+           }
+       }
+   }
+   
+   final void offsetChildren(int offset) {
+       final int childCount = getChildCount();
+       for (int i = 0; i < childCount; i++) {
+           final View child = getChildAt(i);
+           child.layout(child.getLeft(), child.getTop() + offset,
+                   child.getRight(), child.getBottom() + offset);
+       }
+
+       final int colCount = mColCount;
+       for (int i = 0; i < colCount; i++) {
+           mItemStart[i] += offset;
+           mItemEnd[i] += offset;
+       }
+   }
+   
+   private final boolean contentFits() {
+       if (mFirstPosition != 0 || getChildCount() != mItemCount) {
+           return false;
+       }
+
+       int topmost = Integer.MAX_VALUE;
+       int bottommost = Integer.MIN_VALUE;
+       for (int i = 0; i < mColCount; i++) {
+           if (mItemStart[i] < topmost) {
+               topmost = mItemStart[i];
+           }
+           if (mItemEnd[i] > bottommost) {
+               bottommost = mItemEnd[i];
+           }
+       }
+
+       return topmost >= getPaddingTop() && bottommost <= getHeight() - getPaddingBottom();
+   }
 
     public final void deselect(int i)
     {
@@ -1437,11 +1173,13 @@ public class ColumnGridView extends ViewGroup {
         removeCallbacks(mSetPressedRunnable);
     }
 
+    @Override
 	public boolean onInterceptTouchEvent(MotionEvent motionevent) {
 		boolean flag = true;
 		mVelocityTracker.addMovement(motionevent);
-		switch (0xff & motionevent.getAction()) {
-		case 0:
+        final int action = motionevent.getAction() & MotionEventCompat.ACTION_MASK;
+        switch (action) {
+		case MotionEvent.ACTION_DOWN:
 			mCurrentTouchPoint.set((int) motionevent.getRawX(),
 					(int) motionevent.getRawY());
 			postDelayed(mSetPressedRunnable, ViewConfiguration.getTapTimeout());
@@ -1453,8 +1191,8 @@ public class ColumnGridView extends ViewGroup {
 				mLastTouch = motionevent.getY();
 			mActivePointerId = MotionEventCompat.getPointerId(motionevent, 0);
 			mTouchRemainder = 0.0F;
-			if (mScrollState == 2)
-				mScrollState = ((flag) ? 1 : 0);
+			if (mScrollState == TOUCH_MODE_FLINGING)
+				mScrollState = ((flag) ? TOUCH_MODE_DRAGGING : TOUCH_MODE_IDLE);
 			else if (!mSelectionMode) {
 				// FIXME
 			}
@@ -1487,7 +1225,7 @@ public class ColumnGridView extends ViewGroup {
 				f1 = (f - mLastTouch) + mTouchRemainder;
 				mTouchRemainder = f1 - (float) (int) f1;
 				if (Math.abs(f1) > (float) mTouchSlop)
-					mScrollState = ((flag) ? 1 : 0);
+					mScrollState = ((flag) ? TOUCH_MODE_DRAGGING : TOUCH_MODE_IDLE);
 			}
 			break;
 		default:
@@ -1588,11 +1326,12 @@ public class ColumnGridView extends ViewGroup {
     }
 
     public boolean onTouchEvent(MotionEvent motionevent) {
-    	boolean flag;
-        mVelocityTracker.addMovement(motionevent);
-        switch(0xff & motionevent.getAction()) {
-	        case 0:
-	        	 mCurrentTouchPoint.set((int)motionevent.getRawX(), (int)motionevent.getRawY());
+    	
+    	mVelocityTracker.addMovement(motionevent);
+        final int action = motionevent.getAction() & MotionEventCompat.ACTION_MASK;
+        switch (action) {
+            case MotionEvent.ACTION_DOWN:
+            	mCurrentTouchPoint.set((int)motionevent.getRawX(), (int)motionevent.getRawY());
 	             mSelectionStartPoint.set((int)motionevent.getRawX(), (int)motionevent.getRawY());
 	             postDelayed(mSetPressedRunnable, ViewConfiguration.getTapTimeout());
 	             mVelocityTracker.clear();
@@ -1604,10 +1343,47 @@ public class ColumnGridView extends ViewGroup {
 	             mActivePointerId = MotionEventCompat.getPointerId(motionevent, 0);
 	             mTouchRemainder = 0.0F;
 	             reportScrollStateChange(mScrollState);
-	             flag = true;
-	        	break;
-	        case 1:
-	        	mCurrentTouchPoint.set(-1, -1);
+                break;
+
+            case MotionEvent.ACTION_MOVE: {
+                mCurrentTouchPoint.set((int)motionevent.getRawX(), (int)motionevent.getRawY());
+                clearPressedState();
+                final int index = MotionEventCompat.findPointerIndex(motionevent, mActivePointerId);
+                if (index < 0) {
+                    Log.e(TAG, "onInterceptTouchEvent could not find pointer with id " +
+                            mActivePointerId + " - did StaggeredGridView receive an inconsistent " +
+                            "event stream?");
+                    return false;
+                }
+                
+                float y;
+                float dy;
+                if(mHorizontalOrientation)
+                    y = MotionEventCompat.getX(motionevent, index);
+                else
+                    y = MotionEventCompat.getY(motionevent, index);
+                dy = (y - mLastTouch) + mTouchRemainder;
+                final int deltaY = (int) dy;
+                mTouchRemainder = dy - (float)deltaY;
+                if(Math.abs(dy) > (float)mTouchSlop)
+                    mScrollState = TOUCH_MODE_DRAGGING;
+                if(mScrollState == TOUCH_MODE_DRAGGING)
+                {
+                    mLastTouch = y;
+                    if(!trackMotionScroll(deltaY, true))
+                        mVelocityTracker.clear();
+                }
+                break;
+            } 
+            case MotionEvent.ACTION_CANCEL:
+            	mCurrentTouchPoint.set(-1, -1);
+ 	            clearPressedState();
+ 	            mScrollState = TOUCH_MODE_IDLE;
+ 	            reportScrollStateChange(mScrollState);
+                break;
+
+            case MotionEvent.ACTION_UP: {
+            	mCurrentTouchPoint.set(-1, -1);
 	            clearPressedState();
 	            mVelocityTracker.computeCurrentVelocity(1000, mMaximumVelocity);
 	            float f;
@@ -1617,7 +1393,7 @@ public class ColumnGridView extends ViewGroup {
 	                f = VelocityTrackerCompat.getYVelocity(mVelocityTracker, mActivePointerId);
 	            if(Math.abs(f) > (float)mFlingVelocity)
 	            {
-	                mScrollState = 2;
+	                mScrollState = TOUCH_MODE_FLINGING;
 	                int i;
 	                int j;
 	                if(mHorizontalOrientation)
@@ -1633,34 +1409,18 @@ public class ColumnGridView extends ViewGroup {
 	                ViewCompat.postInvalidateOnAnimation(this);
 	            } else
 	            {
-	                mScrollState = 0;
+	                mScrollState = TOUCH_MODE_IDLE;
 	            }
 	            checkForSelection((int)motionevent.getRawX(), (int)motionevent.getRawY());
 	            reportScrollStateChange(mScrollState);
-	            flag = true;
 	        	break;
-	        case 2:
-	        	int k;
-	            mCurrentTouchPoint.set((int)motionevent.getRawX(), (int)motionevent.getRawY());
-	            clearPressedState();
-	            k = MotionEventCompat.findPointerIndex(motionevent, mActivePointerId);
-	            if(k < 0)
-	            	Log.e("ColumnGridView", (new StringBuilder("onInterceptTouchEvent could not find pointer with id ")).append(mActivePointerId).append(" - did we receive an inconsistent event stream?").toString());
-	            flag = false;
-	        	break;
-	        case 3:
-	            mCurrentTouchPoint.set(-1, -1);
-	            clearPressedState();
-	            mScrollState = 0;
-	            reportScrollStateChange(mScrollState);
-	            flag = true;
-	            break;
-        	default:
-        		 reportScrollStateChange(mScrollState);
-                 flag = true;
-        		break;
+            }
+            default:{
+       		 	reportScrollStateChange(mScrollState);
+       		 	break;
+            }
         }
-        return false;
+        return true;
     }
 
     public final void registerSelectionListener(ItemSelectionListener itemselectionlistener)
@@ -2070,7 +1830,7 @@ public class ColumnGridView extends ViewGroup {
 					mLayoutRecords.clear();
 					
 					for(i = 0; i < getChildCount(); i++)
-			            mRecycler.addScrap(getChildAt(i), getChildCount());
+			            mRecycler.addScrap(getChildAt(i));
 
 			        if(mInLayout)
 			            removeAllViewsInLayout();
@@ -2100,99 +1860,93 @@ public class ColumnGridView extends ViewGroup {
 	}
 	
 	private class RecycleBin {
-		
-		private int mMaxScrap;
-        private RecyclerListener mRecyclerListener;
-        private List mScrapViews[];
-        private SparseArray mTransientStateViews;
+        private ArrayList<View>[] mScrapViews;
         private int mViewTypeCount;
+        private int mMaxScrap;
 
+        private SparseArray<View> mTransientStateViews;
+        
+        private RecyclerListener mRecyclerListener;
 
-/*
-        static RecyclerListener access$402(RecycleBin recyclebin, RecyclerListener recyclerlistener)
-        {
-            recyclebin.mRecyclerListener = recyclerlistener;
-            return recyclerlistener;
+        public void setViewTypeCount(int viewTypeCount) {
+            if (viewTypeCount < 1) {
+                throw new IllegalArgumentException("Must have at least one view type (" +
+                        viewTypeCount + " types reported)");
+            }
+            if (viewTypeCount == mViewTypeCount) {
+                return;
+            }
+
+            ArrayList<View>[] scrapViews = new ArrayList[viewTypeCount];
+            for (int i = 0; i < viewTypeCount; i++) {
+                scrapViews[i] = new ArrayList<View>();
+            }
+            mViewTypeCount = viewTypeCount;
+            mScrapViews = scrapViews;
         }
 
-*/
-
-        private RecycleBin()
-        {
+        public void clear() {
+            final int typeCount = mViewTypeCount;
+            for (int i = 0; i < typeCount; i++) {
+                mScrapViews[i].clear();
+            }
+            if (mTransientStateViews != null) {
+                mTransientStateViews.clear();
+            }
         }
 
-        public final void addScrap(View view, int i) {
-            LayoutParams layoutparams = (LayoutParams)view.getLayoutParams();
-            if(!ViewCompat.hasTransientState(view)) {
-            	if(i > mMaxScrap)
-                    mMaxScrap = i;
-                List arraylist = mScrapViews[layoutparams.viewType];
-                if(arraylist.size() < mMaxScrap)
-                    arraylist.add(view);
+        public void clearTransientViews() {
+            if (mTransientStateViews != null) {
+                mTransientStateViews.clear();
+            }
+        }
+
+        public void addScrap(View v) {
+            final LayoutParams lp = (LayoutParams) v.getLayoutParams();
+            if (ViewCompat.hasTransientState(v)) {
+                if (mTransientStateViews == null) {
+                    mTransientStateViews = new SparseArray<View>();
+                }
+                mTransientStateViews.put(lp.position, v);
+                return;
+            }
+
+            final int childCount = getChildCount();
+            if (childCount > mMaxScrap) {
+                mMaxScrap = childCount;
+            }
+
+            ArrayList<View> scrap = mScrapViews[lp.viewType];
+            if (scrap.size() < mMaxScrap) {
+                scrap.add(v);
                 if(mRecyclerListener != null)
-                    mRecyclerListener.onMovedToScrapHeap(view);
-            } else {
-            	 if(mTransientStateViews == null)
-                     mTransientStateViews = new SparseArray();
-                 mTransientStateViews.put(layoutparams.position, view);
+                    mRecyclerListener.onMovedToScrapHeap(v);
             }
         }
 
-        public final void clear()
-        {
-            int i = mViewTypeCount;
-            for(int j = 0; j < i; j++)
-                mScrapViews[j].clear();
-
-            if(mTransientStateViews != null)
-                mTransientStateViews.clear();
-        }
-
-        public final void clearTransientViews()
-        {
-            if(mTransientStateViews != null)
-                mTransientStateViews.clear();
-        }
-
-        public final View getScrapView(int i)
-        {
-            List arraylist = mScrapViews[i];
-            View view;
-            if(arraylist.isEmpty())
-            {
-                view = null;
-            } else
-            {
-                int j = -1 + arraylist.size();
-                view = (View)arraylist.get(j);
-                arraylist.remove(j);
+        public View getTransientStateView(int position) {
+            if (mTransientStateViews == null) {
+                return null;
             }
-            return view;
-        }
 
-        public final View getTransientStateView(int i) {
-        	if(null == mTransientStateViews) {
-        		return null;
-        	}
-        	View view = (View)mTransientStateViews.get(i);
-            if(view != null)
-                mTransientStateViews.remove(i);
-            return view;
-        }
-
-        public final void setViewTypeCount(int i) {
-            if(i <= 0)
-                throw new IllegalArgumentException((new StringBuilder("Must have at least one view type (")).append(i).append(" types reported)").toString());
-            if(i != mViewTypeCount) {
-                List aarraylist[] = new ArrayList[i];
-                for(int j = 0; j < i; j++)
-                    aarraylist[j] = new ArrayList();
-
-                mViewTypeCount = i;
-                mScrapViews = aarraylist;
+            final View result = mTransientStateViews.get(position);
+            if (result != null) {
+                mTransientStateViews.remove(position);
             }
+            return result;
         }
 
+        public View getScrapView(int type) {
+            ArrayList<View> scrap = mScrapViews[type];
+            if (scrap.isEmpty()) {
+                return null;
+            }
+
+            final int index = scrap.size() - 1;
+            final View result = scrap.get(index);
+            scrap.remove(index);
+            return result;
+        }
     }
 	
 	static class SavedState extends View.BaseSavedState

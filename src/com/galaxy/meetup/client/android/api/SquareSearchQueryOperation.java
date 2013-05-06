@@ -13,10 +13,11 @@ import android.content.Intent;
 import com.galaxy.meetup.client.android.content.EsAccount;
 import com.galaxy.meetup.client.android.network.PlusiOperation;
 import com.galaxy.meetup.client.android.network.http.HttpOperation;
-import com.galaxy.meetup.server.client.domain.GenericJson;
 import com.galaxy.meetup.server.client.domain.SearchQuery;
 import com.galaxy.meetup.server.client.domain.request.SearchQueryRequest;
 import com.galaxy.meetup.server.client.domain.response.SearchQueryResponse;
+import com.galaxy.meetup.server.client.v2.request.Request;
+import com.galaxy.meetup.server.client.v2.response.Response;
 
 /**
  * 
@@ -44,15 +45,15 @@ public class SquareSearchQueryOperation extends PlusiOperation {
         return mSquareResults;
     }
 
-    protected final void handleResponse(GenericJson genericjson)
+    protected final void handleResponse(Response response)
         throws IOException
     {
-        SearchQueryResponse searchqueryresponse = (SearchQueryResponse)genericjson;
+        SearchQueryResponse searchqueryresponse = (SearchQueryResponse)response;
         if(searchqueryresponse.results != null && searchqueryresponse.results.squareResults != null)
             mSquareResults = searchqueryresponse.results.squareResults.result;
     }
 
-    protected final GenericJson populateRequest()
+    protected final Request populateRequest()
     {
         SearchQueryRequest searchqueryrequest = new SearchQueryRequest();
         searchqueryrequest.searchQuery = new SearchQuery();

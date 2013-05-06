@@ -17,10 +17,11 @@ import com.galaxy.meetup.client.android.content.EsPeopleData;
 import com.galaxy.meetup.client.android.content.EsPostsData;
 import com.galaxy.meetup.client.android.network.PlusiOperation;
 import com.galaxy.meetup.client.android.network.http.HttpOperation;
-import com.galaxy.meetup.server.client.domain.GenericJson;
 import com.galaxy.meetup.server.client.domain.Update;
 import com.galaxy.meetup.server.client.domain.request.PostActivityRequest;
 import com.galaxy.meetup.server.client.domain.response.PostActivityResponse;
+import com.galaxy.meetup.server.client.v2.request.Request;
+import com.galaxy.meetup.server.client.v2.response.Response;
 
 /**
  * 
@@ -41,9 +42,9 @@ public class ReshareActivityOperation extends PlusiOperation {
         mAudience = audiencedata;
     }
 
-    protected final void handleResponse(GenericJson genericjson) throws IOException
+    protected final void handleResponse(Response response) throws IOException
     {
-        PostActivityResponse postactivityresponse = (PostActivityResponse)genericjson;
+        PostActivityResponse postactivityresponse = (PostActivityResponse)response;
         if(postactivityresponse == null) { 
         	return;
         }
@@ -62,7 +63,7 @@ public class ReshareActivityOperation extends PlusiOperation {
         }
     }
 
-    protected final GenericJson populateRequest()
+    protected final Request populateRequest()
     {
         PostActivityRequest postactivityrequest = new PostActivityRequest();
         postactivityrequest.resharedUpdateId = mReshareId;

@@ -15,9 +15,10 @@ import com.galaxy.meetup.client.android.content.EsAccount;
 import com.galaxy.meetup.client.android.content.EsAccountsData;
 import com.galaxy.meetup.client.android.network.PlusiOperation;
 import com.galaxy.meetup.client.android.network.http.HttpOperation;
-import com.galaxy.meetup.server.client.domain.GenericJson;
 import com.galaxy.meetup.server.client.domain.request.SyncMobileContactsRequest;
 import com.galaxy.meetup.server.client.domain.response.SyncMobileContactsResponse;
+import com.galaxy.meetup.server.client.v2.request.Request;
+import com.galaxy.meetup.server.client.v2.response.Response;
 
 /**
  * 
@@ -41,9 +42,9 @@ public class SyncMobileContactsOperation extends PlusiOperation {
         mSyncType = s1;
     }
 
-    protected final void handleResponse(GenericJson genericjson) throws IOException
+    protected final void handleResponse(Response response) throws IOException
     {
-        SyncMobileContactsResponse syncmobilecontactsresponse = (SyncMobileContactsResponse)genericjson;
+        SyncMobileContactsResponse syncmobilecontactsresponse = (SyncMobileContactsResponse)response;
         boolean flag;
         if(!TextUtils.isEmpty(syncmobilecontactsresponse.status) && syncmobilecontactsresponse.status.equals("SUCCESS"))
             flag = true;
@@ -54,7 +55,7 @@ public class SyncMobileContactsOperation extends PlusiOperation {
             EsAccountsData.saveContactsStatsWipeoutNeeded(mContext, mAccount, false);
     }
 
-    protected final GenericJson populateRequest()
+    protected final Request populateRequest()
     {
         SyncMobileContactsRequest syncmobilecontactsrequest = new SyncMobileContactsRequest();
         syncmobilecontactsrequest.device = mDevice;

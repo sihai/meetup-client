@@ -16,7 +16,7 @@ import android.view.animation.AlphaAnimation;
 import com.galaxy.meetup.client.android.R;
 import com.galaxy.meetup.client.android.content.EsEventData;
 import com.galaxy.meetup.client.android.ui.fragments.EventActiveState;
-import com.galaxy.meetup.server.client.domain.PlusEvent;
+import com.galaxy.meetup.server.client.v2.domain.Event;
 
 /**
  * 
@@ -109,13 +109,13 @@ public class EventRsvpLayout extends ExactLayout implements EventRsvpListener {
         }
     }
 
-    public final void bind(PlusEvent plusevent, EventActiveState eventactivestate, EventActionListener eventactionlistener)
+    public final void bind(Event event, EventActiveState eventactivestate, EventActionListener eventactionlistener)
     {
         mListener = eventactionlistener;
-        mEventOver = EsEventData.isEventOver(plusevent, System.currentTimeMillis());
-        mRsvpSpinnerLayout.bind(plusevent, eventactivestate, this, eventactionlistener);
+        mEventOver = EsEventData.isEventOver(event, System.currentTimeMillis());
+        mRsvpSpinnerLayout.bind(event, eventactivestate, this, eventactionlistener);
         mRsvpButtonLayout.bind(this, mEventOver);
-        setRsvpView(EsEventData.getRsvpType(plusevent), false);
+        setRsvpView(EsEventData.getRsvpType(event), false);
     }
 
     protected void measureChildren(int i, int j)

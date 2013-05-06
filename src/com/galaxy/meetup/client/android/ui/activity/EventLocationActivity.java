@@ -13,7 +13,7 @@ import com.galaxy.meetup.client.android.R;
 import com.galaxy.meetup.client.android.analytics.OzViews;
 import com.galaxy.meetup.client.android.content.EsAccount;
 import com.galaxy.meetup.client.android.ui.fragments.EsFragmentActivity;
-import com.galaxy.meetup.client.android.ui.fragments.EventLocationFragment;
+import com.galaxy.meetup.client.android.ui.fragments.EventLocationFragmentV2;
 import com.galaxy.meetup.server.client.domain.Place;
 import com.galaxy.meetup.server.client.util.JsonUtil;
 
@@ -22,7 +22,7 @@ import com.galaxy.meetup.server.client.util.JsonUtil;
  * @author sihai
  *
  */
-public class EventLocationActivity extends EsFragmentActivity implements EventLocationFragment.OnLocationSelectedListener {
+public class EventLocationActivity extends EsFragmentActivity implements EventLocationFragmentV2.OnLocationSelectedListener {
 
 	private String mInitialQuery;
 	
@@ -42,9 +42,9 @@ public class EventLocationActivity extends EsFragmentActivity implements EventLo
 
     public final void onAttachFragment(Fragment fragment)
     {
-        if(fragment instanceof EventLocationFragment)
+        if(fragment instanceof EventLocationFragmentV2)
         {
-            EventLocationFragment eventlocationfragment = (EventLocationFragment)fragment;
+            EventLocationFragmentV2 eventlocationfragment = (EventLocationFragmentV2)fragment;
             eventlocationfragment.setOnLocationSelectedListener(this);
             if(mInitialQuery != null)
                 eventlocationfragment.setInitialQueryString(mInitialQuery);

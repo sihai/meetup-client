@@ -15,9 +15,10 @@ import com.galaxy.meetup.client.android.network.PlusiOperation;
 import com.galaxy.meetup.client.android.network.http.HttpOperation;
 import com.galaxy.meetup.server.client.domain.DataCircleMemberId;
 import com.galaxy.meetup.server.client.domain.DataCirclePerson;
-import com.galaxy.meetup.server.client.domain.GenericJson;
 import com.galaxy.meetup.server.client.domain.request.LoadPeopleRequest;
 import com.galaxy.meetup.server.client.domain.response.LoadCircleMembersResponse;
+import com.galaxy.meetup.server.client.v2.request.Request;
+import com.galaxy.meetup.server.client.v2.response.Response;
 
 /**
  * 
@@ -40,14 +41,14 @@ public class GetContactInfoOperation extends PlusiOperation {
         return mPerson;
     }
 
-    protected final void handleResponse(GenericJson genericjson) throws IOException
+    protected final void handleResponse(Response response) throws IOException
     {
-        LoadCircleMembersResponse loadcirclemembersresponse = (LoadCircleMembersResponse)genericjson;
+        LoadCircleMembersResponse loadcirclemembersresponse = (LoadCircleMembersResponse)response;
         if(loadcirclemembersresponse.circlePerson != null && loadcirclemembersresponse.circlePerson.size() > 0)
             mPerson = (DataCirclePerson)loadcirclemembersresponse.circlePerson.get(0);
     }
 
-    protected final GenericJson populateRequest()
+    protected final Request populateRequest()
     {
         LoadPeopleRequest loadpeoplerequest = new LoadPeopleRequest();
         loadpeoplerequest.circleMemberId = new ArrayList();

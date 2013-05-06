@@ -6,14 +6,14 @@ package com.galaxy.meetup.client.android.api;
 
 import java.util.List;
 
-import com.galaxy.meetup.server.client.domain.GenericJson;
+import com.galaxy.meetup.server.client.v2.response.Response;
 
 /**
  * 
  * @author sihai
  *
  */
-public class ApiaryErrorResponse extends GenericJson {
+public class ApiaryErrorResponse extends Response {
 
 	public static final String AGE_RESTRICTED = "AGE_RESTRICTED";
     public static final String APP_UPGRADE_REQUIRED = "APP_UPGRADE_REQUIRED";

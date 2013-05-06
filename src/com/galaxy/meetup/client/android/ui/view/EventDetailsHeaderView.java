@@ -23,9 +23,10 @@ import android.widget.VideoView;
 import com.galaxy.meetup.client.android.R;
 import com.galaxy.meetup.client.android.common.Recyclable;
 import com.galaxy.meetup.client.android.ui.view.EsImageView.OnImageLoadedListener;
-import com.galaxy.meetup.server.client.domain.PlusEvent;
-import com.galaxy.meetup.server.client.domain.Theme;
-import com.galaxy.meetup.server.client.domain.ThemeImage;
+import com.galaxy.meetup.server.client.v2.domain.Event;
+import com.galaxy.meetup.server.client.v2.domain.EventOptions;
+import com.galaxy.meetup.server.client.v2.domain.Theme;
+import com.galaxy.meetup.server.client.v2.domain.ThemeImage;
 
 /**
  * 
@@ -135,11 +136,11 @@ public class EventDetailsHeaderView extends ViewGroup implements
         addView(mExpandCollapseTextView);
     }
 
-    public final void bind(PlusEvent plusevent, android.view.View.OnClickListener onclicklistener, boolean flag, EventActionListener eventactionlistener)
+    public final void bind(Event plusevent, android.view.View.OnClickListener onclicklistener, boolean flag, EventActionListener eventactionlistener)
     {
-        setEventTheme(plusevent.theme);
-        mAvatar.setGaiaId(plusevent.creatorObfuscatedId);
-        mTitleView.setText(plusevent.name);
+        setEventTheme(plusevent.getTheme());
+        mAvatar.setGaiaId(plusevent.getPublisher());
+        mTitleView.setText(plusevent.getName());
         removeView(mExpandCollapseTextView);
         removeView(mExpandCollapseChevronView);
         removeView(mExpandCollapseView);
@@ -152,27 +153,26 @@ public class EventDetailsHeaderView extends ViewGroup implements
         }
         mOnClickListener = onclicklistener;
         mActionListener = eventactionlistener;
-        if(plusevent.eventOptions != null && plusevent.eventOptions.broadcast != null && plusevent.eventOptions.broadcast.booleanValue())
+        EventOptions options = plusevent.getOptions();
+        if(null != options && options.isBroadcast())
         {
             mTypeView.setText(sOnAirText);
             mTypeView.setTextColor(sOnAirColor);
             mTypeView.setBackgroundDrawable(sOnAirDrawable);
             mTypeView.setVisibility(0);
-        } else
-        if(plusevent.isPublic != null)
-        {
+        } else if(plusevent.isPublic()) {
             TextView textview = mTypeView;
-            String s;
-            if(plusevent.isPublic.booleanValue())
-                s = sPublicText;
-            else
-                s = sPrivateText;
-            textview.setText(s);
+            textview.setText(sPublicText);
             mTypeView.setTextColor(sPrivatePublicColor);
             mTypeView.setBackgroundDrawable(null);
             mTypeView.setVisibility(0);
-        } else
-        {
+        } else if(!plusevent.isPublic()) {
+        	TextView textview = mTypeView;
+	        textview.setText(sPrivateText);
+	        mTypeView.setTextColor(sPrivatePublicColor);
+	        mTypeView.setBackgroundDrawable(null);
+	        mTypeView.setVisibility(0);
+        } else {
             mTypeView.setVisibility(8);
         }
         mTypeView.setTextSize(0, sTypeSize);
@@ -331,16 +331,16 @@ public class EventDetailsHeaderView extends ViewGroup implements
 	
     public void setEventTheme(Theme theme)
     {
-    	if(mVideoView == null || theme == null || theme.image == null) {
+    	if(mVideoView == null || theme == null || theme.getImageList() == null) {
     		;
     	} else {
     		ThemeImage themeimage;
-    		for(Iterator iterator = theme.image.iterator(); iterator.hasNext();) {
+    		for(Iterator iterator = theme.getImageList().iterator(); iterator.hasNext();) {
     			themeimage = (ThemeImage)iterator.next();
-    			if(!"MOV".equals(themeimage.format) || !"LARGE".equals(themeimage.aspectRatio) || !themeimage.url.endsWith("mp4")) {
+    			if(!"MOV".equals(themeimage.getFormat()) || !"LARGE".equals(themeimage.getAspectRatio()) || !themeimage.getUrl().endsWith("mp4")) {
     				continue;
     			} else {
-    				mVideoThemeUrl = themeimage.url;
+    				mVideoThemeUrl = themeimage.getUrl();
     			}
     		}
     	}

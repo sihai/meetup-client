@@ -17,9 +17,10 @@ import com.galaxy.meetup.client.android.content.EsPeopleData;
 import com.galaxy.meetup.client.android.network.PlusiOperation;
 import com.galaxy.meetup.client.android.network.http.HttpOperation;
 import com.galaxy.meetup.server.client.domain.DataSuggestedPerson;
-import com.galaxy.meetup.server.client.domain.GenericJson;
 import com.galaxy.meetup.server.client.domain.request.FindMorePeopleRequest;
 import com.galaxy.meetup.server.client.domain.response.FindMorePeopleResponse;
+import com.galaxy.meetup.server.client.v2.request.Request;
+import com.galaxy.meetup.server.client.v2.response.Response;
 
 /**
  * 
@@ -32,8 +33,8 @@ public class FindMorePeopleOperation extends PlusiOperation {
         super(context, esaccount, "findmorepeople", null, null, FindMorePeopleResponse.class);
     }
 
-    protected final void handleResponse(GenericJson genericjson) throws IOException {
-        FindMorePeopleResponse findmorepeopleresponse = (FindMorePeopleResponse)genericjson;
+    protected final void handleResponse(Response response) throws IOException {
+        FindMorePeopleResponse findmorepeopleresponse = (FindMorePeopleResponse)response;
         List arraylist = new ArrayList();
         if(findmorepeopleresponse.suggestion != null)
             arraylist.addAll(findmorepeopleresponse.suggestion);
@@ -52,10 +53,10 @@ public class FindMorePeopleOperation extends PlusiOperation {
         EsPeopleData.insertSuggestedPeople(mContext, getAccount(), arraylist);
     }
 
-    protected final GenericJson populateRequest() {
-    	FindMorePeopleRequest genericjson = new FindMorePeopleRequest();
-        genericjson.maxSuggestions = Integer.valueOf(80);
-        return genericjson;
+    protected final Request populateRequest() {
+    	FindMorePeopleRequest response = new FindMorePeopleRequest();
+        response.maxSuggestions = Integer.valueOf(80);
+        return response;
     }
 
 }

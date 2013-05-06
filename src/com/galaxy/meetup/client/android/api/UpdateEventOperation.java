@@ -13,10 +13,11 @@ import com.galaxy.meetup.client.android.content.EsAccount;
 import com.galaxy.meetup.client.android.content.EsEventData;
 import com.galaxy.meetup.client.android.network.PlusiOperation;
 import com.galaxy.meetup.client.android.network.http.HttpOperation;
-import com.galaxy.meetup.server.client.domain.GenericJson;
-import com.galaxy.meetup.server.client.domain.PlusEvent;
-import com.galaxy.meetup.server.client.domain.request.UpdateEventRequest;
-import com.galaxy.meetup.server.client.domain.response.UpdateEventResponse;
+import com.galaxy.meetup.server.client.v2.domain.Event;
+import com.galaxy.meetup.server.client.v2.request.Request;
+import com.galaxy.meetup.server.client.v2.request.UpdateEventRequest;
+import com.galaxy.meetup.server.client.v2.response.Response;
+import com.galaxy.meetup.server.client.v2.response.UpdateEventResponse;
 
 /**
  * 
@@ -25,38 +26,32 @@ import com.galaxy.meetup.server.client.domain.response.UpdateEventResponse;
  */
 public class UpdateEventOperation extends PlusiOperation {
 
-	private PlusEvent mPlusEvent;
+	private Event mEvent;
 	
-	public UpdateEventOperation(Context context, EsAccount esaccount, PlusEvent plusevent, Intent intent, HttpOperation.OperationListener operationlistener)
-    {
-        super(context, esaccount, "updateevent", intent, operationlistener, UpdateEventResponse.class);
-        mPlusEvent = plusevent;
-    }
+	public UpdateEventOperation(Context context, EsAccount esaccount,
+			Event event, Intent intent,
+			HttpOperation.OperationListener operationlistener) {
+		super(context, esaccount, "update_event", intent, operationlistener,
+				UpdateEventResponse.class);
+		mEvent = event;
+	}
 
-    protected final void handleResponse(GenericJson genericjson) throws IOException
-    {
-        PlusEvent plusevent = ((UpdateEventResponse)genericjson).event;
-        if(plusevent != null)
-        {
-            mPlusEvent.setName(plusevent.getName());
-            mPlusEvent.setDescription(plusevent.getDescription());
-            mPlusEvent.setTheme(plusevent.getTheme());
-            mPlusEvent.setStartTime(plusevent.getStartTime());
-            mPlusEvent.setStartDate(plusevent.getStartDate());
-            mPlusEvent.setEndTime(plusevent.getEndTime());
-            mPlusEvent.setEndDate(plusevent.getEndDate());
-            mPlusEvent.setLocation(plusevent.getLocation());
-            mPlusEvent.setEventOptions(plusevent.getEventOptions());
-            mPlusEvent.setDisplayContent(plusevent.getDisplayContent());
-            mPlusEvent.setDescription(plusevent.getDescription());
-            EsEventData.insertEvent(mContext, mAccount, null, mPlusEvent, null);
-        }
-    }
+	protected final void handleResponse(Response response) throws IOException {
+		Event event = ((UpdateEventResponse) response).getEvent();
+		if (null != event) {
+			mEvent.setName(event.getName());
+			mEvent.setDescription(event.getDescription());
+			mEvent.setTheme(event.getTheme());
+			mEvent.setStartTime(event.getStartTime());
+			mEvent.setEndTime(event.getEndTime());
+			mEvent.setLocation(event.getLocation());
+			EsEventData.insertEvent(mContext, mAccount, mEvent);
+		}
+	}
 
-    protected final GenericJson populateRequest()
-    {
-    	UpdateEventRequest genericjson = new UpdateEventRequest();
-        genericjson.event = mPlusEvent;
-        return genericjson;
-    }
+	protected final Request populateRequest() {
+		UpdateEventRequest request = new UpdateEventRequest();
+		request.setEvent(mEvent);
+		return request;
+	}
 }

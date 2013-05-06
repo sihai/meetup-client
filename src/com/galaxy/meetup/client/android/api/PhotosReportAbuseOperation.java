@@ -13,9 +13,10 @@ import com.galaxy.meetup.client.android.content.EsAccount;
 import com.galaxy.meetup.client.android.network.PlusiOperation;
 import com.galaxy.meetup.client.android.network.http.HttpOperation;
 import com.galaxy.meetup.server.client.domain.DataAbuseReport;
-import com.galaxy.meetup.server.client.domain.GenericJson;
 import com.galaxy.meetup.server.client.domain.request.ReportAbusePhotoRequest;
 import com.galaxy.meetup.server.client.domain.response.ReportAbusePhotoResponse;
+import com.galaxy.meetup.server.client.v2.request.Request;
+import com.galaxy.meetup.server.client.v2.response.Response;
 
 /**
  * 
@@ -34,11 +35,11 @@ public class PhotosReportAbuseOperation extends PlusiOperation {
         mOwnerId = s;
     }
 
-    protected final void handleResponse(GenericJson genericjson) throws IOException
+    protected final void handleResponse(Response response) throws IOException
     {
     }
 
-    protected final GenericJson populateRequest()
+    protected final Request populateRequest()
     {
         ReportAbusePhotoRequest reportabusephotorequest = new ReportAbusePhotoRequest();
         reportabusephotorequest.photoId = Long.valueOf(mPhotoId);

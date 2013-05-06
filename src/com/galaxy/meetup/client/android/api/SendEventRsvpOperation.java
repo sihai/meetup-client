@@ -15,9 +15,10 @@ import com.galaxy.meetup.client.android.content.EsEventData;
 import com.galaxy.meetup.client.android.network.PlusiOperation;
 import com.galaxy.meetup.client.android.network.http.HttpOperation;
 import com.galaxy.meetup.server.client.domain.EventSelector;
-import com.galaxy.meetup.server.client.domain.GenericJson;
 import com.galaxy.meetup.server.client.domain.request.EventRespondRequest;
 import com.galaxy.meetup.server.client.domain.response.EventRespondResponse;
+import com.galaxy.meetup.server.client.v2.request.Request;
+import com.galaxy.meetup.server.client.v2.response.Response;
 
 /**
  * 
@@ -48,10 +49,10 @@ public class SendEventRsvpOperation extends PlusiOperation {
         EsEventData.refreshEvent(mContext, mAccount, mEventId);
     }
 
-    protected final void handleResponse(GenericJson genericjson)
+    protected final void handleResponse(Response response)
         throws IOException
     {
-        EventRespondResponse eventrespondresponse = (EventRespondResponse)genericjson;
+        EventRespondResponse eventrespondresponse = (EventRespondResponse)response;
         if(eventrespondresponse.result != null && !TextUtils.equals(eventrespondresponse.result, Status.SUCCESS.name()))
             rollback();
         else
@@ -64,7 +65,7 @@ public class SendEventRsvpOperation extends PlusiOperation {
             rollback();
     }
 
-    protected final GenericJson populateRequest()
+    protected final Request populateRequest()
     {
         EventRespondRequest eventrespondrequest = new EventRespondRequest();
         eventrespondrequest.eventId = mEventId;

@@ -19,12 +19,13 @@ import com.galaxy.meetup.client.android.service.EsSyncAdapterService;
 import com.galaxy.meetup.client.util.EsLog;
 import com.galaxy.meetup.server.client.domain.ClientEmbedOptions;
 import com.galaxy.meetup.server.client.domain.FieldRequestOptions;
-import com.galaxy.meetup.server.client.domain.GenericJson;
 import com.galaxy.meetup.server.client.domain.StreamParams;
 import com.galaxy.meetup.server.client.domain.UpdateFilter;
 import com.galaxy.meetup.server.client.domain.UpdateMixinFilter;
 import com.galaxy.meetup.server.client.domain.request.GetActivitiesRequest;
 import com.galaxy.meetup.server.client.domain.response.GetActivitiesResponse;
+import com.galaxy.meetup.server.client.v2.request.Request;
+import com.galaxy.meetup.server.client.v2.response.Response;
 
 /**
  * 
@@ -61,9 +62,9 @@ public class GetActivitiesOperation extends PlusiOperation {
         mSyncState = syncstate;
     }
 
-    protected final void handleResponse(GenericJson genericjson) throws IOException
+    protected final void handleResponse(Response response) throws IOException
     {
-        GetActivitiesResponse getactivitiesresponse = (GetActivitiesResponse)genericjson;
+        GetActivitiesResponse getactivitiesresponse = (GetActivitiesResponse)response;
         String s;
         if(mView == 4)
             s = EsPostsData.buildSquareStreamKey(mGaiaId, mSquareStreamId, false);
@@ -97,7 +98,7 @@ public class GetActivitiesOperation extends PlusiOperation {
         EsPostsData.updateStreamActivities(mContext, mAccount, s, getactivitiesresponse.stream.update, "MOBILE", mContinuationToken, getactivitiesresponse.stream.continuationToken, mSyncState);
     }
     
-    protected final GenericJson populateRequest() {
+    protected final Request populateRequest() {
         boolean flag = true;
         GetActivitiesRequest getactivitiesrequest = new GetActivitiesRequest();
         getactivitiesrequest.streamParams = new StreamParams();

@@ -99,9 +99,9 @@ import com.galaxy.meetup.client.android.ui.fragments.PhotoOneUpFragment;
 import com.galaxy.meetup.client.android.ui.widget.EsWidgetCameraLauncherActivity;
 import com.galaxy.meetup.client.util.MediaStoreUtils;
 import com.galaxy.meetup.client.util.PrimitiveUtils;
-import com.galaxy.meetup.server.client.domain.Place;
 import com.galaxy.meetup.server.client.domain.response.MobileOutOfBoxResponse;
 import com.galaxy.meetup.server.client.util.JsonUtil;
+import com.galaxy.meetup.server.client.v2.domain.Location;
 
 /**
  * 
@@ -493,13 +493,13 @@ public class Intents {
         return intent;
     }
     
-    public static Intent getEventLocationActivityIntent(Context context, EsAccount esaccount, Place place)
+    public static Intent getEventLocationActivityIntent(Context context, EsAccount esaccount, Location location)
     {
         Intent intent = new Intent(context, EventLocationActivity.class);
         intent.setAction("android.intent.action.PICK");
         intent.putExtra("account", esaccount);
-        if(place != null)
-            intent.putExtra("location", JsonUtil.toByteArray(place));
+        if(location != null)
+            intent.putExtra("location", JsonUtil.toByteArray(location));
         return intent;
     }
     

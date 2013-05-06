@@ -16,8 +16,8 @@ import com.galaxy.meetup.client.android.content.EsAccount;
 import com.galaxy.meetup.client.android.ui.view.ColumnGridView;
 import com.galaxy.meetup.client.android.ui.view.EventDestinationCardView;
 import com.galaxy.meetup.client.android.ui.view.ItemClickListener;
-import com.galaxy.meetup.server.client.domain.PlusEvent;
 import com.galaxy.meetup.server.client.util.JsonUtil;
+import com.galaxy.meetup.server.client.v2.domain.Event;
 
 /**
  * 
@@ -89,27 +89,26 @@ public class EventCardAdapter extends EsCursorAdapter {
         });
     }
 
-    public final void bindView(View view, Context context, Cursor cursor)
-    {
-        if(cursor.getPosition() < getCount())
-        {
-            EventDestinationCardView eventdestinationcardview = (EventDestinationCardView)view;
-            byte abyte0[] = cursor.getBlob(1);
-            PlusEvent plusevent = (PlusEvent)JsonUtil.fromByteArray(abyte0, PlusEvent.class);
-            eventdestinationcardview.init(cursor, sScreenDisplayType, 0, mOnClickListener, mItemClickListener, null, null, null);
-            eventdestinationcardview.bindData(mAccount, plusevent);
-            int i;
-            ColumnGridView.LayoutParams layoutparams;
-            if(mLandscape)
-                i = 1;
-            else
-                i = 2;
-            layoutparams = new ColumnGridView.LayoutParams(i, -3, 1, 1);
-            if(!mLandscape && sScreenDisplayType == 0)
-                layoutparams.height = -2;
-            eventdestinationcardview.setLayoutParams(layoutparams);
-        }
-    }
+	public final void bindView(View view, Context context, Cursor cursor) {
+		if (cursor.getPosition() < getCount()) {
+			EventDestinationCardView eventdestinationcardview = (EventDestinationCardView) view;
+			byte abyte0[] = cursor.getBlob(1);
+			Event event = (Event) JsonUtil.fromByteArray(abyte0, Event.class);
+			eventdestinationcardview.init(cursor, sScreenDisplayType, 0,
+					mOnClickListener, mItemClickListener, null, null, null);
+			eventdestinationcardview.bindData(mAccount, event);
+			int i;
+			ColumnGridView.LayoutParams layoutparams;
+			if (mLandscape)
+				i = 1;
+			else
+				i = 2;
+			layoutparams = new ColumnGridView.LayoutParams(i, -3, 1, 1);
+			if (!mLandscape && sScreenDisplayType == 0)
+				layoutparams.height = -2;
+			eventdestinationcardview.setLayoutParams(layoutparams);
+		}
+	}
 
     public final View newView(Context context, Cursor cursor, ViewGroup viewgroup)
     {

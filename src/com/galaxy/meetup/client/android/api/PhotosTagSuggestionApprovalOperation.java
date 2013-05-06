@@ -13,9 +13,10 @@ import com.galaxy.meetup.client.android.content.EsAccount;
 import com.galaxy.meetup.client.android.content.EsPhotosDataApiary;
 import com.galaxy.meetup.client.android.network.PlusiOperation;
 import com.galaxy.meetup.client.android.network.http.HttpOperation;
-import com.galaxy.meetup.server.client.domain.GenericJson;
 import com.galaxy.meetup.server.client.domain.request.PhotosNameTagSuggestionApprovalRequest;
 import com.galaxy.meetup.server.client.domain.response.PhotosNameTagSuggestionApprovalResponse;
+import com.galaxy.meetup.server.client.v2.request.Request;
+import com.galaxy.meetup.server.client.v2.response.Response;
 
 /**
  * 
@@ -41,15 +42,15 @@ public class PhotosTagSuggestionApprovalOperation extends PlusiOperation {
         mTaggeeId = s3;
     }
 
-    protected final void handleResponse(GenericJson genericjson) throws IOException
+    protected final void handleResponse(Response response) throws IOException
     {
-        PhotosNameTagSuggestionApprovalResponse photosnametagsuggestionapprovalresponse = (PhotosNameTagSuggestionApprovalResponse)genericjson;
+        PhotosNameTagSuggestionApprovalResponse photosnametagsuggestionapprovalresponse = (PhotosNameTagSuggestionApprovalResponse)response;
         onStartResultProcessing();
         if(photosnametagsuggestionapprovalresponse.success.booleanValue())
             EsPhotosDataApiary.updatePhotoShapeApproval(mContext, mAccount, Long.valueOf(mPhotoId).longValue(), Long.valueOf(mShapeId).longValue(), mApprove);
     }
 
-    protected final GenericJson populateRequest()
+    protected final Request populateRequest()
     {
         PhotosNameTagSuggestionApprovalRequest photosnametagsuggestionapprovalrequest = new PhotosNameTagSuggestionApprovalRequest();
         photosnametagsuggestionapprovalrequest.ownerId = mOwnerId;

@@ -13,9 +13,10 @@ import com.galaxy.meetup.client.android.content.EsAccount;
 import com.galaxy.meetup.client.android.content.EsPeopleData;
 import com.galaxy.meetup.client.android.network.PlusiOperation;
 import com.galaxy.meetup.client.android.network.http.HttpOperation;
-import com.galaxy.meetup.server.client.domain.GenericJson;
 import com.galaxy.meetup.server.client.domain.request.GetCelebritySuggestionsRequest;
 import com.galaxy.meetup.server.client.domain.response.GetCelebritySuggestionsResponse;
+import com.galaxy.meetup.server.client.v2.request.Request;
+import com.galaxy.meetup.server.client.v2.response.Response;
 
 /**
  * 
@@ -29,17 +30,17 @@ public class GetCelebritySuggestionsOperation extends PlusiOperation {
         super(context, esaccount, "getcelebritysuggestions", null, null, GetCelebritySuggestionsResponse.class);
     }
 
-    protected final void handleResponse(GenericJson genericjson) throws IOException
+    protected final void handleResponse(Response response) throws IOException
     {
-        GetCelebritySuggestionsResponse getcelebritysuggestionsresponse = (GetCelebritySuggestionsResponse)genericjson;
+        GetCelebritySuggestionsResponse getcelebritysuggestionsresponse = (GetCelebritySuggestionsResponse)response;
         EsPeopleData.insertCelebritySuggestions(mContext, getAccount(), getcelebritysuggestionsresponse.category);
     }
 
-    protected final GenericJson populateRequest()
+    protected final Request populateRequest()
     {
-    	GetCelebritySuggestionsRequest genericjson = new GetCelebritySuggestionsRequest();
-        genericjson.maxPerCategory = Integer.valueOf(10);
-        return genericjson;
+    	GetCelebritySuggestionsRequest response = new GetCelebritySuggestionsRequest();
+        response.maxPerCategory = Integer.valueOf(10);
+        return response;
     }
 
 }

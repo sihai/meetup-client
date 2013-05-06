@@ -16,8 +16,8 @@ import com.galaxy.meetup.client.android.R;
 import com.galaxy.meetup.client.android.content.EsEventData;
 import com.galaxy.meetup.client.util.EventDateUtils;
 import com.galaxy.meetup.client.util.TimeZoneHelper;
-import com.galaxy.meetup.server.client.domain.EventTime;
-import com.galaxy.meetup.server.client.domain.PlusEvent;
+import com.galaxy.meetup.server.client.v2.domain.Event;
+import com.galaxy.meetup.server.client.v2.domain.EventTime;
 
 /**
  * 
@@ -45,42 +45,41 @@ public class EventDetailOptionRowTime extends EventDetailsOptionRowLayout {
         super(context, attributeset, i);
     }
 
-    public final void bind(PlusEvent plusevent)
+    public final void bind(Event plusevent)
     {
         Context context = getContext();
-        EventTime eventtime = plusevent.startTime;
+        EventTime startTime = plusevent.getStartTime();
         java.util.TimeZone timezone = null;
-        if(eventtime != null)
+        if(startTime != null)
         {
-            String s3 = plusevent.startTime.timezone;
+            String s3 = startTime.getTimezone();
             timezone = null;
             if(s3 != null)
-                timezone = TimeZoneHelper.getSystemTimeZone(plusevent.startTime.timezone);
+                timezone = TimeZoneHelper.getSystemTimeZone(s3);
         }
-        EventTime eventtime1 = plusevent.startTime;
         String s = null;
-        if(eventtime1 != null)
+        if(startTime != null)
         {
-            Long long2 = plusevent.startTime.timeMs;
+            Long long2 = startTime.getTimeMs();
             s = null;
             if(long2 != null)
-                s = EventDateUtils.getSingleDisplayLine(context, plusevent.startTime, null, false, timezone);
+                s = EventDateUtils.getSingleDisplayLine(context, startTime, null, false, timezone);
         }
-        EventTime eventtime2 = plusevent.endTime;
+        EventTime endTime = plusevent.getEndTime();
         String s1 = null;
-        if(eventtime2 != null)
+        if(endTime != null)
         {
-            Long long1 = plusevent.endTime.timeMs;
+            Long long1 = endTime.getTimeMs();
             s1 = null;
             if(long1 != null)
-                s1 = EventDateUtils.getSingleDisplayLine(context, plusevent.endTime, null, true, timezone);
+                s1 = EventDateUtils.getSingleDisplayLine(context, endTime, null, true, timezone);
         }
         ArrayList arraylist = new ArrayList();
         if(s1 != null)
             arraylist.add(s1);
         Calendar calendar = Calendar.getInstance();
-        calendar.setTimeInMillis(plusevent.startTime.timeMs.longValue());
-        String s2 = TimeZoneHelper.getDisplayString(plusevent.startTime.timezone, calendar, EsEventData.isEventHangout(plusevent));
+        calendar.setTimeInMillis(startTime.getTimeMs().longValue());
+        String s2 = TimeZoneHelper.getDisplayString(startTime.getTimezone(), calendar, EsEventData.isEventHangout(plusevent));
         if(s2 != null)
             arraylist.add(s2);
         super.bind(s, arraylist, mClockIcon, null);

@@ -25,7 +25,6 @@ import com.galaxy.meetup.server.client.domain.DataPhoto;
 import com.galaxy.meetup.server.client.domain.EmbedsPerson;
 import com.galaxy.meetup.server.client.domain.EventFrame;
 import com.galaxy.meetup.server.client.domain.EventSelector;
-import com.galaxy.meetup.server.client.domain.GenericJson;
 import com.galaxy.meetup.server.client.domain.Invitee;
 import com.galaxy.meetup.server.client.domain.PlusEvent;
 import com.galaxy.meetup.server.client.domain.ReadOptions;
@@ -37,6 +36,8 @@ import com.galaxy.meetup.server.client.domain.ReadResponsePhotosData;
 import com.galaxy.meetup.server.client.domain.Update;
 import com.galaxy.meetup.server.client.domain.request.EventReadRequest;
 import com.galaxy.meetup.server.client.domain.response.EventLeafResponse;
+import com.galaxy.meetup.server.client.v2.request.Request;
+import com.galaxy.meetup.server.client.v2.response.Response;
 
 /**
  * 
@@ -95,13 +96,13 @@ public class EventReadOperation extends PlusiOperation {
         }
     }
 
-    protected final void handleResponse(GenericJson genericjson) throws IOException {
+    protected final void handleResponse(Response response) throws IOException {
         Update update;
         PlusEvent plusevent;
         String s;
         long l;
         ArrayList arraylist;
-        EventLeafResponse eventleafresponse = (EventLeafResponse)genericjson;
+        EventLeafResponse eventleafresponse = (EventLeafResponse)response;
         update = eventleafresponse.update;
         plusevent = eventleafresponse.plusEvent;
         s = eventleafresponse.activityId;
@@ -292,7 +293,7 @@ public class EventReadOperation extends PlusiOperation {
         }
     }
 
-    protected final GenericJson populateRequest()
+    protected final Request populateRequest()
     {
         EventReadRequest eventreadrequest = new EventReadRequest();
         Cursor cursor = null;

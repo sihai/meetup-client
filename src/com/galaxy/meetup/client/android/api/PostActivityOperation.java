@@ -46,7 +46,6 @@ import com.galaxy.meetup.client.util.MediaStoreUtils;
 import com.galaxy.meetup.client.util.Property;
 import com.galaxy.meetup.client.util.ResourceRedirector;
 import com.galaxy.meetup.server.client.domain.CommonPerson;
-import com.galaxy.meetup.server.client.domain.GenericJson;
 import com.galaxy.meetup.server.client.domain.NamespaceSpecificData;
 import com.galaxy.meetup.server.client.domain.PhotoServiceShareActionData;
 import com.galaxy.meetup.server.client.domain.RequestsPostActivityRequestAttribution;
@@ -55,6 +54,8 @@ import com.galaxy.meetup.server.client.domain.Update;
 import com.galaxy.meetup.server.client.domain.UpdateMetadata;
 import com.galaxy.meetup.server.client.domain.request.PostActivityRequest;
 import com.galaxy.meetup.server.client.domain.response.PostActivityResponse;
+import com.galaxy.meetup.server.client.v2.request.Request;
+import com.galaxy.meetup.server.client.v2.response.Response;
 import com.galaxy.picasa.store.PicasaStoreFacade;
 
 /**
@@ -170,9 +171,9 @@ public class PostActivityOperation extends PlusiOperation {
     	return null;
     }
 
-    protected final void handleResponse(GenericJson genericjson) throws IOException
+    protected final void handleResponse(Response response) throws IOException
     {
-        PostActivityResponse postactivityresponse = (PostActivityResponse)genericjson;
+        PostActivityResponse postactivityresponse = (PostActivityResponse)response;
         List list = postactivityresponse.stream.update;
         ContentResolver contentresolver = mContext.getContentResolver();
         String s = mAccount.getName();
@@ -250,7 +251,7 @@ public class PostActivityOperation extends PlusiOperation {
         EsAccountsData.updateAudienceHistory(mContext, mAccount, mAudience);
     }
 
-    protected final GenericJson populateRequest()
+    protected final Request populateRequest()
     {
     	PostActivityRequest postactivityrequest = new PostActivityRequest();
         postactivityrequest.updateText = mContent;

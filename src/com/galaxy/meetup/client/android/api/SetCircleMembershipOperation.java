@@ -23,9 +23,10 @@ import com.galaxy.meetup.client.android.service.CircleMembershipManager;
 import com.galaxy.meetup.server.client.domain.DataCircleMemberToAdd;
 import com.galaxy.meetup.server.client.domain.DataCircleMembershipModificationParams;
 import com.galaxy.meetup.server.client.domain.DataCirclePerson;
-import com.galaxy.meetup.server.client.domain.GenericJson;
 import com.galaxy.meetup.server.client.domain.request.ModifyMembershipsRequest;
 import com.galaxy.meetup.server.client.domain.response.ModifyMembershipsResponse;
+import com.galaxy.meetup.server.client.v2.request.Request;
+import com.galaxy.meetup.server.client.v2.response.Response;
 
 /**
  * 
@@ -53,9 +54,9 @@ public class SetCircleMembershipOperation extends PlusiOperation {
         mUpdateNotification = flag1;
     }
 
-    protected final void handleResponse(GenericJson genericjson) throws IOException
+    protected final void handleResponse(Response response) throws IOException
     {
-        ModifyMembershipsResponse modifymembershipsresponse = (ModifyMembershipsResponse)genericjson;
+        ModifyMembershipsResponse modifymembershipsresponse = (ModifyMembershipsResponse)response;
         if(mFireAndForget)
             CircleMembershipManager.setCircleMembershipResult(mContext, mAccount, mPersonId, mPersonName, true);
         List list = modifymembershipsresponse.circlePerson;
@@ -80,7 +81,7 @@ public class SetCircleMembershipOperation extends PlusiOperation {
         super.onHttpReadErrorFromStream(inputstream, s, i, aheader, j);
     }
 
-    public final GenericJson populateRequest()
+    public final Request populateRequest()
     {
         int i = 0;
         ModifyMembershipsRequest modifymembershipsrequest = new ModifyMembershipsRequest();

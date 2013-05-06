@@ -16,7 +16,7 @@ import android.view.ViewGroup;
 import com.galaxy.meetup.client.android.R;
 import com.galaxy.meetup.client.android.ui.fragments.EventActiveState;
 import com.galaxy.meetup.client.util.ScreenMetrics;
-import com.galaxy.meetup.server.client.domain.PlusEvent;
+import com.galaxy.meetup.server.client.v2.domain.Event;
 
 /**
  * 
@@ -134,7 +134,7 @@ public class EventDetailsCardLayout extends EsScrollView {
         mExpanded = flag;
     }
 
-    public final void bind(PlusEvent plusevent, EventActiveState eventactivestate, EventActionListener eventactionlistener)
+    public final void bind(Event event, EventActiveState eventactivestate, EventActionListener eventactionlistener)
     {
         Object obj;
         EventDetailsHeaderView eventdetailsheaderview;
@@ -156,9 +156,9 @@ public class EventDetailsCardLayout extends EsScrollView {
             obj = null;
         else
             obj = this;
-        eventdetailsheaderview.bind(plusevent, ((android.view.View.OnClickListener) (obj)), mCardLayout, eventactionlistener);
-        mMainLayout.bind(plusevent, eventactivestate, eventactionlistener);
-        mSecondaryLayout.bind(plusevent, eventactivestate, eventactionlistener);
+        eventdetailsheaderview.bind(event, ((android.view.View.OnClickListener) (obj)), mCardLayout, eventactionlistener);
+        mMainLayout.bind(event, eventactivestate, eventactionlistener);
+        mSecondaryLayout.bind(event, eventactivestate, eventactionlistener);
     }
 
     public void onClick(View view)

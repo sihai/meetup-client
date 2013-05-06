@@ -18,10 +18,11 @@ import com.galaxy.meetup.client.android.network.PlusiOperation;
 import com.galaxy.meetup.client.android.network.http.HttpOperation;
 import com.galaxy.meetup.client.util.PrimitiveUtils;
 import com.galaxy.meetup.server.client.domain.DataNotificationsData;
-import com.galaxy.meetup.server.client.domain.GenericJson;
 import com.galaxy.meetup.server.client.domain.NotificationsResponseOptions;
 import com.galaxy.meetup.server.client.domain.request.GetNotificationsRequest;
 import com.galaxy.meetup.server.client.domain.response.GetNotificationsResponse;
+import com.galaxy.meetup.server.client.v2.request.Request;
+import com.galaxy.meetup.server.client.v2.response.Response;
 
 /**
  * 
@@ -70,9 +71,9 @@ public class GetNotificationsOperation extends PlusiOperation {
         mContinuationToken = s;
     }
 
-    protected final void handleResponse(GenericJson genericjson) throws IOException
+    protected final void handleResponse(Response response) throws IOException
     {
-        GetNotificationsResponse getnotificationsresponse = (GetNotificationsResponse)genericjson;
+        GetNotificationsResponse getnotificationsresponse = (GetNotificationsResponse)response;
         onStartResultProcessing();
         DataNotificationsData datanotificationsdata = getnotificationsresponse.notificationsData;
         if(datanotificationsdata != null)
@@ -85,7 +86,7 @@ public class GetNotificationsOperation extends PlusiOperation {
         }
     }
 
-    protected final GenericJson populateRequest()
+    protected final Request populateRequest()
     {
         GetNotificationsRequest getnotificationsrequest = new GetNotificationsRequest();
         getnotificationsrequest.maxResults = Long.valueOf(15L);

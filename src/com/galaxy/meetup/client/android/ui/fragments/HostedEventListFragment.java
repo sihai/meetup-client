@@ -35,8 +35,8 @@ import com.galaxy.meetup.client.android.ui.view.EventDestinationCardView;
 import com.galaxy.meetup.client.android.ui.view.HostActionBar;
 import com.galaxy.meetup.client.android.ui.view.ItemClickListener;
 import com.galaxy.meetup.client.util.HelpUrl;
-import com.galaxy.meetup.server.client.domain.PlusEvent;
 import com.galaxy.meetup.server.client.util.JsonUtil;
+import com.galaxy.meetup.server.client.v2.domain.Event;
 
 /**
  * 
@@ -124,11 +124,11 @@ public class HostedEventListFragment extends HostedEsFragment implements
         	if(view.getId() == R.id.createButton)
                 startActivity(Intents.getCreateEventActivityIntent(getActivity().getApplicationContext(), mAccount));
         } else { 
-        	PlusEvent plusevent = ((EventDestinationCardView)view).getEvent();
-            if(plusevent != null)
+        	Event event = ((EventDestinationCardView)view).getEvent();
+            if(event != null)
             {
-                String s = plusevent.id;
-                String s1 = plusevent.creatorObfuscatedId;
+                String s = event.get_id();
+                String s1 = event.getPublisher();
                 startActivity(Intents.getHostedEventIntent(getActivity(), mAccount, s, s1, null));
             }
         }
@@ -170,43 +170,28 @@ public class HostedEventListFragment extends HostedEsFragment implements
 
     @Override
     public final void onLoadFinished(Loader loader, Object obj) {
-        int j;
+        int mode;
         Cursor cursor = (Cursor)obj;
         mAdapter.changeCursor(cursor);
-        boolean flag;
-        boolean flag1;
-        int i;
-        if(cursor != null && cursor.getCount() > 0)
-            flag = true;
+        mDataPresent = cursor != null && cursor.getCount() > 0;
+		if (mDataPresent && cursor.moveToFirst()) {
+			byte[] bytes = cursor.getBlob(1);
+			if (EsEventData.isEventOver((Event) JsonUtil.fromByteArray(bytes, Event.class), System.currentTimeMillis()))
+				mCurrentSpinnerPosition = 1;
+			else
+				mCurrentSpinnerPosition = 0;
+		}
+		boolean isShowCreation = !mDataPresent && !mRefreshNeeded && mCurrentMode == 0;
+        if(isShowCreation)
+        	setCreationVisibility(View.VISIBLE);
         else
-            flag = false;
-        mDataPresent = flag;
-        if(mDataPresent && cursor.moveToFirst())
-        {
-            byte abyte0[] = cursor.getBlob(1);
-            int k;
-            if(EsEventData.isEventOver((PlusEvent)JsonUtil.fromByteArray(abyte0, PlusEvent.class), System.currentTimeMillis()))
-                k = 1;
-            else
-                k = 0;
-            mCurrentSpinnerPosition = k;
-        }
-        if(!mDataPresent && !mRefreshNeeded && mCurrentMode == 0)
-            flag1 = true;
-        else
-            flag1 = false;
-        if(flag1)
-            i = 0;
-        else
-            i = 8;
-        setCreationVisibility(i);
+        	setCreationVisibility(View.GONE);
         if(mDataPresent)
             showContent(getView());
         else
         if(mRefreshNeeded)
             showEmptyViewProgress(getView(), getString(R.string.loading));
-        else
-        if(flag1)
+        else if(isShowCreation)
             showContent(getView());
         else
             showEmptyView(getView(), getString(R.string.no_events));
@@ -219,14 +204,14 @@ public class HostedEventListFragment extends HostedEsFragment implements
         		invalidateActionBar();
                 return;
         	} else { 
-        		j = ((EventsLoader)loader).getCurrentMode();
+        		mode = ((EventsLoader)loader).getCurrentMode();
         		if(!mDataPresent) { 
-        			if(j != mCurrentMode)
+        			if(mode != mCurrentMode)
         	            getLoaderManager().restartLoader(0, null, this);
         			invalidateActionBar();
                     return;
         		} else { 
-        			mCurrentMode = j;
+        			mCurrentMode = mode;
         			invalidateActionBar();
         	        return;
         		}

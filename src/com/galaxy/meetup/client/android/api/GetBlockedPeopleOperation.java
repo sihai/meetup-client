@@ -15,6 +15,8 @@ import com.galaxy.meetup.client.android.network.PlusiOperation;
 import com.galaxy.meetup.client.android.network.http.HttpOperation;
 import com.galaxy.meetup.server.client.domain.GenericJson;
 import com.galaxy.meetup.server.client.domain.response.LoadBlockedPeopleResponse;
+import com.galaxy.meetup.server.client.v2.request.Request;
+import com.galaxy.meetup.server.client.v2.response.Response;
 
 /**
  * 
@@ -28,15 +30,15 @@ public class GetBlockedPeopleOperation extends PlusiOperation {
         super(context, esaccount, "loadblockedpeople", intent, operationlistener, LoadBlockedPeopleResponse.class);
     }
 
-    protected final void handleResponse(GenericJson genericjson)
+    protected final void handleResponse(Response response)
         throws IOException
     {
-        LoadBlockedPeopleResponse loadblockedpeopleresponse = (LoadBlockedPeopleResponse)genericjson;
+        LoadBlockedPeopleResponse loadblockedpeopleresponse = (LoadBlockedPeopleResponse)response;
         EsPeopleData.insertBlockedPeople(mContext, getAccount(), loadblockedpeopleresponse.person);
     }
 
-    protected final GenericJson populateRequest()
+    protected final Request populateRequest()
     {
-    	return new GenericJson();
+    	return new Request();
     }
 }

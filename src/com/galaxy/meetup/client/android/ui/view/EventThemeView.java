@@ -11,7 +11,7 @@ import android.util.AttributeSet;
 import com.galaxy.meetup.client.android.content.EsEventData;
 import com.galaxy.meetup.client.android.content.EventThemeImageRequest;
 import com.galaxy.meetup.client.util.ImageUtils;
-import com.galaxy.meetup.server.client.domain.Theme;
+import com.galaxy.meetup.server.client.v2.domain.Theme;
 
 /**
  * 

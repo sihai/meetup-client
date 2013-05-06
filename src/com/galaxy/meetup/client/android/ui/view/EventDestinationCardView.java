@@ -14,7 +14,7 @@ import com.galaxy.meetup.client.android.content.EsAccount;
 import com.galaxy.meetup.client.android.content.EsEventData;
 import com.galaxy.meetup.client.util.AccessibilityUtils;
 import com.galaxy.meetup.client.util.EventDateUtils;
-import com.galaxy.meetup.server.client.domain.PlusEvent;
+import com.galaxy.meetup.server.client.v2.domain.Event;
 
 /**
  * 
@@ -24,7 +24,7 @@ import com.galaxy.meetup.server.client.domain.PlusEvent;
 public class EventDestinationCardView extends CardView {
 
 	private EventCardDrawer mDrawer;
-    private PlusEvent mEvent;
+    private Event mEvent;
     private boolean mIgnoreHeight;
     
     public EventDestinationCardView(Context context)
@@ -45,7 +45,7 @@ public class EventDestinationCardView extends CardView {
         setFocusable(true);
     }
 
-    public final void bindData(EsAccount esaccount, PlusEvent plusevent)
+    public final void bindData(EsAccount esaccount, Event plusevent)
     {
         mEvent = plusevent;
         mDrawer.bind(esaccount, this, plusevent, mItemClickListener);
@@ -57,22 +57,15 @@ public class EventDestinationCardView extends CardView {
     }
 
     public CharSequence getContentDescription() {
-    	int i;
-        String s;
         Object obj = null;
         Resources resources = getResources();
         StringBuilder stringbuilder = new StringBuilder();
-        AccessibilityUtils.appendAndSeparateIfNotEmpty(stringbuilder, mEvent.name);
-        AccessibilityUtils.appendAndSeparateIfNotEmpty(stringbuilder, EventDateUtils.getDateRange(getContext(), mEvent.startTime, null, true));
-        if(mEvent.location != null)
+        AccessibilityUtils.appendAndSeparateIfNotEmpty(stringbuilder, mEvent.getName());
+        AccessibilityUtils.appendAndSeparateIfNotEmpty(stringbuilder, EventDateUtils.getDateRange(getContext(), mEvent.getStartTime(), null, true));
+        if(mEvent.getLocation() != null)
         {
             int i1 = R.string.event_location_accessibility_description;
-            Object aobj3[] = new Object[1];
-            if(mEvent.location.address != null)
-                s = mEvent.location.address.name;
-            else
-                s = mEvent.location.name;
-            aobj3[0] = s;
+            Object aobj3[] = new Object[]{mEvent.getLocation().buildAddress()};
             AccessibilityUtils.appendAndSeparateIfNotEmpty(stringbuilder, resources.getString(i1, aobj3));
         }
         
@@ -107,7 +100,7 @@ public class EventDestinationCardView extends CardView {
         
     }
 
-    public final PlusEvent getEvent()
+    public final Event getEvent()
     {
         return mEvent;
     }

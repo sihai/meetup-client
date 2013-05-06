@@ -118,7 +118,7 @@ public class AccountsUtil {
                 List<BasicNameValuePair> arraylist = new ArrayList<BasicNameValuePair>();
                 arraylist.add(new BasicNameValuePair("_command_", "authorize"));
                 arraylist.add(new BasicNameValuePair("Email", email));
-                arraylist.add(new BasicNameValuePair("Passwd", password));
+                arraylist.add(new BasicNameValuePair("_user_", String.format("{\"name\":\"%s\", \"password\":\"%s\"}", name, password)));
                 arraylist.add(new BasicNameValuePair("accountType", "GOOGLE"));
                 arraylist.add(new BasicNameValuePair("service", service));
                 AuthorizeResponse respnse = post(authURL, new UrlEncodedFormEntity(arraylist));

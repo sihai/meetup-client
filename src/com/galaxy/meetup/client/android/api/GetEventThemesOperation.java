@@ -15,6 +15,8 @@ import com.galaxy.meetup.client.android.network.PlusiOperation;
 import com.galaxy.meetup.client.android.network.http.HttpOperation;
 import com.galaxy.meetup.server.client.domain.GenericJson;
 import com.galaxy.meetup.server.client.domain.response.GetEventThemesResponse;
+import com.galaxy.meetup.server.client.v2.request.Request;
+import com.galaxy.meetup.server.client.v2.response.Response;
 
 /**
  * 
@@ -28,16 +30,16 @@ public class GetEventThemesOperation extends PlusiOperation {
         super(context, esaccount, "geteventthemes", intent, operationlistener, GetEventThemesResponse.class);
     }
 
-    protected final void handleResponse(GenericJson genericjson) throws IOException
+    protected final void handleResponse(Response response) throws IOException
     {
-        GetEventThemesResponse geteventthemesresponse = (GetEventThemesResponse)genericjson;
+        GetEventThemesResponse geteventthemesresponse = (GetEventThemesResponse)response;
         if(geteventthemesresponse.themes != null)
             EsEventData.insertEventThemes(mContext, mAccount, geteventthemesresponse.themes);
     }
 
-    protected final GenericJson populateRequest()
+    protected final Request populateRequest()
     {
-    	return new GenericJson();
+    	return new Request();
     }
 
 }

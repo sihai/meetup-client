@@ -13,9 +13,10 @@ import com.galaxy.meetup.client.android.content.EsAccount;
 import com.galaxy.meetup.client.android.content.EsPhotosDataApiary;
 import com.galaxy.meetup.client.android.network.PlusiOperation;
 import com.galaxy.meetup.client.android.network.http.HttpOperation;
-import com.galaxy.meetup.server.client.domain.GenericJson;
 import com.galaxy.meetup.server.client.domain.request.PhotosPlusOneRequest;
 import com.galaxy.meetup.server.client.domain.response.PhotosPlusOneResponse;
+import com.galaxy.meetup.server.client.v2.request.Request;
+import com.galaxy.meetup.server.client.v2.response.Response;
 
 /**
  * 
@@ -39,10 +40,10 @@ public class PhotosPlusOneOperation extends PlusiOperation {
         mIsPlusOne = flag;
     }
 
-    protected final void handleResponse(GenericJson genericjson) throws IOException
+    protected final void handleResponse(Response response) throws IOException
     {
         PhotosPlusOneResponse photosplusoneresponse;
-        photosplusoneresponse = (PhotosPlusOneResponse)genericjson;
+        photosplusoneresponse = (PhotosPlusOneResponse)response;
         onStartResultProcessing();
         if(photosplusoneresponse.success.booleanValue()) {
         	if(photosplusoneresponse.plusOne != null)
@@ -67,7 +68,7 @@ public class PhotosPlusOneOperation extends PlusiOperation {
         }
     }
 
-    protected final GenericJson populateRequest()
+    protected final Request populateRequest()
     {
         PhotosPlusOneRequest photosplusonerequest = new PhotosPlusOneRequest();
         photosplusonerequest.ownerId = mOwnerId;

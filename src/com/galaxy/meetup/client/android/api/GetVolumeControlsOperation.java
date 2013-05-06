@@ -15,6 +15,8 @@ import com.galaxy.meetup.client.android.network.http.HttpOperation;
 import com.galaxy.meetup.server.client.domain.GenericJson;
 import com.galaxy.meetup.server.client.domain.VolumeControlMap;
 import com.galaxy.meetup.server.client.domain.response.GetVolumeControlsResponse;
+import com.galaxy.meetup.server.client.v2.request.Request;
+import com.galaxy.meetup.server.client.v2.response.Response;
 
 /**
  * 
@@ -35,14 +37,14 @@ public class GetVolumeControlsOperation extends PlusiOperation {
         return mMap;
     }
 
-    protected final void handleResponse(GenericJson genericjson)
+    protected final void handleResponse(Response response)
         throws IOException
     {
-        mMap = ((GetVolumeControlsResponse)genericjson).map;
+        mMap = ((GetVolumeControlsResponse)response).map;
     }
 
-    protected final GenericJson populateRequest()
+    protected final Request populateRequest()
     {
-    	return new GenericJson();
+    	return new Request();
     }
 }

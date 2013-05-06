@@ -23,8 +23,8 @@ import com.galaxy.meetup.client.android.ui.view.EventActivityPhotoCardLayout;
 import com.galaxy.meetup.client.android.ui.view.EventActivityUpdateCardLayout;
 import com.galaxy.meetup.client.android.ui.view.EventDetailsCardLayout;
 import com.galaxy.meetup.client.util.ScreenMetrics;
-import com.galaxy.meetup.server.client.domain.PlusEvent;
 import com.galaxy.meetup.server.client.util.JsonUtil;
+import com.galaxy.meetup.server.client.v2.domain.Event;
 
 /**
  * 
@@ -100,9 +100,9 @@ public class EventDetailsActivityAdapter extends EsCompositeCursorAdapter {
         if(0 == i) {
         	EventDetailsCardLayout eventdetailscardlayout = (EventDetailsCardLayout)view;
             byte abyte1[] = cursor.getBlob(1);
-            PlusEvent plusevent = (PlusEvent)JsonUtil.fromByteArray(abyte1, PlusEvent.class);
-            if(plusevent != null)
-                eventdetailscardlayout.bind(plusevent, mEventState, mActionListener);
+            Event event = (Event)JsonUtil.fromByteArray(abyte1, Event.class);
+            if(event != null)
+                eventdetailscardlayout.bind(event, mEventState, mActionListener);
         } else if(1 == i) {
         	switch(cursor.getInt(1)) {
 	        	case 1:

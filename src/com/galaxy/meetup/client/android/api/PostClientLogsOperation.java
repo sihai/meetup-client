@@ -15,9 +15,10 @@ import com.galaxy.meetup.client.android.content.EsAnalyticsData;
 import com.galaxy.meetup.client.android.network.PlusiOperation;
 import com.galaxy.meetup.client.android.network.http.HttpOperation;
 import com.galaxy.meetup.server.client.domain.ClientOzExtension;
-import com.galaxy.meetup.server.client.domain.GenericJson;
 import com.galaxy.meetup.server.client.domain.request.PostClientLogsRequest;
 import com.galaxy.meetup.server.client.domain.response.PostClientLogsResponse;
+import com.galaxy.meetup.server.client.v2.request.Request;
+import com.galaxy.meetup.server.client.v2.response.Response;
 
 /**
  * 
@@ -44,12 +45,12 @@ public class PostClientLogsOperation extends PlusiOperation {
         return list;
     }
 
-    protected final void handleResponse(GenericJson genericjson) throws IOException
+    protected final void handleResponse(Response response) throws IOException
     {
         onStartResultProcessing();
     }
 
-    protected final GenericJson populateRequest()
+    protected final Request populateRequest()
     {
         PostClientLogsRequest postclientlogsrequest = new PostClientLogsRequest();
         postclientlogsrequest.enableTracing = Boolean.valueOf(true);

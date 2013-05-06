@@ -14,9 +14,10 @@ import com.galaxy.meetup.client.android.content.EsAccount;
 import com.galaxy.meetup.client.android.content.EsPostsData;
 import com.galaxy.meetup.client.android.network.PlusiOperation;
 import com.galaxy.meetup.client.android.network.http.HttpOperation;
-import com.galaxy.meetup.server.client.domain.GenericJson;
 import com.galaxy.meetup.server.client.domain.request.MarkItemReadRequest;
 import com.galaxy.meetup.server.client.domain.response.MarkItemReadResponse;
+import com.galaxy.meetup.server.client.v2.request.Request;
+import com.galaxy.meetup.server.client.v2.response.Response;
 
 /**
  * 
@@ -40,7 +41,7 @@ public class MarkItemReadOperation extends PlusiOperation {
         return mItemIds;
     }
 
-    protected final void handleResponse(GenericJson genericjson) throws IOException
+    protected final void handleResponse(Response response) throws IOException
     {
         if(!mIsNotificationType)
             EsPostsData.markActivitiesAsRead(mContext, mAccount, mItemIds);
@@ -51,7 +52,7 @@ public class MarkItemReadOperation extends PlusiOperation {
         return mIsNotificationType;
     }
 
-    protected final GenericJson populateRequest()
+    protected final Request populateRequest()
     {
         MarkItemReadRequest markitemreadrequest = new MarkItemReadRequest();
         if(mIsNotificationType)
